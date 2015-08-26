@@ -20,7 +20,7 @@ var alias=[
 ];
 
 //入口文件
-var entrys = ['Slider/Slider.js'];
+var entrys = ['Tip/Tip.js'];
 
 var config = {
   devtool: 'inline-source-map',
@@ -30,7 +30,7 @@ var config = {
   ],
   output: {
     path: path.join(__dirname, 'public/dist/'),
-    filename: 'Slider.js'
+    filename: 'Tip.js'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

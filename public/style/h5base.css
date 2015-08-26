@@ -132,7 +132,14 @@ hr {
 .hide {
     display: none;
 }
-
+.mask {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
 /*滑动删除*/
 #main-container {
     width: 100%;
@@ -508,14 +515,7 @@ span.next {
 }
 
 /*弹出框*/
-.dialog-mask {
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.2);
-}
+
 
 .dialog {
     background-color: #fff;
@@ -556,3 +556,20 @@ span.next {
 .dialog-btns a {
     width: 40%;
 }
+
+/*提示信息*/
+.tip{ position: fixed; width: 250px; height: 80px; line-height: 80px; text-align: center; background:rgba(0,0,0,0.8);
+    top:50%; left: 50%;
+    border-radius:4px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    -ms-border-radius:10px;
+    -o-border-radius:10px;
+    color: #fff;
+    transform:translate(-50%,-50%);
+    -webkit-transform:translate(-50%,-50%);
+    -moz-transform:translate(-50%,-50%);
+    -o-transform:translate(-50%,-50%);
+    -ms-transform:translate(-50%,-50%);
+    position: relative;; }
+.close-tip{ position: absolute; top: -5px; right: -5px; color: #fff; }
