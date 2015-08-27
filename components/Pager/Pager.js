@@ -8,11 +8,11 @@ var React = require("react");
 var Pager= React.createClass({
         //上一页事件
         onPrevPage:function(){
-            this.props.onPageChange(this.props.page-1);
+            this.props.onPageChange(this.props.page.pageNow - 1);
         },
         //下一页事件
         onNextPage :function(){
-            this.props.onPageChange(this.props.page+1);
+            this.props.onPageChange(this.props.page.pageNow+1);
         },
         //渲染
         render:function(){
@@ -38,13 +38,13 @@ var Pager= React.createClass({
                     <a href='javascript:;' onClick={this.onNextPage} className='next'></a>
             );
         }
-//渲染
+    //渲染
     return (
         <section>
             <div className="pager-outter">
                 <div className="pager">
                     {prev}
-                    <span className="page"><em>{this.props.page.pageNow}</em> / {this.props.page.pageCount}</span>
+                    <span className="page">{this.props.page.pageNow} / {this.props.page.pageCount}</span>
                     {next}
                 </div>
             </div>

@@ -16,7 +16,10 @@ var deps = [
 ];
 
 var alias=[
-    'SlideDelete/SlideDelete.js'
+    'SlideDelete/SlideDelete.js',
+    'Slider/Slider.js',
+    'Confirm/Confirm.js',
+    'Tip/Tip.js'
 ];
 
 //入口文件

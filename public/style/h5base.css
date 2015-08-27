@@ -1,3 +1,6 @@
+/*
+基础样式
+*/
 html {
     font-size: 100px;
     width: 100%;
@@ -9,9 +12,9 @@ body, h1, h2, h3, p, div, ol, ul, input, button {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
-    background-color: #f6f6f6;
+    background-color: #fff;
     width: 100%;
 }
 
@@ -98,10 +101,10 @@ hr {
 .btn {
     height: 34px;
     line-height: 34px;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
     display: inline-block;
     text-align: center;
     -webkit-user-select: none;
@@ -132,30 +135,48 @@ hr {
 .hide {
     display: none;
 }
+
 .mask {
     position: fixed;
     left: 0;
     top: 0;
     height: 100%;
     width: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(255, 255, 255, 0.3);
 }
+
 /*滑动删除*/
+body {
+    background-color: #f9f9f9;
+}
+
 #main-container {
-    width: 100%;
+    margin: 5px;
     overflow: hidden;
 }
 
 .list-slip-group {
     width: 100%;
     overflow: hidden;
-    background-color: #fff;
 }
 
 .list-slip-item {
     padding-left: 10px;
-    height: 62px;
-    border-bottom: 1px solid #eeeef0;
+    height: 60px;
+    background-color: #fff;
+    margin-bottom: 5px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #fafafa;
+    -webkit-box-shadow: 0px 1px 0px #f0f0f0;
+    -moz-box-shadow: 0px 1px 0px #f0f0f0;
+    box-shadow: 0px 1px 0px #f0f0f0;
+}
+
+.list-slip-item:last {
+    margin-bottom: 0px;
 }
 
 .slip-item {
@@ -211,17 +232,27 @@ hr {
     box-orient: horizontal;
     box-pack: center;
     box-align: center;
+
+    -webkit-border-bottom-right-radius: 3px;
+    -moz-border-bottom-right-radius: 3px;
+    -o-border-bottom-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    -webkit-border-top-right-radius: 3px;
+    -moz-border-top-right-radius: 3px;
+    -o-border-top-right-radius: 3px;
+    border-top-right-radius: 3px;
+
     position: absolute;
-    z-index: 2;
     top: 0px;
     text-align: center;
-    right: -60px;
+    right: -61px;
     height: 60px;
     width: 60px;
     line-height: 60px;
     background-color: #ac2925;
     color: #fff;
     margin-top: 1px;
+    z-index: 2;
 }
 
 .delete-item:active {
@@ -372,10 +403,11 @@ span.page {
     text-align: center;
     font-size: 15px;
     color: #999;
+    text-align: center;
 }
 
-span.page em {
-    color: #000;
+span.page span {
+    display: inline;
 }
 
 .pager .prev, .pager .next {
@@ -431,7 +463,8 @@ span.next {
 }
 
 .btn-cancel {
-    background-color: #E1E1E1;
+    background-color: #C4C4C4;
+    border-color: #CCC;
     color: #fff;
 }
 
@@ -451,23 +484,23 @@ span.next {
 }
 
 .btn-confirm {
-    background-color: #5bc0de;
-    border-color: #46b8da;
+    background-color: #00b4ff;
+    border-color: #428bca;
     color: #fff;
 }
 
 .btn-confirm:focus {
-    background-color: #4AB0CD;
-    border-color: #46b8da;
+    background-color: #01ABF1;
+    border-color: #428bca;
 }
 
 .btn-confirm:hover, .btn-confirm:active {
-    background-color: #4AB0CD;;
-    border-color: #46b8da;
+    background-color: #01ABF1;;
+    border-color: #428bca;
 }
 
 .btn-confirm:active:focus {
-    background-color: #4AB0CD;
+    background-color: #01ABF1;
     border-color: #46b8da;
 }
 
@@ -515,8 +548,6 @@ span.next {
 }
 
 /*弹出框*/
-
-
 .dialog {
     background-color: #fff;
     width: 80%;
@@ -532,17 +563,17 @@ span.next {
     left: 50%;
     top: 50%;
     padding: 10px;
-    border: 1px solid #eee;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border: 1px solid #f0f0f0;
 }
 
 .dialog-message {
     text-align: center;
-    font-size: 1.5em;
-    line-height: 2em;
+    font-size: 1.3em;
+    line-height: 1.5em;
     margin-top: 20px;
 }
 
@@ -558,18 +589,32 @@ span.next {
 }
 
 /*提示信息*/
-.tip{ position: fixed; width: 250px; height: 80px; line-height: 80px; text-align: center; background:rgba(0,0,0,0.8);
-    top:50%; left: 50%;
-    border-radius:4px;
-    -webkit-border-radius:10px;
-    -moz-border-radius:10px;
-    -ms-border-radius:10px;
-    -o-border-radius:10px;
+.tip {
+    position: fixed;
+    width: 250px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
     color: #fff;
-    transform:translate(-50%,-50%);
-    -webkit-transform:translate(-50%,-50%);
-    -moz-transform:translate(-50%,-50%);
-    -o-transform:translate(-50%,-50%);
-    -ms-transform:translate(-50%,-50%);
-    position: relative;; }
-.close-tip{ position: absolute; top: -5px; right: -5px; color: #fff; }
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    position: relative;;
+}
+
+.close-tip {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    color: #fff;
+}
