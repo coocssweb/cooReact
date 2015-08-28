@@ -25,7 +25,7 @@ var ScrollLoadmore = React.createClass({
         var height =$scroll.height();
         if(!this.props.isLoading) {
             if ((height + scrollTop) >= scrollHeight) {
-                this.loadData(this.props.dataUrl2);
+                this.loadMore();
                 this.props.isLoadover = false;
                 this.props.isLoading = true;
                 this.setState({
@@ -35,10 +35,12 @@ var ScrollLoadmore = React.createClass({
         }
     },
     loadMore:function(){
-        this.loadData(this.props.dataUrl);
+        var $that = this;
+        this.props.dataUrl=this.props.dataUrl2;
+        setTimeout($that.loadData,5000);
     },
-    loadData:function(dataurl){
-        var data_url = dataurl;
+    loadData:function(){
+        var data_url = this.props.dataUrl;
         var $that = this;
         $.ajax({
             url : data_url,
@@ -76,9 +78,9 @@ var ScrollLoadmore = React.createClass({
                     {sliderItems}
                 </ul>
                 <div className={"loadmore mt10 "+(this.props.isLoadover?"hide":"")}>
-                    <span  class="loading"></span>
+                    <span  className="loading"></span>
                 </div>
-                <div className={"loadover"+(this.props.hasMore?"hide":"") }>
+                <div className={"loadover "+(this.props.hasMore?"hide":"") }>
                     没有更多信息了 . . .
                 </div>
             </div>

@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="564ec64a-78c6-4666-9a72-345936aadc56" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/Loadmore/Loadmore.js" afterPath="$PROJECT_DIR$/components/Loadmore/Loadmore.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/Pager/Pager.js" afterPath="$PROJECT_DIR$/components/Pager/Pager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/Pager/Pager.js" afterPath="$PROJECT_DIR$/examples/Pager/Pager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/Pager.js" afterPath="$PROJECT_DIR$/public/dist/Pager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/SlideDelete/SlideDelete.js" afterPath="$PROJECT_DIR$/components/SlideDelete/SlideDelete.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/style/h5base.css" afterPath="$PROJECT_DIR$/public/style/h5base.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/Pager/index.html" afterPath="$PROJECT_DIR$/examples/Pager/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/Slider/index.html" afterPath="$PROJECT_DIR$/examples/Slider/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/ScrollLoadmore/ScrollLoadmore.js" afterPath="$PROJECT_DIR$/components/ScrollLoadmore/ScrollLoadmore.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/ScrollLoadmore.js" afterPath="$PROJECT_DIR$/public/dist/ScrollLoadmore.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="$PROJECT_DIR$/webpack.config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="react-plug-in.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,9 +39,9 @@
         <entry file="file://$PROJECT_DIR$/webpack.config.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="43" column="4" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="4" />
+              <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
               <folding>
-                <element signature="e#613#707#0" expanded="false" />
+                <element signature="e#625#719#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -65,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Loadmore.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Loadmore.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/Loadmore/Loadmore.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5958188">
-              <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+            <state vertical-scroll-proportion="18.785715">
+              <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -95,11 +87,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScrollLoadmore.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ScrollLoadmore.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/ScrollLoadmore/ScrollLoadmore.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.6785714">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.47412756">
+              <caret line="74" column="16" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -154,13 +146,13 @@
         <option value="$PROJECT_DIR$/examples/ScrollLoadmore/index.html" />
         <option value="$PROJECT_DIR$/examples/ScrollLoadmore/data.js" />
         <option value="$PROJECT_DIR$/examples/ScrollLoadmore/data2.js" />
-        <option value="$PROJECT_DIR$/components/ScrollLoadmore/ScrollLoadmore.js" />
         <option value="$PROJECT_DIR$/examples/ScrollLoadmore/ScrollLoadmore.js" />
-        <option value="$PROJECT_DIR$/webpack.config.js" />
         <option value="$PROJECT_DIR$/examples/Loadmore/index.html" />
         <option value="$PROJECT_DIR$/components/Loadmore/Loadmore.js" />
         <option value="$PROJECT_DIR$/public/style/h5base.css" />
         <option value="$PROJECT_DIR$/examples/Loadmore/Loadmore.js" />
+        <option value="$PROJECT_DIR$/webpack.config.js" />
+        <option value="$PROJECT_DIR$/components/ScrollLoadmore/ScrollLoadmore.js" />
       </list>
     </option>
   </component>
@@ -574,7 +566,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
           <folding>
-            <element signature="e#613#707#0" expanded="false" />
+            <element signature="e#625#719#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -873,16 +865,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="4" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="4" />
-          <folding>
-            <element signature="e#613#707#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/examples/Loadmore/data.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -895,14 +877,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.785714">
           <caret line="10" column="23" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/ScrollLoadmore/ScrollLoadmore.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6785714">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -925,8 +899,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/Loadmore/Loadmore.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5958188">
-          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+        <state vertical-scroll-proportion="18.785715">
+          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+          <folding>
+            <element signature="e#625#719#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/ScrollLoadmore/ScrollLoadmore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47412756">
+          <caret line="74" column="16" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="16" />
           <folding />
         </state>
       </provider>

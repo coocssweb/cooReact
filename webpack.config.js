@@ -23,7 +23,7 @@ var alias=[
 ];
 
 //入口文件
-var entrys = ['Loadmore/Loadmore.js'];
+var entrys = ['ScrollLoadmore/ScrollLoadmore.js'];
 
 var config = {
   devtool: 'inline-source-map',
@@ -33,7 +33,7 @@ var config = {
   ],
   output: {
     path: path.join(__dirname, 'public/dist/'),
-    filename: 'Loadmore.js'
+    filename: 'ScrollLoadmore.js'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
