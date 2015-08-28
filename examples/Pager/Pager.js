@@ -9,5 +9,5 @@ var page ={
 };
 React.render(
     <Pager page={page} onPageChange={onPageChange} />,
-    document.body
+    document.getElementById("pager")
 );

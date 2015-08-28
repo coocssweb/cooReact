@@ -20,29 +20,29 @@ var Pager= React.createClass({
             var prev;
             if(this.props.page.pageNow>1){
                 prev = (
-                    <a href='javascript:;' onClick={this.onPrevPage} className='prev'></a>
+                    <a href='javascript:;' onClick={this.onPrevPage} className='prev'><i className="fa fa-arrow-left"></i></a>
                  );
             }else{
                 prev = (
-                    <span className='prev'></span>
+                    <span className='prev'><i className="fa fa-arrow-left"></i></span>
                 );
             }
             //œ¬“ª“≥
             var next;
             if(this.props.page.pageNow==this.props.page.pageCount){
                 next = (
-                    <span className='next'></span>
+                    <span className='next'><i className="fa fa-arrow-right"></i></span>
             );
             }else{
                 next = (
-                    <a href='javascript:;' onClick={this.onNextPage} className='next'></a>
+                    <a href='javascript:;' onClick={this.onNextPage} className='next'><i className="fa fa-arrow-right"></i></a>
             );
         }
     //‰÷»æ
     return (
         <section>
             <div className="pager-outter">
-                <div className="pager">
+                <div className="pager clearfix">
                     {prev}
                     <span className="page">{this.props.page.pageNow} / {this.props.page.pageCount}</span>
                     {next}

@@ -1,21 +1,57 @@
-//¼ÓÔØ¸ü¶à
+//åŠ è½½æ›´å¤š
 /*
- ²ÎÊıËµÃ÷
- hasmore£º»¹ÓĞ¸ü¶à£¿
- isloading: ÕıÔÚ¼ÓÔØ£¿
- onLoadmore: ¼ÓÔØ¸ü¶àÊÂ¼ş
- µ÷ÓÃ·½·¨<Loadmore isload=true onLoadmore={this.onLoadmore} >
+ å‚æ•°è¯´æ˜
+ hasmoreï¼šè¿˜æœ‰æ›´å¤šï¼Ÿ
+ isloading: æ­£åœ¨åŠ è½½ï¼Ÿ
+ onLoadmore: åŠ è½½æ›´å¤šäº‹ä»¶
+ è°ƒç”¨æ–¹æ³•<Loadmore onLoadmore={this.onLoadmore} >
  */
 var React = require('react');
 
 var Loadmore=React.createClass({
-        render:function({
-        return (
-            <a href="javascript:;" className={"btn btn-loadmore "+this.props.hasmore?"":"hiden"} onClick={this.props.onLoadmore}>
-                <i className={"fa fa-spinner fa-1x loading "+this.props.isloading?"":"hiden"}></i> ¼ÓÔØ¸ü¶à
-            </a>
-        );
-    });
+    getInitialState : function(){
+        return {
+            isUpdate : false
+        }
+    },
+    getDefaultProps : function(){
+        return {
+            isloading : false,  //æ­£åœ¨åŠ è½½
+            hasMore   : false   //æ›´å¤šä¿¡æ¯
+        }
+    },
+    onLoadmore : function(){
+        this.props.isloading = true;
+        this.setState({
+            isUpdate : !this.state.isUpdate
+        })
+        this.props.onLoadmore();
+    },
+    render:function(){
+        var loadElement,
+            loadingElement;
+
+        if(!this.props.hasMore){
+            return ( <div className="loadover">æ²¡æœ‰æ›´å¤šä¿¡æ¯äº† . . .</div> )
+        }else{
+            if(this.props.isloading){
+                loadElement = ( <span className="loading "></span> )
+                loadingElement = (<div className="loding-info">æ­£åœ¨åŠ è½½ç”µå½± . . .</div>);
+            }else{
+                loadElement = ( <span>åŠ è½½æ›´å¤šç”µå½±</span> )
+            }
+
+            return (
+                <a href="javascript:;" className={"btn-loadmore "+(this.props.hasMore?"":"hide")+(this.props.isloading?"active":"")} onClick={this.props.hasMore?this.onLoadmore : null}>
+                    {loadElement}
+                    {loadingElement}
+                </a>
+
+             );
+        }
+
+
+    }
 });
 
 module.exports=Loadmore;

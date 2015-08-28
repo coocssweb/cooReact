@@ -3,7 +3,6 @@
 */
 html {
     font-size: 100px;
-    width: 100%;
 }
 
 body, h1, h2, h3, p, div, ol, ul, input, button {
@@ -114,6 +113,48 @@ hr {
     text-align: center;
 }
 
+.btn-cancel {
+    background-color: #C4C4C4;
+    border-color: #CCC;
+    color: #fff;
+}
+
+.btn-cancel:focus {
+    background-color: #CCC;
+    border-color: #255625;
+}
+
+.btn-cancel:hover, .btn-cancel:active {
+    background-color: #CCC;
+    border-color: #398439;
+}
+
+.btn-cancel:active:focus {
+    background-color: #CCC;
+    border-color: #255625;
+}
+
+.btn-confirm {
+    background-color: #00b4ff;
+    border-color: #428bca;
+    color: #fff;
+}
+
+.btn-confirm:focus {
+    background-color: #01ABF1;
+    border-color: #428bca;
+}
+
+.btn-confirm:hover, .btn-confirm:active {
+    background-color: #01ABF1;;
+    border-color: #428bca;
+}
+
+.btn-confirm:active:focus {
+    background-color: #01ABF1;
+    border-color: #46b8da;
+}
+
 .conver-link {
     display: block;
     width: 100%;
@@ -133,7 +174,7 @@ hr {
 }
 
 .hide {
-    display: none;
+    display: none !important;
 }
 
 .mask {
@@ -279,7 +320,8 @@ body {
 }
 
 /*幻灯片*/
-html, body, #slider, .slider-item {
+
+ #slider, .slider-item {
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -377,176 +419,184 @@ html, body, #slider, .slider-item {
 
 /*分页控件*/
 .pager-outter {
-    margin-top: 8px;
-    padding: 5px;
     background-color: #FFF;
-    border: 1px solid #eeeef0;
+    border: 1px solid #f0f0f0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
 }
 
 .pager {
-    display: table;
     width: 100%;
     background-color: #FFF;
 }
 
-.pager a, .pager span {
-    display: table-cell;
-    height: 22px;
-    line-height: 22px;
+.pager a, .pager > span {
+    display: block;
+    height: 35px;
+    line-height: 35px;
+    float: left;
 }
 
-span.page {
+.pager span.page {
     width: 40%;
+    height: 21px;
+    line-height: 21px;
+    margin-top: 7px;
     box-sizing: border-box;
-    border-left: 1px solid #eeeef0;
-    border-right: 1px solid #eeeef0;
-    text-align: center;
+    border-left: 1px solid #f0f0f0;
+    border-right: 1px solid #f0f0f0;
     font-size: 15px;
-    color: #999;
+    color: #666;
     text-align: center;
 }
 
 span.page span {
     display: inline;
+    line-height: 21px;
 }
 
 .pager .prev, .pager .next {
     width: 30%;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.2);
-    -o-tap-highlight-color: rgba(0, 0, 0, 0.2);
-    -moz-tap-highlight-color: rgba(0, 0, 0, 0.2);
-    tap-highlight-color: rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
-a.prev {
-    background: url(../images/prev.png) 20% center no-repeat;
-    background-size: 20px;
+a.next:active, a.prev:active {
+    background-color: #fafafa;
+    color: #00b4ff
 }
 
-span.prev {
-    background: url(../images/prev-gray.png) 20% center no-repeat;
-    background-size: 20px;
+a.prev, a.next {
+    color: #666;
 }
 
-a.next {
-    background: url(../images/next.png) 80% center no-repeat;
-    background-size: 20px;
-}
-
-span.next {
-    background: url(../images/next-gray.png) 80% center no-repeat;
-    background-size: 20px;
+span.prev, span.next {
+    color: #ccc;
 }
 
 /*加载更多*/
 .btn-loadmore {
-    width: 100%;
-    color: #fff;
-    background-color: #5cb85c;
-    border-color: #4cae4c;
+    display: block;
+    background-color: #fff;
+    text-align: center;
+    line-height: 46px;
+    padding: 2px;
+    color: #428bca;
+    font-size: 16px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #fafafa;
+    -webkit-box-shadow: 0px 1px 0px #f0f0f0;
+    -moz-box-shadow: 0px 1px 0px #f0f0f0;
+    box-shadow: 0px 1px 0px #f0f0f0;
+    margin-top: 5px;
+}
+
+.btn-loadmore:active {
+    background-color: #eee;
+}
+
+.btn-loadmore.active {
 
 }
 
-.btn-loadmore:focus {
-    background-color: #449d44;
-    border-color: #255625;
+.btn-loadmore.active:after {
+    display: none;
 }
 
-.btn-loadmore:hover, .btn-loadmore:active {
-    background-color: #449d44;
-    border-color: #398439;
+.btn-loadmore:after {
+    content: "";
+    display: inline-block;
+    border: 0 solid #428bca;
+    border-width: 0 0 2px 2px;
+    width: 8px;
+    height: 8px;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    margin-left: 8px;
+    position: relative;
+    top: -4px;
 }
 
-.btn-loadmore:active:focus {
-    background-color: #398439;
-    border-color: #255625;
-}
-
-.btn-cancel {
-    background-color: #C4C4C4;
-    border-color: #CCC;
-    color: #fff;
-}
-
-.btn-cancel:focus {
-    background-color: #CCC;
-    border-color: #255625;
-}
-
-.btn-cancel:hover, .btn-cancel:active {
-    background-color: #CCC;
-    border-color: #398439;
-}
-
-.btn-cancel:active:focus {
-    background-color: #CCC;
-    border-color: #255625;
-}
-
-.btn-confirm {
-    background-color: #00b4ff;
-    border-color: #428bca;
-    color: #fff;
-}
-
-.btn-confirm:focus {
-    background-color: #01ABF1;
-    border-color: #428bca;
-}
-
-.btn-confirm:hover, .btn-confirm:active {
-    background-color: #01ABF1;;
-    border-color: #428bca;
-}
-
-.btn-confirm:active:focus {
-    background-color: #01ABF1;
-    border-color: #46b8da;
+.loding-info {
+    text-align: center;
+    line-height: 20px;
+    height: 20px;
+    color: #999;
 }
 
 .loading {
-    animation: 2s linear key-loading infinite;
-    -webkit-animation: 2s linear key-loading infinite;
-    -ms-animation: 2s linear key-loading infinite;
-    -moz-animation: 2s linear key-loading infinite;
+    content: "";
+    display: inline-block;
+    margin: 0 15px 4px;
+    padding: 0;
+    border: 0;
+    background: 0;
+    width: 3px;
+    height: 3px;
+    border-radius: 100%;
+    box-shadow: 0 -10px 0 .9px #666, 10px 0 #999, 0 10px #999, -10px 0 #999, -7px -7px 0 .4px #999, 7px -7px 0 1.1px #666, 7px 7px #999, -7px 7px #999;
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+    -webkit-animation: loading 1.5s linear infinite;
+    -moz-animation: loading 1.5s linear infinite;
+    -o-animation: loading 1.5s linear infinite;
+    animation: loading 1.5s linear infinite
 }
 
-@-webkit-keyframes key-loading {
-    0% {
-        -webkit-transform: rotate(0deg);
+@keyframes loading {
+    from {
+        transform: rotate(0deg)
     }
-    100% {
-        -webkit-transform: rotate(360deg);
-    }
-}
-
-@-ms-keyframes key-loading {
-    0% {
-        -ms-transform: rotate(0deg);
-    }
-    100% {
-        -ms-transform: rotate(360deg);
-    }
-}
-
-@-moz-keyframes key-loading {
-    0% {
-        -ms-transform: rotate(0deg);
-    }
-    100% {
-        -ms-transform: rotate(360deg);
+    to {
+        transform: rotate(360deg)
     }
 }
 
-@keyframes key-loading {
-    0% {
-        transform: rotate(0deg);
+@-moz-keyframes spin {
+    from {
+        -moz-transform: rotate(0deg)
     }
-    100% {
-        transform: rotate(360deg);
+    to {
+        -moz-transform: rotate(360deg)
     }
 }
 
+@-o-keyframes spin {
+    from {
+        -o-transform: rotate(0deg)
+    }
+    to {
+        -o-transform: rotate(360deg)
+    }
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg)
+    }
+    to {
+        -webkit-transform: rotate(360deg)
+    }
+}
+
+/*滚动加载更多*/
+
+.scroll-in{ position: absolute; left: 0px; top:0px; width: 100%; height: 100%; overflow: scroll;}
+
+.loadmore{
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+}
+.loadover{ text-align: center; line-height: 30px; height: 30px; color: #999;}
 /*弹出框*/
 .dialog {
     background-color: #fff;
@@ -618,3 +668,4 @@ span.next {
     right: -5px;
     color: #fff;
 }
+
