@@ -10,14 +10,20 @@ var Confirm = React.createClass({
         //初始化State
         getInitialState : function(){
             return {
-                isShow : true	//是否显示
+                isUpdate : false
+            }
+        },
+        getDefaultProps : function(){
+            return{
+                isShow : true
             }
         },
         //取消事件
         onCancel : function(){
+            this.props.isShow = false;
             this.setState(
                 {
-                    isShow:false
+                    isUpdate:!this.state.isUpdate
                 }
             );
         },
@@ -25,17 +31,16 @@ var Confirm = React.createClass({
         onConfirm : function(){
             this.setState(
                 {
-                    isShow:false
+                    isUpdate:!this.state.isUpdate
                 }
             );
             //回调
             this.props.onConfirm();
-
         },
         //渲染
         render : function(){
             return (
-                <div className={"mask " + (this.state.isShow?"":"hide")}>
+                <div className={"mask " + (this.props.isShow?"":"hide")}>
                    <div className="dialog">
                         <div className="dialog-message">{this.props.message}</div>
                         <div className="dialog-btns">

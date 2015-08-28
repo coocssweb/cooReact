@@ -183,7 +183,7 @@ hr {
     top: 0;
     height: 100%;
     width: 100%;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.5);
 }
 
 /*滑动删除*/
@@ -667,5 +667,16 @@ span.prev, span.next {
     top: -5px;
     right: -5px;
     color: #fff;
+}
+
+/*长按*/
+.list-hold-item{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+.list-hold-item:active{
+    background-color: #f0f0f0;
 }
 
