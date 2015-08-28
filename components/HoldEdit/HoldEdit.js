@@ -12,7 +12,7 @@ var HoldEdit = React.createClass({
         }
     },
     onTouchStart : function(e){
-        
+
         this.timeTouchStart = new Date().getTime();
     },
     onTouchMove : function(e){

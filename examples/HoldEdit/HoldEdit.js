@@ -67,6 +67,6 @@ var TestHoldEdit = React.createClass({
 });
 
 React.render(
-<TestHoldEdit />,
-    document.getElementById("main-container")
+    <TestHoldEdit />,
+        document.getElementById("main-container")
 );
