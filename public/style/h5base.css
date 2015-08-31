@@ -689,7 +689,6 @@ span.prev, span.next {
     height: 400px;
     overflow: hidden;
     position: relative;
-    border: 1px solid #db8e01;
     -webkit-box-sizing: border-box;
     -moz-box-sizing:  border-box;
     -o-box-sizing:  border-box;
@@ -709,7 +708,7 @@ span.prev, span.next {
     -o-transform:translate(-50%,0%);
     width: 200px;
     height: 200px;
-    border: 100px solid rgba(163, 16, 75, 0.5);
+    border: 120px solid rgba(163, 16, 75, 0.5);
     z-index: 3;
 }
 .overlay{
@@ -767,11 +766,13 @@ span.prev, span.next {
 
 .cut-container img{
     position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%,-50%);
-    -moz-transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-    -o-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
+}
+.btn-cut{
+    background-color: #00b4ff;
+    border-color: #428bca;
+    color: #fff;
+    width: 80px;
+    position: absolute;
+    right: 0px;
+    z-index: 15;
 }
