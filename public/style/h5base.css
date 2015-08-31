@@ -194,7 +194,7 @@ body {
 #main-container {
     margin: 5px;
     overflow: hidden;
-    position:relative;
+    position: relative;
 }
 
 .list-slip-group {
@@ -322,7 +322,7 @@ body {
 
 /*幻灯片*/
 
- #slider, .slider-item {
+#slider, .slider-item {
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -590,14 +590,28 @@ span.prev, span.next {
 
 /*滚动加载更多*/
 
-.scroll-in{ position: absolute; left: 0px; top:0px; width: 100%; height: 100%; overflow: scroll;}
+.scroll-in {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
 
-.loadmore{
+.loadmore {
     text-align: center;
     height: 30px;
     line-height: 30px;
 }
-.loadover{ text-align: center; line-height: 30px; height: 30px; color: #999;}
+
+.loadover {
+    text-align: center;
+    line-height: 30px;
+    height: 30px;
+    color: #999;
+}
+
 /*弹出框*/
 .dialog {
     background-color: #fff;
@@ -671,63 +685,66 @@ span.prev, span.next {
 }
 
 /*长按*/
-.list-hold-item{
+.list-hold-item {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none
 }
-.list-hold-item:active{
+
+.list-hold-item:active {
     background-color: #f0f0f0;
 }
 
-
 /*图片剪辑*/
 
-.cut-container{
+.cut-container {
     width: 100%;
     height: 400px;
     overflow: hidden;
     position: relative;
     -webkit-box-sizing: border-box;
-    -moz-box-sizing:  border-box;
-    -o-box-sizing:  border-box;
-    -ms-box-sizing:  border-box;
-    box-sizing:  border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
 }
-.cut-container:hover{
-    cursor : move;
+
+.cut-container:hover {
+    cursor: move;
 }
-.overlay-outter{
+
+.overlay-outter {
     position: absolute;
     left: 50%;
     top: 0px;
-    transform:translate(-50%,0%);
-    -webkit-transform:translate(-50%,0%);
-    -moz-transform:translate(-50%,0%);
-    -o-transform:translate(-50%,0%);
+    transform: translate(-50%, 0%);
+    -webkit-transform: translate(-50%, 0%);
+    -moz-transform: translate(-50%, 0%);
+    -o-transform: translate(-50%, 0%);
     width: 200px;
     height: 200px;
     border: 120px solid rgba(163, 16, 75, 0.5);
     z-index: 3;
 }
-.overlay{
+
+.overlay {
     width: 100%;
     height: 100%;
-    border:2px solid #de3c50;
+    border: 2px solid #de3c50;
     -webkit-box-sizing: border-box;
-    -moz-box-sizing:  border-box;
-    -o-box-sizing:  border-box;
-    -ms-box-sizing:  border-box;
-    box-sizing:  border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-.overlay-inner{
+.overlay-inner {
     width: 100%;
     height: 100%;
 }
 
-.overlay:before,.overlay:after,.overlay-inner:before,.overlay-inner:after{
+.overlay:before, .overlay:after, .overlay-inner:before, .overlay-inner:after {
     content: '';
     display: block;
     position: absolute;
@@ -736,38 +753,39 @@ span.prev, span.next {
     border: 8px solid #b92c28;
 }
 
-.overlay:before{
+.overlay:before {
     left: -3px;
     top: -3px;
     border-right: 0px;
     border-bottom: 0px;
 }
 
-.overlay:after{
+.overlay:after {
     right: -3px;
     top: -3px;
     border-left: 0px;
     border-bottom: 0px;
 }
 
-.overlay-inner:before{
+.overlay-inner:before {
     left: -3px;
     bottom: -3px;
     border-right: 0px;
     border-top: 0px;
 }
 
-.overlay-inner:after{
+.overlay-inner:after {
     right: -3px;
     bottom: -3px;
     border-left: 0px;
     border-top: 0px;
 }
 
-.cut-container img{
+.cut-container img {
     position: absolute;
 }
-.btn-cut{
+
+.btn-cut {
     background-color: #00b4ff;
     border-color: #428bca;
     color: #fff;
@@ -775,4 +793,53 @@ span.prev, span.next {
     position: absolute;
     right: 0px;
     z-index: 15;
+}
+
+/*SlideTab*/
+.tab-header {
+    display: flex;
+    background: #f8f8f9;
+    background-color: #f1f1f2;
+    background-image: -moz-linear-gradient(top, #f8f8f9, #e6e6e8);
+    background-image: -ms-linear-gradient(top, #f8f8f9, #e6e6e8);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f8f8f9), to(#e6e6e8));
+    background-image: -webkit-linear-gradient(top, #f8f8f9, #e6e6e8);
+    background-image: -o-linear-gradient(top, #f8f8f9, #e6e6e8);
+    background-image: linear-gradient(top, #f8f8f9, #e6e6e8);
+    background-repeat: repeat-x;
+    padding-top: 5px;
+}
+
+.tab-header>div{
+    justify-content: space-between;
+    width: 50%;
+}
+.tab-header a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    height: 35px;
+    line-height: 35px;
+}
+
+.tab-header .active a {
+    background-color: #fff;
+}
+
+.tab-content {
+    background-color: #fff;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 300px;
+}
+
+.tab-content-inner {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.tab-item {
+    float: left;
 }

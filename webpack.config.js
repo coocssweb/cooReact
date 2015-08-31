@@ -23,7 +23,7 @@ var alias=[
 ];
 
 //入口文件
-var entrys = ['ImageCut/ImageCut.js'];
+var entrys = ['SlideTab/SlideTab.js'];
 
 var config = {
   devtool: 'inline-source-map',
@@ -33,7 +33,7 @@ var config = {
   ],
   output: {
     path: path.join(__dirname, 'public/dist/'),
-    filename: 'ImageCut.js'
+    filename: 'SlideTab.js'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
