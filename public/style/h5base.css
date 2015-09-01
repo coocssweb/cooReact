@@ -843,3 +843,15 @@ span.prev, span.next {
 .tab-item {
     float: left;
 }
+
+/*SlideList*/
+.module{ border:1px solid #d9dde2; background-color: #ffffff;}
+.module-title{ height: 40px; line-height: 40px; padding: 0px 15px;}
+.module-title i{ color: #0066CC;}
+.module-content{ width: 100%; overflow: hidden; position: relative; height: 120px;}
+.module-content ul{ padding:0px 10px; white-space: nowrap; position: absolute;}
+.module-content ul li{   display: inline-block; margin-left: 5px; padding-bottom: 5px; }
+.module-content ul li:first-child{ margin-left: 0px;}
+.module-content ul li a{ display: inline-block;position: relative;}
+.module-content ul li img{ display: block; width: 80px; border: 1px solid #efefef; padding: 2px;}
+.module-content ul li p{position: absolute; bottom:3px; left: 0px;  line-height: 20px; font-size: 12px; text-align: center; width: 100%; background:rgba(0,0,0,0.5); color: #fff;}
