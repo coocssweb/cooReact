@@ -50,8 +50,7 @@ var SlideList = React.createClass({
         }
         this.props.isTouchDown = false;
 
-
-
+        //判断超过最左边，最右边，如果超过则定定位到  极限位置
         if(this.props.delateX > 0 && this.props.left>0){
             this.props.left = 0;
             this.setState({
@@ -62,8 +61,6 @@ var SlideList = React.createClass({
             this.setState({
                 isUpdate : !this.state.isUpdate
             });
-        }else{
-
         }
         this.props.currentX = this.props.left;
         this.props.startX = 0;
