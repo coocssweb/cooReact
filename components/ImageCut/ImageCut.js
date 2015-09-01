@@ -66,8 +66,10 @@ var ImageCut = React.createClass({
             }
 
             var $container = $(".cut-container");
-            $that.props.image.x = ($container.width() - $that.props.image.width)/2;
-            $that.props.image.y = ($container.height() - $that.props.image.height)/2;
+            $that.props.imageOffSet.x = ($container.width() - $that.props.image.width)/2;
+            $that.props.imageOffSet.y = ($container.height() - $that.props.image.height)/2;
+            $that.props.image.x = $that.props.imageOffSet.x;
+            $that.props.image.y = $that.props.imageOffSet.y;
             $that.props.imageSrc = $that.props.canvas.toDataURL("image/png");
 
 
@@ -95,7 +97,6 @@ var ImageCut = React.createClass({
         var touch=window.event.touches[0]||window.event.changedTouches[0];
         this.props.startPos.x = touch.pageX;
         this.props.startPos.y = touch.pageY;
-        console.log("start "+ this.props.image.x+"        "+this.props.image.y)
     },
     onTouchMove : function(e){
         if(!this.props.isTouchDown){
@@ -111,19 +112,17 @@ var ImageCut = React.createClass({
         this.props.touchDelate.x = this.props.nowPos.x - this.props.startPos.x;
         this.props.touchDelate.y = this.props.nowPos.y - this.props.startPos.y;
 
-        console.log(this.props.touchDelate.x + "   " +this.props.touchDelate.y)
-
         if(
-            (this.props.image.x  + this.props.touchDelate.x - this.props.cut.x) < 0 &&
-            (this.props.image.x + this.props.image.width + this.props.touchDelate.x - (this.props.cut.x + this.props.cut.width) ) > 0
+            (this.props.imageOffSet.x  + this.props.touchDelate.x - this.props.cut.x) < 0 &&
+            (this.props.imageOffSet.x + this.props.image.width + this.props.touchDelate.x - (this.props.cut.x + this.props.cut.width) ) > 0
         ){
-            this.props.image.x += this.props.touchDelate.x;
+            this.props.image.x = this.props.imageOffSet.x + this.props.touchDelate.x;
         }
         if(
-            (this.props.image.y  + this.props.touchDelate.y - this.props.cut.y) < 0 &&
-            (this.props.image.y + this.props.image.height + this.props.touchDelate.y - (this.props.cut.y + this.props.cut.height) ) > 0
+            (this.props.imageOffSet.y  + this.props.touchDelate.y - this.props.cut.y) < 0 &&
+            (this.props.imageOffSet.y + this.props.image.height + this.props.touchDelate.y - (this.props.cut.y + this.props.cut.height) ) > 0
         ){
-            this.props.image.y += this.props.touchDelate.y;
+            this.props.image.y = this.props.imageOffSet.y + this.props.touchDelate.y;
         }
         this.props.isInit = false;
         this.setState({
@@ -142,6 +141,8 @@ var ImageCut = React.createClass({
         this.props.nowPos.y = 0;
         this.props.touchDelate.x = 0;
         this.props.touchDelate.y = 0;
+        this.props.imageOffSet.x = this.props.image.x;
+        this.props.imageOffSet.y = this.props.image.y;
 
     },
     onCut : function(){
