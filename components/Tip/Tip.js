@@ -3,17 +3,23 @@ var Tip=React.createClass({
     //初始化State
     getInitialState :function(){
         return {
-            isShow : true	//是否显示
+            isUpdate : false	//是否显示
+        }
+    },
+    getDefaultProps : function(){
+        return {
+            isShow : false
         }
     },
     onClose:function(){
+        this.props.isShow = false;
         this.setState({
-            isShow:false
+            isUpdate:true
         });
     },
     render:function(){
         return (
-            <div className={"mask "+(this.state.isShow?"":"hide")}>
+            <div className={"mask "+(this.props.isShow?"":"hide")}>
                 <div className="tip">
                     <a href="javascript:;" onClick={this.onClose}><i className="fa fa-times-circle fa-2x close-tip"></i></a>
                     {this.props.message}
