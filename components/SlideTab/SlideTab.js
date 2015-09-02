@@ -1,5 +1,8 @@
 var React = require("react");
 var $ = require("jquery");
+var Base =require("Base");
+//浏览器前缀
+var _prefixStyle = Base.prefixStyle();
 var SlideTab = React.createClass({
     getInitialState : function(){
         return {
@@ -128,7 +131,7 @@ var SlideTab = React.createClass({
             width : this.props.tabItemsCount * this.props.tabWidth
         }
         if(!this.props.isTouchDown){
-            innerStyle.transition = "all 0.3s";
+            innerStyle[_prefixStyle + "transition"] = "all 0.3s";
         }
         //事件组合
         var Events = {

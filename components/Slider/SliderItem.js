@@ -1,5 +1,7 @@
 var React = require("react");
-
+var Base =require("Base");
+//浏览器前缀
+var _prefixStyle = Base.prefixStyle();
 var SliderItem = React.createClass({
     getInitialState : function(){
       return {
@@ -98,15 +100,14 @@ var SliderItem = React.createClass({
 
         var translate = this.props.isHorizontal?'translate('+this.props.translateDelate+'px,0)' : 'translate(0,'+this.props.translateDelate+'px)';
 
-        var styleElement ={
-            "backgroundImage" : "url(" + this.props.image.src + ")",
-            "transform" : translate,
-            "zIndex" : this.props.zIndex
-        }
+        var styleElement ={};
+        styleElement["backgroundImage"] = "url(" + this.props.image.src + ")";
+        styleElement[_prefixStyle+"transform"] = translate;
+        styleElement["zIndex"] = this.props.zIndex;
 
         //为结束添加过渡效果
         if(!this.props.isTouching){
-            styleElement.transition = "all 0.3s";
+            styleElement[_prefixStyle+"transition"] = "all 0.3s";
         }
         var className  = this.props.isShow?"":"hide";
 

@@ -12089,7 +12089,7 @@
 	 * Shared warning and monitoring code for the key warnings.
 	 *
 	 * @internal
-	 * @param {string} message The base warning that gets output.
+	 * @param {string} message The Base warning that gets output.
 	 * @param {ReactElement} element Component that requires a key.
 	 * @param {*} parentType element's parent's type.
 	 */
@@ -17105,7 +17105,7 @@
 	/**
 	 * Deprecated APIs. These APIs used to exist on classic React classes but since
 	 * we would like to deprecate them, we're not going to move them over to this
-	 * modern base class. Instead, we define a getter that warns if it's accessed.
+	 * modern Base class. Instead, we define a getter that warns if it's accessed.
 	 */
 	if ("production" !== process.env.NODE_ENV) {
 	  var deprecatedAPIs = {
@@ -17209,7 +17209,7 @@
 	   */
 	  DEFINE_MANY: null,
 	  /**
-	   * These methods are overriding the base class.
+	   * These methods are overriding the Base class.
 	   */
 	  OVERRIDE_BASE: null,
 	  /**
@@ -17575,7 +17575,7 @@
 	    ReactClassInterface[name] :
 	    null;
 	
-	  // Disallow overriding of base class methods unless explicitly allowed.
+	  // Disallow overriding of Base class methods unless explicitly allowed.
 	  if (ReactClassMixin.hasOwnProperty(name)) {
 	    ("production" !== process.env.NODE_ENV ? invariant(
 	      specPolicy === SpecPolicy.OVERRIDE_BASE,
@@ -17892,7 +17892,7 @@
 	};
 	
 	/**
-	 * Add more to the ReactClass base class. These are all legacy features and
+	 * Add more to the ReactClass Base class. These are all legacy features and
 	 * therefore not already part of the modern ReactComponent.
 	 */
 	var ReactClassMixin = {
@@ -29027,7 +29027,7 @@
 		for ( ; i < length; i++ ) {
 			// Only deal with non-null/undefined values
 			if ( (options = arguments[ i ]) != null ) {
-				// Extend the base object
+				// Extend the Base object
 				for ( name in options ) {
 					src = target[ name ];
 					copy = options[ name ];

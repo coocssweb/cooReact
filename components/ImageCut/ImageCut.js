@@ -24,21 +24,21 @@ var ImageCut = React.createClass({
                 x : 0,
                 y :0
             },
-            startPos        :{
+            startPos        :{          //触屏起始位置
                 x : 0,
                 y : 0
             },
-            nowPos          :{
+            nowPos          :{          //触屏当前位置
                 x : 0,
                 y : 0
             },
-            image           :{
+            image           :{          //图片位置信息
                 width  : 0,
                 height : 0,
                 x      : 0,
                 y      : 0
             },
-            cut             :{
+            cut             :{          //预览位置信息
                 width  : 196,
                 height : 196,
                 x      : 0,

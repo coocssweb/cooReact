@@ -33,7 +33,7 @@ var alias= {
 };
 
 //入口文件
-var entrys = ['SlidePushMenu/SlidePushMenu.js'];
+var entrys = ['Slider/Slider.js'];
 
 var config = {
   devtool: 'inline-source-map',
@@ -43,7 +43,7 @@ var config = {
   ],
   output: {
     path: path.join(__dirname, 'public/dist/'),
-    filename: 'SlidePushMenu.js'
+    filename: 'Slider.js'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

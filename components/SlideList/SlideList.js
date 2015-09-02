@@ -1,5 +1,9 @@
 var React = require("react");
 var $ = require("jquery");
+var Base =require("Base");
+//浏览器前缀
+var _prefixStyle = Base.prefixStyle();
+
 var SlideList = React.createClass({
     getInitialState : function () {
         return {
@@ -84,7 +88,7 @@ var SlideList = React.createClass({
             left : this.props.left
         }
         if(!this.props.isTouchDown){
-            innerStyle.transition = "all 0.3s";
+            innerStyle[_prefixStyle + "transition"] = "all 0.3s";
         }
 
         //事件组合

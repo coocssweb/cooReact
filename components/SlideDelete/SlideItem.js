@@ -1,5 +1,7 @@
 var React = require("react");
-
+var Base =require("Base");
+//浏览器前缀
+var _prefixStyle = Base.prefixStyle();
 var SlideItem = React.createClass({
     getInitialState : function(){
         return { translateX : 0 }
@@ -76,19 +78,16 @@ var SlideItem = React.createClass({
         this.props.isUpdate = true;
     },
     render : function(e) {
-        var styleElement;
+        var styleElement = {};
         //是否为更新
         if (this.props.isUpdate) {
-            styleElement = {
-                transform: "translate(" + this.state.translateX + "px, 0px)"
-            }
+            styleElement[_prefixStyle + "transform"] = "translate(" + this.state.translateX + "px, 0px)";
+
         }
 
         //判断当前项的isTranslate 状态
         if (this.props.dataIndex == this.props.deleteIndex&&this.props.isTranslate&&!this.props.isUpdate) {
-            styleElement = {
-                transform: "translate(" + (-this.props.delateWidth) + "px, 0px)"
-            }
+            styleElement[_prefixStyle + "transform"] = "translate(" + (-this.props.delateWidth) + "px, 0px)";
         }
 
         //事件组合
