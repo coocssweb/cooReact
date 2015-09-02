@@ -63,19 +63,20 @@ var SignUp = React.createClass({
             });
         }else{
             this.props.isSend = true;
-            this.props.isShowTip = false;
             this.props.resultTime = this.props.timeOut;
             this.timeOut();
         }
     },
     timeOut : function(){
-        this.props.isShowTip = false;
-        var $that = this;
-        if($that.props.resultTime>0) {
+
+        if(this.props.resultTime>0) {
+            var $that = this;
             window.setTimeout($that.timeOut, 1000);
-            $that.props.resultTime--;
+            this.props.resultTime--;
+            this.isTiming = true;
         }else{
             this.props.isSend = false;
+            this.isTiming = false;
         }
         this.setState({
             isUpdate : !this.state.isUpdate
@@ -95,6 +96,9 @@ var SignUp = React.createClass({
              * 处理下一步请求
              */
         }
+    },
+    onCloseTip:function(){
+        this.props.isShowTip = false;
     },
     render : function(){
         return (
@@ -116,7 +120,7 @@ var SignUp = React.createClass({
                         <a href="" class="fr">已有账号 , 现在去登录</a>
                     </div>
                 </form>
-                <Tip isShow={this.props.isShowTip} message={this.props.message} />
+                <Tip isShow={this.props.isShowTip} onCloseTip={this.onCloseTip} message={this.props.message} />
             </div>
         )
     }
