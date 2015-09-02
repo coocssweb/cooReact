@@ -2,6 +2,8 @@ var React = require("react");
 var Tip = require("Tip");
 var Base = require("Base");
 var $ = require("jquery");
+var ReactRouter = require("react-router");
+var Link = ReactRouter.Link;
 var SignUp = React.createClass({
 
     getInitialState : function(){
@@ -31,10 +33,10 @@ var SignUp = React.createClass({
         }else if(!Base.isTest(this.props.telno,Base.regStr.telno)){
             this.props.message = "请输入正确的手机号码";
             flag = false;
+        }else if(Base.loadUrl(this.props.dataIsExist,"isexist")){
+            this.props.message = "手机号码已注册请直接登录";
+            flag = false;
         }
-        /**
-         * 验证手机号码是否已存在
-         */
 
         return flag;
     },
@@ -53,9 +55,6 @@ var SignUp = React.createClass({
     },
     //获取验证码
     sendCode : function(){
-        /**
-         * 请求服务端发送验证码
-         */
         if(!this.checkTelno()) {
             this.props.isShowTip = true;
             this.setState({
@@ -63,6 +62,11 @@ var SignUp = React.createClass({
             });
         }else{
             this.props.isSend = true;
+            /**
+             * 请求服务端发送验证码
+             */
+            this.props.codeCorrect = Base.loadUrl(this.props.dataCode,"code");
+
             this.props.resultTime = this.props.timeOut;
             this.timeOut();
         }
@@ -92,9 +96,11 @@ var SignUp = React.createClass({
                 isUpdate : !this.state.isUpdate
             });
         }else{
-            /**
-             * 处理下一步请求
-             */
+            var data ={
+                telno : this.props.telno,
+                code  : this.props.codeCorrect
+            }
+            this.props.onSubmit(data);
         }
     },
     onCloseTip:function(){
@@ -114,7 +120,7 @@ var SignUp = React.createClass({
                         <span className={"timeout-reget "+(this.props.isSend ?"":"hide") }>{this.props.resultTime}秒后 , 重新发送</span>
                     </div>
                     <div className="form-line mt20">
-                        <a href="javascript:;" className="btn btn-login" onClick={this.onSubmit}>马上注册</a>
+                        <a href="javascript:;" className="btn btn-login" onClick={this.onSubmit}>下一步</a>
                     </div>
                     <div className="form-feedback mt30 clearfix">
                         <a href="" class="fr">已有账号 , 现在去登录</a>

@@ -29,11 +29,12 @@ var alias= {
   SlidePushMenu : components_dir + 'SlidePushMenu/SlidePushMenu.js',
   Slider        : components_dir + 'Slider/Slider.js',
   SlideTab      : components_dir + 'SlideTab/SlideTab.js',
-  Tip           : components_dir + 'Tip/Tip.js'
+  Tip           : components_dir + 'Tip/Tip.js',
+  SignUp        : components_dir + 'SignUp/SignUp.js'
 };
 
 //入口文件
-var entrys = ['Slider/Slider.js'];
+var entrys = ['SignUp/SignUp.js'];
 
 var config = {
   devtool: 'inline-source-map',
@@ -43,7 +44,7 @@ var config = {
   ],
   output: {
     path: path.join(__dirname, 'public/dist/'),
-    filename: 'Slider.js'
+    filename: 'SignUp.js'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

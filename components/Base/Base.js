@@ -2,16 +2,20 @@
  *
  * 通用方法
  */
+var $ = require("jquery");
 var Base = {
+    /**
+     * 通用正则表达式
+     */
+    regStr :{
+        telno       : /^1[3|4|5|8][0-9]\d{8}$/,                             //手机号码正则
+        email       : /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,     //邮箱正则
+        password    : /^[\w\W\d]{6,16}$/                                    //密码正则
+    },
     /**
      * 获取浏览器前缀支持
      *
      */
-    regStr :{
-        telno       : /^1[3|4|5|8][0-9]\d{8}$/,     //手机号码正则
-        email       : /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,                                                             //邮箱正则
-        password    : /^[\w\W\d]{6,16}$/                                                                                            //密码正则
-    },
     prefixStyle : function(){
         var prefixStyle="";
         var vendors = ['t', 'webkitT', 'MozT', 'msT', 'OT'],
@@ -37,6 +41,23 @@ var Base = {
             return true;
         }
         return false;
+    },
+    /**
+     *
+     * ajax请求路径
+     * key
+     */
+    loadUrl : function(url,key){
+        var result;
+        $.ajax({
+            url : url,
+            dataType : 'json',
+            async : false,
+            success : function(data) {
+                result = data[key];
+            }
+        });
+        return result;
     }
 }
 
