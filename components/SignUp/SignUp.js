@@ -69,6 +69,7 @@ var SignUp = React.createClass({
         }
     },
     timeOut : function(){
+        this.props.isShowTip = false;
         var $that = this;
         if($that.props.resultTime>0) {
             window.setTimeout($that.timeOut, 1000);
