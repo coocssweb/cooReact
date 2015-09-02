@@ -69,22 +69,25 @@ var SlidePushMenu = React.createClass({
         if(this.props.nowDeg <=this.props.maxDeg){
             if((!this.props.isTranslate && this.props.touchDelate.x>0)||
                 (this.props.isTranslate&&this.props.touchDelate.x<0)
-            )
-            var percent = Math.abs(this.props.touchDelate.x/this.props.width);
-            if(!this.props.isTranslate){
-                this.translateSuccess(this.props.touchDelate.x,percent);
-            }else{
-                //计算内容缩放系数、滑动范围
-                this.translateFail(percent);
+            ){
+                var percent = Math.abs(this.props.touchDelate.x/this.props.width);
+                if(!this.props.isTranslate){
+                    this.translateSuccess(this.props.touchDelate.x,percent);
+                }else{
+                    //计算内容缩放系数、滑动范围
+                    this.translateFail(percent);
+                }
             }
-
         }
     },
     onTouchEnd : function(){
         if(!this.props.isTouchDown){
             return;
         }
+
         this.props.isTouchDown = false;
+
+        //判断滑动是否有效
         if((!this.props.isTranslate && this.props.touchDelate.x>0)||
             (this.props.isTranslate&&this.props.touchDelate.x<0)
         ){
@@ -106,6 +109,7 @@ var SlidePushMenu = React.createClass({
     //变形失败
     translateFail : function(percent){
         this.props.contentTranslate = (1-percent)*this.props.width*0.8;
+        //是否开启3d切换效果
         if(this.props.is3d) {
             this.props.contentScale = 0.8 + percent*0.2;
             this.props.menuScale =  1- 0.3*percent;
@@ -123,6 +127,7 @@ var SlidePushMenu = React.createClass({
 
         //计算内容缩放系数、滑动范围
         this.props.contentTranslate = translateX * 0.8;
+        //是否开启3d切换效果
         if(this.props.is3d) {
             this.props.contentScale = 1 - percent * 0.2;
             this.props.menuScale = 0.7 + 0.3 *percent;
