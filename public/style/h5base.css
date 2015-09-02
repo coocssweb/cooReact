@@ -975,3 +975,12 @@ span.prev, span.next {
     transform-origin: 50% 50%;
 }
 
+.push-main-content-mask{
+    width: 100%;
+    height: 100%;
+    background:rgba(255,255,255,0.5);
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
