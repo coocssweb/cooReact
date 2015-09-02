@@ -70,48 +70,71 @@ var SlidePushMenu = React.createClass({
             if((!this.props.isTranslate && this.props.touchDelate.x>0)||
                 (this.props.isTranslate&&this.props.touchDelate.x<0)
             )
-            //计算内容缩放系数、滑动范围
-            var percent = this.props.touchDelate.x/this.props.width;
-            this.props.contentTranslate = this.props.touchDelate.x * 0.8 *0.8;
-            this.props.contentScale = 1 - percent*0.2;
-            //计算菜单缩放系数、滑动范围
-            this.props.menuTranslate =-20+20 *percent;
-            this.props.menuScale = 0.7 + 0.3 *percent;
-            this.props.maskPercent = 0.7 - 0.7*percent;
-            this.setState({
-                isUpdate : !this.state.isUpdate
-            })
-        }
+            var percent = Math.abs(this.props.touchDelate.x/this.props.width);
+            if(!this.props.isTranslate){
+                this.translateSuccess(this.props.touchDelate.x,percent);
+            }else{
+                //计算内容缩放系数、滑动范围
+                this.translateFail(percent);
+            }
 
+        }
     },
     onTouchEnd : function(){
         if(!this.props.isTouchDown){
             return;
         }
         this.props.isTouchDown = false;
-        if(this.props.touchDelate.x/this.props.width>0.5){
-            this.props.contentTranslate = this.props.width * 0.8 *0.8;
-            this.props.contentScale = 0.8;
-            //计算菜单缩放系数、滑动范围
-            this.props.menuTranslate =0;
-            this.props.menuScale = 1;
-            this.props.maskPercent = 0;
-            this.props.isTranslate = true;
-            this.setState({
-                isUpdate : !this.state.isUpdate
-            })
-        }else{
-            this.props.contentTranslate = 0;
-            this.props.contentScale = 1;
-            //计算菜单缩放系数、滑动范围
-            this.props.menuTranslate =-20;
-            this.props.menuScale = 0.7;
-            this.props.maskPercent = 0.7;
-            this.props.isTranslate = false;
-            this.setState({
-                isUpdate : !this.state.isUpdate
-            })
+        if((!this.props.isTranslate && this.props.touchDelate.x>0)||
+            (this.props.isTranslate&&this.props.touchDelate.x<0)
+        ){
+            if( !this.props.isTranslate && this.props.touchDelate.x/this.props.width>0.5){
+                this.props.isTranslate = true;
+                this.translateSuccess(this.props.width,1);
+            }else {
+                this.props.isTranslate = false;
+                this.translateFail(1);
+            }
         }
+    },
+    maskClick : function(e){
+        e.stopPropagation();
+        this.props.isTranslate = false;
+        this.props.isTouchDown = false;
+        this.translateFail(1);
+    },
+    //变形失败
+    translateFail : function(percent){
+        this.props.contentTranslate = (1-percent)*this.props.width*0.8;
+        if(this.props.is3d) {
+            this.props.contentScale = 0.8 + percent*0.2;
+            this.props.menuScale =  1- 0.3*percent;
+        }
+
+        //计算菜单缩放系数、滑动范围
+        this.props.menuTranslate =0-20*percent;
+        this.props.maskPercent =  0.7*percent;
+        this.setState({
+            isUpdate : !this.state.isUpdate
+        })
+    },
+    //变形成功
+    translateSuccess : function(translateX,percent){
+
+        //计算内容缩放系数、滑动范围
+        this.props.contentTranslate = translateX * 0.8;
+        if(this.props.is3d) {
+            this.props.contentScale = 1 - percent * 0.2;
+            this.props.menuScale = 0.7 + 0.3 *percent;
+        }
+        //计算菜单缩放系数、滑动范围
+        this.props.menuTranslate =-20+20 *percent;
+
+        this.props.maskPercent = 0.7 - 0.7*percent;
+
+        this.setState({
+            isUpdate : !this.state.isUpdate
+        })
     },
     render : function(){
 
@@ -145,7 +168,7 @@ var SlidePushMenu = React.createClass({
             <div className="push-container" {...Events}>
             <div className="slide-push-menu-outter">
             </div>
-            <div className="slide-push-menu-mask" style={maskStyle}>
+            <div className={"slide-push-menu-mask "+(this.props.isTranslate?"hide":"")} style={maskStyle}>
             </div>
             <div className="slide-push-menu" style={menuStyle}>
                 <div className="current-user">
@@ -179,6 +202,7 @@ var SlidePushMenu = React.createClass({
                     </div>
                 </li>
             </ul>
+            <div className={"push-main-content-mask "+(this.props.isTranslate?"":"hide")} onTouchEnd={this.maskClick}></div>
             </div>
             </div>
         )
