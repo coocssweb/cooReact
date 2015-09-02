@@ -5,7 +5,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var node_modules_dir = path.join(__dirname, 'node_modules');
-var components_dir = path.join(__dirname, 'components');
+var components_dir = path.join(__dirname, 'components')+"/";
 var examples_dir = path.join(__dirname,'examples');
 
 //∂¿¡¢œÓ
