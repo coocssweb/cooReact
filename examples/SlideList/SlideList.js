@@ -1,5 +1,5 @@
 var React = require("react");
-var SlideList = require("../../components/SlideList/SlideList.js");
+var SlideList = require("SlideList");
 var $ =require("jquery");
 
 var SlideListTest = React.createClass({

@@ -1,5 +1,5 @@
 var React = require("react");
-var Confirm = require("../../components/Confirm/Confirm.js");
+var Confirm = require("Confirm");
 
 var onConfirm = function(){
     alert("Hello World");

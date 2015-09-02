@@ -1,5 +1,5 @@
 var React = require("react");
-var SlideTab = require("../../components/SlideTab/SlideTab.js");
+var SlideTab = require("SlideTab");
 
 var dataLinks = [
     (<a href="javascript:;">非死不可</a>),(<a href="javascript:;">苹果公司</a>)

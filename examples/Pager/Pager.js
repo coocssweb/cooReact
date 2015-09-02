@@ -1,5 +1,5 @@
 var React = require("react");
-var Pager = require("../../components/Pager/Pager.js");
+var Pager = require("Pager");
 var onPageChange = function(page){
     alert("当前页:"+page)
 }

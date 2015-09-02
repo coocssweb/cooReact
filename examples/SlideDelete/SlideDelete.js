@@ -1,5 +1,5 @@
 var React = require("react");
-var SlideDelete = require("../../components/SlideDelete/SlideDelete.js");
+var SlideDelete = require("SlideDelete");
 React.render(
     <SlideDelete dataUrl="./data.js" />,
         document.getElementById('main-container')

@@ -1,5 +1,5 @@
 var React = require("react");
-var Tip = require("../../components/Tip/Tip.js");
+var Tip = require("Tip");
 
 
 React.render(

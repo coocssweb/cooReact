@@ -1,5 +1,5 @@
 var React = require("react");
-var Loadmore = require("../../components/Loadmore/Loadmore.js");
+var Loadmore = require("Loadmore");
 var $ =require("jquery");
 //调用加载更多
 var TestLoadmore = React.createClass({

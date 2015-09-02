@@ -1,6 +1,6 @@
 var React = require("react");
-var HoldEdit = require("../../components/HoldEdit/HoldEdit.js");
-var Confirm = require("../../components/Confirm/Confirm.js");
+var HoldEdit = require("HoldEdit");
+var Confirm = require("Confirm");
 var $ =require("jquery");
 //调用加载更多
 var TestHoldEdit = React.createClass({

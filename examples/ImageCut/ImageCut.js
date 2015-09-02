@@ -1,5 +1,5 @@
 var React = require("react");
-var ImageCut = require("../../components/ImageCut/ImageCut.js");
+var ImageCut = require("ImageCut");
 
 React.render(
     <ImageCut imageSrc="./header.jpg" />,

@@ -1,7 +1,7 @@
 var React = require("react");
-var SlidePushMenu = require("../../components/SlidePushMenu/SlidePushMenu.js");
+var SlidePushMenu = require("SlidePushMenu");
 
 React.render(
-    <SlidePushMenu is3d={false} />,
+    <SlidePushMenu is3d={true} />,
     document.body
 );
