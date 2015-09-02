@@ -15,12 +15,22 @@ var deps = [
   'underscore/underscore-min.js'
 ];
 
-var alias=[
-    'SlideDelete/SlideDelete.js',
-    'Slider/Slider.js',
-    'Confirm/Confirm.js',
-    'Tip/Tip.js'
-];
+//重定向文件
+var alias= {
+  Base          : components_dir + 'Base/Base.js',
+  Confirm       : components_dir + 'Confirm/Confirm.js',
+  HoldEdit      : components_dir + 'HoldEdit/HoldEdit.js',
+  ImageCut      : components_dir + 'ImageCut/ImageCut.js',
+  Loadmore      : components_dir + 'Loadmore/Loadmore.js',
+  Pager         : components_dir + 'Pager/Pager.js',
+  ScrollLoadmore: components_dir + 'ScrollLoadmore/ScrollLoadmore.js',
+  SlideDelete   : components_dir + 'SlideDelete/SlideDelete.js',
+  SlideList     : components_dir + 'SlideList/SlideList.js',
+  SlidePushMenu : components_dir + 'SlidePushMenu/SlidePushMenu.js',
+  Slider        : components_dir + 'Slider/Slider.js',
+  SlideTab      : components_dir + 'SlideTab/SlideTab.js',
+  Tip           : components_dir + 'Tip/Tip.js'
+};
 
 //入口文件
 var entrys = ['SlidePushMenu/SlidePushMenu.js'];
@@ -57,6 +67,9 @@ deps.forEach(function (dep) {
   var depPath = path.resolve(node_modules_dir, dep);
   config.module.noParse.push(depPath);
  });
+
+//重定向文件赋值
+config.resolve.alias = alias;
 
 //加载入口文件
 entrys.forEach(function(entry){
