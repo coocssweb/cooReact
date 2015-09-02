@@ -7,6 +7,11 @@ var Base = {
      * 获取浏览器前缀支持
      *
      */
+    regStr :{
+        telno       : /^1[3|4|5|8][0-9]\d{8}$/,     //手机号码正则
+        email       : /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,                                                             //邮箱正则
+        password    : /^[\w\W\d]{6,16}$/                                                                                            //密码正则
+    },
     prefixStyle : function(){
         var prefixStyle="";
         var vendors = ['t', 'webkitT', 'MozT', 'msT', 'OT'],
@@ -21,6 +26,17 @@ var Base = {
             }
         }
         return prefixStyle;
+    },
+    /**
+     *
+     * 字符串
+     * 正则
+     */
+    isTest : function (value,regStr){
+        if (regStr.test(value)) {
+            return true;
+        }
+        return false;
     }
 }
 
