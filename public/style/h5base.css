@@ -111,6 +111,11 @@ hr {
     -ms-user-select: none;
     user-select: none;
     text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .btn-cancel {
@@ -917,17 +922,32 @@ span.prev, span.next {
     position: relative;
     overflow: hidden;
 }
-.slide-push-menu-outter{
-    position: absolute; left: 0px;  bottom: 0px;
+
+.slide-push-menu-outter {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
     width: 100%;
     height: 80%;
     background-color: rgba(11, 29, 53, 1);
-    box-shadow: 0px -10px 50px 50px rgba(11, 29, 53,1);
-    z-index:0;
+    box-shadow: 0px -10px 50px 50px rgba(11, 29, 53, 1);
+    z-index: 0;
 }
-.slide-push-menu-mask { background: rgba(0,0,0,0.5); position: absolute; left: 0px; top: 0px; height: 100%; width: 100%; z-index: 2;}
+
+.slide-push-menu-mask {
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+}
+
 .slide-push-menu {
-    position: absolute; left: 0px;  bottom: 0px;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
     width: 100%;
     height: 100%;
     left: 0px;
@@ -950,13 +970,13 @@ span.prev, span.next {
 }
 
 .menus a {
-    display:inline-block;
+    display: inline-block;
     width: 75%;
     height: 50px;
     line-height: 50px;
     color: #fff;
     font-size: 16px;
-    font-family: "Microsoft YaHei",Arial,Helvetica,sans-serif,"宋体";
+    font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif, "宋体";
 }
 
 .menus a i {
@@ -975,12 +995,114 @@ span.prev, span.next {
     transform-origin: 50% 50%;
 }
 
-.push-main-content-mask{
+.push-main-content-mask {
     width: 100%;
     height: 100%;
-    background:rgba(255,255,255,0.5);
+    background: rgba(255, 255, 255, 0.5);
     position: absolute;
     left: 0px;
     top: 0px;
 }
 
+/*SignUp*/
+
+.login-panel {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-panel .logo {
+    height: 100px;
+}
+
+.login-regit-form input {
+    height: 44px;
+    line-height: 44px;
+    padding-left: 15px;
+    display: inline-block;
+    background-color: #fff;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 16px;
+    text-shadow: none;
+    outline: none;
+    border: 1px solid #eee;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.login-regit-form input.w-half {
+    width: 50%;
+}
+
+.btn-getcode {
+    width: calc(50% - 5px);
+    margin-left: 5px;
+    background-color: #f1f1f2;
+    background-image: -moz-linear-gradient(top, #f8f8f9, #e6e6e8);
+    background-image: -ms-linear-gradient(top, #f8f8f9, #e6e6e8);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f8f8f9), to(#e6e6e8));
+    background-image: -webkit-linear-gradient(top, #f8f8f9, #e6e6e8);
+    background-image: -o-linear-gradient(top, #f8f8f9, #e6e6e8);
+    background-image: linear-gradient(top, #f8f8f9, #e6e6e8);
+    color: #000;
+    height: 44px;
+    line-height: 44px;
+    border: 1px solid #eee;
+}
+
+.btn-getcode:active {
+    background-image: -moz-linear-gradient(top, #f0f0f0, #eee);
+    background-image: -ms-linear-gradient(top, #f0f0f0, #eee);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f0f0f0), to(#eee));
+    background-image: -webkit-linear-gradient(top, #f0f0f0, #eee);
+    background-image: -o-linear-gradient(top, #f0f0f0, #eee);
+    background-image: linear-gradient(top, #f0f0f0, #eee);
+}
+
+.timeout-reget {
+    width: calc(50% - 5px);
+    margin-left: 5px;
+    display: inline-block;
+    background-color: #eee;
+    color: #666;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+}
+
+.btn-login {
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    background-color: #0e78e7;
+    background-image: -moz-linear-gradient(top, #0e7bef, #0d73da);
+    background-image: -ms-linear-gradient(top, #0e7bef, #0d73da);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0e7bef), to(#0d73da));
+    background-image: -webkit-linear-gradient(top, #0e7bef, #0d73da);
+    background-image: -o-linear-gradient(top, #0e7bef, #0d73da);
+    background-image: linear-gradient(top, #0e7bef, #0d73da);
+    background-repeat: repeat-x;
+    color: #fff;
+    font-size: 16px;
+}
+
+.btn-login:active {
+    background-color: #0767c8;
+    background-image: -moz-linear-gradient(top, #086ed5, #055db5);
+    background-image: -ms-linear-gradient(top, #086ed5, #055db5);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#086ed5), to(#055db5));
+    background-image: -webkit-linear-gradient(top, #086ed5, #055db5);
+    background-image: -o-linear-gradient(top, #086ed5, #055db5);
+    background-image: linear-gradient(top, #086ed5, #055db5);
+    background-repeat: repeat-x;
+}
+
+.form-feedback a {
+    color: #246183;
+}
