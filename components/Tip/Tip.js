@@ -13,6 +13,7 @@ var Tip=React.createClass({
     },
     onClose:function(){
         this.props.isShow = false;
+        this.props.onCloseTip();
         this.setState({
             isUpdate:true
         });
