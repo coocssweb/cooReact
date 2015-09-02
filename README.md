@@ -1,5 +1,8 @@
 # 功能描述
-模块化封装项目中常用的React 插件，采用 webpack 的形式进行模块化封装
+模块化封装项目中常用的移动端React 插件，采用 webpack 的形式进行模块化封装。<br/>
+PC端测试请在chrome等支持react的浏览器下<br />
+浏览器兼容问题？支持所有常见的移动端浏览器。
+
 #目录文件描述
 1、webpack.config.js  ==>webpack配置文件<br />
 2、server.js          ==>nodejs服务配置文件<br />
@@ -8,6 +11,7 @@
 5、node_modules文件夹 ==>npm 模块安装目录<br />
 6、examples文件夹     ==>模块调用示例目录,子目录与调用components目录一致<br />
 7、components文件夹   ==>自己封装的插件目录,<br />
+8、components/base    ==>基础对象，通用方法集合，如：获取浏览器前缀方法等.....
 #插件功能描述
 <h5>1、滑动删除插件：SlideDelete</h5>
 <p>滑动删除插件：实现列表的滑后，显示删除按钮，点击删除按钮进行数据删除。<p>
