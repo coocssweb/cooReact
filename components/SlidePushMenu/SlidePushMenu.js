@@ -1,5 +1,9 @@
 var React = require("react");
 var $ = require("jquery");
+var Base =require("Base");
+//浏览器前缀
+var _prefixStyle = Base.prefixStyle();
+
 var SlidePushMenu = React.createClass({
     getInitialState : function(){
         return {
@@ -149,24 +153,21 @@ var SlidePushMenu = React.createClass({
             onTouchMove : this.onTouchMove,
             onTouchEnd : this.onTouchEnd
         }
+
         var contentStyle = {},
             menuStyle = {},
             maskStyle = {};
+
         if(!this.props.isInit) {
-            contentStyle = {
-                transform: "scale(" + this.props.contentScale + ") translate(" + this.props.contentTranslate + "px,0)"
-            }
-            menuStyle = {
-                transform: "scale(" + this.props.menuScale + ") translate(" + this.props.menuTranslate + "px,0)"
-            }
-            maskStyle= {
-                background : "rgba(0,0,0,"+this.props.maskPercent+")"
-            }
+            contentStyle[_prefixStyle + "transform"] = "scale(" + this.props.contentScale + ") translate(" + this.props.contentTranslate + "px,0)";
+            menuStyle[_prefixStyle + "transform"]= "scale(" + this.props.menuScale + ") translate(" + this.props.menuTranslate + "px,0)";
+            maskStyle["background"] = "rgba(0,0,0,"+this.props.maskPercent+")"
+
         }
         if(!this.props.isTouchDown){
-            contentStyle.transition = "all 0.3s";
-            menuStyle.transition = "all 0.3s";
-            maskStyle.transition = "all 0.3s";
+            contentStyle[_prefixStyle + "transition"] = "all 0.3s";
+            menuStyle[_prefixStyle + "transition"] = "all 0.3s";
+            maskStyle[_prefixStyle + "transition"] = "all 0.3s";
         }
 
         return (
