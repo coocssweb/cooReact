@@ -1,7 +1,7 @@
 var React = require("react");
+var $ = require("jquery");
 var Tip = require("Tip");
 var Base = require("Base");
-var $ = require("jquery");
 var ReactRouter = require("react-router");
 var Link = ReactRouter.Link;
 var SignUp = React.createClass({
@@ -14,7 +14,8 @@ var SignUp = React.createClass({
     getDefaultProps : function(){
         return {
             isSend      : false,    //是否已发送验证码
-            timeOut     : 60,       //倒计时
+            timeOut     : null,     //倒计时
+            timeCount   : 60,       //倒计时间数
             resultTime  : 0,        //剩余时间
             message     : "",       //提示信息
             isShowTip   : false,    //显示提示信息
@@ -67,7 +68,7 @@ var SignUp = React.createClass({
              */
             this.props.codeCorrect = Base.loadUrl(this.props.dataCode,"code");
 
-            this.props.resultTime = this.props.timeOut;
+            this.props.resultTime = this.props.timeCount;
             this.timeOut();
         }
     },
@@ -75,7 +76,7 @@ var SignUp = React.createClass({
 
         if(this.props.resultTime>0) {
             var $that = this;
-            window.setTimeout($that.timeOut, 1000);
+            this.props.timeOut = window.setTimeout($that.timeOut, 1000);
             this.props.resultTime--;
             this.isTiming = true;
         }else{
@@ -87,7 +88,7 @@ var SignUp = React.createClass({
         });
     },
     //提交表单
-    onSubmit : function(){
+    onSubmit : function(e){
         var isTelno =  this.checkTelno();
         var isCode = this.checkCode();
         if(!(isTelno&&isCode)){
@@ -95,11 +96,13 @@ var SignUp = React.createClass({
             this.setState({
                 isUpdate : !this.state.isUpdate
             });
+            e.preventDefault();
         }else{
             var data ={
                 telno : this.props.telno,
                 code  : this.props.codeCorrect
             }
+            window.clearTimeout(this.props.timeOut);
             this.props.onSubmit(data);
         }
     },
@@ -120,7 +123,7 @@ var SignUp = React.createClass({
                         <span className={"timeout-reget "+(this.props.isSend ?"":"hide") }>{this.props.resultTime}秒后 , 重新发送</span>
                     </div>
                     <div className="form-line mt20">
-                        <a href="javascript:;" className="btn btn-login" onClick={this.onSubmit}>下一步</a>
+                        <Link to="SetPwd" className="btn btn-login" onClick={this.onSubmit}>下一步</Link>
                     </div>
                     <div className="form-feedback mt30 clearfix">
                         <a href="" class="fr">已有账号 , 现在去登录</a>
