@@ -47,10 +47,11 @@ var Base = {
      * ajaxÇëÇóÂ·¾¶
      * key
      */
-    loadUrl : function(url,key){
+    loadUrl : function(url,key,params){
         var result;
         $.ajax({
             url : url,
+            data : params,
             dataType : 'json',
             async : false,
             success : function(data) {
