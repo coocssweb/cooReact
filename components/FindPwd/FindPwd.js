@@ -87,10 +87,11 @@ var FindPwd = React.createClass({
         });
     },
     //提交表单
-    onSubmit : function(){
+    onSubmit : function(e){
         var isTelno =  this.checkTelno();
         var isCode = this.checkCode();
         if(!(isTelno&&isCode)){
+            e.preventDefault();
             this.props.isShowTip = true;
             this.setState({
                 isUpdate : !this.state.isUpdate
