@@ -10,12 +10,12 @@ var Base = require("Base");
 var ReactRouter = require("react-router");
 var { Route, DefaultRoute, RouteHandler, Link } = ReactRouter;
 /**
- * ×¢²á×é¼ş
+ * ×¢ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 
 
 var _data ={};
-//µÇÂ¼
+//ï¿½ï¿½Â¼
 var SignInTest = React.createClass({
     onSubmit : function(){
         return true;
@@ -27,7 +27,7 @@ var SignInTest = React.createClass({
     }
 });
 
-//×¢²á
+//×¢ï¿½ï¿½
 var SignUpTest = React.createClass({
     onSubmit : function(data){
         return true;
@@ -39,7 +39,7 @@ var SignUpTest = React.createClass({
     }
 });
 
-//ÕÒ»ØÃÜÂë
+//ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½
 var FindPwdTest = React.createClass({
     onSubmit : function(data){
         return true;
@@ -50,7 +50,7 @@ var FindPwdTest = React.createClass({
         )
     }
 });
-//ÖØÖÃÃÜÂë
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 var SetPwdTest = React.createClass({
     onSubmit : function(data){
         return true;
@@ -84,5 +84,5 @@ var routes = (
 
 
 ReactRouter.run(routes, ReactRouter.HashLocation, function (Handler) {
-    React.render(<Handler/>, document.getElementById('main-container'))
+    React.render(<Handler/>, document.body)
 });

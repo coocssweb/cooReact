@@ -4,8 +4,9 @@ var Base = require("Base");
 var $ = require("jquery");
 var ReactRouter = require("react-router");
 var Link = ReactRouter.Link;
+var Navigation = ReactRouter.Navigation;
 var FindPwd = React.createClass({
-
+    mixins: [Navigation],
     getInitialState : function(){
         return {
             isUpdate : false
@@ -109,6 +110,11 @@ var FindPwd = React.createClass({
     },
     render : function(){
         return (
+            <div className="container">
+            <header>
+            <a href="javascript:;" className = "header-back" onClick={() => this.goBack()}><i className="fa fa-angle-left fa-2"></i></a>
+            <span className="header-title">找回密码</span>
+            </header>
             <div className="login-panel">
                 <div className="logo"></div>
                 <form className="login-regit-form">
@@ -129,6 +135,7 @@ var FindPwd = React.createClass({
                     </div>
                 </form>
                 <Tip isShow={this.props.isShowTip} onCloseTip={this.onCloseTip} message={this.props.message} />
+            </div>
             </div>
         )
     }

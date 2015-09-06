@@ -4,8 +4,10 @@ var Tip = require("Tip");
 var Base = require("Base");
 var ReactRouter = require("react-router");
 var Link = ReactRouter.Link;
-var SignUp = React.createClass({
+var Navigation = ReactRouter.Navigation;
 
+var SignUp = React.createClass({
+    mixins: [Navigation],
     getInitialState : function(){
         return {
             isUpdate : false
@@ -135,6 +137,11 @@ var SignUp = React.createClass({
     },
     render : function(){
         return (
+            <div className="container">
+            <header>
+                <a href="javascript:;" className = "header-back" onClick={() => this.goBack()}><i className="fa fa-angle-left fa-2"></i></a>
+                <span className="header-title">用户注册</span>
+            </header>
             <div className="login-panel">
                 <div className="logo"></div>
                 <form className="login-regit-form">
@@ -153,10 +160,11 @@ var SignUp = React.createClass({
                         <Link to="signin" className="btn btn-login" onClick={this.onSubmit}>注册</Link>
                     </div>
                     <div className="form-feedback mt30 clearfix">
-                        <Link to="signin" className="fl" >已有账号,现在去登录</Link>
+                        <Link to="signin" className="fl" >已有账号 , 现在去登录</Link>
                     </div>
                 </form>
                 <Tip isShow={this.props.isShowTip} onCloseTip={this.onCloseTip} message={this.props.message} />
+            </div>
             </div>
         )
     }
