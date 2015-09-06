@@ -14,6 +14,7 @@ var deps = [
   'underscore/underscore-min.js'
 ];
 
+
 //重定向文件
 var alias= {
   Base          : components_dir + 'Base/Base.js',
