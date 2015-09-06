@@ -2,11 +2,10 @@
  * webpack 配置文件
  * 配置独立项、入口文件、输出项信息
  */
-var webpack = require('webpack');
 var path = require('path');
+var webpack = require('webpack');
 var node_modules_dir = path.join(__dirname, 'node_modules');
 var components_dir = path.join(__dirname, 'components')+"/";
-var examples_dir = path.join(__dirname,'examples');
 
 //独立项
 var deps = [
@@ -36,18 +35,17 @@ var alias= {
   SetPwd        : components_dir + 'FindPwd/SetPwd.js'
 };
 
-//入口文件
-var entrys = ['Login/Login.js'];
-
 var config = {
   devtool: 'inline-source-map',
   entry: [
     'webpack-dev-server/client?http://127.0.0.1:3000',
-    'webpack/hot/only-dev-server'
+    'webpack/hot/only-dev-server',
+    './examples/Login/Login.js'
   ],
   output: {
     path: path.join(__dirname, 'public/dist/'),
-    filename: 'Login.js'
+    filename: 'Login.js',
+    publicPath: '/public/'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -74,11 +72,5 @@ deps.forEach(function (dep) {
 
 //重定向文件赋值
 config.resolve.alias = alias;
-
-//加载入口文件
-entrys.forEach(function(entry){
-  var entryPath = path.resolve(examples_dir, entry);
-  config.entry.push(entryPath);
-});
 
 module.exports = config;
