@@ -10,12 +10,12 @@ var Base = require("Base");
 var ReactRouter = require("react-router");
 var { Route, DefaultRoute, RouteHandler, Link } = ReactRouter;
 /**
- * ע�����
+ * 登录模块
  */
 
 
 var _data ={};
-//��¼
+//登录
 var SignInTest = React.createClass({
     onSubmit : function(){
         return true;
@@ -27,7 +27,7 @@ var SignInTest = React.createClass({
     }
 });
 
-//ע��
+//注册
 var SignUpTest = React.createClass({
     onSubmit : function(data){
         return true;
@@ -39,7 +39,7 @@ var SignUpTest = React.createClass({
     }
 });
 
-//�һ�����
+//找回密码
 var FindPwdTest = React.createClass({
     onSubmit : function(data){
         return true;
@@ -50,7 +50,7 @@ var FindPwdTest = React.createClass({
         )
     }
 });
-//��������
+//重置密码
 var SetPwdTest = React.createClass({
     onSubmit : function(data){
         return true;
