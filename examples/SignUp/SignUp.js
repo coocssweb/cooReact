@@ -9,6 +9,7 @@ var { Route, DefaultRoute, RouteHandler, Link } = ReactRouter;
  * 注册组件
  */
 
+
 var _data ={};
 
 var SignUpTest = React.createClass({
