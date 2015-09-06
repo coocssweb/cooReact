@@ -1,21 +1,21 @@
 /**
- * webpack ÅäÖÃÎÄ¼ş
- * ÅäÖÃ¶ÀÁ¢Ïî¡¢Èë¿ÚÎÄ¼ş¡¢Êä³öÏîĞÅÏ¢
+ * webpack é…ç½®æ–‡ä»¶
+ * é…ç½®ç‹¬ç«‹é¡¹ã€å…¥å£æ–‡ä»¶ã€è¾“å‡ºé¡¹ä¿¡æ¯
  */
-var webpack = require('webpack');
 var path = require('path');
+var webpack = require('webpack');
 var node_modules_dir = path.join(__dirname, 'node_modules');
 var components_dir = path.join(__dirname, 'components')+"/";
-var examples_dir = path.join(__dirname,'examples');
 
-//¶ÀÁ¢Ïî
+//ç‹¬ç«‹é¡¹
 var deps = [
   'react/dist/react.min.js',
   'jquery/dist/jquery.min.js',
   'underscore/underscore-min.js'
 ];
 
-//ÖØ¶¨ÏòÎÄ¼ş
+
+//é‡å®šå‘æ–‡ä»¶
 var alias= {
   Base          : components_dir + 'Base/Base.js',
   Confirm       : components_dir + 'Confirm/Confirm.js',
@@ -36,18 +36,17 @@ var alias= {
   SetPwd        : components_dir + 'FindPwd/SetPwd.js'
 };
 
-//Èë¿ÚÎÄ¼ş
-var entrys = ['Login/Login.js'];
-
 var config = {
   devtool: 'inline-source-map',
   entry: [
     'webpack-dev-server/client?http://127.0.0.1:3000',
-    'webpack/hot/only-dev-server'
+    'webpack/hot/only-dev-server',
+    './examples/Login/Login.js'
   ],
   output: {
     path: path.join(__dirname, 'public/dist/'),
-    filename: 'Login.js'
+    filename: 'Login.js',
+    publicPath: '/public/'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -66,19 +65,13 @@ var config = {
   }
 }
 
-//¼ÓÔØ aliasÏî
+//åŠ è½½ aliasé¡¹
 deps.forEach(function (dep) {
   var depPath = path.resolve(node_modules_dir, dep);
   config.module.noParse.push(depPath);
  });
 
-//ÖØ¶¨ÏòÎÄ¼ş¸³Öµ
+//é‡å®šå‘æ–‡ä»¶èµ‹å€¼
 config.resolve.alias = alias;
-
-//¼ÓÔØÈë¿ÚÎÄ¼ş
-entrys.forEach(function(entry){
-  var entryPath = path.resolve(examples_dir, entry);
-  config.entry.push(entryPath);
-});
 
 module.exports = config;
