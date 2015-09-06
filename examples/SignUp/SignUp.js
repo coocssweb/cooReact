@@ -1,35 +1,65 @@
 var React = require("react");
+var $ = require("jquery");
 var SignUp = require("SignUp");
 var Tip = require("Tip");
+var Base = require("Base");
 var ReactRouter = require("react-router");
 var { Route, DefaultRoute, RouteHandler, Link } = ReactRouter;
 /**
- * Â·ÓÉ¶¨Òå
+ * æ³¨å†Œç»„ä»¶
  */
 
+var _data ={};
 
 var SignUpTest = React.createClass({
-        onTelnoCheck : function(){
-
+        onSubmit : function(data){
+            _data.telno = data.telno;
+            console.log("telno");
         },
         render : function(){
             return (
-                <SignUp dataIsExist="./data_isexist.js" dataCode="./data_code.js" onSubmit ={this.onTelnoCheck}  />
+                <SignUp dataIsExist="./data_isexist.js" dataCode="./data_code.js" onSubmit ={this.onSubmit}  />
             )
         }
 })
 
 var Pwd = React.createClass({
-    getInitalState : function(){
-
+    getInitialState : function(){
+        return {
+            isUpdate : false
+        }
     },
     getDefaultProps : function(){
         return {
-            isShowTip   : false,        //ÊÇ·ñÏÔÊ¾ÌáÊ¾¿ò
-            message     : ""            //ÌáÊ¾ĞÅÏ¢
+            isShowTip   : false,        //æ˜¯å¦æ˜¾ç¤ºæç¤º
+            message     : ""            //æç¤ºä¿¡æ¯
         }
     },
+    onCloseTip:function(){
+        this.props.isShowTip = false;
+    },
     onSubmit : function(){
+        var password = $.trim( React.findDOMNode(this.refs.password).value);
+        var rePassword = $.trim( React.findDOMNode(this.refs.rePassword).value);
+        var flag = true;
+        if(password==""){
+            this.props.message = "è¯·è¾“å…¥å¯†ç ";
+            flag = false;
+        }else if(!Base.isTest(password,Base.regStr.password)){
+            this.props.message = "è¯·è¾“å…¥6-16ä½å­—æ¯æˆ–æ•°å­—çš„å¯†ç ";
+            flag = false;
+        }else if(password != rePassword ){
+            this.props.message = "ä¸¤æ¬¡å¯†ç è¾“å…¥ä¸ä¸€è‡´";
+            flag = false;
+        }
+
+        if(!flag){
+            this.props.isShowTip = true;
+            this.setState({
+                isUpdate : !this.state.isUpdate
+            });
+        }
+
 
     },
     render :function(){
@@ -38,13 +68,13 @@ var Pwd = React.createClass({
                 <div className="logo"></div>
                 <form className="login-regit-form">
                     <div className="form-line mt20 ">
-                        <input type="password" placeholder="ÇëÊäÈëÃÜÂë" name="password" ref="password" validate="req password" />
+                        <input type="password" placeholder="è¯·è¾“å…¥å¯†ç " name="password" ref="password" validate="req password" />
                     </div>
                     <div className="form-line mt10">
-                        <input type="password" placeholder="ÇëÈ·ÈÏÃÜÂë" name="rePassword" ref="rePassword" validate="req password" />
+                        <input type="password" placeholder="è¯·ç¡®è®¤å¯†ç " name="rePassword" ref="rePassword" validate="req password" />
                     </div>
                     <div className="form-line mt20">
-                        <a href="javascript:;" className="btn btn-login" onClick={this.onSubmit}>Éè¶¨ÃÜÂë</a>
+                        <a href="javascript:;" className="btn btn-login" onClick={this.onSubmit}>ç¡®è®¤å¯†ç </a>
                     </div>
                 </form>
                 <Tip isShow={this.props.isShowTip} onCloseTip={this.onCloseTip} message={this.props.message} />
