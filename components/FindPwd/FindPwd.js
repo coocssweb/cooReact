@@ -4,7 +4,7 @@ var Base = require("Base");
 var $ = require("jquery");
 var ReactRouter = require("react-router");
 var Link = ReactRouter.Link;
-var SignUp = React.createClass({
+var FindPwd = React.createClass({
 
     getInitialState : function(){
         return {
@@ -33,8 +33,8 @@ var SignUp = React.createClass({
         }else if(!Base.isTest(this.props.telno,Base.regStr.telno)){
             this.props.message = "请输入正确的手机号码";
             flag = false;
-        }else if(Base.loadUrl(this.props.dataIsExist,"isexist")){
-            this.props.message = "手机号码已注册请直接登录";
+        }else if(!Base.loadUrl(this.props.url_isexist,"isexist")){
+            this.props.message = "手机号码不存在，请先注册";
             flag = false;
         }
 
@@ -65,7 +65,7 @@ var SignUp = React.createClass({
             /**
              * 请求服务端发送验证码
              */
-            this.props.codeCorrect = Base.loadUrl(this.props.dataCode,"code");
+            this.props.codeCorrect = Base.loadUrl(this.props.url_code,"code");
 
             this.props.resultTime = this.props.timeOut;
             this.timeOut();
@@ -120,10 +120,11 @@ var SignUp = React.createClass({
                         <span className={"timeout-reget "+(this.props.isSend ?"":"hide") }>{this.props.resultTime}秒后 , 重新发送</span>
                     </div>
                     <div className="form-line mt20">
-                        <a href="javascript:;" className="btn btn-login" onClick={this.onSubmit}>下一步</a>
+                        <Link to="setpwd" className="btn btn-login" onClick={this.onSubmit}>下一步</Link>
                     </div>
                     <div className="form-feedback mt30 clearfix">
-                        <a href="" class="fr">已有账号 , 现在去登录</a>
+                        <Link to="signin" className="fl" >现在登录</Link>
+                        <Link to="signup" className="fr" >还没注册?</Link>
                     </div>
                 </form>
                 <Tip isShow={this.props.isShowTip} onCloseTip={this.onCloseTip} message={this.props.message} />
@@ -132,4 +133,4 @@ var SignUp = React.createClass({
     }
 });
 
-module.exports = SignUp;
+module.exports = FindPwd;
