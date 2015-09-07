@@ -832,6 +832,10 @@ span.prev, span.next {
 
 /*SlideTab*/
 .tab-header {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
     background: #f8f8f9;
     background-color: #f1f1f2;
@@ -848,6 +852,10 @@ span.prev, span.next {
 .tab-header > div {
     justify-content: space-between;
     width: 50%;
+    -moz-box-flex: 1;
+    -webkit-box-flex: 1;
+    -ms-box-flex:1;
+    box-flex: 1;
 }
 
 .tab-header a {

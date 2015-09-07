@@ -9,6 +9,7 @@
     <file url="file://$PROJECT_DIR$/components/ScrollLoadmore/ScrollLoadmore.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/components/SignIn/SignIn.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/components/SignUp/SignUp.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/components/SlideDelete/SlideList.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/components/SlideList/SlideList.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/components/SlidePushMenu/SlidePushMenu.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/examples/Confirm/Confirm.js" charset="UTF-8" />

@@ -25,30 +25,30 @@ var SlideList = React.createClass({
         var $module= $(".module");
         var $content =$(".module-content ul");
         this.props.minLeft = $module.width() -  $content.width() - 20;
+        $("#test").html(_prefixStyle);
     },
-    onTouchStart : function(){
+    onTouchStart : function(e){
         if(this.props.isTouchDown){
             return ;
         }
         this.props.isTouchDown = true;
-        var touch=window.event.touches[0]||window.event.changedTouches[0];
-        this.props.startX = touch.pageX;
+        var event=e||window.event;
+        this.props.startX = event.touches[0].pageX;
     },
-    onTouchMove : function(){
+    onTouchMove : function(e){
         if(!this.props.isTouchDown){
             return;
         }
-        var touch=window.event.touches[0]||window.event.changedTouches[0];
-        this.props.nowX = touch.pageX;
+        var event=e||window.event;
+        this.props.nowX = event.touches[0].pageX;
         this.props.delateX = this.props.nowX - this.props.startX;
-
         this.props.left = this.props.currentX + this.props.delateX;
         this.setState({
            isUpdate : !this.state.isUpdate
         });
-
+        e.preventDefault();
     },
-    onTouchEnd : function(){
+    onTouchEnd : function(e){
         if(!this.props.isTouchDown){
             return;
         }
@@ -72,6 +72,7 @@ var SlideList = React.createClass({
         this.props.delateX = 0;
     },
     render : function(){
+        $("#test").html($("#test").html()+"<br />render:"+this.props.left);
 
         var slideList = this.props.dataList.map(function(slideItem,index){
             return (
