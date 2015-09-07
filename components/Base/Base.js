@@ -1,19 +1,19 @@
 /**
  *
- * Í¨ÓÃ·½·¨
+ * é€šç”¨æ–¹æ³•
  */
 var $ = require("jquery");
 var Base = {
     /**
-     * Í¨ÓÃÕıÔò±í´ïÊ½
+     * é€šç”¨æ­£åˆ™è¡¨è¾¾å¼
      */
     regStr :{
-        telno       : /^1[3|4|5|8][0-9]\d{8}$/,                             //ÊÖ»úºÅÂëÕıÔò
-        email       : /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,     //ÓÊÏäÕıÔò
-        password    : /^[\w\W\d]{6,16}$/                                    //ÃÜÂëÕıÔò
+        telno       : /^1[3|4|5|8][0-9]\d{8}$/,                             //æ‰‹æœºå·ç æ­£åˆ™
+        email       : /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,     //é‚®ç®±æ­£åˆ™
+        password    : /^[\w\W\d]{6,16}$/                                    //å¯†ç æ­£åˆ™
     },
     /**
-     * »ñÈ¡ä¯ÀÀÆ÷Ç°×ºÖ§³Ö
+     * è·å–æµè§ˆå™¨å‰ç¼€æ”¯æŒ
      *
      */
     prefixStyle : function(){
@@ -33,8 +33,8 @@ var Base = {
     },
     /**
      *
-     * ×Ö·û´®
-     * ÕıÔò
+     * å­—ç¬¦ä¸²
+     * æ­£åˆ™
      */
     isTest : function (value,regStr){
         if (regStr.test(value)) {
@@ -44,7 +44,7 @@ var Base = {
     },
     /**
      *
-     * ajaxÇëÇóÂ·¾¶
+     * ajaxè¯·æ±‚è·¯å¾„
      * key
      */
     loadUrl : function(url,key,params){
@@ -59,6 +59,21 @@ var Base = {
             }
         });
         return result;
+        
+    },
+    /**
+     * ç»„ç»‡é»˜è®¤åŠ¨ä½œ
+     * @param e
+     */
+    pauseEvent : function (e) {
+        e.cancelBubble = true;
+        e.returnValue = false;
+        if (e.stopPropagation) {
+            e.stopPropagation();
+        }
+        if (e.preventDefault) {
+            e.preventDefault();
+        }
     }
 }
 

@@ -1,5 +1,5 @@
 /**
- * »ÃµÆÆ¬×é¼ş
+ * å¹»ç¯ç‰‡ç»„ä»¶
  */
 var React = require("react");
 var $ = require("jquery");
@@ -21,7 +21,7 @@ var Slider = React.createClass({
     },
     initData : function(){
         var data_url = this.props.dataUrl;
-        //ajax¼ÓÔØ²âÊÔÊı¾İ
+        //ajaxåŠ è½½æµ‹è¯•æ•°æ®
         var $that = this;
         $.ajax({
             url : data_url,
@@ -31,7 +31,7 @@ var Slider = React.createClass({
                 $that.props.data = data.images;
             }
         });
-        //¼ÓÔØÍ¼Æ¬
+        //åŠ è½½å›¾ç‰‡
         this.props.data.map(function(sliderValue,index){
             var img = new Image();
             $(img).load(function() {
@@ -43,7 +43,8 @@ var Slider = React.createClass({
             })
             .error(function() {
             })
-            //ÉèÖÃsrc
+
+            //è®¾ç½®src
             .attr("src", sliderValue.src);
         });
 

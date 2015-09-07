@@ -79,6 +79,7 @@ var SignUp = React.createClass({
             });
         }else{
             this.props.isSend = true;
+
             /**
              * 请求服务端发送验证码
              */
@@ -132,7 +133,7 @@ var SignUp = React.createClass({
             }
         }
     },
-    onCloseTip:function(){
+    tipCallBack:function(){
         this.props.isShowTip = false;
     },
     render : function(){
@@ -163,7 +164,7 @@ var SignUp = React.createClass({
                         <Link to="signin" className="fl" >已有账号 , 现在去登录</Link>
                     </div>
                 </form>
-                <Tip isShow={this.props.isShowTip} onCloseTip={this.onCloseTip} message={this.props.message} />
+                <Tip isShow={this.props.isShowTip} timeout={1000} classStyle ={"alert-info"} tipCallBack={this.tipCallBack} message={this.props.message} />
             </div>
             </div>
         )

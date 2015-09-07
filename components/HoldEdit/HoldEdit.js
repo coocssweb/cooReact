@@ -1,14 +1,14 @@
 /**
- *³¤°´±à¼­
+ *é•¿æŒ‰ç¼–è¾‘
  */
 var React = require("react");
 
 var HoldEdit = React.createClass({
     getDefaultProps : function(){
         return{
-            isTouchmove     : false,    //ÊÇ·ñÓĞ»¬¶¯
-            timeTouchStart  : 0,        //¿ªÊ¼´¥ÆÁÊ±¼ä
-            timeTouchEnd    : 0         //½áÊø´¥ÆÁÊ±¼ä
+            isTouchmove     : false,    //æ˜¯å¦æœ‰æ»‘åŠ¨
+            timeTouchStart  : 0,        //å¼€å§‹è§¦å±æ—¶é—´
+            timeTouchEnd    : 0         //ç»“æŸè§¦å±æ—¶é—´
         }
     },
     onTouchStart : function(e){
@@ -33,7 +33,8 @@ var HoldEdit = React.createClass({
         this.props.timeTouchEnd = null;
     },
     render : function(){
-        //ÊÂ¼ş×éºÏ
+        
+        //äº‹ä»¶ç»„åˆ
         var Events = {
             onTouchStart : this.onTouchStart,
             onTouchMove : this.onTouchMove,

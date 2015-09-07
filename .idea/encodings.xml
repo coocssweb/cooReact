@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/components/Base/Base.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/components/Confirm/Confirm.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/components/FindPwd/FindPwd.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/components/FindPwd/SetPwd.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/components/HoldEdit/HoldEdit.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/components/ImageCut/ImageCut.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/components/Loadmore/Loadmore.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/components/Pager/Pager.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/components/ScrollLoadmore/ScrollLoadmore.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/components/SignIn/SignIn.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/components/SignUp/SignUp.js" charset="UTF-8" />
+<<<<<<< HEAD
+=======
+    <file url="file://$PROJECT_DIR$/components/SlideDelete/SlideDelete.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/components/SlideDelete/SlideItem.js" charset="UTF-8" />
+>>>>>>> 00bdd0f37eb854a306f82862d54adc5f951096f8
     <file url="file://$PROJECT_DIR$/components/SlideDelete/SlideList.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/components/SlideList/SlideList.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/components/SlidePushMenu/SlidePushMenu.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/components/SlideTab/SlideTab.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/components/Slider/Slider.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/components/Slider/SliderItem.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/components/Slider/SliderList.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/components/Slider/SliderPager.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/components/Tip/Tip.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/examples/Confirm/Confirm.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/examples/HoldEdit/HoldEdit.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/examples/ImageCut/ImageCut.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/Login/Login.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/examples/Pager/Pager.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/examples/SlideList/data.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/examples/SlideTab/SlideTab.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/examples/Tip/Tip.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/webpack.config.js" charset="UTF-8" />
   </component>
 </project>

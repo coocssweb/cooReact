@@ -1,24 +1,23 @@
-//·ÖÒ³×é¼þ
-/*
- {page}£º·ÖÒ³ÐÅÏ¢£¬Èç{pageNow:1,pageCount:32}
- {this.onPageChange}: »»Ò³ÊÂ¼þ£¬Å×³öÀ´´¦Àí
- µ÷ÓÃ·½·¨<Pager page={page} onPageChange={this.onPageChange} >
- */
 var React = require("react");
 var Pager= React.createClass({
-        //ÉÏÒ»Ò³ÊÂ¼þ
+        propTypes :{
+            pageCount      : React.PropTypes.number,                              //æ€»é¡µæ•°
+            pageIndex      : React.PropTypes.number,                              //å½“å‰é¡µ
+            onPageChange   : React.PropTypes.func                                 //åˆ†é¡µå›žè°ƒ
+        },
+        //ä¸Šä¸€é¡µäº‹ä»¶
         onPrevPage:function(){
-            this.props.onPageChange(this.props.page.pageNow - 1);
+            this.props.onPageChange(this.props.pageIndex - 1);
         },
-        //ÏÂÒ»Ò³ÊÂ¼þ
+        //ä¸‹ä¸€é¡µäº‹ä»¶
         onNextPage :function(){
-            this.props.onPageChange(this.props.page.pageNow+1);
+            this.props.onPageChange(this.props.pageIndex+1);
         },
-        //äÖÈ¾
+        //æ¸²æŸ“
         render:function(){
-            //ÉÏÒ»Ò³
+            //ä¸Šä¸€é¡µ
             var prev;
-            if(this.props.page.pageNow>1){
+            if(this.props.pageIndex>1){
                 prev = (
                     <a href='javascript:;' onClick={this.onPrevPage} className='prev'><i className="fa fa-arrow-left"></i></a>
                  );
@@ -27,9 +26,10 @@ var Pager= React.createClass({
                     <span className='prev'><i className="fa fa-arrow-left"></i></span>
                 );
             }
-            //ÏÂÒ»Ò³
+
+            //ä¸‹ä¸€é¡µ
             var next;
-            if(this.props.page.pageNow==this.props.page.pageCount){
+            if(this.props.pageIndex==this.props.pageCount){
                 next = (
                     <span className='next'><i className="fa fa-arrow-right"></i></span>
             );
@@ -38,13 +38,13 @@ var Pager= React.createClass({
                     <a href='javascript:;' onClick={this.onNextPage} className='next'><i className="fa fa-arrow-right"></i></a>
             );
         }
-    //äÖÈ¾
+    //æ¸²æŸ“
     return (
         <section>
             <div className="pager-outter">
                 <div className="pager clearfix">
                     {prev}
-                    <span className="page">{this.props.page.pageNow} / {this.props.page.pageCount}</span>
+                    <span className="page">{this.props.pageIndex} / {this.props.pageCount}</span>
                     {next}
                 </div>
             </div>

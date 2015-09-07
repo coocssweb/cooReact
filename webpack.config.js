@@ -41,11 +41,11 @@ var config = {
   entry: [
     'webpack-dev-server/client?http://127.0.0.1:3000',
     'webpack/hot/only-dev-server',
-    './examples/SlideList/SlideList.js'
+    './examples/Pager/Pager.js'
   ],
   output: {
     path: path.join(__dirname, 'public/dist/'),
-    filename: 'SlideList.js',
+    filename: 'Pager.js',
     publicPath: '/public/'
   },
   plugins: [
@@ -69,7 +69,7 @@ var config = {
 deps.forEach(function (dep) {
   var depPath = path.resolve(node_modules_dir, dep);
   config.module.noParse.push(depPath);
- });
+});
 
 //重定向文件赋值
 config.resolve.alias = alias;

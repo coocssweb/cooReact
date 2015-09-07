@@ -105,7 +105,7 @@ var FindPwd = React.createClass({
             this.props.onSubmit(data);
         }
     },
-    onCloseTip:function(){
+tipCallBack:function(){
         this.props.isShowTip = false;
     },
     render : function(){
@@ -134,7 +134,7 @@ var FindPwd = React.createClass({
                         <Link to="signup" className="fr" >还没注册?</Link>
                     </div>
                 </form>
-                <Tip isShow={this.props.isShowTip} onCloseTip={this.onCloseTip} message={this.props.message} />
+                <Tip isShow={this.props.isShowTip}  timeout={1000} classStyle={"alert-info"}  tipCallBack={this.tipCallBack} message={this.props.message} />
             </div>
             </div>
         )

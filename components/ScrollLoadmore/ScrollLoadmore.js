@@ -15,6 +15,7 @@ var ScrollLoadmore = React.createClass({
       }
     },
     componentWillMount:function(){
+
         //初始化数据
         this.loadData(this.props.dataUrl);
     },

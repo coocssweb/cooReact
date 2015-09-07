@@ -1,89 +1,106 @@
 var React = require("react");
+React.initializeTouchEvents(true);
 var $ = require("jquery");
 var Base =require("Base");
-//ä¯ÀÀÆ÷Ç°×º
+
+//æµè§ˆå™¨å‰ç¼€
 var _prefixStyle = Base.prefixStyle();
+
 var SlideTab = React.createClass({
-    getInitialState : function(){
+    getInitialState : function () {
         return {
             isUpdate : false
         }
     },
     getDefaultProps : function(){
         return {
-            isInit          : true,         //ÊÇ·ñÊÇµÚÒ»´Î³õÊ¼»¯
-            isTouchDown     : false,        //ÊÇ·ñ°´ÏÂ
-            currentIndex    : 0,            //µ±Ç°ÏÔÊ¾µÄtab
-            tabItemsCount   : 0,            //tabµÄ¸öÊı
-            tabWidth        : 0,            //´¥ÆÁ¿í¶È
-            isNext          : true,         //ÊÇ·ñÊÇÏÂÒ»¸ö
-            startX          : 0,            //´¥ÆÁ¿ªÊ¼µÄÎ»ÖÃ
-            endX            : 0,            //´¥ÆÁ½áÊøµÄÎ»ÖÃ
-            touchDelateX    : 0,            //Ë®Æ½»¬¶¯¾àÀë
-            currentX        : 0,            //µ±Ç°x
-            left            : 0             //Î»ÖÃ
-        }
+            tabLink         : null,         //tabé“¾æ¥
+            tabItems        : null,         //tabå†…å®¹
+            isInit          : true,         //æ˜¯å¦æ˜¯ç¬¬ä¸€æ¬¡åˆå§‹åŒ–
+            isTouchDown     : false,        //æ˜¯å¦æŒ‰ä¸‹
+            currentIndex    : 0,            //å½“å‰æ˜¾ç¤ºçš„tab
+            tabItemsCount   : 0,            //tabçš„ä¸ªæ•°
+            tabWidth        : 0,            //è§¦å±å®½åº¦
+            isNext          : true,         //æ˜¯å¦æ˜¯ä¸‹ä¸€ä¸ª
+            startX          : 0,            //è§¦å±å¼€å§‹çš„ä½ç½®
+            nowX            : 0,            //è§¦å±ç»“æŸçš„ä½ç½®
+            currentX        : 0,            //å½“å‰x
+            delateX         : 0,            //æ°´å¹³æ»‘åŠ¨è·ç¦»
+            left            : 0             //ä½ç½®
+            }
     },
-    //äÖÈ¾Ç°µÄ²Ù×÷
+    //æ¸²æŸ“å‰çš„æ“ä½œ
     componentWillMount : function(){
-        //»ñÈ¡tab¸öÊı
+        //è·å–tabä¸ªæ•°
         this.props.tabItemsCount = this.props.Links.length;
         this.props.tabWidth = $("#main-container").width();
-        //¼ÆËãÄ¬ÈÏÎ»ÖÃ
+        //è®¡ç®—é»˜è®¤ä½ç½®
         this.props.currentX = (0-this.props.currentIndex)*this.props.tabWidth;
         this.props.left = this.props.currentX;
-    },
-    componentDidUpdate:function(){
-        this.props.left = 0;
-    },
-    //¿ªÊ¼´¥ÆÁ
-    onTouchStart : function(){
-        if(this.props.isTouchDown){
-            return;
+
+
+        //éå†tabå†…å®¹
+        var tabItemStyle ={
+            width :  this.props.tabWidth
         }
-        this.props.isTouchDown = true;
-        var touch=window.event.touches[0]||window.event.changedTouches[0];
-        this.props.startX = touch.pageX;
+        this.props.tabItems = this.props.Items.map(function(tabValue,index){
+            return (
+                <div className="tab-item" style={tabItemStyle}>
+                {tabValue}
+                </div>
+            )
+        });
+
 
     },
-    //´¥ÆÁ»¬¶¯
-    onTouchMove : function(){
+    //è§¦å±å¼€å§‹
+    onTouchStart : function(e){
+        if(this.props.isTouchDown){
+            return ;
+        }
+        this.props.isTouchDown = true;
+        var event=e||window.event;
+        this.props.startX = event.touches[0].pageX;
+    },
+    //è§¦å±æ»‘åŠ¨
+    onTouchMove : function(e){
+        Base.pauseEvent(e);
         if(!this.props.isTouchDown){
             return;
         }
-        var touch=window.event.touches[0]||window.event.changedTouches[0];
-        this.props.endX = touch.pageX;
-        this.props.touchDelateX = this.props.endX - this.props.startX;
-        this.props.left = this.props.currentX + this.props.touchDelateX;
+        var event=e||window.event;
+        this.props.nowX = event.touches[0].pageX;
 
-        //¸üĞÂ×´Ì¬´¥·¢äÖÈ¾
+        this.props.delateX = this.props.nowX - this.props.startX;
+        this.props.left = this.props.currentX + this.props.delateX;
+
+        $("#test").html($("#test").html()+"<br /> moving");
         this.setState({
             isUpdate : !this.state.isUpdate
         });
-
     },
-    //´¥ÆÁ½áÊø
-    onTouchEnd : function(){
+    //è§¦å±ç»“æŸ
+    onTouchEnd : function(e){
         if(!this.props.isTouchDown){
             return;
         }
+        this.props.isTouchDown = false;
 
         /**
-         * ÅĞ¶ÏÉÏÒ»¸ötab»¬¶¯/ÏÂÒ»¸ötab»¬¶¯
+         * åˆ¤æ–­ä¸Šä¸€ä¸ªtabæ»‘åŠ¨/ä¸‹ä¸€ä¸ªtabæ»‘åŠ¨
          */
-        if((this.props.touchDelateX < -10 && (this.props.currentIndex+1) <= this.props.tabItemsCount-1)||
-           (this.props.touchDelateX > 10 && (this.props.currentIndex-1) >= 0)
+        if((this.props.delateX < -10 && (this.props.currentIndex+1) <= this.props.tabItemsCount-1)||
+            (this.props.delateX > 10 && (this.props.currentIndex-1) >= 0)
         ){
-            this.props.currentIndex += this.props.touchDelateX>0 ? -1:1;
+            this.props.currentIndex += this.props.delateX>0 ? -1:1;
         }
 
-        //¼ÆËãÎ»ÖÃ
+        //è®¡ç®—ä½ç½®
         this.props.currentX = (0-this.props.currentIndex)*this.props.tabWidth;
         this.props.left = this.props.currentX;
-        this.props.isTouchDown = false;
         this.props.startX = 0;
         this.props.endX = 0;
-        this.props.touchDelateX = 0;
+        this.props.delateX = 0;
         this.setState({
             isUpdate : !this.state.isUpdate
         });
@@ -101,27 +118,14 @@ var SlideTab = React.createClass({
     },
     render : function(){
 
-        //±éÀútab°´Å¥
-
         var $that = this;
-        var tabLinks=this.props.Links.map(function(linkValue,index){
+        this.props.tabLinks=this.props.Links.map(function(linkValue,index){
             return (
                 <div className={ $that.props.currentIndex==index?"active":""}
-                    onTouchStart = {function(){
-                        $that.TabTo(index)
-                    }}
-                    onTouchEnd = {$that.TabEnd}>{linkValue}</div>
-            )
-        });
-        //±éÀútabÄÚÈİ
-        var tabItemStyle ={
-            width :  this.props.tabWidth
-        }
-        var tabItems = this.props.Items.map(function(tabValue,index){
-            return (
-                <div className={"tab-item"} style={tabItemStyle}>
-                    {tabValue}
-                </div>
+                onTouchStart = {function(){
+                    $that.TabTo(index)
+                }}
+                onTouchEnd = {$that.TabEnd}>{linkValue}</div>
             )
         });
 
@@ -130,31 +134,32 @@ var SlideTab = React.createClass({
             left : this.props.left,
             width : this.props.tabItemsCount * this.props.tabWidth
         }
-        if(!this.props.isTouchDown){
+        if(!this.props.isTouchDown) {
             innerStyle[_prefixStyle + "transition"] = "all 0.3s";
         }
-        //ÊÂ¼ş×éºÏ
+
+        //äº‹ä»¶ç»„åˆ
         var Events = {
             onTouchStart : this.onTouchStart,
             onTouchMove : this.onTouchMove,
             onTouchEnd : this.onTouchEnd
         }
 
-
-
         return (
             <div className="tab-panel">
             <div className="tab-header">
-                {tabLinks}
+            {this.props.tabLinks}
             </div>
-            <div className="tab-content">
-                <div className="tab-content-inner clearfix" style={innerStyle} {...Events}>
-                    {tabItems}
-                </div>
+            <div className="tab-content" {...Events}>
+            <div className="tab-content-inner clearfix" style={innerStyle} >
+                {this.props.tabItems}
+            </div>
             </div>
             </div>
         );
     }
-});
+})
+
+
 
 module.exports = SlideTab;

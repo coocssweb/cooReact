@@ -52,7 +52,7 @@ var SetPwd = React.createClass({
             }
         }
     },
-    onCloseTip:function(){
+    tipCallBack:function(){
         this.props.isShowTip = false;
     },
     render : function(){
@@ -75,7 +75,7 @@ var SetPwd = React.createClass({
                  <Link to="signin" className="btn btn-login" onClick={this.onSubmit}>重置密码</Link>
                 </div>
             </form>
-            <Tip isShow={this.props.isShowTip} onCloseTip={this.onCloseTip} message={this.props.message} />
+            <Tip isShow={this.props.isShowTip} tipCallBack={this.tipCallBack}   timeout={1000} classStyle={"alert-info"}   message={this.props.message} />
             </div>
             </div>
         );

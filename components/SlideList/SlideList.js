@@ -1,6 +1,8 @@
 var React = require("react");
+React.initializeTouchEvents(true);
 var $ = require("jquery");
 var Base =require("Base");
+
 //浏览器前缀
 var _prefixStyle = Base.prefixStyle();
 
@@ -12,6 +14,7 @@ var SlideList = React.createClass({
     },
     getDefaultProps : function(){
         return {
+            slideList           : null,     //数据列表
             isTouchDown         : false,    //是否按下
             currentX            : 0,        //当前位置
             left                : 0,        //偏移位置
@@ -21,12 +24,27 @@ var SlideList = React.createClass({
             minLeft             : 0         //最小偏移位置
         }
     },
+    //render前加载数据
+    componentWillMount :function(){
+        this.props.slideList =this.props.dataList.map(function(slideItem,index){
+            return (
+                <li>
+                <a href={slideItem.link}>
+                    <img src={slideItem.faceimg} />
+                    <p>{slideItem.title}</p>
+                </a>
+                </li>
+            );
+        });
+    },
     componentDidMount : function(){
         var $module= $(".module");
         var $content =$(".module-content ul");
+
         this.props.minLeft = $module.width() -  $content.width() - 20;
-        $("#test").html(_prefixStyle);
+
     },
+    //触屏开始
     onTouchStart : function(e){
         if(this.props.isTouchDown){
             return ;
@@ -35,7 +53,9 @@ var SlideList = React.createClass({
         var event=e||window.event;
         this.props.startX = event.touches[0].pageX;
     },
+    //触屏滑动
     onTouchMove : function(e){
+        e.preventDefault();
         if(!this.props.isTouchDown){
             return;
         }
@@ -43,12 +63,15 @@ var SlideList = React.createClass({
         this.props.nowX = event.touches[0].pageX;
         this.props.delateX = this.props.nowX - this.props.startX;
         this.props.left = this.props.currentX + this.props.delateX;
+
         this.setState({
            isUpdate : !this.state.isUpdate
         });
-        e.preventDefault();
+
     },
+    //触屏结束
     onTouchEnd : function(e){
+
         if(!this.props.isTouchDown){
             return;
         }
@@ -56,6 +79,7 @@ var SlideList = React.createClass({
 
         //判断超过最左边，最右边，如果超过则定定位到  极限位置
         if(this.props.delateX > 0 && this.props.left>0){
+
             this.props.left = 0;
             this.setState({
                 isUpdate : !this.state.isUpdate
@@ -72,18 +96,7 @@ var SlideList = React.createClass({
         this.props.delateX = 0;
     },
     render : function(){
-        $("#test").html($("#test").html()+"<br />render:"+this.props.left);
 
-        var slideList = this.props.dataList.map(function(slideItem,index){
-            return (
-                <li>
-                    <a href={slideItem.link}>
-                        <img src={slideItem.faceimg} />
-                        <p>{slideItem.title}</p>
-                    </a>
-                </li>
-            );
-        });
 
         var innerStyle ={
             left : this.props.left
@@ -106,7 +119,7 @@ var SlideList = React.createClass({
             </div>
                 <div className="module-content">
                     <ul className="clearfix" {...Events} style={innerStyle}>
-                        {slideList}
+                        {this.props.slideList}
                     </ul>
                 </div>
             </div>

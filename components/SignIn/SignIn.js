@@ -57,6 +57,7 @@ var SignIn = React.createClass({
                 telno : this.props.telno,
                 password : this.props.password
             }
+
             //登录验证
             var user = Base.loadUrl(this.props.url_account,"user",data);
 
@@ -72,7 +73,7 @@ var SignIn = React.createClass({
             }
         }
     },
-    onCloseTip:function(){
+    tipCallBack:function(){
         this.props.isShowTip = false;
     },
     render : function(){
@@ -99,7 +100,7 @@ var SignIn = React.createClass({
                         <Link to="signup" className="fr" >还没注册?</Link>
                     </div>
                 </form>
-                <Tip isShow={this.props.isShowTip} onCloseTip={this.onCloseTip} message={this.props.message} />
+                <Tip isShow={this.props.isShowTip} isShowBtn={true} timeout={1000} classStyle ={"alert-info"} tipCallBack={this.tipCallBack} message={this.props.message} />
             </div>
             </div>
         );

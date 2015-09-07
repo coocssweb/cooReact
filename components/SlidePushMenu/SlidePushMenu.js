@@ -1,4 +1,5 @@
 var React = require("react");
+React.initializeTouchEvents(true);
 var $ = require("jquery");
 var Base =require("Base");
 //浏览器前缀
@@ -68,6 +69,7 @@ var SlidePushMenu = React.createClass({
         }
         //沟谷定理计算触屏的角度
         this.props.nowDeg = Math.abs(Math.atan( this.props.touchDelate.y/this.props.touchDelate.x )*180/Math.PI);
+
 
         //判断角度是否在范围内
         if(this.props.nowDeg <=this.props.maxDeg){
