@@ -46,7 +46,7 @@ PC端测试请在chrome等支持react的浏览器下<br />
 
 
 #更新日志<br />
-<h5>2015.09.07  23:04<h5> <br />
+<h5>2015.09.07  23:04</h5> <br />
 tip：添加可自定皮肤，定义自动关闭时间，是否开始关闭按钮。具体参数看propTypes。<br />
 confirm ：添加cancel回调接口。具体参数看propTypes。<br />
 slideList、slidepushmenu :开启react触屏支持。
