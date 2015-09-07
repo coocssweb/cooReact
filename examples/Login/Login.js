@@ -88,5 +88,5 @@ var routes = (
 
 
 ReactRouter.run(routes, ReactRouter.HashLocation, function (Handler) {
-    React.render(<Handler/>, document.getElementById('main-container'))
+    React.render(<Handler/>, document.body)
 });
