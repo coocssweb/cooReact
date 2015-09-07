@@ -7,6 +7,10 @@ var Base =require("Base");
 var _prefixStyle = Base.prefixStyle();
 
 var SlideList = React.createClass({
+    propTypes :{
+        list           : React.PropTypes.element,                              //列表元素
+        height         : React.PropTypes.number                                //列表高度
+    },
     getInitialState : function () {
         return {
             isUpdate : false
@@ -14,7 +18,6 @@ var SlideList = React.createClass({
     },
     getDefaultProps : function(){
         return {
-            slideList           : null,     //数据列表
             isTouchDown         : false,    //是否按下
             currentX            : 0,        //当前位置
             left                : 0,        //偏移位置
@@ -24,23 +27,9 @@ var SlideList = React.createClass({
             minLeft             : 0         //最小偏移位置
         }
     },
-    //render前加载数据
-    componentWillMount :function(){
-        this.props.slideList =this.props.dataList.map(function(slideItem,index){
-            return (
-                <li>
-                <a href={slideItem.link}>
-                    <img src={slideItem.faceimg} />
-                    <p>{slideItem.title}</p>
-                </a>
-                </li>
-            );
-        });
-    },
     componentDidMount : function(){
-        var $module= $(".module");
+        var $module= $(".module-content");
         var $content =$(".module-content ul");
-
         this.props.minLeft = $module.width() -  $content.width() - 20;
 
     },
@@ -105,6 +94,7 @@ var SlideList = React.createClass({
             innerStyle[_prefixStyle + "transition"] = "all 0.3s";
         }
 
+
         //事件组合
         var Events = {
             onTouchStart : this.onTouchStart,
@@ -113,16 +103,11 @@ var SlideList = React.createClass({
         }
 
         return (
-            <div className="module">
-            <div className="module-title">
-                <i className="fa fa-list-ul"></i> 我的小说
-            </div>
-                <div className="module-content">
+                <div className="module-content" style ={{height : this.props.height}}>
                     <ul className="clearfix" {...Events} style={innerStyle}>
-                        {this.props.slideList}
+                        {this.props.list}
                     </ul>
                 </div>
-            </div>
         );
     }
 })

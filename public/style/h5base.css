@@ -947,7 +947,6 @@ span.prev, span.next {
     width: 100%;
     overflow: hidden;
     position: relative;
-    height: 120px;
 }
 
 .module-content ul {
