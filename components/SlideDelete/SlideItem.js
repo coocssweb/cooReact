@@ -1,6 +1,7 @@
 var React = require("react");
 var Base =require("Base");
-//ä¯ÀÀÆ÷Ç°×º
+//æµè§ˆå™¨å‰ç¼€
+
 var _prefixStyle = Base.prefixStyle();
 var SlideItem = React.createClass({
     getInitialState : function(){
@@ -8,14 +9,14 @@ var SlideItem = React.createClass({
     },
     getDefaultProps(){
         return {
-            delateWidth  : 60,       //±äĞÎ·¶Î§
-            delateTrigger: 10,       //´¥·¢·¶Î§
-            isTouchDown  : false,    //Êó±êÊÇ·ñ°´ÏÂ
-            startX       : 0,        //Êó±ê¿ªÊ¼µÄÎ»ÖÃ
-            endX         : 0,        //Êó±êÊÍ·ÅµÄÎ»ÖÃ
-            delateX      : 0,        //Êó±ê»¬¶¯µÄ¾àÀë
-            translateX   : 0,        //±äĞÎ·¶Î§
-            isUpdate     : false     //ÊÇ·ñ¸üĞÂ
+            delateWidth  : 60,       //å˜å½¢èŒƒå›´
+            delateTrigger: 10,       //è§¦å‘èŒƒå›´
+            isTouchDown  : false,    //é¼ æ ‡æ˜¯å¦æŒ‰ä¸‹
+            startX       : 0,        //é¼ æ ‡å¼€å§‹çš„ä½ç½®
+            endX         : 0,        //é¼ æ ‡é‡Šæ”¾çš„ä½ç½®
+            delateX      : 0,        //é¼ æ ‡æ»‘åŠ¨çš„è·ç¦»
+            translateX   : 0,        //å˜å½¢èŒƒå›´
+            isUpdate     : false     //æ˜¯å¦æ›´æ–°
         }
     },
     onTouchStart : function(e){
@@ -33,13 +34,13 @@ var SlideItem = React.createClass({
         var touch=window.event.touches[0]||window.event.changedTouches[0];
         this.props.endX = touch.pageX;
         this.props.delateX = this.props.endX - this.props.startX;
-        //»ñÈ¡»¬¶¯¾àÀë
+        //è·å–æ»‘åŠ¨è·ç¦»
         if(this.props.isTranslate){
             this.props.translateX = this.props.delateX < 0 ? -this.props.delateWidth :( this.props.delateX < this.props.delateWidth ? (this.props.delateX - this.props.delateWidth) : 0);
         }else{
             this.props.translateX = this.props.delateX > 0 ? 0 : (this.props.delateX > (-this.props.delateWidth) ? this.props.delateX : (-this.props.delateWidth));
         }
-        //ÉèÖÃ×´Ì¬¡¾»¬¶¯¾àÀë¡¿£¬´¥·¢ÖØĞÂäÖÈ¾
+        //è®¾ç½®çŠ¶æ€ã€æ»‘åŠ¨è·ç¦»ã€‘ï¼Œè§¦å‘é‡æ–°æ¸²æŸ“
         this.setState({
             translateX : this.props.translateX
         });
@@ -50,13 +51,13 @@ var SlideItem = React.createClass({
         }
 
         /**
-         * µ÷ÓÃListµÄÖØĞÂÉèÖÃ×´Ì¬·½·¨£¬ÖØĞÂäÖÈ¾List
+         * è°ƒç”¨Listçš„é‡æ–°è®¾ç½®çŠ¶æ€æ–¹æ³•ï¼Œé‡æ–°æ¸²æŸ“List
          */
         if(this.props.delateX !=0){
             if((!this.props.isTranslate&&(this.props.delateX<(-this.props.delateTrigger)))
                      ||(this.props.isTranslate&&(this.props.delateX>this.props.delateTrigger))
             ){
-                //»¬¶¯³É¹¦£¬ÇĞ»»isTranslate×´Ì¬
+                //æ»‘åŠ¨æˆåŠŸï¼Œåˆ‡æ¢isTranslateçŠ¶æ€
                 this.props.setTranslateFunc(this.props.dataIndex,!this.props.isTranslate);
             }else{
                 this.props.setTranslateFunc(this.props.dataIndex,this.props.isTranslate);
@@ -65,32 +66,32 @@ var SlideItem = React.createClass({
     },
     onDelete : function(e){
         /**
-         * µã»÷É¾³ıÊ±´¥·¢
-         * µ÷ÓÃÊôĞÔ·½·¨£¬Å×µ½List´¦ÀíÉ¾³ıÊÂ¼ş£¬ÖØĞÂäÖÈ¾
+         * ç‚¹å‡»åˆ é™¤æ—¶è§¦å‘
+         * è°ƒç”¨å±æ€§æ–¹æ³•ï¼ŒæŠ›åˆ°Listå¤„ç†åˆ é™¤äº‹ä»¶ï¼Œé‡æ–°æ¸²æŸ“
          */
         e.stopPropagation();
     },
     componentWillUpdate : function(){
         /**
-         * ÖØĞÂäÖÈ¾µÄÊ±ºò´¥·¢
-         * ÉèÖÃÑ¡Ïî×´Ì¬Îª¸üĞÂ
+         * é‡æ–°æ¸²æŸ“çš„æ—¶å€™è§¦å‘
+         * è®¾ç½®é€‰é¡¹çŠ¶æ€ä¸ºæ›´æ–°
          */
         this.props.isUpdate = true;
     },
     render : function(e) {
         var styleElement = {};
-        //ÊÇ·ñÎª¸üĞÂ
+        //æ˜¯å¦ä¸ºæ›´æ–°
         if (this.props.isUpdate) {
             styleElement[_prefixStyle + "transform"] = "translate(" + this.state.translateX + "px, 0px)";
 
         }
 
-        //ÅĞ¶Ïµ±Ç°ÏîµÄisTranslate ×´Ì¬
+        //åˆ¤æ–­å½“å‰é¡¹çš„isTranslate çŠ¶æ€
         if (this.props.dataIndex == this.props.deleteIndex&&this.props.isTranslate&&!this.props.isUpdate) {
             styleElement[_prefixStyle + "transform"] = "translate(" + (-this.props.delateWidth) + "px, 0px)";
         }
 
-        //ÊÂ¼ş×éºÏ
+        //äº‹ä»¶ç»„åˆ
         var Events = {
             onTouchStart : this.onTouchStart,
             onTouchMove : this.onTouchMove,
@@ -110,5 +111,5 @@ var SlideItem = React.createClass({
             )
     }
 });
-//ÉùÃ÷×é¼ş
+//å£°æ˜ç»„ä»¶
 module.exports = SlideItem;

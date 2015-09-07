@@ -73,6 +73,7 @@ var ImageCut = React.createClass({
             $that.props.imageSrc = $that.props.canvas.toDataURL("image/png");
 
 
+
             $that.setState({
                 isUpdate : !$that.state.isUpdate
             });

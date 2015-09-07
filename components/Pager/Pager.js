@@ -1,22 +1,22 @@
-//·ÖÒ³×é¼ş
+//åˆ†é¡µç»„ä»¶
 /*
- {page}£º·ÖÒ³ĞÅÏ¢£¬Èç{pageNow:1,pageCount:32}
- {this.onPageChange}: »»Ò³ÊÂ¼ş£¬Å×³öÀ´´¦Àí
- µ÷ÓÃ·½·¨<Pager page={page} onPageChange={this.onPageChange} >
+ {page}ï¼šåˆ†é¡µä¿¡æ¯ï¼Œå¦‚{pageNow:1,pageCount:32}
+ {this.onPageChange}: æ¢é¡µäº‹ä»¶ï¼ŒæŠ›å‡ºæ¥å¤„ç†
+ è°ƒç”¨æ–¹æ³•<Pager page={page} onPageChange={this.onPageChange} >
  */
 var React = require("react");
 var Pager= React.createClass({
-        //ÉÏÒ»Ò³ÊÂ¼ş
+        //ä¸Šä¸€é¡µäº‹ä»¶
         onPrevPage:function(){
             this.props.onPageChange(this.props.page.pageNow - 1);
         },
-        //ÏÂÒ»Ò³ÊÂ¼ş
+        //ä¸‹ä¸€é¡µäº‹ä»¶
         onNextPage :function(){
             this.props.onPageChange(this.props.page.pageNow+1);
         },
-        //äÖÈ¾
+        //æ¸²æŸ“
         render:function(){
-            //ÉÏÒ»Ò³
+            //ä¸Šä¸€é¡µ
             var prev;
             if(this.props.page.pageNow>1){
                 prev = (
@@ -27,7 +27,8 @@ var Pager= React.createClass({
                     <span className='prev'><i className="fa fa-arrow-left"></i></span>
                 );
             }
-            //ÏÂÒ»Ò³
+
+            //ä¸‹ä¸€é¡µ
             var next;
             if(this.props.page.pageNow==this.props.page.pageCount){
                 next = (
@@ -38,7 +39,7 @@ var Pager= React.createClass({
                     <a href='javascript:;' onClick={this.onNextPage} className='next'><i className="fa fa-arrow-right"></i></a>
             );
         }
-    //äÖÈ¾
+    //æ¸²æŸ“
     return (
         <section>
             <div className="pager-outter">

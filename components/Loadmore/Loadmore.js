@@ -41,6 +41,7 @@ var Loadmore=React.createClass({
                 loadElement = ( <span>加载更多电影</span> )
             }
 
+
             return (
                 <a href="javascript:;" className={"btn-loadmore "+(this.props.hasMore?"":"hide")+(this.props.isloading?"active":"")} onClick={this.props.hasMore?this.onLoadmore : null}>
                     {loadElement}

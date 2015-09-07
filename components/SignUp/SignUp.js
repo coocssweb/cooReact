@@ -77,6 +77,7 @@ var SignUp = React.createClass({
             });
         }else{
             this.props.isSend = true;
+
             /**
              * 请求服务端发送验证码
              */

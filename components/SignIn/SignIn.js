@@ -55,6 +55,7 @@ var SignIn = React.createClass({
                 telno : this.props.telno,
                 password : this.props.password
             }
+
             //登录验证
             var user = Base.loadUrl(this.props.url_account,"user",data);
 

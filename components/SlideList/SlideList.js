@@ -1,6 +1,7 @@
 var React = require("react");
 var $ = require("jquery");
 var Base =require("Base");
+
 //浏览器前缀
 var _prefixStyle = Base.prefixStyle();
 

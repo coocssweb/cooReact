@@ -1,24 +1,24 @@
 var React = require("react");
 var Base =require("Base");
-//ä¯ÀÀÆ÷Ç°×º
+//æµè§ˆå™¨å‰ç¼€
 var _prefixStyle = Base.prefixStyle();
 var SliderItem = React.createClass({
     getInitialState : function(){
       return {
-          touchDelate : 0,        //»¬¶¯¾àÀë
-          startPos    : null,     //ÆğÊ¼×ø±ê
-          nowPos      : null,     //»¬¶¯×ø±ê
-          isTouchDown : false,    //ÊÇ·ñÕıÔÚ´¥ÆÁ
-          isNext      : true      //ÊÇ·ñÏÂÒ»Ò³
+          touchDelate : 0,        //æ»‘åŠ¨è·ç¦»
+          startPos    : null,     //èµ·å§‹åæ ‡
+          nowPos      : null,     //æ»‘åŠ¨åæ ‡
+          isTouchDown : false,    //æ˜¯å¦æ­£åœ¨è§¦å±
+          isNext      : true      //æ˜¯å¦ä¸‹ä¸€é¡µ
       }
     },
     getDefaultProps : function(){
         return{
-            delateWidth : 50,        //³É¹¦¾àÀë
-            isEnd       : false      //½áÊø²Ù×÷
+            delateWidth : 50,        //æˆåŠŸè·ç¦»
+            isEnd       : false      //ç»“æŸæ“ä½œ
         }
     },
-    //äÖÈ¾Íê³Éºó
+    //æ¸²æŸ“å®Œæˆå
     componentDidUpdate : function(){
         if(this.props.isTouchEnd){
             this.props.translateDelate = this.props.endTranslate;
@@ -26,8 +26,9 @@ var SliderItem = React.createClass({
         }
     },
     resetParam : function(){
+
         /**
-         * ÖØÖÃ²ÎÊı
+         * é‡ç½®å‚æ•°
          */
         this.props.isTouchEnd = false;
         this.props.isEnd = true;
@@ -45,7 +46,7 @@ var SliderItem = React.createClass({
         }
         this.state.isTouchDown = true;
         /**
-         * »ñÈ¡¿ªÊ¼´¥ÆÁµÄ×ø±ê
+         * è·å–å¼€å§‹è§¦å±çš„åæ ‡
          */
         var touch=window.event.touches[0]||window.event.changedTouches[0];
 
@@ -60,7 +61,7 @@ var SliderItem = React.createClass({
         if(!this.state.isTouchDown){
             return;
         }
-        //»ñÈ¡»¬¶¯×ø±ê
+        //è·å–æ»‘åŠ¨åæ ‡
         var touch=window.event.touches[0]||window.event.changedTouches[0];
         this.setState({
             nowPos : {
@@ -87,7 +88,7 @@ var SliderItem = React.createClass({
         if(!this.state.isTouchDown){
             return;
         }
-        //ÅĞ¶ÏÇĞ»»³É¹¦£¿
+        //åˆ¤æ–­åˆ‡æ¢æˆåŠŸï¼Ÿ
         if(Math.abs(this.state.touchDelate)>0) {
             if (Math.abs(this.state.touchDelate) > this.props.delateWidth) {
                 this.props.onTranslateSuccess(this.props.index, this.state.isNext, this.state.touchDelate);
@@ -105,13 +106,13 @@ var SliderItem = React.createClass({
         styleElement[_prefixStyle+"transform"] = translate;
         styleElement["zIndex"] = this.props.zIndex;
 
-        //Îª½áÊøÌí¼Ó¹ı¶ÉĞ§¹û
+        //ä¸ºç»“æŸæ·»åŠ è¿‡æ¸¡æ•ˆæœ
         if(!this.props.isTouching){
             styleElement[_prefixStyle+"transition"] = "all 0.3s";
         }
         var className  = this.props.isShow?"":"hide";
 
-        //ÊÂ¼ş×éºÏ
+        //äº‹ä»¶ç»„åˆ
         var Events = {
             onTouchStart : this.onTouchStart,
             onTouchMove : this.onTouchMove,

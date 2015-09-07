@@ -1,9 +1,10 @@
 var React=require("react");
 var Tip=React.createClass({
-    //初始化State
+    //鍒濆鍖朣tate
     getInitialState :function(){
         return {
-            isUpdate : false	//是否显示
+            isUpdate : false	//鏄惁鏄剧ず
+            
         }
     },
     getDefaultProps : function(){

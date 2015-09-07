@@ -4,7 +4,7 @@ var SliderItem = require("./SliderItem");
 var SliderPager = require("./SliderPager");
 
 var SliderList = React.createClass({
-        //³õÊ¼»¯×´Ì¬
+        //åˆå§‹åŒ–çŠ¶æ€
         getInitialState :function(){
             return {
                 isUpdate : false
@@ -12,26 +12,26 @@ var SliderList = React.createClass({
         },
         getDefaultProps :function(){
             return {
-                isInit            : true,                     //ÊÇ·ñÊÇ³õÊ¼×´Ì¬
-                wWidth            : $(window).width(),        //ÆÁÄ»¿í¶È
-                wHeight           : $(window).height(),       //ÆÁÄ»¸ß¶È
-                sliderCount       : 0,                        //»ÃµÆÆ¬Ò³Êı
-                sliderIndex       : -1,                       //µ±Ç°Ò³
-                sliderNext        : -1,                       //ÏÂÒ»Ò³
-                indexDelate       : 0,                        //µ±Ç°Ò³»¬¶¯¾àÀë
-                nextDelate        : 0,                        //ÏÂÒ»Ò³»¬¶¯¾àÀë
-                isTouching        : false,                    //ÊÇ·ñ»¬¶¯½áÊø
-                isTouchEnd        : false,                    //ÊÇ·ñ»¬¶¯½áÊø
-                indexTranslate    : 0,                        //ÇĞ»»Î»ÖÃ
-                nextTranslate     : 0,                        //ÇĞ»»Î»ÖÃ
-                isSuccess         : false                     //ÊÇ·ñÇĞ»»³É¹¦
+                isInit            : true,                     //æ˜¯å¦æ˜¯åˆå§‹çŠ¶æ€
+                wWidth            : $(window).width(),        //å±å¹•å®½åº¦
+                wHeight           : $(window).height(),       //å±å¹•é«˜åº¦
+                sliderCount       : 0,                        //å¹»ç¯ç‰‡é¡µæ•°
+                sliderIndex       : -1,                       //å½“å‰é¡µ
+                sliderNext        : -1,                       //ä¸‹ä¸€é¡µ
+                indexDelate       : 0,                        //å½“å‰é¡µæ»‘åŠ¨è·ç¦»
+                nextDelate        : 0,                        //ä¸‹ä¸€é¡µæ»‘åŠ¨è·ç¦»
+                isTouching        : false,                    //æ˜¯å¦æ»‘åŠ¨ç»“æŸ
+                isTouchEnd        : false,                    //æ˜¯å¦æ»‘åŠ¨ç»“æŸ
+                indexTranslate    : 0,                        //åˆ‡æ¢ä½ç½®
+                nextTranslate     : 0,                        //åˆ‡æ¢ä½ç½®
+                isSuccess         : false                     //æ˜¯å¦åˆ‡æ¢æˆåŠŸ
             }
         },
         /**
-         * Ò³Ãæ»¬¶¯
-         * @param index µ±Ç°Ò³Î»ÖÃ
-         * @param isNext ÊÇ·ñ»¬µ½ÏÂÒ»Ò³
-         * @param touchDelate   »¬¶¯¾àÀë
+         * é¡µé¢æ»‘åŠ¨
+         * @param index å½“å‰é¡µä½ç½®
+         * @param isNext æ˜¯å¦æ»‘åˆ°ä¸‹ä¸€é¡µ
+         * @param touchDelate   æ»‘åŠ¨è·ç¦»
          */
         translatePage :function(index,isNext,touchDelate){
             this.props.isInit = false;
@@ -42,9 +42,9 @@ var SliderList = React.createClass({
             this.props.sliderCount = this.props.sliders.length;
             this.props.isSuccess =false;
             /**
-             * »ñÈ¡»¬¶¯¾àÀë
-             * ÏòÏÂ»¬¶¯£¬ÏÂÒ»ÕÅµÄ³õÊ¼Î»ÖÃÎª  -this.props.wWidth
-             * ÏòÉÏ»¬¶¯£¬ÏÂÒ»ÕÅµÄ³õÊ¼Î»ÖÃÎª  this.props.wWidth
+             * è·å–æ»‘åŠ¨è·ç¦»
+             * å‘ä¸‹æ»‘åŠ¨ï¼Œä¸‹ä¸€å¼ çš„åˆå§‹ä½ç½®ä¸º  -this.props.wWidth
+             * å‘ä¸Šæ»‘åŠ¨ï¼Œä¸‹ä¸€å¼ çš„åˆå§‹ä½ç½®ä¸º  this.props.wWidth
              */
             if(isNext){
                 this.props.sliderNext = index< (this.props.sliderCount-1) ? (this.props.sliderIndex + 1) : 0;
@@ -53,8 +53,9 @@ var SliderList = React.createClass({
                 this.props.sliderNext = index > 0 ? (this.props.sliderIndex - 1) : (this.props.sliderCount-1);
                 this.props.nextDelate = this.props.isHorizontal ? (-this.props.wWidth + touchDelate) : (-this.props.wHeight + touchDelate);
             }
+
             /**
-             * ÖØÖÃ×´Ì¬
+             * é‡ç½®çŠ¶æ€
              */
             this.setState(
                 {
@@ -63,27 +64,27 @@ var SliderList = React.createClass({
             );
         },
         /**
-         * ÇĞ»»³É¹¦
-         * @param index µ±Ç°Ò³Î»ÖÃ
-         * @param isNext ÊÇ·ñ»¬µ½ÏÂÒ»Ò³
-         * @param touchDelate   »¬¶¯¾àÀë
+         * åˆ‡æ¢æˆåŠŸ
+         * @param index å½“å‰é¡µä½ç½®
+         * @param isNext æ˜¯å¦æ»‘åˆ°ä¸‹ä¸€é¡µ
+         * @param touchDelate   æ»‘åŠ¨è·ç¦»
          */
         translateSuccess : function(index, isNext,touchDelate){
             this.props.isSuccess = true;
             this.onTranslateEnd(index,isNext,touchDelate);
         },
         /**
-         * ÇĞ»»Ê§°Ü
-         * @param index µ±Ç°Ò³Î»ÖÃ
-         * @param isNext ÊÇ·ñ»¬µ½ÏÂÒ»Ò³
-         * @param touchDelate   »¬¶¯¾àÀë
+         * åˆ‡æ¢å¤±è´¥
+         * @param index å½“å‰é¡µä½ç½®
+         * @param isNext æ˜¯å¦æ»‘åˆ°ä¸‹ä¸€é¡µ
+         * @param touchDelate   æ»‘åŠ¨è·ç¦»
          */
         translateFail : function(index, isNext,touchDelate){
             this.props.isSuccess = false;
             this.onTranslateEnd(index,isNext,touchDelate)
         },
         /**
-         * »¬¶¯½áÊø
+         * æ»‘åŠ¨ç»“æŸ
          */
         onTranslateEnd : function(index,isNext,touchDelate,isSuccess){
             this.props.indexDelate = 0;
@@ -92,8 +93,8 @@ var SliderList = React.createClass({
             this.props.isTouching = false;
             this.props.isTouchEnd = true;
             /**
-             * ÉèÖÃÏÂÒ»Ò³»¬¶¯¾àÀë£ºnextDelate¡¢
-             * »ñÈ¡½áÊøÊ±£¬ÏÂÒ»Ò³ºÍµ±Ç°Ò³µÄÎ»ÖÃ£ºindexTranslate¡¢nextTranslate
+             * è®¾ç½®ä¸‹ä¸€é¡µæ»‘åŠ¨è·ç¦»ï¼šnextDelateã€
+             * è·å–ç»“æŸæ—¶ï¼Œä¸‹ä¸€é¡µå’Œå½“å‰é¡µçš„ä½ç½®ï¼šindexTranslateã€nextTranslate
              */
             if(isNext){
                 this.props.sliderNext = index< (this.props.sliderCount-1) ? (this.props.sliderIndex + 1) : 0;
@@ -117,7 +118,7 @@ var SliderList = React.createClass({
                 }
             }
             /**
-             * ÖØÖÃ×´Ì¬
+             * é‡ç½®çŠ¶æ€
              */
             this.setState(
                 {
@@ -128,10 +129,10 @@ var SliderList = React.createClass({
 
         render : function () {
             var $that = this;
-            //±éÀú¹¹Ôì»ÃµÆÆ¬Ïî
+            //éå†æ„é€ å¹»ç¯ç‰‡é¡¹
             var SliderItems = this.props.sliders.map(function(sliderValue,index){
 
-                //ÊÇ·ñÏÔÊ¾
+                //æ˜¯å¦æ˜¾ç¤º
                 var isShow = false;
                 var zIndex = 0;
                 var isTouchEnd = false;
@@ -162,11 +163,11 @@ var SliderList = React.createClass({
                     endTranslate = $that.props.nextTranslate;
                 }
 
-                //ÊÂ¼ş°ó¶¨
+                //äº‹ä»¶ç»‘å®š
                 var Events ={
-                    onTranslatePage     : $that.translatePage,      //Ò³Ãæ±äĞÎ
-                    onTranslateSuccess  : $that.translateSuccess,   //ÇĞ»»³É¹¦
-                    onTranslateFail     : $that.translateFail    //ÇĞ»»Ê§°Ü
+                    onTranslatePage     : $that.translatePage,      //é¡µé¢å˜å½¢
+                    onTranslateSuccess  : $that.translateSuccess,   //åˆ‡æ¢æˆåŠŸ
+                    onTranslateFail     : $that.translateFail    //åˆ‡æ¢å¤±è´¥
                 }
 
                 return (

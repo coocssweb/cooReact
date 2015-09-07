@@ -4,23 +4,24 @@ var SlideItem = require("./SlideItem.js");
 var SlideList = React.createClass({
     getInitialState : function(){
         return {
-            isReset : false         //ÊÇ·ñÖØÖÃ
+            isReset : false         //æ˜¯å¦é‡ç½®
         }
     },
     getDefaultProps : function(){
         return {
-            deleteIndex : -1       //µ±Ç°Î»ÖÃ
+            deleteIndex : -1       //å½“å‰ä½ç½®
         }
     },
     setTranslateIndex : function(index,isTranslate){
         /**
-         * ÖØĞÂÉèÖÃÑ¡ÏîisTranslate×´Ì¬
+         * é‡æ–°è®¾ç½®é€‰é¡¹isTranslateçŠ¶æ€
          */
         this.props.deleteIndex = index;
         this.props.slides[index].isTranslate = isTranslate;
 
+        
         /**
-         * ÖØĞÂÉèÖÃstate£¬´¥·¢äÖÈ¾
+         * é‡æ–°è®¾ç½®stateï¼Œè§¦å‘æ¸²æŸ“
          */
         this.setState({
             isReset : !this.state.isReset
@@ -31,7 +32,7 @@ var SlideList = React.createClass({
         var $that = this;
         var slideItems = this.props.slides.map(function(slipValue,index){
             /**
-             *»ñÈ¡Ñ¡ÏîµÄ isTranslate ×´Ì¬
+             *è·å–é€‰é¡¹çš„ isTranslate çŠ¶æ€
              */
             var isTranslate = $that.props.deleteIndex == index ? $that.props.slides[index].isTranslate : false;
             return (

@@ -1,10 +1,11 @@
 /**
- * »¬¶¯É¾³ý×é¼þ
+ * æ»‘åŠ¨åˆ é™¤ç»„ä»¶
  *
  */
 var React = require("react");
 var $ = require("jquery");
 var SlideList = require("./SlideList.js");
+
 
 var SlideDelete = React.createClass({
     getDefaultProps : function(){

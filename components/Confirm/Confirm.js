@@ -35,6 +35,7 @@ var Confirm = React.createClass({
                 }
             );
             //回调
+
             this.props.onConfirm();
         },
         //渲染
