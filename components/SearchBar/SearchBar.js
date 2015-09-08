@@ -8,6 +8,7 @@ var SearchBar = React.createClass({
         searchCallBack  : React.PropTypes.func,                          //确认回调函数
         cancelCallBack  : React.PropTypes.func,                          //取消回调函数
         relkeyUrl       : React.PropTypes.string                         //相关搜索请求
+
     },
     getDefaultProps : function(){
         return {
@@ -16,7 +17,8 @@ var SearchBar = React.createClass({
             isShowClear : false,
             relData     : [],
             relElement  : null,
-            relPanelElement : null
+            relPanelElement : null,
+            isBlur  : false
         }
     },
     getInitialState : function(){
@@ -26,7 +28,7 @@ var SearchBar = React.createClass({
         }
     },
     componentDidUpdate : function(){
-        if(this.state.isFocus){
+        if(this.state.isFocus&&!this.props.isBlur){
             this.refs.key.getDOMNode().focus();
         }
     },
@@ -39,6 +41,13 @@ var SearchBar = React.createClass({
     focusOut : function(){
         this.setState({
             isFocus : false
+        })
+    },
+    onBlur : function(){
+        this.props.relPanelElement = null;
+        this.props.isBlur = true;
+        this.setState({
+            isUpdate : !this.state.isUpdate
         })
     },
     onSearch : function(e){
@@ -107,7 +116,7 @@ var SearchBar = React.createClass({
                 <div className="search-wrapper search-panel">
                 <div className="search-input">
                     <i className="fa fa-search"></i>
-                    <input type="text" onChange={this.inputChange} placeholder="请输入关键字" ref="key" />
+                    <input type="text" onChange={this.inputChange} onBlur={this.onBlur} placeholder="请输入关键字" ref="key" />
                     <div className={"clearInput "+(this.props.inputValue ==""?"hide":"")} onClick={this.clearInput}><i className="fa fa-times-circle"></i></div>
                     <a href="javascript:;" onClick={this.onSearch} className ="btn btn-search">搜索一下</a>
                 </div>
