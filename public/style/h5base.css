@@ -424,6 +424,9 @@ body {
     z-index: 20;
     left: 50%;
     transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
     background: rgba(0, 0, 0, 0.5);
     padding: 3px 10px;
     border-radius: 18px;
@@ -559,7 +562,7 @@ span.prev, span.next {
     display: block;
     background-color: #fff;
     text-align: center;
-    line-height: 46px;
+    line-height: 40px;
     padding: 2px;
     color: #428bca;
     font-size: 16px;
@@ -567,11 +570,13 @@ span.prev, span.next {
     -moz-border-radius: 3px;
     -o-border-radius: 3px;
     border-radius: 3px;
-    border: 1px solid #fafafa;
-    -webkit-box-shadow: 0px 1px 0px #f0f0f0;
-    -moz-box-shadow: 0px 1px 0px #f0f0f0;
-    box-shadow: 0px 1px 0px #f0f0f0;
+    border: 1px solid #f0f0f0;
+    -webkit-box-shadow: 0px 0px 4px #eee;
+    -moz-box-shadow: 0px 0px 4px #eee;
+    box-shadow: 0px 0px 4px #eee;
+    margin: 3px;
     margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .btn-loadmore:active {
@@ -639,7 +644,7 @@ span.prev, span.next {
     }
 }
 
-@-moz-keyframes spin {
+@-moz-keyframes loading {
     from {
         -moz-transform: rotate(0deg)
     }
@@ -648,7 +653,7 @@ span.prev, span.next {
     }
 }
 
-@-o-keyframes spin {
+@-o-keyframes loading {
     from {
         -o-transform: rotate(0deg)
     }
@@ -657,7 +662,7 @@ span.prev, span.next {
     }
 }
 
-@-webkit-keyframes spin {
+@-webkit-keyframes loading {
     from {
         -webkit-transform: rotate(0deg)
     }
@@ -685,8 +690,8 @@ span.prev, span.next {
 
 .loadover {
     text-align: center;
-    line-height: 30px;
-    height: 30px;
+    line-height: 40px;
+    height: 40px;
     color: #999;
 }
 

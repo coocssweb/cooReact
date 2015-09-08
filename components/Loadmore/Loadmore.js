@@ -1,14 +1,13 @@
-//加载更多
-/*
- 参数说明
- hasmore：还有更多？
- isloading: 正在加载？
- onLoadmore: 加载更多事件
- 调用方法<Loadmore onLoadmore={this.onLoadmore} >
- */
 var React = require('react');
 
 var Loadmore=React.createClass({
+    propTypes :{
+        title           : React.PropTypes.string,                              //标题
+        loadingTitle    : React.PropTypes.string,                              //加载标题
+        loadoverTitle   : React.PropTypes.string,                              //加载完成标题
+        hasMore         : React.PropTypes.string,                              //还有更多
+        loadCallBack        : React.PropTypes.func                             //回调函数
+    },
     getInitialState : function(){
         return {
             isUpdate : false
@@ -16,8 +15,11 @@ var Loadmore=React.createClass({
     },
     getDefaultProps : function(){
         return {
-            isloading : false,  //正在加载
-            hasMore   : false   //更多信息
+            title           : "加载更多",  //标题
+            loadingTitle    : "正在加载更多 . . . ",
+            loadoverTitle   : "没有更多信息了 . . .",
+            isloading       : false,      //正在加载
+            hasMore         : false   //更多信息
         }
     },
     onLoadmore : function(){
@@ -25,20 +27,20 @@ var Loadmore=React.createClass({
         this.setState({
             isUpdate : !this.state.isUpdate
         })
-        this.props.onLoadmore();
+        this.props.loadCallBack();
     },
     render:function(){
         var loadElement,
             loadingElement;
 
         if(!this.props.hasMore){
-            return ( <div className="loadover">没有更多信息了 . . .</div> )
+            return ( <div className="loadover">{this.props.loadoverTitle}</div> )
         }else{
             if(this.props.isloading){
                 loadElement = ( <span className="loading "></span> )
-                loadingElement = (<div className="loding-info">正在加载电影 . . .</div>);
+                loadingElement = (<div className="loding-info">{this.props.loadingTitle}</div>);
             }else{
-                loadElement = ( <span>加载更多电影</span> )
+                loadElement = ( <span>{this.props.title}</span> )
             }
 
 

@@ -2,6 +2,7 @@
  * 幻灯片组件
  */
 var React = require("react");
+React.initializeTouchEvents(true);
 var Base = require("Base");
 var $ = require("jquery");
 var SliderList = require("./SliderList.js");

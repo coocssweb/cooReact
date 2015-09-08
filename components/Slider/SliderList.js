@@ -63,12 +63,7 @@ var SliderList = React.createClass({
                 this.props.indexTranslate = 0;
                 this.props.nextTranslate = 0;
 
-                var $that = this;
-                window.setTimeout(function(){
-                    $that.setState({
-                        isUpdate : !$that.state.isUpdate
-                    })
-                },300);
+
             }
         },
         /**
@@ -192,6 +187,8 @@ var SliderList = React.createClass({
             if(!this.props.isTouchdown){
                 return;
             }
+
+            this.props.isTouchdown = false;
             //判断切换成功？
             if(Math.abs(this.props.touchDelate)>0) {
                 if (Math.abs(this.props.touchDelate) > this.props.delateWidth) {
@@ -204,7 +201,6 @@ var SliderList = React.createClass({
                 })
             }
 
-            this.props.isTouchdown = false;
         },
         render : function () {
             var $that = this;
@@ -228,10 +224,7 @@ var SliderList = React.createClass({
                     dataTranslate =  $that.props.nextTranslate;
                     zIndex = 10;
                 }
-
-                //事件绑定
-
-
+≈
                 return (
                     <SliderItem image = {sliderValue}
                         zIndex = {zIndex}
@@ -242,7 +235,7 @@ var SliderList = React.createClass({
                         />
                 );
             })
-
+            //事件绑定
             var Events ={
                 onTouchStart   : this.onTouchStart,        //开始触屏
                 onTouchMove    : this.onTouchMove,         //触屏滑动
@@ -250,6 +243,7 @@ var SliderList = React.createClass({
             }
 
             var Pager = null;
+            //分页支持
             if(this.props.isPager) {
                 Pager = (
                     <SliderPager pageIndex ={this.props.sliderIndex} pageCount = {this.props.sliderCount} / >

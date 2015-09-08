@@ -1,7 +1,7 @@
 var React = require("react");
+var Base = require("Base");
 var Loadmore = require("Loadmore");
 var $ =require("jquery");
-//µ÷ÓÃ¼ÓÔØ¸ü¶à
 var TestLoadmore = React.createClass({
     getInitialState : function(){
         return {
@@ -10,39 +10,33 @@ var TestLoadmore = React.createClass({
     },
     getDefaultProps : function(){
         return {
-            dataUrl :"",
             datas : [],
+            elements : [],
             isLoading : false,
             hasMore : false
         }
     },
     componentWillMount:function(){
-        //³õÊ¼»¯Êý¾Ý
-        this.props.dataUrl="./data.js";
-        this.loadData();
+        var reslult = Base.loadUrl("./data.js","result")
+        this.props.datas = reslult.datas;
+        this.props.hasMore = reslult.hasMore;
     },
     onLoadmore : function(){
-        this.props.dataUrl="./data2.js";
         setTimeout(this.loadData,5000);
     },
     loadData:function(){
-        var data_url = this.props.dataUrl;
-        var $that = this;
-        $.ajax({
-            url : data_url,
-            dataType : 'json',
-            async : false,
-            success : function(data) {
-                $that.props.datas = $that.props.datas.concat(data.datas);
-                $that.props.hasMore = data.hasMore;
-                $that.setState({
-                    isUpdate : !$that.state.isUpdate
-                })
-            }
-        });
+
+        var reslult = Base.loadUrl("./data2.js","result")
+        this.props.datas = reslult.datas;
+        this.props.hasMore = reslult.hasMore;
+
+        this.setState({
+            isUpdate : !this.state.isUpdate
+        })
+
     },
    render : function(){
-       var sliderItems = this.props.datas.map(function(sliderValue,index){
+       var newElements = this.props.datas.map(function(sliderValue,index){
            return (
                <li className="list-slip-item clearfix">
                    <div className="slip-item">
@@ -55,12 +49,14 @@ var TestLoadmore = React.createClass({
             )
        });
 
+        this.props.elements.push(newElements);
+
        return (
            <div>
                 <ul className="list-slide-group list-slide-delete">
-                    {sliderItems}
+                    {this.props.elements}
                 </ul>
-                <Loadmore hasMore={this.props.hasMore} onLoadmore ={this.onLoadmore} />
+                <Loadmore hasMore={this.props.hasMore} title={"åŠ è½½æ›´å¤šç”µå½±"} loadingTitle={"æ­£åœ¨åŠ è½½ç”µå½±. . ."} loadoverTitle={"æ²¡æœ‰æ›´å¤šç”µå½±äº†. . ."} loadCallBack ={this.onLoadmore} />
             </div>
        );
    }
@@ -68,5 +64,5 @@ var TestLoadmore = React.createClass({
 
 React.render(
 <TestLoadmore />,
-    document.getElementById("main-container")
+    document.body
 );

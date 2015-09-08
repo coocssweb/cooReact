@@ -25,8 +25,6 @@ var SliderItem = React.createClass({
             styleElement[_prefixStyle+"transition"] = "all 0.3s";
         }
 
-
-
         return (
             <div className={"slider-item " + (this.props.isShow?"":"hide") }
                  style={styleElement}></div>
