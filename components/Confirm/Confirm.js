@@ -1,10 +1,3 @@
-//确认对话框
-/*参数说明
- message：弹出框信息
- onConfirm：确认事件
- 调用方法：<Dialog message="确认删除吗？" onConfirm={this.onConfirm} />
- */
-
 var React = require("react");
 var Confirm = React.createClass({
         propTypes :{

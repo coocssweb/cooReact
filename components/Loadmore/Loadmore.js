@@ -37,20 +37,23 @@ var Loadmore=React.createClass({
             return ( <div className="loadover">{this.props.loadoverTitle}</div> )
         }else{
             if(this.props.isloading){
-                loadElement = ( <span className="loading "></span> )
-                loadingElement = (<div className="loding-info">{this.props.loadingTitle}</div>);
+                return (
+                    <div className="loadmore mt10">
+                        <span  className="loading"></span><span className="loading-title">{this.props.loadingTitle}</span>
+                    </div>
+                )
+
             }else{
-                loadElement = ( <span>{this.props.title}</span> )
+                return (
+                <a href="javascript:;" className={"btn-loadmore "+(this.props.hasMore?"":"hide")} onClick={this.props.hasMore?this.onLoadmore : null}>
+                    {this.props.title}
+                </a>
+                )
+
             }
 
 
-            return (
-                <a href="javascript:;" className={"btn-loadmore "+(this.props.hasMore?"":"hide")+(this.props.isloading?"active":"")} onClick={this.props.hasMore?this.onLoadmore : null}>
-                    {loadElement}
-                    {loadingElement}
-                </a>
 
-             );
         }
 
 

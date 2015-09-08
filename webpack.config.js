@@ -32,8 +32,9 @@ var alias= {
   Tip           : components_dir + 'Tip/Tip.js',
   SignIn        : components_dir + 'SignIn/SignIn.js',
   SignUp        : components_dir + 'SignUp/SignUp.js',
-  FindPwd        : components_dir + 'FindPwd/FindPwd.js',
-  SetPwd        : components_dir + 'FindPwd/SetPwd.js'
+  FindPwd       : components_dir + 'FindPwd/FindPwd.js',
+  SetPwd        : components_dir + 'FindPwd/SetPwd.js',
+  SearchBar     : components_dir + 'SearchBar/SearchBar.js'
 };
 
 var config = {
@@ -41,11 +42,11 @@ var config = {
   entry: [
     'webpack-dev-server/client?http://127.0.0.1:3000',
     'webpack/hot/only-dev-server',
-    './examples/ScrollLoadmore/ScrollLoadmore.js'
+    './examples/SearchBar/SearchBar.js'
   ],
   output: {
     path: path.join(__dirname, 'public/dist/'),
-    filename: 'ScrollLoadmore.js',
+    filename: 'SearchBar.js',
     publicPath: '/public/'
   },
   plugins: [
