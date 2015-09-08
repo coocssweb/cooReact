@@ -41,11 +41,11 @@ var config = {
   entry: [
     'webpack-dev-server/client?http://127.0.0.1:3000',
     'webpack/hot/only-dev-server',
-    './examples/SlideList/SlideList.js'
+    './examples/Slider/Slider.js'
   ],
   output: {
     path: path.join(__dirname, 'public/dist/'),
-    filename: 'SlideList.js',
+    filename: 'Slider.js',
     publicPath: '/public/'
   },
   plugins: [

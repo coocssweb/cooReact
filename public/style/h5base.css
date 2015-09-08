@@ -401,6 +401,10 @@ body {
     width: 100%;
     overflow: hidden;
 }
+#slider-inner{
+    height: 100%;
+    width: 100%;
+}
 
 #slider {
     position: relative;

@@ -2,10 +2,18 @@
  * 幻灯片组件
  */
 var React = require("react");
+var Base = require("Base");
 var $ = require("jquery");
 var SliderList = require("./SliderList.js");
 
 var Slider = React.createClass({
+    propTypes :{
+        dataUrl         : React.PropTypes.string,                             //图片
+        isPager         : React.PropTypes.bool,                               //显示图片信息
+        isHorizontal    : React.PropTypes.bool,                               //方向
+        isLoop          : React.PropTypes.bool,                               //是否循环
+        delateWidth     : React.PropTypes.number                              //触发值
+        },
     getInitialState : function(){
       return {
             isLoadOver : false
@@ -17,20 +25,8 @@ var Slider = React.createClass({
         }
     },
     componentWillMount:function(){
-      this.initData();
-    },
-    initData : function(){
-        var data_url = this.props.dataUrl;
-        //ajax加载测试数据
-        var $that = this;
-        $.ajax({
-            url : data_url,
-            dataType : 'json',
-            async : false,
-            success : function(data) {
-                $that.props.data = data.images;
-            }
-        });
+        this.props.data = Base.loadUrl(this.props.dataUrl,"images");
+        var $that =this;
         //加载图片
         this.props.data.map(function(sliderValue,index){
             var img = new Image();
@@ -47,7 +43,6 @@ var Slider = React.createClass({
             //设置src
             .attr("src", sliderValue.src);
         });
-
     },
     render : function(){
         if(this.state.isLoadOver) {
@@ -63,7 +58,6 @@ var Slider = React.createClass({
                 </div>
                 )
         }
-
     }
 });
 
