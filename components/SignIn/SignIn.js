@@ -93,7 +93,7 @@ var SignIn = React.createClass({
                         <input type="password" placeholder="请输入密码" name="password" ref="password" validate="req password" />
                     </div>
                     <div className="form-line mt20">
-                        <a href="javascript:;" className="btn btn-login" onClick={this.onSubmit}>登录</a>
+                        <a href="javascript:;" className="btn btn-blue block" onClick={this.onSubmit}>登录</a>
                     </div>
                     <div className="form-feedback mt30 clearfix">
                         <Link to="findpwd" className="fl" >忘记密码?</Link>

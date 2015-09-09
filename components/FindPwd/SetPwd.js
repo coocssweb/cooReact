@@ -72,7 +72,7 @@ var SetPwd = React.createClass({
                     <input type="password" placeholder="请确认密码" name="rePassword" ref="rePassword" validate="req password" />
                 </div>
                 <div className="form-line mt20">
-                 <Link to="signin" className="btn btn-login" onClick={this.onSubmit}>重置密码</Link>
+                 <Link to="signin" className="btn btn-blue block" onClick={this.onSubmit}>重置密码</Link>
                 </div>
             </form>
             <Tip isShow={this.props.isShowTip} tipCallBack={this.tipCallBack}   timeout={1000} classStyle={"alert-info"}   message={this.props.message} />

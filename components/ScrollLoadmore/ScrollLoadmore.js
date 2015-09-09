@@ -40,8 +40,8 @@ var ScrollLoadmore = React.createClass({
         return (
             <div className="scroll-in" onScroll={this.props.hasMore?this.onScroll : null }>
                 {this.props.elements}
-                <div className={"loadmore mt10 "+(this.props.isLoading?"":"hide")}>
-                    <span  className="loading"></span><span className="loading-title">{this.props.loadingTitle}</span>
+                <div className={"loading-wrap "+(this.props.isLoading?"":"hide")}>
+                    {this.props.loadingTitle}
                 </div>
                 <div className={"loadover "+(this.props.hasMore?"hide":"") }>
                     {this.props.loadoverTitle}

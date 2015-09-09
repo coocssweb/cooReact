@@ -122,12 +122,12 @@ tipCallBack:function(){
                         <input type="text" placeholder="请输入你的手机号码" name="telno" ref="telno" validate="req telno" />
                     </div>
                     <div className="form-line mt10">
-                        <input type="text" placeholder="请输入验证码" className="w-half" name="code" ref="code" validate="req password" />
-                        <a href="javascript:;" className={"btn btn-getcode " + (this.props.isSend ?"hide":"")} onClick={this.sendCode} >获取验证码</a>
+                        <input type="text" placeholder="请输入验证码" className="input-code" name="code" ref="code" validate="req password" />
+                        <a href="javascript:;" className={"btn btn-primary btn-code " + (this.props.isSend ?"hide":"")} onClick={this.sendCode} >获取验证码</a>
                         <span className={"timeout-reget "+(this.props.isSend ?"":"hide") }>{this.props.resultTime}秒后 , 重新发送</span>
                     </div>
                     <div className="form-line mt20">
-                        <Link to="setpwd" className="btn btn-login" onClick={this.onSubmit}>下一步</Link>
+                        <Link to="setpwd" className="btn btn-blue block" onClick={this.onSubmit}>下一步</Link>
                     </div>
                     <div className="form-feedback mt30 clearfix">
                         <Link to="signin" className="fl" >现在登录</Link>

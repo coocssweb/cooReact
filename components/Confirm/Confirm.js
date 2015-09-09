@@ -49,8 +49,8 @@ var Confirm = React.createClass({
                    <div className="dialog">
                         <div className="dialog-message">{this.props.message}</div>
                         <div className="dialog-btns">
-                            <a href="javascript:;" className="btn btn-cancel" onClick={this.onCancel}>取消</a>
-                            <a href="javascript:;" className="btn btn-confirm" onClick={this.onConfirm}>确认</a>
+                            <a href="javascript:;" className="btn btn-primary btn-cancel" onClick={this.onCancel}>取消</a>
+                            <a href="javascript:;" className="btn btn-primary btn-confirm" onClick={this.onConfirm}>确认</a>
                         </div>
                     </div>
                 </div>

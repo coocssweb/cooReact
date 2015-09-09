@@ -34,7 +34,8 @@ var alias= {
   SignUp        : components_dir + 'SignUp/SignUp.js',
   FindPwd       : components_dir + 'FindPwd/FindPwd.js',
   SetPwd        : components_dir + 'FindPwd/SetPwd.js',
-  SearchBar     : components_dir + 'SearchBar/SearchBar.js'
+  SearchBar     : components_dir + 'SearchBar/SearchBar.js',
+  SearchBox     : components_dir + 'SearchBox/SearchBox.js'
 };
 
 var config = {

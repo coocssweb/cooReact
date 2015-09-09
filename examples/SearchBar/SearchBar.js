@@ -19,7 +19,9 @@ var TestSearchBar = React.createClass({
             </div>
         )
         return (
-            <SearchBar hotkeyElement={hotkeys} relkeyUrl="./data.js" searchCallBack={this.onSearch} />
+            <div className="search-wrapper">
+                <SearchBar hotkeyElement={hotkeys} suggestUrl="./data.js" isSuggest ={true} btnName="玛莎拉蒂" searchCallBack={this.onSearch} />
+            </div>
         )
     }
 });
