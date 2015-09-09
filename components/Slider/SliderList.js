@@ -7,9 +7,13 @@ var SliderPager = require("./SliderPager");
 
 var SliderList = React.createClass({
         propTypes :{
+            sliders         : React.PropTypes.node,                                 //幻灯片
             delateWidth     : React.PropTypes.number,                               //切换成功的宽度
             isHorizontal    : React.PropTypes.bool,                                 //是否是水平方向
-            isLoop          : React.PropTypes.bool                                  //是否循环
+            isLoop          : React.PropTypes.bool,                                 //是否循环
+            slideType       : React.PropTypes.oneOf(['smooth','drawer']),           //效果
+            callback        : React.PropTypes.func,                                 //函数
+            sliderIndex      : React.PropTypes.number                                //当前页
         },
         //初始化状态
         getInitialState :function(){
@@ -20,11 +24,13 @@ var SliderList = React.createClass({
         getDefaultProps :function(){
             return {
                 delateWidth       : 50,                       //切换成功的宽度
+                pager             : null,
                 wWidth            : 0,                        //屏幕宽度
                 wHeight           : 0,                        //屏幕高度
                 sliderCount       : 0,                        //幻灯片页数
-                sliderIndex       : -1,                       //当前页
+                sliderIndex       : 0,                       //当前页
                 sliderNext        : -1,                       //下一页
+                isNext            : false,                    //是否是下一页
                 isTouchdown       : false,                    //是否滑动结束
                 isTouchend        : false,                    //触屏结束
                 indexTranslate    : 0,                        //切换位置
@@ -43,12 +49,11 @@ var SliderList = React.createClass({
         },
         componentWillMount : function(){
             this.props.sliderCount = this.props.sliders.length;
-            this.props.sliderIndex = 0;
 
         },
         componentDidMount : function(){
-            this.props.wWidth = $("#slider-inner").width();
-            this.props.wHeight = $("#slider-inner").height();
+            this.props.wWidth = $(".slider-inner").width();
+            this.props.wHeight = $(".slider-inner").height();
 
 
         },
@@ -56,6 +61,9 @@ var SliderList = React.createClass({
             if(this.props.isTouchend){
                 if(this.props.isSuccess){
                     this.props.sliderIndex = this.props.sliderNext;
+                    if(this.props.callback){
+                        this.props.callback(this.props.sliderIndex);
+                    }
                 }
                 this.props.isTouchend = false;
                 this.props.touchDelate = 0;
@@ -75,8 +83,12 @@ var SliderList = React.createClass({
              * 向下滑动，下一张的初始位置为  -this.props.wWidth
              * 向上滑动，下一张的初始位置为  this.props.wWidth
              */
-            this.props.indexTranslate = this.props.touchDelate/5;
-            if(this.props.touchDelate<0){
+            if(this.props.slideType=="smooth"){
+                this.props.indexTranslate = this.props.touchDelate;
+            }else if(this.props.slideType=="drawer"){
+                this.props.indexTranslate = this.props.touchDelate/5;
+            }
+            if(this.props.isNext){
                 this.props.sliderNext = this.props.sliderIndex< (this.props.sliderCount-1) ? (this.props.sliderIndex + 1) : 0;
                 this.props.nextTranslate = this.props.isHorizontal ? (this.props.wWidth + this.props.touchDelate) : (this.props.wHeight + this.props.touchDelate);
             }else{
@@ -112,7 +124,7 @@ var SliderList = React.createClass({
              * 设置下一页滑动距离：nextDelate、
              * 获取结束时，下一页和当前页的位置：indexTranslate、nextTranslate
              */
-            if(this.props.touchDelate<0){
+            if(this.props.isNext){
                 if(isSuccess){
                     this.props.indexTranslate = this.props.isHorizontal ? (-this.props.wWidth) : (-this.props.wHeight);
                     this.props.nextTranslate = 0;
@@ -128,6 +140,9 @@ var SliderList = React.createClass({
                     this.props.nextTranslate = this.props.isHorizontal ? (-this.props.wWidth) : (-this.props.wHeight);
                     this.props.indexTranslate = 0;
                 }
+            }
+            if(isSuccess){
+                this.props.pager = null;
             }
             /**
              * 重置状态
@@ -174,6 +189,7 @@ var SliderList = React.createClass({
 
 
             if(Math.abs(this.props.touchDelate)>0){
+                this.props.isNext = this.props.touchDelate<0;
                 this.setPageTranslate();
                 this.setState({
                     isUpdate : !this.state.isUpdate
@@ -224,14 +240,14 @@ var SliderList = React.createClass({
                     dataTranslate =  $that.props.nextTranslate;
                     zIndex = 10;
                 }
-≈
+
                 return (
-                    <SliderItem image = {sliderValue}
+                    <SliderItem element = {sliderValue}
                         zIndex = {zIndex}
                         isShow = {isShow}
                         isTouchdown = {$that.props.isTouchdown}
                         translateDelate = {dataTranslate}
-
+                        isHorizontal ={$that.props.isHorizontal}
                         />
                 );
             })
@@ -242,20 +258,21 @@ var SliderList = React.createClass({
                 onTouchEnd     : this.onTouchEnd           //触屏结束
             }
 
-            var Pager = null;
             //分页支持
-            if(this.props.isPager) {
-                Pager = (
-                    <SliderPager pageIndex ={this.props.sliderIndex} pageCount = {this.props.sliderCount} / >
+            if(this.props.isPager&&this.props.pager==null) {
+                this.props.pager = (
+                    <SliderPager pageIndex ={this.props.sliderIndex} isTouchend={this.props.isTouchend} isNext ={this.props.isNext} pageCount = {this.props.sliderCount} / >
                 )
             }
 
             return (
-                <div id="slider-inner" {...Events}>
+                <div className="slider">
+                <div className="slider-inner" {...Events}>
                 {SliderItems}
-                    <div id="slider-page">
-                        {Pager}
+                    <div className="slider-page">
+                        {this.props.pager}
                     </div>
+                </div>
                 </div>
             )
     }

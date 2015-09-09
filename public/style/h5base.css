@@ -410,18 +410,18 @@ header {
 
 /*幻灯片*/
 
-#slider, .slider-item {
+.slider, .slider-item {
     height: 100%;
     width: 100%;
     overflow: hidden;
 }
 
-#slider-inner {
+.slider-inner {
     height: 100%;
     width: 100%;
 }
 
-#slider {
+.slider {
     position: relative;
 }
 
@@ -429,10 +429,10 @@ header {
     position: absolute;
     left: 0px;
     top: 0px;
-    background-size: cover;
 }
 
-#slider-page {
+
+.slider-page {
     position: absolute;
     bottom: 20px;
     overflow: hidden;
@@ -442,34 +442,27 @@ header {
     -webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);
     -ms-transform: translate(-50%, 0);
-    background: rgba(0, 0, 0, 0.5);
-    padding: 3px 10px;
-    border-radius: 18px;
-    -webkit-border-radius: 18px;
-    -moz-border-radius: 18px;
-    -o-border-radius: 18px;
-    border: 1px solid #333;
+
 }
 
-#slider-page span {
+.slider-page span {
     display: inline-block;
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -o-border-radius: 50%;
     color: #fff;
-    background-color: #000;
-    border: 1px solid #EBE8E7;
-    padding: 5px;
-    margin-right: 3px;
-    margin-left: 3px;
+    background:rgba(100,100,100,0.8);
+    padding: 4px;
+    margin-right: 4px;
+    margin-left: 4px;
 }
 
-#slider-page span.active {
-    background-color: #900;
+.slider-page span.active {
+    background-color: #0692CE;
 }
 
-#loading {
+.loading {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -512,6 +505,12 @@ header {
     100% {
         transform: rotate(360deg);
     }
+}
+
+
+.slide-image{
+    width: 100%; height: 100%;
+    background-size: cover;
 }
 
 /*分页控件*/

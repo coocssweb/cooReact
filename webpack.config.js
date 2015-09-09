@@ -27,8 +27,7 @@ var alias= {
   SlideDelete   : components_dir + 'SlideDelete/SlideDelete.js',
   SlideList     : components_dir + 'SlideList/SlideList.js',
   SlidePushMenu : components_dir + 'SlidePushMenu/SlidePushMenu.js',
-  Slider        : components_dir + 'Slider/Slider.js',
-  SlideTab      : components_dir + 'SlideTab/SlideTab.js',
+  Slider        : components_dir + 'Slider/SliderList.js',
   Tip           : components_dir + 'Tip/Tip.js',
   SignIn        : components_dir + 'SignIn/SignIn.js',
   SignUp        : components_dir + 'SignUp/SignUp.js',
@@ -43,11 +42,11 @@ var config = {
   entry: [
     'webpack-dev-server/client?http://127.0.0.1:3000',
     'webpack/hot/only-dev-server',
-    './examples/SearchBar/SearchBar.js'
+    './examples/Slider/Tab.js'
   ],
   output: {
     path: path.join(__dirname, 'public/dist/'),
-    filename: 'SearchBar.js',
+    filename: 'SliderTab.js',
     publicPath: '/public/'
   },
   plugins: [

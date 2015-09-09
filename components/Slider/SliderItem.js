@@ -5,18 +5,18 @@ var Base =require("Base");
 var _prefixStyle = Base.prefixStyle();
 var SliderItem = React.createClass({
     propTypes :{
-        image           : React.PropTypes.object,                               //图片信息
+        element         : React.PropTypes.element,                                 //内容信息
         zIndex          : React.PropTypes.number,                               //z-index
         isShow          : React.PropTypes.number,                               //是否显示
         translateDelate : React.PropTypes.number,                               //变形距离
-        isTouchdown     : React.PropTypes.bool                                  //是否正在触屏
+        isTouchdown     : React.PropTypes.bool,                                 //是否正在触屏
+        isHorizontal    : React.PropTypes.bool
     },
     render : function(){
 
         var translate = this.props.isHorizontal?'translate('+this.props.translateDelate+'px,0)' : 'translate(0,'+this.props.translateDelate+'px)';
 
         var styleElement ={};
-        styleElement["backgroundImage"] = "url(" + this.props.image.src + ")";
         styleElement[_prefixStyle+"transform"] = translate;
         styleElement["zIndex"] = this.props.zIndex;
 
@@ -27,7 +27,9 @@ var SliderItem = React.createClass({
 
         return (
             <div className={"slider-item " + (this.props.isShow?"":"hide") }
-                 style={styleElement}></div>
+                 style={styleElement}>
+                     {this.props.element}
+            </div>
         )
     }
 });

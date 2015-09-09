@@ -36,6 +36,7 @@ var SearchBox = React.createClass({
         this.props.inputValue="";
         this.props.isShowClear = false;
         this.props.isFocus = true;
+        this.props.suggestElement = null;
         this.setState({
             isUpdate : !this.state.isUpdate
         })
@@ -45,6 +46,9 @@ var SearchBox = React.createClass({
         this.props.isFocus = false;
         this.props.suggestElement = null;
         this.refs.key.getDOMNode().blur();
+        this.setState({
+            isUpdate : !this.state.isUpdate
+        })
     },
     onFocus: function(){
       this.props.isFocus = true;
