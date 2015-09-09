@@ -25,7 +25,7 @@ var SearchBox = React.createClass({
             isUpdate : false
         }
     },
-    componentDidUpdate : function(){
+    componentDidMount : function(){
         //输入框获取焦点
         if(this.props.isFocus){
             this.refs.key.getDOMNode().focus();
@@ -44,9 +44,7 @@ var SearchBox = React.createClass({
     onBlur : function(){
         this.props.isFocus = false;
         this.props.suggestElement = null;
-        this.setState({
-            isUpdate : !this.state.isUpdate
-        });
+        this.refs.key.getDOMNode().blur();
     },
     onFocus: function(){
       this.props.isFocus = true;
