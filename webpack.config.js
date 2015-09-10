@@ -34,7 +34,8 @@ var alias= {
   FindPwd       : components_dir + 'FindPwd/FindPwd.js',
   SetPwd        : components_dir + 'FindPwd/SetPwd.js',
   SearchBar     : components_dir + 'SearchBar/SearchBar.js',
-  SearchBox     : components_dir + 'SearchBox/SearchBox.js'
+  SearchBox     : components_dir + 'SearchBox/SearchBox.js',
+  Dropdown      : components_dir + 'Dropdown/Dropdown.js'
 };
 
 var config = {
@@ -42,11 +43,11 @@ var config = {
   entry: [
     'webpack-dev-server/client?http://127.0.0.1:3000',
     'webpack/hot/only-dev-server',
-    './examples/Slider/Tab.js'
+    './examples/Dropdown/Dropdown.js'
   ],
   output: {
     path: path.join(__dirname, 'public/dist/'),
-    filename: 'SliderTab.js',
+    filename: 'Dropdown.js',
     publicPath: '/public/'
   },
   plugins: [
