@@ -48,6 +48,9 @@ PC端测试请在chrome等支持react的浏览器下<br />
 <h5>17、搜索框组件，SearchBox</h5>
 <p>SearchBox组件：实现移动端的搜索组件，输入框获取焦点的时,随着输入内容变化实时获取相关搜索词。支持定义是否开启相关搜索词<p>
 #更新日志<br />
+<h5>17、下拉按钮，Dropdown</h5>
+<p>Dropdown组件：实现下拉按钮组功能<p>
+#更新日志<br />
 <h5>2015.09.09  21:40</h5>
 删除SlideTab组件，功能合并到Slider中，更新Slider，支持定义默认当前页，幻灯片滑动的效果，滑动后的回调函数，扩展到可以支持任意元素而不仅仅是图片。<br />
 添加Searchbox，更新SearchBar(搜索框调用SearchBox)<br />
