@@ -1141,9 +1141,12 @@ span.prev, span.next {
 
 .search-input .clearInput {
     position: absolute;
-    right: 90px;
+    right: 80px;
+    width: 30px;
+    text-align: center;
     top: 3px;
     color: #999;
+    height: 40px;
     font-size: 18px;
     z-index: 2;
 }
