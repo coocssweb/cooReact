@@ -5,12 +5,13 @@ var Base =require("Base");
 var _prefixStyle = Base.prefixStyle();
 var SliderItem = React.createClass({
     propTypes :{
-        element         : React.PropTypes.element,                                 //内容信息
+        element         : React.PropTypes.element,                              //内容信息
         zIndex          : React.PropTypes.number,                               //z-index
         isShow          : React.PropTypes.number,                               //是否显示
         translateDelate : React.PropTypes.number,                               //变形距离
         isTouchdown     : React.PropTypes.bool,                                 //是否正在触屏
-        isHorizontal    : React.PropTypes.bool
+        isHorizontal    : React.PropTypes.bool,                                 //滑动方向
+        slideShadow     : React.PropTypes.string                                //阴影
     },
     render : function(){
 
@@ -24,9 +25,13 @@ var SliderItem = React.createClass({
         if(!this.props.isTouchdown){
             styleElement[_prefixStyle+"transition"] = "all 0.3s";
         }
+        if(this.props.slideShadow!="") {
+            styleElement[_prefixStyle + "box-shadow"] =this.props.slideShadow;
+        }
+
 
         return (
-            <div className={"slider-item " + (this.props.isShow?"":"hide") }
+            <div className={"slider-item " + (this.props.isShow?"":"hide ") }
                  style={styleElement}>
                      {this.props.element}
             </div>

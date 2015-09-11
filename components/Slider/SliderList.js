@@ -13,7 +13,7 @@ var SliderList = React.createClass({
             isLoop          : React.PropTypes.bool,                                 //是否循环
             slideType       : React.PropTypes.oneOf(['smooth','drawer']),           //效果
             callback        : React.PropTypes.func,                                 //函数
-            sliderIndex      : React.PropTypes.number                                //当前页
+            sliderIndex     : React.PropTypes.number                                //当前页
         },
         //初始化状态
         getInitialState :function(){
@@ -229,22 +229,31 @@ var SliderList = React.createClass({
                 var dataTranslate = {
                     "translateDelate" : 0
                 }
+                var slideShadow = "";
                 if(index==$that.props.sliderIndex || index==$that.props.sliderNext){
                     isShow = true;
                 }
-
                 if($that.props.sliderIndex == index){
                     dataTranslate = $that.props.indexTranslate;
                     zIndex = 2;
                 }else if($that.props.sliderNext == index){
                     dataTranslate =  $that.props.nextTranslate;
                     zIndex = 10;
+                    if($that.props.slideType!="smooth"){
+                        if($that.props.isHorizontal) {
+                            slideShadow = $that.props.isNext?'-2px 0px 3px rgba(0,0,0,0.3)':'2px 0px 3px rgba(0,0,0,0.3)';
+                        }else{
+                            slideShadow = $that.props.isNext?'0px -2px 3px rgba(0,0,0,0.3)':'0px 2px 3px rgba(0,0,0,0.3)';
+                        }
+                    }
                 }
 
                 return (
                     <SliderItem element = {sliderValue}
                         zIndex = {zIndex}
                         isShow = {isShow}
+                        slideShadow ={slideShadow}
+                        slideType = {$that.props.slideType}
                         isTouchdown = {$that.props.isTouchdown}
                         translateDelate = {dataTranslate}
                         isHorizontal ={$that.props.isHorizontal}

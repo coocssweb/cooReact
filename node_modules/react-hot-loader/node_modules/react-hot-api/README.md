@@ -98,7 +98,7 @@ You may also give user some way to access `makeHot` in case they want to allow h
 ##### AnonComponents.js
 ```javascript
 // The user still doesn't need to know these lines are being inserted by the tool:
-var module.makeHot = SOME_STORAGE_SHARED_BETWEEN_VERSIONS_OF_SAME_MODULE.makeHot;
+module.makeHot = SOME_STORAGE_SHARED_BETWEEN_VERSIONS_OF_SAME_MODULE.makeHot;
 if (!module.makeHot) {
   // put the function into some sane place (e.g. module.makeHot) without relying on hidden variables
   module.makeHot = SOME_STORAGE_SHARED_BETWEEN_VERSIONS_OF_SAME_MODULE.makeHot = require('react-hot-api')(require('react/lib/ReactMount'));

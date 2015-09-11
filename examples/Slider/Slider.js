@@ -48,7 +48,7 @@ var SliderTest = React.createClass({
                 })
 
                 return (
-                    <SliderList sliders= {elements} isPager ={this.props.isPager} isHorizontal={this.props.isHorizontal} />
+                    <SliderList sliders= {elements} isPager ={this.props.isPager} slideType={this.props.slideType} isHorizontal={this.props.isHorizontal} />
                 )
             }else{
                 return (

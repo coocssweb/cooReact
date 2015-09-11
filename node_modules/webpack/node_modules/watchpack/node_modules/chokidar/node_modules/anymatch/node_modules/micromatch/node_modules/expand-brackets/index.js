@@ -7,8 +7,6 @@
 
 'use strict';
 
-var isPosixBracket = require('is-posix-bracket');
-
 /**
  * POSIX character classes
  */
@@ -36,10 +34,6 @@ var POSIX = {
 module.exports = brackets;
 
 function brackets(str) {
-  if (!isPosixBracket(str)) {
-    return str;
-  }
-
   var negated = false;
   if (str.indexOf('[^') !== -1) {
     negated = true;

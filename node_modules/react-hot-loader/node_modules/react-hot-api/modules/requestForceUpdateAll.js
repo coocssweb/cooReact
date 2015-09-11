@@ -9,7 +9,7 @@ module.exports = function requestForceUpdateAll(getRootInstances, React) {
 
   /**
    * Forces deep re-render of all mounted React components.
-   * Hat's off to Omar Skalli (@Chetane) for suggesting this approach:
+   * Hats off to Omar Skalli (@Chetane) for suggesting this approach:
    * https://gist.github.com/Chetane/9a230a9fdcdca21a4e29
    */
   function forceUpdateAll() {

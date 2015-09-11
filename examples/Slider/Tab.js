@@ -28,7 +28,7 @@ var SliderTest = React.createClass({
                 )
             );
             return (
-                <SliderList sliders= {elements} isPager ={this.props.isPager} sliderIndex={1} callback={this.slideCallback} isHorizontal={this.props.isHorizontal} slideType="smooth" />
+                <SliderList sliders= {elements} isPager ={this.props.isPager} sliderIndex={1} callback={this.slideCallback} isHorizontal={this.props.isHorizontal} slideType="drawer" />
             )
         }
 
