@@ -11,7 +11,8 @@ var Tip=React.createClass({
     getDefaultProps : function(){
         return {
             isShow      : false,    //是否显示
-            isShowBtn   : false     //是否显示关闭按钮
+            isShowBtn   : false,    //是否显示关闭按钮
+            classStyle  : "alert-info"
         }
     },
     //初始化State
@@ -21,10 +22,16 @@ var Tip=React.createClass({
             
         }
     },
+    componentDidMount : function(){
+        if(this.props.timeout>0 && this.props.isShow){
+            var $that = this;
+            window.setTimeout($that.onClose,$that.props.timeout);
+        }
+    },
     componentDidUpdate : function(){
         if(this.props.timeout>0 && this.props.isShow){
             var $that = this;
-            window.setTimeout($that.onClose,this.props.timeout);
+            window.setTimeout($that.onClose,$that.props.timeout);
         }
     },
     onClose:function(){
