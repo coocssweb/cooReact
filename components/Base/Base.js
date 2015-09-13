@@ -74,6 +74,71 @@ var Base = {
         if (e.preventDefault) {
             e.preventDefault();
         }
+    },
+
+    getXmlHttpRequest : function () {
+        var xmlHttpRequest = null;
+        if (window.XMLHttpRequest) {
+            //针对FirFox，Mozilla，Opera，Safari，IE7，IE8
+            xmlHttpRequest = new XMLHttpRequest();
+            if (xmlHttpRequest.overrideMimeType) {
+                //针对Mozilla不同版本差别
+                xmlHttpRequest.overrideMimeType("application/octet-stream");
+            }
+            //如果XMLHttpRequest没有sendAsBinary（如Chrome），则扩展sendAsBinary
+            if (!window.XMLHttpRequest.prototype.sendAsBinary) {
+                window.XMLHttpRequest.prototype.sendAsBinary = function (datastr) {
+                    function byteValue(x) {
+                        return x.charCodeAt(0) & 0xff;
+                    }
+                    var ords = Array.prototype.map.call(datastr, byteValue);
+                    var ui8a = new Uint8Array(ords);
+                    this.send(ui8a.buffer);
+                };
+            }
+
+        } else if (window.ActiveXObject) {
+            var activexml = ["MSXML2.XMLHTTP", "Microsoft.XMLHTTP"];
+            for (var i = 0; i < activexml.length; i++) {
+                try {
+                    xmlHttpRequest = new ActiveXObject(activexml[i]);
+                    break;
+                } catch (e) {
+
+                }
+            }
+        }
+
+        return xmlHttpRequest;
+    },
+    selectImage : function(file,callback){
+        var reader = new FileReader();
+        reader.onloadend = function (e) {
+            callback(e.target.result,file);
+        }
+        reader.readAsDataURL(file);
+    },
+    uploadImage : function(url,param,file,callback,params){
+        var xhr = this.getXmlHttpRequest();
+
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            xhr.open("POST", url + "?"+param+"=" + file.name, true);
+            xhr.overrideMimeType("application/octet-stream");
+            xhr.sendAsBinary(reader.result);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        var responseJson = $.parseJSON(xhr.responseText);
+
+                        callback(responseJson,params);
+
+                    }
+                }
+            }; //end of onreadystatechange
+        } //end of onloadend
+
+        reader.readAsBinaryString(file);
     }
 }
 
