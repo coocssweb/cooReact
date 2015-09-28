@@ -161,7 +161,7 @@ var SignUp = React.createClass({
                         <Link to="signin" className="btn btn-blue block" onClick={this.onSubmit}>注册</Link>
                     </div>
                     <div className="form-feedback mt30 clearfix">
-                        <Link to="signin" className="fl" >已有账号 , 现在去登录</Link>
+                        <Link to="signin" className="fl" >已有账号 , 现在去登录!</Link>
                     </div>
                 </form>
                 <Tip isShow={this.props.isShowTip} timeout={1000} classStyle ={"alert-info"} tipCallBack={this.tipCallBack} message={this.props.message} />

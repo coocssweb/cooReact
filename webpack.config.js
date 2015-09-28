@@ -44,12 +44,12 @@ var config = {
   entry: [
     'webpack-dev-server/client?http://127.0.0.1:3000',
     'webpack/hot/only-dev-server',
-    './examples/UploadImage/UploadImage.js'
+    './examples/Loadmore/Loadmore.js'
   ],
   output: {
     path: path.join(__dirname, 'public/dist/'),
-    filename: 'UploadImage.js',
-    publicPath: '/public/'
+    filename: 'Loadmore.js',
+    publicPath: '/static/'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -64,11 +64,27 @@ var config = {
       test: /\.jsx?$/,
       loaders: ['react-hot', 'babel'],
       include: [
-        path.join(__dirname, 'examples/'),
-        path.join(__dirname, 'components/')
+        path.join(__dirname,'components'),path.join(__dirname,'examples')
       ]
-    }]
-  }
+    },{
+      test: /\.css$/,
+      exclude: [
+        path.resolve(__dirname, 'node_modules')
+      ],
+      loaders: ['style', 'css?modules&localIdentName=[name]_[local]_[hash:base64:5]','autoprefixer?{browsers:["> 5%", "ie 9"]}']
+    },{
+      test: /\.(svg|png|jpg|jpeg|gif)$/i,
+      loaders: ['file', 'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false']
+    }
+    ]
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+    })
+  ]
 }
 
 //加载 alias项

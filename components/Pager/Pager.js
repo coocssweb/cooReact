@@ -1,4 +1,5 @@
 var React = require("react");
+var Styles = require('./Pager.css');
 var Pager= React.createClass({
         propTypes :{
             pageCount      : React.PropTypes.number,                              //总页数
@@ -19,11 +20,11 @@ var Pager= React.createClass({
             var prev;
             if(this.props.pageIndex>1){
                 prev = (
-                    <a href='javascript:;' onClick={this.onPrevPage} className='prev'><i className="fa fa-arrow-left"></i></a>
+                    <a href='javascript:;' onClick={this.onPrevPage} className={Styles['prev']}><i className="fa fa-arrow-left"></i></a>
                  );
             }else{
                 prev = (
-                    <span className='prev'><i className="fa fa-arrow-left"></i></span>
+                    <span className={Styles['prev']}><i className="fa fa-arrow-left"></i></span>
                 );
             }
 
@@ -31,20 +32,20 @@ var Pager= React.createClass({
             var next;
             if(this.props.pageIndex==this.props.pageCount){
                 next = (
-                    <span className='next'><i className="fa fa-arrow-right"></i></span>
+                    <span className={Styles['next']}><i className="fa fa-arrow-right"></i></span>
             );
             }else{
                 next = (
-                    <a href='javascript:;' onClick={this.onNextPage} className='next'><i className="fa fa-arrow-right"></i></a>
+                    <a href='javascript:;' onClick={this.onNextPage} className={Styles['next']}><i className="fa fa-arrow-right"></i></a>
             );
         }
     //渲染
     return (
         <section>
-            <div className="pager-outter">
-                <div className="pager clearfix">
+            <div className={Styles['pager-outter']}>
+                <div className={`${Styles["pager"]}${' clearfix'}`}>
                     {prev}
-                    <span className="page">{this.props.pageIndex} / {this.props.pageCount}</span>
+                    <span className={Styles['page']}>{this.props.pageIndex} / {this.props.pageCount}</span>
                     {next}
                 </div>
             </div>

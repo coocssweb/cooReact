@@ -1,57 +1,39 @@
 var React = require("react");
+var Buttons = require('../common/Button.css');
+var Styles = require('./Confirm.css');
 var Confirm = React.createClass({
         propTypes :{
-            isShow      : React.PropTypes.bool,                              //是否显示
+            title       : React.PropTypes.string,                            //标题
             message     : React.PropTypes.string,                            //显示信息
-            confirmCallBack : React.PropTypes.func,                          //确认回调函数
-            cancelCallBack  : React.PropTypes.func                           //取消回调函数
-        },
-        //初始化State
-        getInitialState : function(){
-            return {
-                isUpdate : false
-            }
+            confirmCallback : React.PropTypes.func,                          //确认回调函数
+            cancelCallback  : React.PropTypes.func                           //取消回调函数
         },
         getDefaultProps : function(){
-            return{
-                isShow : false
+            return {
+                title : '提醒 :'
             }
         },
         //取消事件
         onCancel : function(){
-            this.props.isShow = false;
-            this.setState(
-                {
-                    isUpdate:!this.state.isUpdate
-                }
-            );
-            if(this.props.cancelCallBack){
-                this.props.cancelCallBack();
+            if(this.props.cancelCallback){
+                this.props.cancelCallback();
             }
         },
         //确认事件
         onConfirm : function(){
-            this.props.isShow = false;
-            this.setState(
-                {
-                    isUpdate:!this.state.isUpdate
-                }
-            );
-            //回调
-            if(this.props.confirmCallBack) {
-                this.props.confirmCallBack();
+            if(this.props.confirmCallback) {
+                this.props.confirmCallback();
             }
         },
         //渲染
         render : function(){
             return (
-                <div className={"mask " + (this.props.isShow?"":"hide")}>
-                   <div className="dialog">
-                        <div className="dialog-message">{this.props.message}</div>
-                        <div className="dialog-btns">
-                            <a href="javascript:;" className="btn btn-primary btn-cancel" onClick={this.onCancel}>取消</a>
-                            <a href="javascript:;" className="btn btn-primary btn-confirm" onClick={this.onConfirm}>确认</a>
-                        </div>
+                <div className='mask'>
+                   <div className={Styles['dialog']}>
+                        <div className={Styles['dialog-title']}>{this.props.title}</div>
+                        <div className={Styles['dialog-message']}>{this.props.message}</div>
+                        <a href="javascript:;" className={`${Buttons['btn-primary']}${' '}${Styles['btn-cancel']}`} onClick={this.onCancel}>取消</a>
+                        <a href="javascript:;" className={`${Buttons['btn-primary']}${' '}${Styles['btn-confirm']}`} onClick={this.onConfirm}>确认</a>
                     </div>
                 </div>
             );
