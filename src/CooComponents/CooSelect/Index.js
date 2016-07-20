@@ -24,7 +24,7 @@ var Index = React.createClass({
             value: PropTypes.string,
             display: PropTypes.string
         }),                                             //当选选中项 格式：{value:'',display:''}
-        onChangeCb: PropTypes.func.isRequired           //回调函数 回传（name,{value:'',display:''}）
+        onChange: PropTypes.func.isRequired           //回调函数 回传（name,{value:'',display:''}）
     },
     getInitialState: function () {
         return {
@@ -70,7 +70,7 @@ var Index = React.createClass({
         if(item.value == this.props.default.value){
             return;
         }
-        this.props.onChangeCb(this.props.name, item);
+        this.props.onChange(this.props.name, item);
     },
     render: function(){
 

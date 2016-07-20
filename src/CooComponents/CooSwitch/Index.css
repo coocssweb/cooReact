@@ -1,0 +1,32 @@
+.coo-toggle-box{
+    position: relative;
+    width: 53px;
+    height: 32px;
+    border-radius: 20px;
+    background-color: #e5e5e5;
+    border: 1px solid #CCCCCC;
+    transition: all 0.4s ease;
+}
+.coo-toggle-box:active,.coo-toggle-box:focus{
+    border-color: #57c5f7 !important;
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba(45,183,245,.2) !important;
+}
+.coo-toggle-button{
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 28px;
+    height: 28px;
+    border-radius: 100%;
+    background: #fff;
+    transition: all 0.4s ease;
+}
+
+.coo-toggle-box-on{
+    background-color: #3cc51f;
+    border-color: transparent;
+}
+.coo-toggle-box-on .coo-toggle-button{
+    left: 23px;
+}

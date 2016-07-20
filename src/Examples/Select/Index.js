@@ -75,11 +75,11 @@ var Index = React.createClass({
                 <div className={CommonStyle['show-box']}>
                     <div className={CommonStyle['shows-label']}>1、默认样式：</div>
                     <div className={CommonStyle['shows-content']}>
-                        <div className={Style['padding-10']}>
+                        <div className={CommonStyle['padding-10']}>
                             <CooSelect name="english-type"
                                        options={this.state.english_options}
                                        default={this.state.default_english}
-                                       onChangeCb={this.onChangeEnglishCb} />
+                                       onChange={this.onChangeEnglishCb} />
                         </div>
                         <div className={CommonStyle['shows-detail-key']}>参数说明：</div>
                         <div className={CommonStyle['show-detail']}>
@@ -90,13 +90,13 @@ var Index = React.createClass({
                 <div className={CommonStyle['show-box']}>
                     <div className={CommonStyle['shows-label']}>2、自定义样式：</div>
                     <div className={CommonStyle['shows-content']}>
-                        <div className={Style['padding-10']}>
+                        <div className={CommonStyle['padding-10']}>
                             <CooSelect name="chinese-type"
                                        boxStyle={define_box_style}
                                        buttonStyle={define_button_style}
                                        options={this.state.chinese_options}
                                        default={this.state.default_chinese}
-                                       onChangeCb={this.onChangeChineseCb} />
+                                       onChange={this.onChangeChineseCb} />
 
                         </div>
 

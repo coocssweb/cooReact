@@ -24,9 +24,9 @@ var Index = React.createClass({
                             </Link>
                         </li>
                         <li className={Styles["item-component"]}>
-                            <Link to='/toggle' className={Styles["item-link"]}>
+                            <Link to='/switch' className={Styles["item-link"]}>
                                 <div className={Styles["item-icon"]}><i className={"icon-toggle"}/></div>
-                                <div className={Styles["item-name"]}>Toggle</div>
+                                <div className={Styles["item-name"]}>Switch</div>
                             </Link>
                         </li>
                         <li className={Styles["item-component"]}>
