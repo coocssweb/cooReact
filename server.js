@@ -1,7 +1,3 @@
-/**
- * 用node 开启3000单口
- * 加载webpack.config.js 配置项，搭建热加载开发环境
- */
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.config.js');
@@ -14,5 +10,5 @@ new WebpackDevServer(webpack(config), {
     if (err) {
         console.log(err);
     }
-    console.log('3000端口已开启');
+    console.log('3000绔彛');
 });

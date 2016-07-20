@@ -1,0 +1,23 @@
+.shows{
+}
+
+.show-box{
+    margin-bottom: 20px;
+}
+
+.shows-label{
+    color: #ffffff;
+    font-size: 14px;
+    background-color: #CCCCCC;
+    height: 30px;
+    line-height: 30px;
+    padding: 0px 10px;
+}
+
+.shows-content{
+    padding:10px 0px ;
+}
+.shows-detail-key{
+    color: #999;
+    padding:0px 10px;
+}
