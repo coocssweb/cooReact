@@ -2,6 +2,7 @@
     position: relative;
     width: 53px;
     height: 32px;
+    display: inline-block;
     border-radius: 20px;
     background-color: #e5e5e5;
     border: 1px solid #CCCCCC;

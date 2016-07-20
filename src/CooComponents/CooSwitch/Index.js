@@ -35,15 +35,14 @@ var Index = React.createClass({
 
 
         style.width = width + 'px';
-
-
-        style.height = height+ 'px';
-        buttonStyle.height = (height - 4 )+'px';
+        style.height = height + 'px';
+        style.borderRadius = height + 'px';
+        buttonStyle.height = (height - 4 ) + 'px';
         buttonStyle.width = buttonStyle.height;
 
 
         if(this.props.checked){
-            buttonStyle.left = width - (height - 2)+'px';
+            buttonStyle.left = width - (height - 2) + 'px';
         }
 
 
