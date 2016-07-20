@@ -2,13 +2,23 @@
 .coo-select-box{
     background-color: #ffffff;
     position: relative;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
+.coo-select-box:active,.coo-select-box:focus,.coo-select-box-open,.coo-select-box-open .coo-select-btn{
+    border-color: #57c5f7 !important;
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba(45,183,245,.2) !important;
+}
+.coo-select-box-open .coo-select-btn{
+    color: #57c5f7 !important;
 }
 .coo-select-display{
     box-sizing: border-box;
     width: 100%;
-    height: 45px;
-    line-height: 45px;
+    height: 43px;
+    line-height: 43px;
     padding: 0px 10px;
 }
 
@@ -29,20 +39,35 @@
     top: 0px;
     right: 0px;
     color: #000;
-    border-left: 1px solid #EEEEEE;
+    border-left: 1px solid #CCCCCC;
+    color: #CCCCCC;
 }
-.hidden{
-    display: none;
-}
-.coo-select-dropbox{
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-    box-sizing: border-box;
-    border: 1px solid #e6eaef;
+.coo-select-btn i{
     position: absolute;
-    top: 44px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.coo-select-dropbox{
+    box-shadow: 0 1px 3px rgba(0,0,0,0.0);
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    position: absolute;
+    top: 45px;
     left: 0px;
     width: 100%;
     z-index: 3;
+    transition: all .4s ease;
+    height: auto;
+    overflow: auto;
+    max-height: 0px;
+    border-radius: 5px;
+}
+.coo-select-dropbox-open{
+    max-height: 500px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    border-color: #d9d9d9;
 }
 .coo-select-item{
     display: block;
@@ -51,7 +76,7 @@
     height: 35px;
     line-height: 35px;
     padding:0 10px;
-
+    transition: all 0.4s ease;
     background-color: #ffffff;
     color: #878787;
 }

@@ -3,12 +3,14 @@
  * 路由定义
  */
 
+import ReactDom from 'react-dom';
 import React from 'react';
-import { Router, Route, IndexRoute} from 'react-router';
+import { Router, Route, IndexRoute, hashHistory} from 'react-router';
 import Layout from './Examples/Layout/Index.js';
 import Select from './Examples/Select/Index.js';
-React.render((
-    <Router>
+
+ReactDom.render((
+    <Router history={hashHistory}>
         <Route path="/" component={Layout}>
         </Route>
         <Route path="/select" component={Select}>

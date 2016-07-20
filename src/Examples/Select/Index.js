@@ -63,11 +63,11 @@ var Index = React.createClass({
     render(){
 
         var define_box_style ={
-            border: 'none',
-            position: 'inherit'
+            border: '1px solid #50b72e'
         }
         var define_button_style={
-            border: 'none'
+            borderColor: '#50b72e',
+            color: '#50b72e'
         }
 
         return (
@@ -82,7 +82,7 @@ var Index = React.createClass({
                                        onChangeCb={this.onChangeEnglishCb} />
                         </div>
                         <div className={CommonStyle['shows-detail-key']}>参数说明：</div>
-                        <div class="show-detail">
+                        <div className={CommonStyle['show-detail']}>
 
                         </div>
                     </div>
@@ -90,28 +90,16 @@ var Index = React.createClass({
                 <div className={CommonStyle['show-box']}>
                     <div className={CommonStyle['shows-label']}>2、自定义样式：</div>
                     <div className={CommonStyle['shows-content']}>
-                        <div className={Style["chinese-setting"]+ ' clearfix'}>
-                            <div className={Style["chinese-key"]}>语文年级 :</div>
-                            <div className={Style["chinese-select"]}>
-                                <CooSelect name="chinese-type"
-                                           boxStyle={define_box_style}
-                                           buttonStyle={define_button_style}
-                                           options={this.state.chinese_options}
-                                           default={this.state.default_chinese}
-                                           onChangeCb={this.onChangeChineseCb} />
-                            </div>
+                        <div className={Style['padding-10']}>
+                            <CooSelect name="chinese-type"
+                                       boxStyle={define_box_style}
+                                       buttonStyle={define_button_style}
+                                       options={this.state.chinese_options}
+                                       default={this.state.default_chinese}
+                                       onChangeCb={this.onChangeChineseCb} />
+
                         </div>
-                        <div className={Style["chinese-setting"]+ ' clearfix'}>
-                            <div className={Style["chinese-key"]}>英语年级 :</div>
-                            <div className={Style["chinese-select"]}>
-                                <CooSelect name="chinese-type"
-                                           boxStyle={define_box_style}
-                                           buttonStyle={define_button_style}
-                                           options={this.state.english_options}
-                                           default={this.state.default_english}
-                                           onChangeCb={this.onChangeEnglishCb} />
-                            </div>
-                        </div>
+
                     </div>
                 </div>
 

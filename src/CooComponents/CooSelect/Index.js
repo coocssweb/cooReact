@@ -10,12 +10,21 @@ var $ = require('jquery');
 
 var Index = React.createClass({
     propTypes:{
-        name: PropTypes.string,             //name，唯一值
-        boxStyle: PropTypes.object,            //自定义样式
-        buttonStyle: PropTypes.object,            //自定义样式
-        options: PropTypes.array,           //下拉框选项 格式：[{value:'',display:''}...]
-        default: PropTypes.object,          //当选选中项 格式：{value:'',display:''}
-        onChangeCb: PropTypes.func          //回调函数 回传（name,{value:'',display:''}）
+        boxStyle: PropTypes.object,                     //自定义样式
+        buttonStyle: PropTypes.object,                  //自定义样式
+        height: PropTypes.number,                       //高度
+        name: PropTypes.string.isRequired,              //name，唯一值
+        options: PropTypes.arrayOf(
+            PropTypes.shape({
+                value: PropTypes.string,
+                display: PropTypes.string
+            })
+        ).isRequired,                                   //下拉框选项 格式：[{value:'',display:''}...]
+        default: PropTypes.shape({
+            value: PropTypes.string,
+            display: PropTypes.string
+        }),                                             //当选选中项 格式：{value:'',display:''}
+        onChangeCb: PropTypes.func.isRequired           //回调函数 回传（name,{value:'',display:''}）
     },
     getInitialState: function () {
         return {
@@ -65,6 +74,23 @@ var Index = React.createClass({
     },
     render: function(){
 
+        var boxStyle = {};
+        var buttonStyle = {};
+        var dropStyle = {};
+
+        if(this.props.boxStyle){
+            boxStyle = this.props.boxStyle;
+        }
+
+        if(this.props.buttonStyle){
+            buttonStyle = this.props.buttonStyle;
+        }
+
+        if(this.props.height && this.props.height>0){
+            boxStyle.height = this.props.height+'px';
+            dropStyle.top = this.props.height+'px';
+        }
+
         var dropItems = this.props.options.map(function(item,index){
             return (
                 <a href="javascript:;"
@@ -77,14 +103,14 @@ var Index = React.createClass({
         },this);
 
         return (
-            <div className={Styles['coo-select-box']} id={this.props.name} style={this.props.boxStyle}>
+            <div className={Styles['coo-select-box']+' '+(this.state.isDropDown?Styles['coo-select-box-open']:'')} id={this.props.name} style={boxStyle}>
                 <div className={Styles['coo-select-display']}>
                     <div className={Styles['coo-select-value']} onClick={this.onDrop}>{this.props.default?this.props.default.display:''}</div>
-                    <span className={Styles['coo-select-btn']} onClick={this.onDrop} style={this.props.buttonStyle}>
-                        <i className={this.state.isDropDown?Styles['coo-icon-up']:Styles['coo-icon-down']}></i>
+                    <span className={Styles['coo-select-btn']} onClick={this.onDrop} style={buttonStyle}>
+                        <i className={this.state.isDropDown?'icon-up':'icon-down'}></i>
                     </span>
                 </div>
-                <div className={Styles['coo-select-dropbox']+' '+(this.state.isDropDown?'':Styles['hidden'])}>
+                <div className={Styles['coo-select-dropbox']+' '+(this.state.isDropDown?Styles['coo-select-dropbox-open']:'')} style={dropStyle}>
                     {dropItems}
                 </div>
             </div>

@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/coocssweb/react-plug#readme",
   "dependencies": {
+    "history": "^1.17.0",
     "jquery": "^2.2.3",
     "react": "^0.14.8",
     "react-dom": "^0.14.6",
