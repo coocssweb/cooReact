@@ -8,7 +8,7 @@ var Style = require('./Index.css');
 
 var Index = React.createClass({
     propTypes: {
-        isShow: PropTypes.Boolean,              //显示状态
+        isShow: PropTypes.bool,              //显示状态
         title: PropTypes.string,                //标题
         isConfirm: PropTypes.bool.isRequired,   //是否显示确认按钮
         isCancel: PropTypes.bool.isRequired,    //是否显示取消按钮
@@ -17,20 +17,23 @@ var Index = React.createClass({
     },
     onCancel: function(e){
         if(typeof this.props.onCancel === 'function' ){
-            this.onCancel();
+            this.props.onCancel();
         }
     },
     onConfirm: function(e){
         if(typeof this.props.onConfirm === 'function' ){
-            this.onConfirm();
+            this.props.onConfirm();
         }
+    },
+    onBodyClick(e){
+        e.stopPropagation();
     },
     render: function(){
 
         var header = null;
         if(this.props.title){
             header = (
-                <div className={Style['coo-dialog-title']}>{this.props.title}</div>
+                <div className={Style['coo-dialog-header']}>{this.props.title}</div>
             );
         }
 
@@ -48,7 +51,7 @@ var Index = React.createClass({
                     <a href="javascript:;" className={Style['coo-btn-dialog-confirm']} onClick={this.onConfirm}>确定</a>
                 </div>
             );
-        }else{
+        }else if(this.props.isCancel){
             footer = (
                 <div className={Style['coo-dialog-footer']}>
                     <a href="javascript:;" className={Style['coo-btn-dialog-cancel']} onClick={this.onCancel}>取消</a>
@@ -57,8 +60,8 @@ var Index = React.createClass({
         }
 
         return (
-            <div className={Style['coo-mask']+' '+(this.props.isShow?'':Style['coo-hidden'])}>
-                <div className={Style['coo-dialog']}>
+            <div className={Style['coo-mask']+' '+(this.props.isShow?'':Style['coo-hidden'])} onClick={this.onCancel}>
+                <div className={Style['coo-dialog']} onClick={this.onBodyClick}>
                     {header}
                     <div className={Style['coo-dialog-body']}>
                         {this.props.children}
