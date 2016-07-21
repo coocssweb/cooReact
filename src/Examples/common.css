@@ -17,6 +17,10 @@
     color: #888;
     font-size: 14px;
 }
+.website-desc a{
+    text-decoration: underline;
+    color: #000000;
+}
 
 .shows{
     position: relative;

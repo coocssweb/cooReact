@@ -32,7 +32,7 @@ var Index = React.createClass({
                 <a href="/" className={CommonStyle['btn-back']}>←返回</a>
                 <div className={CommonStyle["website-header"]}>
                     <h1 className={CommonStyle["website-name"]}>Pull组件</h1>
-                    <p className={CommonStyle["website-desc"]}>抽屉组件，支持自定义样式</p>
+                    <p className={CommonStyle["website-desc"]}>抽屉组件，支持自定义样式，内容可自定义</p>
                 </div>
 
                 <div className={CommonStyle['show-box']}>
@@ -52,7 +52,7 @@ var Index = React.createClass({
                         </div>
                         <div className={CommonStyle['padding-10']}>
                             <a href="javascript:;" onClick={this.open.bind(this,'right')}>打开（右）</a>
-                            <CooPullBox direction="left" isOpen={this.state.right} onClose={this.onClose.bind(this,'right')}>
+                            <CooPullBox direction="right" isOpen={this.state.right} onClose={this.onClose.bind(this,'right')}>
                                 <div className={Style['pull-content-left']}>
                                     <ul>
                                         <li><a href="javascript:;" className={Style['left-menu-item']}>往期内容</a></li>
@@ -64,7 +64,7 @@ var Index = React.createClass({
                         </div>
                         <div className={CommonStyle['padding-10']}>
                             <a href="javascript:;" onClick={this.open.bind(this,'top')}>打开（上）</a>
-                            <CooPullBox direction="left" isOpen={this.state.top} onClose={this.onClose.bind(this,'top')}>
+                            <CooPullBox direction="top" isOpen={this.state.top} onClose={this.onClose.bind(this,'top')}>
                                 <div className={Style['pull-content-left']}>
                                     <ul>
                                         <li><a href="javascript:;" className={Style['left-menu-item']}>往期内容</a></li>
@@ -76,7 +76,7 @@ var Index = React.createClass({
                         </div>
                         <div className={CommonStyle['padding-10']}>
                             <a href="javascript:;" onClick={this.open.bind(this,'bottom')}>打开（下）</a>
-                            <CooPullBox direction="left" isOpen={this.state.bottom} onClose={this.onClose.bind(this,'bottom')}>
+                            <CooPullBox direction="bottom" isOpen={this.state.bottom} onClose={this.onClose.bind(this,'bottom')}>
                                 <div className={Style['pull-content-left']}>
                                     <ul>
                                         <li><a href="javascript:;" className={Style['left-menu-item']}>往期内容</a></li>
