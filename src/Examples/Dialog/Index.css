@@ -4,39 +4,6 @@
 
 .content-02{
     margin: 10px;
+    color: #888888;
 }
 
-.content-02 a{
-    position: relative;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 14px;
-    padding-right: 14px;
-    box-sizing: border-box;
-    font-size: 18px;
-    text-align: center;
-    text-decoration: none;
-    line-height: 2.33333333;
-    border-radius: 5px;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    overflow: hidden;
-    background-color: #F7F7F7;
-    color: #454545;
-    margin-top: 10px;
-}
-.content-02 a:after{
-    content: " ";
-    width: 200%;
-    height: 200%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-    -webkit-transform-origin: 0 0;
-    transform-origin: 0 0;
-    box-sizing: border-box;
-    border-radius: 10px;
-}

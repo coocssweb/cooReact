@@ -5,52 +5,52 @@
 
 import React from 'react'
 import {Link} from 'react-router';
-import Styles from './Index.css';
-
+import Style from './Index.css';
+import CommonStyle from '../common.css';
 var Index = React.createClass({
     render(){
         return (
-            <div className={Styles["layout"]}>
-                <div className={Styles["website-header"]}>
-                    <h1 className={Styles["website-name"]}>COO</h1>
-                    <p className={Styles["website-desc"]}>一些常用的React移动端组件</p>
+            <div className={Style["layout"]}>
+                <div className={CommonStyle["website-header"]}>
+                    <h1 className={CommonStyle["website-name"]}>COO</h1>
+                    <p className={CommonStyle["website-desc"]}>一些常用的React移动端组件</p>
                 </div>
-                <div className={Styles['component-box']}>
-                    <ul className={Styles["list-component"]}>
-                        <li className={Styles["item-component"]}>
-                            <Link to='/select' className={Styles["item-link"]}>
-                                <div className={Styles["item-icon"]}><i className={"icon-select"}/></div>
-                                <div className={Styles["item-name"]}>Select</div>
+                <div className={Style['component-box']}>
+                    <ul className={Style["list-component"]}>
+                        <li className={Style["item-component"]}>
+                            <Link to='/select' className={Style["item-link"]}>
+                                <div className={Style["item-icon"]}><i className={"icon-select"}/></div>
+                                <div className={Style["item-name"]}>Select</div>
                             </Link>
                         </li>
-                        <li className={Styles["item-component"]}>
-                            <Link to='/switch' className={Styles["item-link"]}>
-                                <div className={Styles["item-icon"]}><i className={"icon-toggle"}/></div>
-                                <div className={Styles["item-name"]}>Switch</div>
+                        <li className={Style["item-component"]}>
+                            <Link to='/switch' className={Style["item-link"]}>
+                                <div className={Style["item-icon"]}><i className={"icon-toggle"}/></div>
+                                <div className={Style["item-name"]}>Switch</div>
                             </Link>
                         </li>
-                        <li className={Styles["item-component"]}>
-                            <Link to='/dialog' className={Styles["item-link"]}>
-                                <div className={Styles["item-icon"]}><i className={"icon-dialog"}/></div>
-                                <div className={Styles["item-name"]}>Dialog</div>
+                        <li className={Style["item-component"]}>
+                            <Link to='/dialog' className={Style["item-link"]}>
+                                <div className={Style["item-icon"]}><i className={"icon-dialog"}/></div>
+                                <div className={Style["item-name"]}>Dialog</div>
                             </Link>
                         </li>
-                        <li className={Styles["item-component"]}>
-                            <Link to='/loadmore' className={Styles["item-link"]}>
-                                <div className={Styles["item-icon"]}><i className={"icon-loading"}/></div>
-                                <div className={Styles["item-name"]}>Load More</div>
+                        <li className={Style["item-component"]}>
+                            <Link to='/loadmore' className={Style["item-link"]}>
+                                <div className={Style["item-icon"]}><i className={"icon-loading"}/></div>
+                                <div className={Style["item-name"]}>Load More</div>
                             </Link>
                         </li>
-                        <li className={Styles["item-component"]}>
-                            <Link to='/loadmore' className={Styles["item-link"]}>
-                                <div className={Styles["item-icon"]}><i className={"icon-tab"}/></div>
-                                <div className={Styles["item-name"]}>Tab</div>
+                        <li className={Style["item-component"]}>
+                            <Link to='/loadmore' className={Style["item-link"]}>
+                                <div className={Style["item-icon"]}><i className={"icon-tab"}/></div>
+                                <div className={Style["item-name"]}>Tab</div>
                             </Link>
                         </li>
-                        <li className={Styles["item-component"]}>
-                            <Link to='/pull up' className={Styles["item-link"]}>
-                                <div className={Styles["item-icon"]}><i className={"icon-pull"}/></div>
-                                <div className={Styles["item-name"]}>Pull Up</div>
+                        <li className={Style["item-component"]}>
+                            <Link to='/pull up' className={Style["item-link"]}>
+                                <div className={Style["item-icon"]}><i className={"icon-pull"}/></div>
+                                <div className={Style["item-name"]}>Pull Up</div>
                             </Link>
                         </li>
                     </ul>

@@ -44,6 +44,10 @@ var Index = React.createClass({
     render(){
         return (
             <div className={CommonStyle['shows']}>
+                <div className={CommonStyle["website-header"]}>
+                    <h1 className={CommonStyle["website-name"]}>COO</h1>
+                    <p className={CommonStyle["website-desc"]}>对话框组件，支持自定义内容，功能</p>
+                </div>
                 <div className={CommonStyle['show-box']}>
                     <div className={CommonStyle['shows-label']}>1、实例一：</div>
                     <div className={CommonStyle['shows-content']}>
@@ -52,11 +56,11 @@ var Index = React.createClass({
                             <CooDialog isShow={this.state.isShow}
                                        isConfirm={true}
                                        isCancel={true}
-                                       title='样式一'
+                                       title='标题 : 实例一'
                                        onConfirm={this.onConfirm}
                                        onCancel={this.onCancel}>
                                 <p className={Style['content-01']}>
-                                    这是内容文字
+                                    自定义弹窗内容，可以是文字，也可以是其他组件
                                 </p>
                             </CooDialog>
                         </div>
@@ -75,11 +79,10 @@ var Index = React.createClass({
                             <CooDialog isShow={this.state.isShow_2}
                                        isConfirm={false}
                                        isCancel={false}
-                                       title='样式二'
+                                       title='标题 : 实例二'
                                        onCancel={this.onCancel2}>
                                 <p className={Style['content-02']}>
-                                    点击黑色区域关闭对话框<br />内容自定义<br />
-                                    <a href="javascript:;">按钮</a>
+                                    点击黑色区域关闭对话框<br />内容自定义<br />这是一个段落<br />
                                 </p>
                             </CooDialog>
                         </div>

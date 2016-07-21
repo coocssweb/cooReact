@@ -29,7 +29,7 @@ var Index = React.createClass({
     render(){
 
         var style ={
-            backgroundColor: '#000'
+            
         }
         var checkedStyle={
             backgroundColor: 'rgb(13, 199, 255)'
@@ -39,6 +39,10 @@ var Index = React.createClass({
 
         return (
             <div className={CommonStyle['shows']}>
+                <div className={CommonStyle["website-header"]}>
+                    <h1 className={CommonStyle["website-name"]}>COO</h1>
+                    <p className={CommonStyle["website-desc"]}>开关组件，支持自定义样式</p>
+                </div>
                 <div className={CommonStyle['show-box']}>
                     <div className={CommonStyle['shows-label']}>1、默认样式：</div>
                     <div className={CommonStyle['shows-content']}>
@@ -64,7 +68,10 @@ var Index = React.createClass({
                                        onChange={this.onDefineChange} />
 
                         </div>
+                        <div className={CommonStyle['shows-detail-key']}>参数说明：</div>
+                        <div className={CommonStyle['show-detail']}>
 
+                        </div>
                     </div>
                 </div>
 

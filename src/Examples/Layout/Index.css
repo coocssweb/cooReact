@@ -1,18 +1,4 @@
-.website-header{
-    padding: 2em 0;
-}
-.website-name{
-    text-align: center;
-    font-size: 34px;
-    color: #3cc51f;
-    font-weight: 400;
-    margin: 0 15%;
-}
-.website-desc{
-    text-align: center;
-    color: #888;
-    font-size: 14px;
-}
+
 
 .component-box{
     position: relative;
@@ -63,7 +49,7 @@
 }
 .item-icon i{
     font-size: 20px;
-    color: #048bff;
+    color: #3cc51f;
 }
 .item-name{
     text-align: center;

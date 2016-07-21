@@ -22,6 +22,12 @@
     border-radius: 3px;
 }
 
+@media screen and (min-width: 1024px){
+    .coo-dialog {
+        width: 35%;
+    }
+}
+
 .coo-dialog-header{
     padding: 1.2rem 20px .5rem;
     text-align: center;
