@@ -13,7 +13,10 @@ var Index = React.createClass({
             <div className={Style["layout"]}>
                 <div className={CommonStyle["website-header"]}>
                     <h1 className={CommonStyle["website-name"]}>COO</h1>
-                    <p className={CommonStyle["website-desc"]}>一些常用的React移动端组件</p>
+                    <p className={CommonStyle["website-desc"]}>
+                        一些常用的React移动端组件<br/>
+                        gitHub地址：<a href="https://github.com/coocssweb/react-plug" target="_blank">https://github.com/coocssweb/react-plug</a>
+                    </p>
                 </div>
                 <div className={Style['component-box']}>
                     <ul className={Style["list-component"]}>
@@ -50,7 +53,7 @@ var Index = React.createClass({
                         <li className={Style["item-component"]}>
                             <Link to='/pull' className={Style["item-link"]}>
                                 <div className={Style["item-icon"]}><i className={"icon-pull"}/></div>
-                                <div className={Style["item-name"]}>Pull Up</div>
+                                <div className={Style["item-name"]}>Pull</div>
                             </Link>
                         </li>
                     </ul>

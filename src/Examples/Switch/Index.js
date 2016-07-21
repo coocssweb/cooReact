@@ -39,6 +39,7 @@ var Index = React.createClass({
 
         return (
             <div className={CommonStyle['shows']}>
+                <a href="/" className={CommonStyle['btn-back']}>←返回</a>
                 <div className={CommonStyle["website-header"]}>
                     <h1 className={CommonStyle["website-name"]}>Switch</h1>
                     <p className={CommonStyle["website-desc"]}>开关组件，支持自定义样式</p>

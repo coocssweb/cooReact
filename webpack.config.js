@@ -18,13 +18,6 @@ var config = {
     filename: 'index.js',
     publicPath: '/static/'
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
-  ],
-  resolve: {
-    alias: []
-  },
   module: {
     noParse : [],
     loaders: [{
@@ -42,8 +35,7 @@ var config = {
     },{
       test: /\.(svg|png|jpg|jpeg|gif)$/i,
       loaders: ['file', 'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false']
-    }
-    ]
+    }]
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

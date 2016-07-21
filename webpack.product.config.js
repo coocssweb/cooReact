@@ -19,14 +19,9 @@ module.exports = {
             allChunks: true
         }),
         new HtmlWebpackPlugin({
-            title: '前端组件',
-            template: 'index-template.html',
+            title: 'COO移动端组件',
+            template: 'index-temp.html',
             inject: 'body'
-        }),
-        new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery",
-            "window.jQuery": "jquery"
         }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
@@ -37,7 +32,7 @@ module.exports = {
             }
         }),
         new webpack.DefinePlugin({
-            'process.env': {NODE_ENV: JSON.stringify('production')}
+            'process.env': {NODE_ENV: JSON.stringify('development')}
         })
     ],
     resolve: {
@@ -49,7 +44,9 @@ module.exports = {
         loaders: [{
             test: /\.jsx?$/,
             loaders: ['react-hot', 'babel'],
-            include: path.join(__dirname,'/src/')
+            include: [
+                path.join(__dirname,'src')
+            ]
         },{
             test: /\.css$/,
             exclude: [
@@ -59,7 +56,6 @@ module.exports = {
         },{
             test: /\.(svg|png|jpg|jpeg|gif)$/i,
             loaders: ['file', 'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false']
-        }
-        ]
+        }]
     }
 };

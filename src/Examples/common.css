@@ -19,8 +19,20 @@
 }
 
 .shows{
+    position: relative;
 }
 
+.btn-back{
+    position: absolute;
+    display: block;
+    padding: 5px 10px;
+    background-color: #F0F0F0;
+    border: 1px solid #eeeeee;
+    color: #999999;
+}
+.btn-back:hover{
+    text-decoration: underline;
+}
 .show-box{
     margin-bottom: 20px;
 }

@@ -6,12 +6,13 @@
 import ReactDom from 'react-dom';
 import React from 'react';
 import { Router, Route, IndexRoute, hashHistory} from 'react-router';
-import Layout from './Examples/Layout/Index.js';
-import Select from './Examples/Select/Index.js';
-import Switch from './Examples/Switch/Index.js';
-import Dialog from './Examples/Dialog/Index.js';
-import Loadmore from './Examples/Loadmore/Index.js';
-import Tabs from './Examples/Tabs/Index.js';
+import Layout from './Examples/Layout';
+import Select from './Examples/Select';
+import Switch from './Examples/Switch';
+import Dialog from './Examples/Dialog';
+import Loadmore from './Examples/Loadmore';
+import Tabs from './Examples/Tabs';
+import PullBox from './Examples/PullBox';
 
 ReactDom.render((
     <Router history={hashHistory}>
@@ -26,6 +27,8 @@ ReactDom.render((
         <Route path="/loadmore" component={Loadmore}>
         </Route>
         <Route path="/tabs" component={Tabs}>
+        </Route>
+        <Route path="/pull" component={PullBox}>
         </Route>
     </Router>
 ), document.getElementById('main-body'));
