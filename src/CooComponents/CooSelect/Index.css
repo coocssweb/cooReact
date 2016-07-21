@@ -41,6 +41,7 @@
     color: #000;
     border-left: 1px solid #CCCCCC;
     color: #CCCCCC;
+    transition: all 0.4s ease-in-out;
 }
 .coo-select-btn i{
     position: absolute;
@@ -58,10 +59,10 @@
     left: 0px;
     width: 100%;
     z-index: 3;
-    transition: all .4s ease;
+    transition: all 0.4s ease;
     height: auto;
-    overflow: auto;
     max-height: 0px;
+    overflow: hidden;
     border-radius: 5px;
 }
 .coo-select-dropbox-open{
