@@ -26,9 +26,11 @@
 }
 
 .shows-label{
-    color: #ffffff;
+    color: #000;
     font-size: 14px;
-    background-color: #CCCCCC;
+    background-color: #F0F0F0;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
     height: 30px;
     line-height: 30px;
     padding: 0px 10px;

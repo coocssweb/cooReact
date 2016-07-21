@@ -29,7 +29,7 @@ var Index = React.createClass({
     render(){
 
         var style ={
-            
+
         }
         var checkedStyle={
             backgroundColor: 'rgb(13, 199, 255)'
