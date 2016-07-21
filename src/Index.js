@@ -10,6 +10,8 @@ import Layout from './Examples/Layout/Index.js';
 import Select from './Examples/Select/Index.js';
 import Switch from './Examples/Switch/Index.js';
 import Dialog from './Examples/Dialog/Index.js';
+import Loadmore from './Examples/Loadmore/Index.js';
+import Tabs from './Examples/Tabs/Index.js';
 
 ReactDom.render((
     <Router history={hashHistory}>
@@ -20,6 +22,10 @@ ReactDom.render((
         <Route path="/switch" component={Switch}>
         </Route>
         <Route path="/dialog" component={Dialog}>
+        </Route>
+        <Route path="/loadmore" component={Loadmore}>
+        </Route>
+        <Route path="/tabs" component={Tabs}>
         </Route>
     </Router>
 ), document.getElementById('main-body'));

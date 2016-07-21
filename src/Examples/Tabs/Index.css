@@ -1,0 +1,21 @@
+
+.chinese-setting{
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+    background-color: #ffffff;
+    width: 100%;
+}
+.chinese-key{
+    float: left;
+    width: 80px;
+    color: #999999;
+    height: 45px;
+    line-height: 45px;
+    box-sizing: border-box;
+    padding: 0px 5px;
+}
+.chinese-select{
+    float: left;
+    display: inline-block;
+    width: calc(100% - 80px);
+}

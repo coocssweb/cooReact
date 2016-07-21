@@ -1,10 +1,10 @@
 /**
  * Created by 王佳欣 on 2016/7/20.
- * Switch 组件调用
+ * Tab 组件调用
  */
 
 import React from 'react';
-import CooSwitch from '../../CooComponents/CooSwitch';
+import CooTabs from '../../CooComponents/CooTabs';
 import CommonStyle from '../common.css';
 import Style from './Index.css';
 
@@ -12,61 +12,42 @@ var Index = React.createClass({
 
     getInitialState(){
         return {
-            defaultChecked: false,
-            definedChecked: false
+            activeIndex: 0,
+            activeIndex_3: 0
         }
     },
-    onDefaultChange(value){
+    onTab(value){
         this.setState({
-            defaultChecked: value
+            activeIndex: value
         })
     },
-    onDefineChange(value){
+    onTab_3(value){
         this.setState({
-            definedChecked: value
+            activeIndex_3: value
         })
     },
     render(){
 
-        var style ={
+        var tabs = [
+            '账号登录','手机登录'
+        ];
 
-        }
-        var checkedStyle={
-            backgroundColor: 'rgb(13, 199, 255)'
-        }
-
+        var tabs_3 = [
+            '百度新闻','网易新闻','头条新闻'
+        ]
 
 
         return (
             <div className={CommonStyle['shows']}>
                 <div className={CommonStyle["website-header"]}>
-                    <h1 className={CommonStyle["website-name"]}>Switch</h1>
-                    <p className={CommonStyle["website-desc"]}>开关组件，支持自定义样式</p>
+                    <h1 className={CommonStyle["website-name"]}>Tab</h1>
+                    <p className={CommonStyle["website-desc"]}>Tab组件更，支持自定义Tab项</p>
                 </div>
                 <div className={CommonStyle['show-box']}>
-                    <div className={CommonStyle['shows-label']}>1、默认样式：</div>
+                    <div className={CommonStyle['shows-label']}>1、2个TAB实例：</div>
                     <div className={CommonStyle['shows-content']}>
                         <div className={CommonStyle['padding-10']}>
-                            <CooSwitch checked={this.state.defaultChecked}
-                                       onChange={this.onDefaultChange} />
-                        </div>
-                        <div className={CommonStyle['shows-detail-key']}>参数说明：</div>
-                        <div className={CommonStyle['show-detail']}>
-
-                        </div>
-                    </div>
-                </div>
-                <div className={CommonStyle['show-box']}>
-                    <div className={CommonStyle['shows-label']}>2、自定义样式：</div>
-                    <div className={CommonStyle['shows-content']}>
-                        <div className={CommonStyle['padding-10']}>
-                            <CooSwitch checked={this.state.definedChecked}
-                                       height= {25}
-                                       width ={40}
-                                       style={style}
-                                       checkedStyle={checkedStyle}
-                                       onChange={this.onDefineChange} />
-
+                            <CooTabs tabs={tabs} activeIndex={this.state.activeIndex} onTab={this.onTab} />
                         </div>
                         <div className={CommonStyle['shows-detail-key']}>参数说明：</div>
                         <div className={CommonStyle['show-detail']}>
@@ -75,6 +56,18 @@ var Index = React.createClass({
                     </div>
                 </div>
 
+                <div className={CommonStyle['show-box']}>
+                    <div className={CommonStyle['shows-label']}>2、3个TAB实例：</div>
+                    <div className={CommonStyle['shows-content']}>
+                        <div className={CommonStyle['padding-10']}>
+                            <CooTabs tabs={tabs_3} activeIndex={this.state.activeIndex_3} onTab={this.onTab_3} />
+                        </div>
+                        <div className={CommonStyle['shows-detail-key']}>参数说明：</div>
+                        <div className={CommonStyle['show-detail']}>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }

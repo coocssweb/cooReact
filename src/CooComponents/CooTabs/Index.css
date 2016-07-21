@@ -1,0 +1,25 @@
+.coo-tabs{
+    display: flex;
+    border-bottom: 3px solid #DDD8CE;
+    position: relative;
+}
+.coo-tab-item{
+    flex: 1;
+    display: block;
+    position: relative;
+    text-align: center;
+    height: 35px;
+    line-height: 35px;
+    color: #000000;
+}
+.coo-tab-item-active{
+    color: #3cc51f;
+}
+.coo-slide{
+    width: 50%;
+    height: 3px;
+    background-color: #3cc51f;
+    position: absolute;
+    bottom: -3px;
+    transition: all 0.4s ease;
+}

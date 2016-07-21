@@ -42,13 +42,13 @@ var Index = React.createClass({
                             </Link>
                         </li>
                         <li className={Style["item-component"]}>
-                            <Link to='/loadmore' className={Style["item-link"]}>
+                            <Link to='/tabs' className={Style["item-link"]}>
                                 <div className={Style["item-icon"]}><i className={"icon-tab"}/></div>
                                 <div className={Style["item-name"]}>Tab</div>
                             </Link>
                         </li>
                         <li className={Style["item-component"]}>
-                            <Link to='/pull up' className={Style["item-link"]}>
+                            <Link to='/pull' className={Style["item-link"]}>
                                 <div className={Style["item-icon"]}><i className={"icon-pull"}/></div>
                                 <div className={Style["item-name"]}>Pull Up</div>
                             </Link>

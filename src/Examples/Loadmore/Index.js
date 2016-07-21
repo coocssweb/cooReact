@@ -1,10 +1,10 @@
 /**
  * Created by 王佳欣 on 2016/7/20.
- * Switch 组件调用
+ * Loadmore 组件调用
  */
 
 import React from 'react';
-import CooSwitch from '../../CooComponents/CooSwitch';
+import CooLoadmore from '../../CooComponents/CooLoadmore';
 import CommonStyle from '../common.css';
 import Style from './Index.css';
 
@@ -12,43 +12,56 @@ var Index = React.createClass({
 
     getInitialState(){
         return {
-            defaultChecked: false,
-            definedChecked: false
+            isLoading: false,
+            isDefineLoading: false
         }
     },
-    onDefaultChange(value){
+    onLoad(){
         this.setState({
-            defaultChecked: value
+            isLoading: true
         })
+
+        var __this = this;
+        setTimeout(function(){
+            __this.setState(
+                {
+                    isLoading: false
+                }
+            )
+        },2000);
     },
-    onDefineChange(value){
+    onDefineLoad(){
         this.setState({
-            definedChecked: value
+            isDefineLoading: true
         })
+
+        var __this = this;
+        setTimeout(function(){
+            __this.setState(
+                {
+                    isDefineLoading: false
+                }
+            )
+        },2000);
     },
     render(){
 
-        var style ={
-
+        var style = {
+            borderColor: '#FF4055',
+            color: '#FF4055'
         }
-        var checkedStyle={
-            backgroundColor: 'rgb(13, 199, 255)'
-        }
-
-
 
         return (
             <div className={CommonStyle['shows']}>
                 <div className={CommonStyle["website-header"]}>
-                    <h1 className={CommonStyle["website-name"]}>Switch</h1>
-                    <p className={CommonStyle["website-desc"]}>开关组件，支持自定义样式</p>
+                    <h1 className={CommonStyle["website-name"]}>LoadMore</h1>
+                    <p className={CommonStyle["website-desc"]}>加载更多，支持自定义样式</p>
                 </div>
                 <div className={CommonStyle['show-box']}>
                     <div className={CommonStyle['shows-label']}>1、默认样式：</div>
                     <div className={CommonStyle['shows-content']}>
                         <div className={CommonStyle['padding-10']}>
-                            <CooSwitch checked={this.state.defaultChecked}
-                                       onChange={this.onDefaultChange} />
+                            <CooLoadmore isShow={true} isLoading={this.state.isLoading} onLoad={this.onLoad} />
                         </div>
                         <div className={CommonStyle['shows-detail-key']}>参数说明：</div>
                         <div className={CommonStyle['show-detail']}>
@@ -56,17 +69,16 @@ var Index = React.createClass({
                         </div>
                     </div>
                 </div>
+
                 <div className={CommonStyle['show-box']}>
                     <div className={CommonStyle['shows-label']}>2、自定义样式：</div>
                     <div className={CommonStyle['shows-content']}>
                         <div className={CommonStyle['padding-10']}>
-                            <CooSwitch checked={this.state.definedChecked}
-                                       height= {25}
-                                       width ={40}
-                                       style={style}
-                                       checkedStyle={checkedStyle}
-                                       onChange={this.onDefineChange} />
-
+                            <CooLoadmore isShow={true}
+                                         isLoading={this.state.isDefineLoading}
+                                         onLoad={this.onDefineLoad}
+                                         style={style}
+                            />
                         </div>
                         <div className={CommonStyle['shows-detail-key']}>参数说明：</div>
                         <div className={CommonStyle['show-detail']}>
@@ -74,7 +86,6 @@ var Index = React.createClass({
                         </div>
                     </div>
                 </div>
-
             </div>
         )
     }

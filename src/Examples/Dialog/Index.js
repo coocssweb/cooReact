@@ -1,6 +1,6 @@
 /**
  * Created by 王佳欣 on 2016/7/20.
- * Select 组件调用
+ * Dialog 组件调用
  */
 
 import React from 'react';
@@ -45,7 +45,7 @@ var Index = React.createClass({
         return (
             <div className={CommonStyle['shows']}>
                 <div className={CommonStyle["website-header"]}>
-                    <h1 className={CommonStyle["website-name"]}>COO</h1>
+                    <h1 className={CommonStyle["website-name"]}>Dialog</h1>
                     <p className={CommonStyle["website-desc"]}>对话框组件，支持自定义内容，功能</p>
                 </div>
                 <div className={CommonStyle['show-box']}>
