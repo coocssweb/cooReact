@@ -7,6 +7,7 @@ import React from 'react';
 import CooPullBox from '../../CooComponents/CooPullBox';
 import CommonStyle from '../common.css';
 import Style from './Index.css';
+import {Link} from 'react-router';
 
 var Index = React.createClass({
 
@@ -29,7 +30,7 @@ var Index = React.createClass({
     render(){
         return (
             <div className={CommonStyle['shows']}>
-                <a href="/" className={CommonStyle['btn-back']}>←返回</a>
+                <Link to="/" className={CommonStyle['btn-back']}>←返回</Link>
                 <div className={CommonStyle["website-header"]}>
                     <h1 className={CommonStyle["website-name"]}>Pull组件</h1>
                     <p className={CommonStyle["website-desc"]}>抽屉组件，支持自定义样式，内容可自定义</p>

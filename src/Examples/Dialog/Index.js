@@ -7,6 +7,7 @@ import React from 'react';
 import CooDialog from '../../CooComponents/CooDialog';
 import CommonStyle from '../common.css';
 import Style from './Index.css';
+import {Link} from 'react-router';
 
 var Index = React.createClass({
 
@@ -44,7 +45,7 @@ var Index = React.createClass({
     render(){
         return (
             <div className={CommonStyle['shows']}>
-                <a href="/" className={CommonStyle['btn-back']}>←返回</a>
+                <Link to="/" className={CommonStyle['btn-back']}>←返回</Link>
                 <div className={CommonStyle["website-header"]}>
                     <h1 className={CommonStyle["website-name"]}>Dialog</h1>
                     <p className={CommonStyle["website-desc"]}>对话框组件，支持自定义内容，功能</p>

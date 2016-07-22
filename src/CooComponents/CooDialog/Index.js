@@ -25,9 +25,6 @@ var Index = React.createClass({
             this.props.onConfirm();
         }
     },
-    onBodyClick(e){
-        e.stopPropagation();
-    },
     render: function(){
 
         var header = null;
@@ -60,8 +57,10 @@ var Index = React.createClass({
         }
 
         return (
-            <div className={Style['coo-mask']+' '+(this.props.isShow?'':Style['coo-hidden'])} onClick={this.onCancel}>
-                <div className={Style['coo-dialog']} onClick={this.onBodyClick}>
+            <div>
+                <div className={Style['coo-mask']+' '+(this.props.isShow?'':Style['coo-hidden'])} onClick={this.onCancel}>
+                </div>
+                <div className={Style['coo-dialog']+' '+(this.props.isShow?Style['coo-dialog-show']:'')}>
                     {header}
                     <div className={Style['coo-dialog-body']}>
                         {this.props.children}

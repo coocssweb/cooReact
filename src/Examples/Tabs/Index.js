@@ -7,6 +7,7 @@ import React from 'react';
 import CooTabs from '../../CooComponents/CooTabs';
 import CommonStyle from '../common.css';
 import Style from './Index.css';
+import {Link} from 'react-router';
 
 var Index = React.createClass({
 
@@ -39,7 +40,7 @@ var Index = React.createClass({
 
         return (
             <div className={CommonStyle['shows']}>
-                <a href="/" className={CommonStyle['btn-back']}>←返回</a>
+                <Link to="/" className={CommonStyle['btn-back']}>←返回</Link>
                 <div className={CommonStyle["website-header"]}>
                     <h1 className={CommonStyle["website-name"]}>Tab</h1>
                     <p className={CommonStyle["website-desc"]}>Tab组件更，支持自定义Tab项</p>

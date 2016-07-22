@@ -15,16 +15,24 @@
     z-index: 13;
     width: 85%;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: -300%;
+    transform: translate(-50%, -50%) scale(0.9);
     background-color: #FAFAFC;
     border-radius: 3px;
+    transition: transform 0.4s ease,opacity 0.4s ease;
+    opacity: 0;
 }
 
 @media screen and (min-width: 1024px){
     .coo-dialog {
         width: 35%;
     }
+}
+
+.coo-dialog-show{
+    left: 50%;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .coo-dialog-header{
