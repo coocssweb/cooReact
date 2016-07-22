@@ -58,6 +58,28 @@ var Index = React.createClass({
                                 <div className={Style["item-name"]}>Pull</div>
                             </Link>
                         </li>
+
+                        <li className={Style["item-component"]}>
+                            <Link to='/dropdown' className={Style["item-link"]}>
+                                <div className={Style["item-icon"]}><i className={"icon-pull"}/></div>
+                                <div className={Style["item-name"]}>DropDown</div>
+                            </Link>
+                        </li>
+
+                        <li className={Style["item-component"]}>
+                            <Link to='/Upload' className={Style["item-link"]}>
+                                <div className={Style["item-icon"]}><i className={"icon-pull"}/></div>
+                                <div className={Style["item-name"]}>Upload</div>
+                            </Link>
+                        </li>
+
+                        <li className={Style["item-component"]}>
+                            <Link to='/Upload' className={Style["item-link"]}>
+                                <div className={Style["item-icon"]}><i className={"icon-pull"}/></div>
+                                <div className={Style["item-name"]}>Upload</div>
+                            </Link>
+                        </li>
+
                     </ul>
                 </div>
                 <AboutMe />

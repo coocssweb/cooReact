@@ -21,5 +21,21 @@
     background-color: #3cc51f;
     position: absolute;
     bottom: -3px;
+}
+.coo-body{
+    overflow: hidden;
+}
+
+.coo-transition{
     transition: all 0.4s ease;
+}
+.coo-body-content:after{
+    content:".";
+    display:block;
+    height:0;
+    clear:both;
+    visibility:hidden;
+}
+.coo-tab-panel{
+    float: left;
 }
