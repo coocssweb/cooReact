@@ -7,15 +7,17 @@ import React from 'react'
 import {Link} from 'react-router';
 import Style from './Index.css';
 import CommonStyle from '../common.css';
+import AboutMe from '../AboutMe';
+
 var Index = React.createClass({
     render(){
         return (
             <div className={Style["layout"]}>
                 <div className={CommonStyle["website-header"]}>
-                    <h1 className={CommonStyle["website-name"]}>COO</h1>
+                    <h1 className={CommonStyle["website-name"]}>CooUI</h1>
                     <p className={CommonStyle["website-desc"]}>
                         一些常用的React移动端组件<br/>
-                        gitHub地址：<a href="https://github.com/coocssweb/react-plug" target="_blank">https://github.com/coocssweb/react-plug</a>
+                        gitHub开源地址：<a href="https://github.com/coocssweb/react-plug" target="_blank">https://github.com/coocssweb/react-plug</a>
                     </p>
                 </div>
                 <div className={Style['component-box']}>
@@ -58,6 +60,7 @@ var Index = React.createClass({
                         </li>
                     </ul>
                 </div>
+                <AboutMe />
             </div>
         )
     }

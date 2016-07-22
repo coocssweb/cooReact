@@ -1,0 +1,52 @@
+.about-me{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+}
+.btn-about-me{
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    height: 45px;
+    line-height: 45px;
+    color: #000000;
+    text-decoration: underline;
+}
+.box-info{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    padding: 30px;
+ }
+@media screen and (min-width: 1024px){
+    .btn-about-me,.box-info {
+        width: 35%;
+    }
+}
+
+.about-image{
+    height: 100px;
+    width: 100px;
+    background-image: url('./psb.jpg');
+    background-size: 100px 100px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    border:1px solid #efefef;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+}
+.about-solo{
+    width: 300px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
