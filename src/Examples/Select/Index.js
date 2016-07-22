@@ -101,6 +101,7 @@ var Index = React.createClass({
                             <CooSelect name="chinese-type"
                                        boxStyle={define_box_style}
                                        buttonStyle={define_button_style}
+                                       height={35}
                                        options={this.state.chinese_options}
                                        default={this.state.default_chinese}
                                        onChange={this.onChangeChineseCb} />

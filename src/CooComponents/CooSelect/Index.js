@@ -77,6 +77,9 @@ var Index = React.createClass({
         var boxStyle = {};
         var buttonStyle = {};
         var dropStyle = {};
+        var valueStyle = {};
+
+
 
         if(this.props.boxStyle){
             boxStyle = this.props.boxStyle;
@@ -86,10 +89,12 @@ var Index = React.createClass({
             buttonStyle = this.props.buttonStyle;
         }
 
-        if(this.props.height && this.props.height>0){
-            boxStyle.height = this.props.height+'px';
-            dropStyle.top = this.props.height+'px';
-        }
+        var height = this.props.height ? this.props.height : 45;
+
+        boxStyle.height = height + 'px';
+        buttonStyle.width = height + 'px'
+        dropStyle.top = height + 1 + 'px';
+        valueStyle.lineHeight = height + 'px';
 
         var dropItems = this.props.options.map(function(item,index){
             return (
@@ -105,7 +110,7 @@ var Index = React.createClass({
         return (
             <div className={Styles['coo-select-box']+' '+(this.state.isDropDown?Styles['coo-select-box-open']:'')} id={this.props.name} style={boxStyle}>
                 <div className={Styles['coo-select-display']}>
-                    <div className={Styles['coo-select-value']} onClick={this.onDrop}>{this.props.default?this.props.default.display:''}</div>
+                    <div className={Styles['coo-select-value']} style={valueStyle} onClick={this.onDrop}>{this.props.default?this.props.default.display:''}</div>
                     <span className={Styles['coo-select-btn']} onClick={this.onDrop} style={buttonStyle}>
                         <i className={this.state.isDropDown?'icon-up':'icon-down'}></i>
                     </span>
