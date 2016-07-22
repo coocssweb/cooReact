@@ -31,7 +31,6 @@
     content: " ";
     position: absolute;
     left: 0;
-    bottom: 0;
     width: 100%;
     height: 1px;
     border-bottom: 1px solid #D9D9D9;
@@ -40,6 +39,12 @@
     transform-origin: 0 100%;
     -webkit-transform: scaleY(0.5);
     transform: scaleY(0.5);
+}
+.component-box:after {
+    top: 0;
+}
+.item-component:after{
+    bottom: 0;
 }
 .item-icon{
     width: 28px;

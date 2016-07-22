@@ -30,9 +30,8 @@
     position: absolute;
     display: block;
     padding: 5px 10px;
-    background-color: #F0F0F0;
-    border: 1px solid #eeeeee;
-    color: #999999;
+    background-color: #3cc51f;
+    color: #ffffff;
 }
 .btn-back:hover{
     text-decoration: underline;

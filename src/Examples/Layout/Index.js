@@ -20,8 +20,9 @@ var Index = React.createClass({
                         gitHub开源地址：<a href="https://github.com/coocssweb/react-plug" target="_blank">https://github.com/coocssweb/react-plug</a>
                     </p>
                 </div>
+                <div className={CommonStyle['shows-label']}>已整理组件</div>
                 <div className={Style['component-box']}>
-                    <ul className={Style["list-component"]}>
+                    <ul className={Style["list-component"]+' clearfix'}>
                         <li className={Style["item-component"]}>
                             <Link to='/select' className={Style["item-link"]}>
                                 <div className={Style["item-icon"]}><i className={"icon-select"}/></div>
@@ -58,28 +59,32 @@ var Index = React.createClass({
                                 <div className={Style["item-name"]}>Pull</div>
                             </Link>
                         </li>
+                        <li className={Style["item-component"]}>
+                            <Link to='/accordion' className={Style["item-link"]}>
+                                <div className={Style["item-icon"]}><i className={"icon-null"}/></div>
+                                <div className={Style["item-name"]}>Accordion</div>
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div className={CommonStyle['shows-label']}>尚未整理组件</div>
+                <div className={Style['component-box']}>
+                    <ul className={Style["list-component"]+' clearfix'}>
 
                         <li className={Style["item-component"]}>
                             <Link to='/dropdown' className={Style["item-link"]}>
-                                <div className={Style["item-icon"]}><i className={"icon-pull"}/></div>
-                                <div className={Style["item-name"]}>DropDown</div>
+                                <div className={Style["item-icon"]}><i className={"icon-null"}/></div>
+                                <div className={Style["item-name"]}>Dropdown</div>
                             </Link>
                         </li>
-
                         <li className={Style["item-component"]}>
-                            <Link to='/Upload' className={Style["item-link"]}>
-                                <div className={Style["item-icon"]}><i className={"icon-pull"}/></div>
-                                <div className={Style["item-name"]}>Upload</div>
+                            <Link to='/dialog' className={Style["item-link"]}>
+                                <div className={Style["item-icon"]}><i className={"icon-null"}/></div>
+                                <div className={Style["item-name"]}>Pagination</div>
                             </Link>
                         </li>
-
-                        <li className={Style["item-component"]}>
-                            <Link to='/Upload' className={Style["item-link"]}>
-                                <div className={Style["item-icon"]}><i className={"icon-pull"}/></div>
-                                <div className={Style["item-name"]}>Upload</div>
-                            </Link>
-                        </li>
-
                     </ul>
                 </div>
                 <AboutMe />

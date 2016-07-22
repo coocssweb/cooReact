@@ -13,6 +13,7 @@ import Dialog from './Examples/Dialog';
 import Loadmore from './Examples/Loadmore';
 import Tabs from './Examples/Tabs';
 import PullBox from './Examples/PullBox';
+import Accordion from './Examples/Accordion';
 
 ReactDom.render((
     <Router history={hashHistory}>
@@ -29,6 +30,8 @@ ReactDom.render((
         <Route path="/tabs" component={Tabs}>
         </Route>
         <Route path="/pull" component={PullBox}>
+        </Route>
+        <Route path="/accordion" component={Accordion}>
         </Route>
     </Router>
 ), document.getElementById('main-body'));
