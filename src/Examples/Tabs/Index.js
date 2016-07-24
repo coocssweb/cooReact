@@ -10,23 +10,6 @@ import Style from './Index.css';
 import {Link} from 'react-router';
 
 var Index = React.createClass({
-
-    getInitialState(){
-        return {
-            activeIndex: 0,
-            activeIndex_3: 0
-        }
-    },
-    onTab(value){
-        this.setState({
-            activeIndex: value
-        })
-    },
-    onTab_3(value){
-        this.setState({
-            activeIndex_3: value
-        })
-    },
     render(){
         return (
             <div className={CommonStyle['shows']}>
@@ -39,7 +22,7 @@ var Index = React.createClass({
                     <div className={CommonStyle['shows-label']}>1、2个TAB实例：</div>
                     <div className={CommonStyle['shows-content']}>
                         <div className={CommonStyle['padding-10']}>
-                            <CooTabs activeIndex={this.state.activeIndex} onTab={this.onTab}  isTransition={true}>
+                            <CooTabs defaultIndex={0} isTransition={true}>
                                 <CooTabs.TabPanel title="账号登录">
                                     <div className={Style['tab-content']}>
                                         第一个Tab内容
@@ -63,7 +46,7 @@ var Index = React.createClass({
                     <div className={CommonStyle['shows-label']}>2、3个TAB实例，不开动画：</div>
                     <div className={CommonStyle['shows-content']}>
                         <div className={CommonStyle['padding-10']}>
-                            <CooTabs activeIndex={this.state.activeIndex_3} onTab={this.onTab_3} isTransition={false}>
+                            <CooTabs defaultIndex={2} isTransition={false}>
                                 <CooTabs.TabPanel title="百度新闻">
                                     <div className={Style['tab-content']}>
                                         百度新闻内容

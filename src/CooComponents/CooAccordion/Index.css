@@ -10,29 +10,37 @@
 
 .coo-btn-accordion{
     display: block;
-    background-color: #ffffff;
-    height: 40px;
-    line-height: 40px;
+    position: relative;
     box-sizing: border-box;
     padding-left: 32px;
+    height: 40px;
+    line-height: 40px;
     color: #000000;
+}
+
+.coo-btn-accordion-default{
+    background-color: #ffffff;
     border-bottom: 1px solid #f0f0f0;
-    position: relative;
 }
 
 .coo-ico{
     height: 14px;
     width: 14px;
-    background-image: url('./right.png');
-    background-size: 14px 14px;
     position: absolute;
     top: 13px;
     left: 10px;
     transition: all 0.4s ease;
+    background-size: 14px 14px;
 }
+
+.coo-ico-default{
+    background-image: url('./right.png');
+}
+
 .coo-ico-open{
     transform: rotate(90deg);
 }
+
 .coo-accordion-body{
     transition: all 0.4s ease;
     height: 0;

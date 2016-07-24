@@ -20,7 +20,6 @@ var Index = React.createClass({
                         gitHub开源地址：<a href="https://github.com/coocssweb/react-plug" target="_blank">https://github.com/coocssweb/react-plug</a>
                     </p>
                 </div>
-                <div className={CommonStyle['shows-label']}>已整理组件</div>
                 <div className={Style['component-box']}>
                     <ul className={Style["list-component"]+' clearfix'}>
                         <li className={Style["item-component"]}>
@@ -65,28 +64,23 @@ var Index = React.createClass({
                                 <div className={Style["item-name"]}>Accordion</div>
                             </Link>
                         </li>
-                    </ul>
-                </div>
-
-
-                <div className={CommonStyle['shows-label']}>尚未整理组件</div>
-                <div className={Style['component-box']}>
-                    <ul className={Style["list-component"]+' clearfix'}>
-
                         <li className={Style["item-component"]}>
-                            <Link to='/dropdown' className={Style["item-link"]}>
+                            <Link to='/null' className={Style["item-link"]}>
                                 <div className={Style["item-icon"]}><i className={"icon-null"}/></div>
-                                <div className={Style["item-name"]}>Dropdown</div>
+                                <div className={Style["item-name"]}>待定</div>
                             </Link>
                         </li>
                         <li className={Style["item-component"]}>
-                            <Link to='/dialog' className={Style["item-link"]}>
+                            <Link to='/null' className={Style["item-link"]}>
                                 <div className={Style["item-icon"]}><i className={"icon-null"}/></div>
-                                <div className={Style["item-name"]}>Pagination</div>
+                                <div className={Style["item-name"]}>待定</div>
                             </Link>
                         </li>
                     </ul>
                 </div>
+
+
+
                 <AboutMe />
             </div>
         )
