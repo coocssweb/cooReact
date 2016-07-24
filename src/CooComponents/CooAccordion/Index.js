@@ -70,32 +70,31 @@ var Index = React.createClass({
         return index;
     },
     render: function(){
-
-        var btnStyle = {};
-        var iconStyle = {};
-
-        var btnClass = Style['coo-btn-accordion'];
-        var iconClass = Style['coo-ico'];
-
-        if(this.props.btnStyle){
-            btnStyle = this.props.btnStyle;
-        }else{
-            btnClass += ' ';
-            btnClass += Style['coo-btn-accordion-default'];
-        }
-
-        if(this.props.iconStyle){
-            iconStyle = this.props.iconStyle;
-        }else{
-            iconClass += ' ';
-            iconClass += Style['coo-ico-default'];
-        }
-
-
         return (
             <div className={Style['coo-accordion']}>
                 {
                     this.props.children.map(function(item, index){
+
+                        var btnStyle = {};
+                        var iconStyle = {};
+
+                        var btnClass = Style['coo-btn-accordion'];
+                        var iconClass = Style['coo-ico'];
+
+                        if(this.props.btnStyle){
+                            btnStyle = this.props.btnStyle;
+                        }else{
+                            btnClass += ' ';
+                            btnClass += Style['coo-btn-accordion-default'];
+                        }
+
+                        if(this.props.iconStyle){
+                            iconStyle = this.props.iconStyle;
+                        }else{
+                            iconClass += ' ';
+                            iconClass += Style['coo-ico-default'];
+                        }
+
                         if(this.findIndex(index)>=0){
                             if(this.props.btnOpenStyle){
                                 btnStyle = this.props.btnOpenStyle;
