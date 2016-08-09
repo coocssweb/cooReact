@@ -16,7 +16,6 @@ function isDescendant(parent, child){
         }
         node = node.parentNode;
     }
-
     return false;
 }
 
