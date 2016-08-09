@@ -7,7 +7,6 @@ var React = require('react');
 var PropTypes = React.PropTypes;
 var AccordionPanel = require('./AccordionPanel.js');
 var Style = require('./Index.css');
-var $ = require('jquery');
 var Index = React.createClass({
     propTypes: {
         defaultIndex: PropTypes.number,           //当前展开项
@@ -25,12 +24,15 @@ var Index = React.createClass({
             this.forceUpdate();
         }
 
-        var __this = this;
-        $('.'+Style['coo-accordion-body-inner']).each(function(item,index){
-            __this.state.heights.push(
-                $(this).height()
+
+        var elements = document.getElementsByClassName(Style['coo-accordion-body-inner']);
+
+        for(var i=0; i<elements.length; i++){
+            this.state.heights.push(
+                elements[i].clientHeight
             )
-        });
+        }
+
     },
     getInitialState: function(){
         return {

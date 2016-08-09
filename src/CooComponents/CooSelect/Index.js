@@ -6,7 +6,19 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
 var Styles = require('./Index.css');
-var $ = require('jquery');
+var ReactDom = require('react-dom');
+
+function isDescendant(parent, child){
+    var node = child.parentNode;
+    while(node !== null){
+        if(node === parent){
+            return true;
+        }
+        node = node.parentNode;
+    }
+
+    return false;
+}
 
 var Index = React.createClass({
     propTypes:{
@@ -28,7 +40,8 @@ var Index = React.createClass({
     },
     getInitialState: function () {
         return {
-            isDropDown  : false
+            isDropDown  : false,
+            component: null
         }
     },
     componentWillUnmount: function(){
@@ -36,18 +49,19 @@ var Index = React.createClass({
     },
     componentDidMount: function(){
         document.addEventListener('click', this.handleClick);
+        this.state.component = ReactDom.findDOMNode(this);
     },
     /**
      * 监听页面点击，关闭下拉
      * @param e
      */
     handleClick: function (e) {
-        var length = $(e.target).parents('#'+this.props.name).length;
-        if(length==0){
+        if(e.target !== this.state.component && !isDescendant(this.state.component, e.target)){
             this.setState({
                 isDropDown: false
             })
         }
+
     },
     /**
      * 下拉事件
@@ -108,7 +122,7 @@ var Index = React.createClass({
         },this);
 
         return (
-            <div className={Styles['coo-select-box']+' '+(this.state.isDropDown?Styles['coo-select-box-open']:'')} id={this.props.name} style={boxStyle}>
+            <div ref='select-box' className={Styles['coo-select-box']+' '+(this.state.isDropDown?Styles['coo-select-box-open']:'')} id={this.props.name} style={boxStyle}>
                 <div className={Styles['coo-select-display']}>
                     <div className={Styles['coo-select-value']} style={valueStyle} onClick={this.onDrop}>{this.props.default?this.props.default.display:''}</div>
                     <span className={Styles['coo-select-btn']} onClick={this.onDrop} style={buttonStyle}>
