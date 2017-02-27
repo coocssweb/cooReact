@@ -1,12 +1,6 @@
 # 项目描述
 预览地址：[http://coo.shuxia123.com](http://coo.shuxia123.com)<br/>
 手机端访问：![githubusercontent](https://github.com/coocssweb/react-plug/blob/master/public/images/qr.png "手机端预览")<br /><br />
-虽然现在有很多React前端组件，但因为很多只是在第三方组件的基础上封装了样式进行修饰，所以改起来会很复杂<br />
-比如：你用[Material-UI]，虽然动画效果很好看，但一些坑还挺深的。<br />
-所以，就用工作8小时之外的时间，造一些轮子。<br />
-这个组件，没有用第三方组件，组件语法全是ES5语法，有详细的代码注释，然后现在也在完善文档。<br />
-稳定性方面，这些组件是从以前做过的几个项目中抽离出来的，可以用PC、手机浏览器进行浏览。<br />
-当然，dome上有联系我的方式，大家可以给多些建议给我。
 
 # 目录描述
 - Src 目录 ： React源码目录
