@@ -2,42 +2,39 @@
  * Created by 王佳欣欣欣 on 2016/7/21.
  * Tab组件
  */
-var React = require('react');
-var PropTypes = React.PropTypes;
-var Style = require('./index.css');
-var TabPanel = require('./tabPanel.js');
+import React, { Component, PropTypes } from 'react'
+import Style from './index.css'
 
-var Index = React.createClass({
-    propTypes:{
-        isTransition: PropTypes.bool,                            //是否开启动画
-        defaultIndex: PropTypes.number,              //当前激活项
-        onTab: PropTypes.func                       //tab事件回调
-    },
-    componentDidMount: function(){
+class index extends Component{
+    constructor(props){
+        super(props)
+
+        this.state = {
+            activeIndex: 0
+        }
+    }
+
+    componentDidMount(){
         if(this.props.defaultIndex){
             this.setState({
                 activeIndex: this.props.defaultIndex
             })
         }
-    },
-    getInitialState:function(){
-        return {
-            activeIndex: 0
-        }
-    },
-    onTab: function(index){
+    }
+
+    onTab(index){
         if(index==this.props.activeIndex){
             return;
         }
         if(typeof this.props.onTab === 'function'){
-            this.props.onTab(index);
+            this.props.onTab(index)
         }
         this.setState({
             activeIndex: index
         })
-    },
-    render: function(){
+    }
 
+    render(){
         var slideStyle = { };
         slideStyle.width = 100/this.props.children.length + '%';
         slideStyle.left = this.state.activeIndex * 100/this.props.children.length + '%';
@@ -62,10 +59,10 @@ var Index = React.createClass({
                             )
                         },this)
                     }
-                    <div className={Style['coo-slide']+' '+(this.props.isTransition?Style['coo-transition']:'')} style={slideStyle}></div>
+                    <div className={`${Style['coo-slide']} ${this.props.isTransition?Style['coo-transition']:''}`} style={slideStyle}></div>
                 </div>
                 <div className={Style['coo-body']}>
-                    <div className={Style['coo-body-content']+' '+(this.props.isTransition?Style['coo-transition']:'')} style={bodyContentStyle}>
+                    <div className={`${Style['coo-body-content']} ${this.props.isTransition?Style['coo-transition']:''}`} style={bodyContentStyle}>
                         {
                             this.props.children.map(function (item, index) {
                                 return (
@@ -80,7 +77,19 @@ var Index = React.createClass({
             </div>
         )
     }
-});
+}
 
-Index.TabPanel = TabPanel;
-module.exports = Index;
+
+index.TabPanel = class tabPanel extends Component{
+    constructor(props){
+        super(props)
+    }
+}
+
+index.propTypes = {
+    isTransition: PropTypes.bool,               //是否开启动画
+    defaultIndex: PropTypes.number,             //当前激活项
+    onTab: PropTypes.func                       //tab事件回调
+}
+
+export default index

@@ -5,17 +5,10 @@
 import React, { PropTypes, Component } from 'react'
 import Style from './index.css'
 
-export default class index extends Component{
+class index extends Component{
     constructor(props){
         super(props)
-        this.propTypes = {
-            isShow: PropTypes.bool,                 //显示状态
-            title: PropTypes.string,                //标题
-            isConfirm: PropTypes.bool.isRequired,   //是否显示确认按钮
-            isCancel: PropTypes.bool.isRequired,    //是否显示取消按钮
-            onConfirm: PropTypes.func,              //确认事件回调
-            onCancel: PropTypes.func                //取消事件回调
-        }
+
     }
 
     onCancel(e){
@@ -77,3 +70,13 @@ export default class index extends Component{
     }
 }
 
+index.propTypes = {
+    isShow: PropTypes.bool,                 //显示状态
+    title: PropTypes.string,                //标题
+    isConfirm: PropTypes.bool.isRequired,   //是否显示确认按钮
+    isCancel: PropTypes.bool.isRequired,    //是否显示取消按钮
+    onConfirm: PropTypes.func,              //确认事件回调
+    onCancel: PropTypes.func                //取消事件回调
+}
+
+export default index

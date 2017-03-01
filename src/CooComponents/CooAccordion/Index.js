@@ -9,11 +9,6 @@ import Style from './index.css'
 class index extends Component{
     constructor(props){
         super(props)
-        this.propTypes = {
-            defaultIndex: PropTypes.number,          //当前展开项
-            isOnly: PropTypes.bool.isRequired,       //是否值展开一项
-            onToggle: PropTypes.func                 //切换展开回调
-        }
 
         this.state = {
             opens: [],
@@ -90,6 +85,12 @@ class index extends Component{
             </div>
         )
     }
+}
+
+index.propTypes = {
+    defaultIndex: PropTypes.number,          //当前展开项
+    isOnly: PropTypes.bool.isRequired,       //是否值展开一项
+    onToggle: PropTypes.func                 //切换展开回调
 }
 
 index.AccordionPanel = class panel extends Component{

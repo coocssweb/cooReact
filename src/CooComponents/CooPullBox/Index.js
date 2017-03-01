@@ -6,14 +6,10 @@
 import React, { PropTypes, Component } from 'react'
 import Style from './index.css'
 
-export default class index extends Component{
+class index extends Component{
     constructor(props){
         super(props)
-        this.propTypes = {
-            direction: PropTypes.oneOf(['top', 'left', 'right', 'bottom']),
-            isOpen: PropTypes.bool.isRequired,
-            onClose: PropTypes.func.isRequired
-        }
+
     }
 
 
@@ -25,9 +21,9 @@ export default class index extends Component{
 
         return (
             <div>
-                <div className={Styles['coo-mask']+' '+(this.props.isOpen?'':Styles['coo-hidden'])} onClick={this.onClose.bind(this)}>
+                <div className={Style['coo-mask']+' '+(this.props.isOpen?'':Style['coo-hidden'])} onClick={this.onClose.bind(this)}>
                 </div>
-                <div className={`${Styles['coo-pull-box']} ${Styles['coo-pull-box-'+this.props.direction]} ${this.props.isOpen? Styles['coo-pull-box-'+this.props.direction+'-open']: null}`}>
+                <div className={`${Style['coo-pull-box']} ${Style['coo-pull-box-'+this.props.direction]} ${this.props.isOpen? Style['coo-pull-box-'+this.props.direction+'-open']: null}`}>
                     {
                         this.props.children
                     }
@@ -36,3 +32,11 @@ export default class index extends Component{
         )
     }
 }
+
+index.propTypes = {
+    direction: PropTypes.oneOf(['top', 'left', 'right', 'bottom']),
+    isOpen: PropTypes.bool.isRequired,
+    onClose: PropTypes.func.isRequired
+}
+
+export default index

@@ -6,13 +6,10 @@
 import React, { PropTypes, Component } from 'react'
 import Style from './index.css'
 
-export default class index extends Component{
+class index extends Component{
     constructor(props){
         super(props)
-        this.propTypes = {
-            isLoading: PropTypes.bool.isRequired,       //正在加载中？
-            onLoad: PropTypes.func.isRequired           //加载回调
-        }
+
     }
 
     onLoad(e){
@@ -36,3 +33,10 @@ export default class index extends Component{
         )
     }
 }
+
+index.propTypes = {
+    isLoading: PropTypes.bool.isRequired,       //正在加载中？
+    onLoad: PropTypes.func.isRequired           //加载回调
+}
+
+export default index

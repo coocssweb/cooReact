@@ -6,13 +6,10 @@ import React, { Component, PropTypes } from 'react'
 import Style from './index.css'
 
 
-export default class index extends Component{
+class index extends Component{
     constructor(props){
         super(props)
-        this.propTypes = {
-            checked: PropTypes.bool,               //是否选中
-            onChange: PropTypes.func.isRequired    //改变事件
-        }
+
     }
 
     onChange(){
@@ -28,3 +25,10 @@ export default class index extends Component{
         )
     }
 }
+
+index.propTypes = {
+    checked: PropTypes.bool,               //是否选中
+    onChange: PropTypes.func.isRequired    //改变事件
+}
+
+export default index
