@@ -32,13 +32,6 @@ class index extends Component{
         }
     }
 
-    getInitialState(){
-        return {
-            opens: [],
-            heights: []
-        }
-    }
-
     onToggle(value){
         if(typeof this.props.onToggle === 'function'){
             this.props.onToggle(value)

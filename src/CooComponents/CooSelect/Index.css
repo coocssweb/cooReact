@@ -5,6 +5,7 @@
     border: 1px solid #CCCCCC;
     border-radius: 5px;
     transition: all 0.4s ease-in-out;
+    height: 40px;
 }
 .coo-select-box:active,.coo-select-box:focus,.coo-select-box-open,.coo-select-box-open .coo-select-btn{
     border-color: #57c5f7 !important;
@@ -28,6 +29,7 @@
 .coo-select-value{
     height: 100%;
     width: 100%;
+    line-height: 40px;
     color: #000;
 }
 .coo-select-btn{
