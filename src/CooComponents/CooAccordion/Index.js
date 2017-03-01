@@ -99,14 +99,6 @@ index.AccordionPanel = class panel extends Component{
 
         }
     }
-
-    render(){
-        return (
-            <div>
-
-            </div>
-        )
-    }
 }
 
 export default index
