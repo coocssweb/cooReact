@@ -2,124 +2,83 @@
  * Created by 王佳欣欣欣 on 2016/7/22.
  * 手风琴组件
  */
+import React, { PropTypes, Component } from 'react'
+var Style = require('./index.css')
 
-var React = require('react');
-var PropTypes = React.PropTypes;
-var AccordionPanel = require('./accordionPanel.js');
-var Style = require('./index.css');
-var Index = React.createClass({
-    propTypes: {
-        defaultIndex: PropTypes.number,           //当前展开项
-        style: PropTypes.object,
-        btnStyle: PropTypes.object,
-        btnOpenStyle: PropTypes.object,
-        iconStyle: PropTypes.object,
-        iconOpenStyle: PropTypes.object,
-        isOnly: PropTypes.bool.isRequired,        //是否值展开一项
-        onToggle: PropTypes.func                 //切换展开回调
-    },
+
+class index extends Component{
+    constructor(props){
+        super(props)
+        this.propTypes = {
+            defaultIndex: PropTypes.number,          //当前展开项
+            isOnly: PropTypes.bool.isRequired,       //是否值展开一项
+            onToggle: PropTypes.func                 //切换展开回调
+        }
+
+        this.state = {
+            opens: [],
+            heights: []
+        }
+    }
+
     componentDidMount(){
         if(this.props.defaultIndex>0){
-            this.state.opens.push(this.props.defaultIndex);
-            this.forceUpdate();
+            this.state.opens.push(this.props.defaultIndex)
+            this.forceUpdate()
         }
 
 
-        var elements = document.getElementsByClassName(Style['coo-accordion-body-inner']);
+        var elements = document.getElementsByClassName(Style['coo-accordion-body-inner'])
 
         for(var i=0; i<elements.length; i++){
             this.state.heights.push(
                 elements[i].clientHeight
             )
         }
+    }
 
-    },
-    getInitialState: function(){
+    getInitialState(){
         return {
             opens: [],
             heights: []
         }
-    },
-    onToggle: function(value){
+    }
+
+    onToggle(value){
         if(typeof this.props.onToggle === 'function'){
-            this.props.onToggle(value);
+            this.props.onToggle(value)
         }
         if(this.props.isOnly){
-            var opened = this.state.opens.pop();
+            var opened = this.state.opens.pop()
             if(opened!==value){
-                this.state.opens.push(value);
+                this.state.opens.push(value)
             }
         }else{
-            var index = this.findIndex(value);
-            if(index>=0){
-                this.state.opens.splice(index, 1);
+            var index = this.state.opens.indexOf(value)
+            if(index>-1){
+                this.state.opens.splice(index, 1)
             }else{
-                this.state.opens.push(value);
+                this.state.opens.push(value)
             }
         }
 
-        this.forceUpdate();
-    },
-    findIndex: function(value){
-        var index = -1;
-        this.state.opens.map(function(item, itemIndex){
-            if(item==value){
-                index = itemIndex;
-                return false;
-            }
-        });
+        this.forceUpdate()
+    }
 
-        return index;
-    },
-    render: function(){
+    render(){
         return (
             <div className={Style['coo-accordion']}>
                 {
                     this.props.children.map(function(item, index){
-
-                        var btnStyle = {};
-                        var iconStyle = {};
-
-                        var btnClass = Style['coo-btn-accordion'];
-                        var iconClass = Style['coo-ico'];
-
-                        if(this.props.btnStyle){
-                            btnStyle = this.props.btnStyle;
-                        }else{
-                            btnClass += ' ';
-                            btnClass += Style['coo-btn-accordion-default'];
-                        }
-
-                        if(this.props.iconStyle){
-                            iconStyle = this.props.iconStyle;
-                        }else{
-                            iconClass += ' ';
-                            iconClass += Style['coo-ico-default'];
-                        }
-
-                        if(this.findIndex(index)>=0){
-                            if(this.props.btnOpenStyle){
-                                btnStyle = this.props.btnOpenStyle;
-                            }
-                            if(this.props.iconOpenStyle){
-                                iconStyle = this.props.iconOpenStyle;
-                            }else{
-                                iconClass += ' ';
-                                iconClass += Style['coo-ico-open'];
-                            }
-                        }
-
-
                         return (
-                            <div  key={'accordion-'+index} className={Style['coo-accordion-item']} style={this.props.style}>
+                            <div  key={`${'accordion-'}${index}`} className={Style['coo-accordion-item']}>
                                 <a href="javascript:;"
-                                   className={btnClass}
-                                   style={btnStyle}
+                                   className={Style['coo-btn-accordion']}
                                    onClick={this.onToggle.bind(this,index)}>
-                                    <i className={iconClass} style={iconStyle} />
+                                    <i className={`${Style['coo-ico']} ${this.state.opens.indexOf(index)>-1?Style['coo-ico-open']:null}`} />
                                     {item.props.title}
                                 </a>
-                                <div className={Style['coo-accordion-body']} style={this.findIndex(index)>=0?{height: this.state.heights[index]+'px'}:null}>
+                                <div className={Style['coo-accordion-body']} style={this.state.opens.indexOf(index)>-1?{height: this.state.heights[index]+'px'}:null}>
                                     <div className={Style['coo-accordion-body-inner']}>
                                         {item.props.children}
                                     </div>
@@ -131,7 +90,23 @@ var Index = React.createClass({
             </div>
         )
     }
-});
+}
 
-Index.AccordionPanel = AccordionPanel;
-module.exports = Index;
+index.AccordionPanel = class panel extends Component{
+    constructor(props){
+        super(props)
+        this.propTypes = {
+
+        }
+    }
+
+    render(){
+        return (
+            <div>
+
+            </div>
+        )
+    }
+}
+
+export default index
