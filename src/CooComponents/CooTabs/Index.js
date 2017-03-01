@@ -35,16 +35,16 @@ class index extends Component{
     }
 
     render(){
-        var slideStyle = { };
-        slideStyle.width = 100/this.props.children.length + '%';
-        slideStyle.left = this.state.activeIndex * 100/this.props.children.length + '%';
+        var slideStyle = { }
+        slideStyle.width = 100/this.props.children.length + '%'
+        slideStyle.left = this.state.activeIndex * 100/this.props.children.length + '%'
 
-        var bodyContentStyle = {};
-        bodyContentStyle.transform = 'translate(-' + slideStyle.left + ',0%)';
-        bodyContentStyle.width = 100 * this.props.children.length + '%';
+        var bodyContentStyle = {}
+        bodyContentStyle.transform = 'translate(-' + slideStyle.left + ',0%)'
+        bodyContentStyle.width = 100 * this.props.children.length + '%'
 
-        var panelStyle = {};
-        panelStyle.width = 100/this.props.children.length + '%';
+        var panelStyle = {}
+        panelStyle.width = 100/this.props.children.length + '%'
 
         return (
             <div>
