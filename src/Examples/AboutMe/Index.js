@@ -5,7 +5,7 @@
 
 import React from 'react';
 import CooPullBox from '../../CooComponents/CooPullBox';
-import Style from './Index.css';
+import Style from './index.css';
 
 var Index = React.createClass({
     getInitialState(){

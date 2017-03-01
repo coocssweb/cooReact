@@ -6,7 +6,7 @@
 import React from 'react';
 import CooDialog from '../../CooComponents/CooDialog';
 import CommonStyle from '../common.css';
-import Style from './Index.css';
+import Style from './index.css';
 import {Link} from 'react-router';
 
 var Index = React.createClass({

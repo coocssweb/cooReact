@@ -5,8 +5,8 @@
 
 var React = require('react');
 var PropTypes = React.PropTypes;
-var AccordionPanel = require('./AccordionPanel.js');
-var Style = require('./Index.css');
+var AccordionPanel = require('./accordionPanel.js');
+var Style = require('./index.css');
 var Index = React.createClass({
     propTypes: {
         defaultIndex: PropTypes.number,           //当前展开项

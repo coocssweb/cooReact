@@ -5,7 +5,7 @@
 
 import React from 'react'
 import {Link} from 'react-router';
-import Style from './Index.css';
+import Style from './index.css';
 import CommonStyle from '../common.css';
 import AboutMe from '../AboutMe';
 

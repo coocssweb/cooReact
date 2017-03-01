@@ -11,7 +11,6 @@
 
 # 环境搭建
 - git 拷贝代码后，运行npm install ，安装环境
-- 环境安装完后，运行 npm start ，启动项目，通过http://localhost:3000 访问实例
-- 构建代码，运行npm run build，构建代码，会在/dist/生成对应的目录。
+- 环境安装完后，运行 npm run dev ，启动项目，通过http://localhost:8080 访问实例
 
 #更新日志

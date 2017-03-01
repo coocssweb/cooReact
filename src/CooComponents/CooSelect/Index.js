@@ -5,7 +5,7 @@
 
 var React = require('react');
 var PropTypes = React.PropTypes;
-var Styles = require('./Index.css');
+var Styles = require('./index.css');
 var ReactDom = require('react-dom');
 
 function isDescendant(parent, child){

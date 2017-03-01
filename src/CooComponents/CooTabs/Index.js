@@ -4,8 +4,8 @@
  */
 var React = require('react');
 var PropTypes = React.PropTypes;
-var Style = require('./Index.css');
-var TabPanel = require('./TabPanel.js');
+var Style = require('./index.css');
+var TabPanel = require('./tabPanel.js');
 
 var Index = React.createClass({
     propTypes:{

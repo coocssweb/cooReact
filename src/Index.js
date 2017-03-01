@@ -3,17 +3,18 @@
  * 路由定义
  */
 
-import ReactDom from 'react-dom';
-import React from 'react';
-import { Router, Route, IndexRoute, hashHistory} from 'react-router';
-import Layout from './Examples/Layout';
-import Select from './Examples/Select';
-import Switch from './Examples/Switch';
-import Dialog from './Examples/Dialog';
-import Loadmore from './Examples/Loadmore';
-import Tabs from './Examples/Tabs';
-import PullBox from './Examples/PullBox';
-import Accordion from './Examples/Accordion';
+import ReactDom from 'react-dom'
+import React from 'react'
+import { Router, Route, IndexRoute, hashHistory} from 'react-router'
+import Layout from './Examples/Layout'
+import Select from './Examples/Select'
+import Switch from './Examples/Switch'
+import Dialog from './Examples/Dialog'
+import Loadmore from './Examples/Loadmore'
+import Tabs from './Examples/Tabs'
+import PullBox from './Examples/PullBox'
+import Accordion from './Examples/Accordion'
+import './index.html'
 
 ReactDom.render((
     <Router history={hashHistory}>

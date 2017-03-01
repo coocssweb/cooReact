@@ -4,44 +4,82 @@
  */
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
 var config = {
   devtool: 'inline-source-map',
+  devServer: {
+    historyApiFallback: true,
+    host: '0.0.0.0',
+    inline: true,
+    progress: true
+  },
   entry: [
-    'webpack-dev-server/client?http://127.0.0.1:3000',
-    'webpack/hot/only-dev-server',
     './src/index.js'
   ],
   output: {
-    path: path.join(__dirname, 'dist/'),
+    path: path.join(__dirname, 'dist'),
     filename: 'index.js',
-    publicPath: '/static/'
+    publicPath: '/'
   },
   module: {
     noParse : [],
     loaders: [{
       test: /\.jsx?$/,
-      loaders: ['react-hot', 'babel'],
+      loader: 'babel',
+      exclude: /(node_modules|third)/,
       include: [
         path.join(__dirname,'src')
-      ]
+      ],
+      query: {
+        cacheDirectory: true,
+        "presets": ["react", "es2015"],
+        "env": {
+          "development": {
+            "presets": ["react-hmre"]
+          }
+        }
+      }
     },{
       test: /\.css$/,
-      exclude: [
-        path.resolve(__dirname, 'node_modules')
-      ],
-      loaders: ['style', 'css?modules&localIdentName=[name]_[local]_[hash:base64:5]','autoprefixer?{browsers:["> 5%", "ie 9"]}']
+      exclude: /(node_modules|styles|third)/,
+      loaders: ['style', 'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]', 'autoprefixer?{browsers:["> 5%", "ie 9"]}']
     },{
-      test: /\.(svg|png|jpg|jpeg|gif)$/i,
-      loaders: ['file', 'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false']
+      test: /\.css$/,
+      include: [
+        path.join(__dirname,'node_modules'),
+        path.join(__dirname,'styles')
+      ],
+      loaders: ['style', 'css']
+    },{
+      test: /\.(png|jpg|jpeg|gif)$/i,
+      loader: 'file'
+    },{
+      test: /\.(svg|eot|ttf|woff)$/i,
+      loader: 'url-loader'
+    },{
+      test: /\.html$/i,
+      loader: 'file?name=[name].[ext]'
+    },{
+      test: /\.js/i,
+      include:[
+        path.join(__dirname,'third')
+      ],
+      loader: 'file?name=[name].[ext]'
+    },{
+      test: /\.css/i,
+      include:[
+        path.join(__dirname,'third')
+      ],
+      loader: 'file?name=[name].[ext]'
     }]
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+      'process.env.NODE_ENV': JSON.stringify('development')
     })
   ]
 }
