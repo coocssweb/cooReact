@@ -7,6 +7,8 @@
     display: block;
     color: #454545;
     border:0px !important;
+    background-color: #ffffff;
+    border-radius: 10px;
 }
 .coo-btn-loadmore:active,.coo-btn-loadmore-loading {
     background-color: #EEEEEE;
@@ -20,9 +22,7 @@
     top: 0;
     left: 0;
     border: 1px solid rgba(0, 0, 0, 0.2);
-    -webkit-transform: scale(0.5);
     transform: scale(0.5);
-    -webkit-transform-origin: 0 0;
     transform-origin: 0 0;
     box-sizing: border-box;
     border-radius: 10px;
