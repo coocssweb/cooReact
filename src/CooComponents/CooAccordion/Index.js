@@ -3,7 +3,7 @@
  * 手风琴组件
  */
 import React, { PropTypes, Component } from 'react'
-var Style = require('./index.css')
+import Style from './index.css'
 
 
 class index extends Component{

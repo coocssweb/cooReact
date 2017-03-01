@@ -4,7 +4,7 @@
  */
 
 import React, { PropTypes, Component } from 'react'
-var Style = require('./index.css')
+import Style from './index.css'
 
 export default class index extends Component{
     constructor(props){

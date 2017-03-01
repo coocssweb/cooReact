@@ -3,37 +3,31 @@
  * 抽屉组件
  */
 
-var React = require('react');
-var PropTypes = React.PropTypes;
-var Styles = require('./index.css');
+import React, { PropTypes, Component } from 'react'
+import Style from './index.css'
 
-var Index = React.createClass({
-    propTypes:{
-        direction: PropTypes.oneOf(['top', 'left', 'right', 'bottom']),
-        isOpen: PropTypes.bool.isRequired,
-        onClose: PropTypes.func.isRequired
-    },
-    onClose(e){
-        this.props.onClose();
-    },
-    getStyle(){
-        var style = Styles['coo-pull-box']+' ';
-        style += Styles['coo-pull-box-'+this.props.direction];
-        if(this.props.isOpen){
-            style += ' ';
-            style += Styles['coo-pull-box-'+this.props.direction+'-open'];
+export default class index extends Component{
+    constructor(props){
+        super(props)
+        this.propTypes = {
+            direction: PropTypes.oneOf(['top', 'left', 'right', 'bottom']),
+            isOpen: PropTypes.bool.isRequired,
+            onClose: PropTypes.func.isRequired
         }
-        return style;
-    },
-    render:function(){
+    }
 
-        var style = this.getStyle();
+
+    onClose(e){
+        this.props.onClose()
+    }
+
+    render(){
 
         return (
             <div>
-                <div className={Styles['coo-mask']+' '+(this.props.isOpen?'':Styles['coo-hidden'])} onClick={this.onClose}>
+                <div className={Styles['coo-mask']+' '+(this.props.isOpen?'':Styles['coo-hidden'])} onClick={this.onClose.bind(this)}>
                 </div>
-                <div className={style}>
+                <div className={`${Styles['coo-pull-box']} ${Styles['coo-pull-box-'+this.props.direction]} ${this.props.isOpen? Styles['coo-pull-box-'+this.props.direction+'-open']: null}`}>
                     {
                         this.props.children
                     }
@@ -41,6 +35,4 @@ var Index = React.createClass({
             </div>
         )
     }
-});
-
-module.exports = Index;
+}
