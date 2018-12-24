@@ -1,0 +1,62 @@
+@import "../styles/animation";
+
+.cooSelect{
+    display: inline-block;
+    position: relative;
+    &-header{
+
+    }
+    &-label{
+
+    }
+    &-placeholder{
+        &--hidden{
+            display: none;
+        }
+    }
+    &-arrow{
+        &--open{
+
+        }
+    }
+    &-dropdown{
+        background-color: white;
+        border: 1px solid #d9d9d9;
+        box-shadow: 0 0px 4px #d9d9d9;
+        border-radius: 4px;
+        box-sizing: border-box;
+        z-index: 100;
+        position: absolute;
+        outline: none;
+        transform-origin: 0 0;
+        animation-duration: .5s;
+        animation-fill-mode: both;
+        animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+        animation-name: cooDropdownSlideUpIn;
+        &--hidden{
+            display: none;
+        }
+    }
+
+
+    &--disabled {
+
+    }
+}
+
+.fade {
+    &-enter{
+        animation-duration: .5s;
+        animation-fill-mode: both;
+        animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+        animation-name: cooDropdownSlideUpIn;
+    }
+
+    &-exit{
+        animation-duration: .5s;
+        animation-fill-mode: both;
+        opacity: 1;
+        animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
+        animation-name: cooDropdownSlideUpOut;
+    }
+}

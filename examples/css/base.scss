@@ -1,0 +1,37 @@
+@import "normalize";
+
+html, body{
+    background: transparent;
+    -webkit-overflow-scrolling: touch;
+
+}
+
+body {
+    font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+dd, dl, dt, p, nav, div, ul,li, header, h1, h2, h3, h4, h5, h6,iframe, button{
+    margin: 0px;
+    padding: 0px;
+}
+
+ul, li{
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden;
+}
