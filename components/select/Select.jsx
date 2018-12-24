@@ -177,7 +177,7 @@ class Select extends Component {
                                     <CSSTransition
                                         in={state.open}
                                         timeout={500}
-                                        classNames="fade"
+                                        classNames="slideUp"
                                         onExited={() => {
                                             this.setState({
                                                 hidden: true

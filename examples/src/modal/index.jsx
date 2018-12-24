@@ -15,10 +15,19 @@ class Index extends Component {
         });
     }
 
+    onOk () {
+        setTimeout(() => {
+            this.setState({
+                visible: false
+            });
+        }, 3000);
+    }
+
     render () {
         return (
             <div className="modal">
-                <Modal visible={this.state.visible}>
+                <Modal visible={this.state.visible}
+                       onOk={this.onOk.bind(this)}>
                     <p>这是内容</p>
                     <p>这是内容</p>
                     <p>这是内容</p>

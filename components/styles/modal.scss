@@ -1,0 +1,52 @@
+.cooModal{
+    &-mask{
+        position: fixed;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        z-index: 1000;
+        background-color: rgba(0, 0, 0, .5);
+        animation: cooFadeIn .5s ease;
+        transition: opacity .5s ease;
+        &--hidden{
+            display: none;
+        }
+    }
+
+    &-wrap{
+        position: fixed;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        z-index: 1000;
+        animation: cooFadeIn .5s ease;
+        transition: opacity .5s ease;
+        &--hidden{
+            display: none;
+        }
+    }
+
+    &-content{
+        position: relative;
+        top: 100px;
+        margin: 0px auto;
+        background-color: #fff;
+    }
+}
+
+.fade{
+    &-enter{
+        opacity: 0;
+        &-active{
+            opacity: 1;
+        }
+    }
+    &-exit{
+        opacity: 1;
+        &-active{
+            opacity: 0;
+        }
+    }
+}

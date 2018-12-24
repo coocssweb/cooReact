@@ -7,13 +7,16 @@ class Button extends Component {
     }
 
     onClick () {
-
+        const props = this.props;
+        if ('onClick' in props) {
+            props.onClick();
+        }
     }
 
     render () {
         return (
             <button onClick={this.onClick.bind(this)}>
-                <span>{ props.text }</span>
+                <span>{ this.props.children }</span>
             </button>
         );
     }

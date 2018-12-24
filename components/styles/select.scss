@@ -1,5 +1,3 @@
-@import "../styles/animation";
-
 .cooSelect{
     display: inline-block;
     position: relative;
@@ -44,7 +42,7 @@
     }
 }
 
-.fade {
+.slideUp {
     &-enter{
         animation-duration: .5s;
         animation-fill-mode: both;
