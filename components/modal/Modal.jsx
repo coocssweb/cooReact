@@ -6,15 +6,40 @@ class Modal extends Component {
     constructor (props) {
         super(props);
         this.haveOpened = false;
+        this.state = {
+            haveDestroy: false
+        };
+    }
+
+    componentWillReceiveProps (nextProps) {
+        if (nextProps.visible && nextProps.destroyOnClose) {
+            this.setState({
+                haveDestroy: false
+            });
+        }
+    }
+
+    afterClose () {
+        const props = this.props;
+        this.setState({
+            haveDestroy: true
+        });
+        if ('afterDestroy' in props) {
+            props.afterDestroy();
+        }
     }
 
     render () {
         const props = this.props;
         this.haveOpened = this.haveOpened || props.visible;
 
+        if (this.state.haveDestroy) {
+            return null;
+        }
+
         if (this.haveOpened) {
             return (
-                <Content {...props}>
+                <Content {...props} afterClose={this.afterClose.bind(this)}>
                     {
                         props.children
                     }
@@ -33,6 +58,7 @@ Modal.defaultProps = {
     cancelText: '取消',
     closable: true,
     maskClosable: true,
+    destroyOnClose: false,
 };
 
 Modal.propTypes = {
@@ -44,6 +70,7 @@ Modal.propTypes = {
     onCancel: propTypes.func,                           // 取消回调
     closable: propTypes.bool,                           // 显示关闭按钮
     maskClosable: propTypes.bool,                       // 点击mask可关闭
+    destroyOnClose: propTypes.bool,                     // 关闭后销毁组件
 };
 
 export default Modal;

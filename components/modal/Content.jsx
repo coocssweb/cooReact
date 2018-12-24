@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import className from 'classnames';
 import { CSSTransition } from 'react-transition-group';
-import { isNodeFound } from '../_util/domHelper';
+import { isNodeFound, windowScroll } from '../_util/domHelper';
 import Button from '../button';
 
 class Content extends Component {
@@ -11,9 +11,10 @@ class Content extends Component {
         this.el = document.createElement('div');
         this.contentRef = React.createRef();
         this.state = {
-            visible: true,
-            hidden: false
+            hidden: false,
+            visible: true
         };
+        windowScroll(false);
     }
 
     componentDidMount () {
@@ -32,6 +33,7 @@ class Content extends Component {
 
     setStateVisible (visible) {
         if (visible) {
+            windowScroll(false);
             this.setState({
                 visible,
                 hidden: false
@@ -91,6 +93,18 @@ class Content extends Component {
         );
     }
 
+    afterClose () {
+        windowScroll(true);
+        let props = this.props;
+        if (props.destroyOnClose) {
+            props.afterClose();
+        } else {
+            this.setState({
+                hidden: true
+            });
+        }
+    }
+
     renderFooter () {
         const props = this.props;
         if (!props.okText && !props.cancelText) {
@@ -137,13 +151,9 @@ class Content extends Component {
         return (
             <CSSTransition
                 in={state.visible}
-                timeout={500}
+                timeout={300}
                 classNames="fade"
-                onExited={() => {
-                    this.setState({
-                        hidden: true
-                    });
-                }}>
+                onExited={this.afterClose.bind(this)}>
                 <div className={maskClassName} />
             </CSSTransition>
         );
