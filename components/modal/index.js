@@ -30,7 +30,6 @@ const modalProps = {
 // 渲染Modal窗口到document
 // 销毁后直接移除节点
 function renderModal ({title, content}, type) {
-    // 创建空节点
     const div = document.createElement('div');
     document.body.appendChild(div);
     const prefixCss = `cooModal-${type}`;
