@@ -1,0 +1,46 @@
+.cooCollapse {
+    &-panel {
+
+    }
+    &-header{
+
+    }
+    &-content{
+        overflow: hidden;
+        transition: height .3s cubic-bezier(.215, .61, .355, 1);
+        background-color: #eee;
+    }
+    &-box{
+        padding: 16px;
+    }
+    &-arrow{
+        transition: .3s cubic-bezier(.215, .61, .355, 1);
+        display: inline-block;
+    }
+}
+
+.cooCollapse-item--inactive {
+    .cooCollapse{
+        &-header{
+
+        }
+        &-content{
+            display: none;
+        }
+    }
+}
+
+// 展开状态
+.cooCollapse-item--active {
+    .cooCollapse{
+        &-header{
+
+        }
+        &-arrow{
+            transform: rotate(90deg);
+        }
+        &-content{
+            display: block;
+        }
+    }
+}
