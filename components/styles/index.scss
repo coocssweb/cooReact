@@ -5,3 +5,11 @@
 @import "switch";
 @import "collapse";
 @import "tabs";
+
+.cooClearfix{
+    &:after{
+        content: '';
+        clear: both;
+        display: table;
+    }
+}

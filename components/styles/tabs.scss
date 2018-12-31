@@ -1,0 +1,30 @@
+.cooTab{
+    &-header{
+        border-bottom: 1px solid #efefef;
+        position: relative;
+    }
+    &-bar{
+        height: 1px;
+        background-color: #4d90fe;
+        position: absolute;
+        bottom: -1px;
+        transition: all .3s ease;
+    }
+    &-content{
+        overflow: hidden;
+    }
+    &-item{
+        float: left;
+        padding: 16px 20px;
+        transition: all .3s ease;
+        &--active{
+            color: #4d90fe;
+        }
+    }
+    &-panel{
+        float: left;
+    }
+    &-wrapper{
+        transition: margin-left .3s ease;
+    }
+}

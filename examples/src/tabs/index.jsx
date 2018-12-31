@@ -17,9 +17,9 @@ class Index extends Component {
                             内容一
                         </div>
                     </TabItem>
-                    <TabItem header="tab-02">
+                    <TabItem header="tab-02tab-02">
                         <div className="tabContent tabContent-01">
-                            内容三
+                            内容二
                         </div>
                     </TabItem>
                     <TabItem header="tab-03">
