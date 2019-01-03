@@ -1,3 +1,4 @@
+import './index.scss';
 import React, {Component} from 'react';
 import {Tabs} from 'components';
 const TabItem = Tabs.TabItem;
@@ -13,17 +14,17 @@ class Index extends Component {
             <div className="tabs">
                 <Tabs>
                     <TabItem header="tab-01">
-                        <div className="tabContent tabContent-01">
+                        <div className="tabContent tabContent--01">
                             内容一
                         </div>
                     </TabItem>
                     <TabItem header="tab-02tab-02">
-                        <div className="tabContent tabContent-01">
+                        <div className="tabContent tabContent--02">
                             内容二
                         </div>
                     </TabItem>
                     <TabItem header="tab-03">
-                        <div className="tabContent tabContent-01">
+                        <div className="tabContent tabContent--03">
                             内容三
                         </div>
                     </TabItem>

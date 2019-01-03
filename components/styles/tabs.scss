@@ -17,14 +17,22 @@
         float: left;
         padding: 16px 20px;
         transition: all .3s ease;
+        cursor: pointer;
+        user-select: none;
+        touch-callout: none;
         &--active{
             color: #4d90fe;
         }
     }
     &-panel{
         float: left;
+        transition: all .3s ease;
+        opacity: 0;
+        &--active{
+            opacity: 1;
+        }
     }
     &-wrapper{
-        transition: margin-left .3s ease;
+        transition: transform .3s ease;
     }
 }

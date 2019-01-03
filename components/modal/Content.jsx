@@ -174,7 +174,7 @@ class Content extends Component {
                     <CSSTransition
                         in={state.visible}
                         timeout={500}
-                        classNames="fade">
+                        classNames="cooFade">
                         <div className={wrapClassName}
                              onClick={this.onMaskClick.bind(this)}>
                             <div style={{width: `${props.width}px`}}

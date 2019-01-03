@@ -1,0 +1,96 @@
+.cooDrawer{
+    &-mask{
+        position: fixed;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        z-index: 1000;
+        background-color: rgba(0, 0, 0, .2);
+        animation: cooFadeIn .3s ease;
+        transition: opacity .3s ease;
+        &--hidden{
+            display: none;
+        }
+    }
+    &-wrap{
+        position: fixed;
+        transition: all .3s ease;
+        z-index: 1000;
+        &--hidden{
+            display: none;
+        }
+        &--top{
+            top: 0px;
+            right: 0px;
+            left: 0px;
+            box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+            animation: cooSlideTopIn .3s ease;
+        }
+        &--right{
+            top: 0px;
+            bottom: 0px;
+            right: 0px;
+            box-shadow: -2px 0 8px rgba(0,0,0,0.15);
+            animation: cooSlideRightIn .3s ease;
+        }
+        &--bottom{
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            box-shadow: 0px -2px 8px rgba(0,0,0,0.15);
+            animation: cooSlideBottomIn .3s ease;
+        }
+        &--left{
+            left: 0px;
+            top: 0px;
+            bottom: 0px;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+            animation: cooSlideLeftmIn .3s ease;
+        }
+    }
+    &-header{
+
+    }
+    &-body{
+
+    }
+    &-button{
+        position: absolute;
+        &--top{
+            width: 50px;
+            height: 30px;
+            left: 50%;
+            top: 100%;
+            margin-left: -25px;
+        }
+        &--right{
+            width: 30px;
+            height: 50px;
+            left: 0%;
+            top: 50%;
+            margin-top: -25px;
+            margin-left: -30px;
+        }
+        &--bottom{
+            width: 50px;
+            height: 30px;
+            left: 50%;
+            top: -30px;
+            margin-left: -25px;
+        }
+        &--left{
+            width: 30px;
+            height: 50px;
+            left: 100%;
+            top: 50%;
+            margin-top: -25px;
+        }
+    }
+    &-content{
+        background-color: #ffffff;
+        height: 100%;
+        width: 100%;
+        overflow: auto;
+    }
+}

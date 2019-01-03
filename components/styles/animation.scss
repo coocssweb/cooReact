@@ -1,4 +1,3 @@
-
 @keyframes cooDropdownSlideUpIn {
     0% {
         opacity: 0;
@@ -26,5 +25,93 @@
     }
     100%{
         opacity: 1;
+    }
+}
+
+// 上方位：进
+@keyframes cooSlideTopIn {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100%{
+        transform: none;
+    }
+}
+
+// 上方位：出
+@keyframes cooSlideTopOut {
+    0% {
+        transform: translateY(0%);
+    }
+
+    100%{
+        transform: translateY(-100%);
+    }
+}
+
+// 右方位：进
+@keyframes cooSlideRightIn {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100%{
+        transform: none;
+    }
+}
+
+// 右方位：出
+@keyframes cooSlideRightOut {
+    0% {
+        transform: none;
+    }
+
+    100%{
+        transform: translateX(100%);
+    }
+}
+
+// 下方位：进
+@keyframes cooSlideBottomIn {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100%{
+        transform: none;
+    }
+}
+
+// 下方位：出
+@keyframes cooSlideBottomOut {
+    0% {
+        transform: none;
+    }
+
+    100%{
+        transform: translateY(100%);
+    }
+}
+
+// 左方位：进
+@keyframes cooSlideLeftIn {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100%{
+        transform: none;
+    }
+}
+
+// 左方位：出
+@keyframes cooSlideLeftOut {
+    0% {
+        transform: none;
+    }
+
+    100%{
+        transform: translateY(100%);
     }
 }
