@@ -22,13 +22,15 @@ class Button extends Component {
             [prefixCls]: 1,
             [`${prefixCls}--${props.type}`]: 1,
             [`${prefixCls}--${props.size}`]: 1,
-            [`${prefixCls}--disable`]: props.disabled
+            [`${prefixCls}--disable`]: props.disabled,
+            'circle': props.circle,
+            'transparent': props.transparent
         });
 
         return (
             <button className={buttonClassName}
                     onClick={this.onClick.bind(this)}>
-                <span>{ this.props.children }</span>
+                { this.props.children }
             </button>
         );
     }
@@ -37,13 +39,17 @@ class Button extends Component {
 Button.defaultProps = {
     size: 'default',
     disabled: false,
-    type: 'primary'
+    type: 'primary',
+    circle: false,
+    transparent: false
 };
 
 Button.propTypes = {
     size: propTypes.oneOf(['small', 'large', 'default']),
-    type: propTypes.oneOf(['primary', 'danger', 'normal']),
+    type: propTypes.oneOf(['primary', 'success', 'normal']),
     disabled: propTypes.bool,
+    circle: propTypes.bool,
+    transparent: propTypes.bool,
     onClick: propTypes.func,
     icon: propTypes.string
 };

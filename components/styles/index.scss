@@ -1,3 +1,4 @@
+@import "variables";
 @import "animation";
 @import "transition";
 @import "select";
@@ -7,7 +8,10 @@
 @import "collapse";
 @import "tabs";
 @import "drawer";
-
+@import "icon";
+body{
+    color: #3c4043;
+}
 .cooClearfix{
     &:after{
         content: '';

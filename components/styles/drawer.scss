@@ -46,7 +46,7 @@
             top: 0px;
             bottom: 0px;
             box-shadow: 2px 0 8px rgba(0,0,0,0.15);
-            animation: cooSlideLeftmIn .3s ease;
+            animation: cooSlideLeftIn .3s ease;
         }
     }
     &-header{
@@ -57,34 +57,56 @@
     }
     &-button{
         position: absolute;
+        border: none;
+        outline: none;
+        font-size: 20px;
+        text-align: center;
+        cursor: pointer;
+        color: #666666;
+        transition: .2s ease;
+        &:hover{
+            color: #000;
+        }
         &--top{
-            width: 50px;
-            height: 30px;
+            width: 30px;
+            height: 20px;
             left: 50%;
             top: 100%;
-            margin-left: -25px;
+            margin-left: -15px;
+            line-height: 20px;
+            margin-top: -3px;
+            border-bottom-left-radius: 2px;
+            border-bottom-right-radius: 2px;
         }
         &--right{
-            width: 30px;
-            height: 50px;
+            width: 20px;
+            height: 30px;
             left: 0%;
             top: 50%;
-            margin-top: -25px;
-            margin-left: -30px;
+            margin-top: -15px;
+            margin-left: -15px;
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
         }
         &--bottom{
-            width: 50px;
-            height: 30px;
+            width: 30px;
+            height: 20px;
+            line-height: 20px;
             left: 50%;
-            top: -30px;
-            margin-left: -25px;
+            top: -15px;
+            margin-left: -15px;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
         }
         &--left{
-            width: 30px;
-            height: 50px;
+            width: 20px;
+            height: 30px;
             left: 100%;
             top: 50%;
-            margin-top: -25px;
+            margin-right: -3px;
+            margin-top: -15px;
+            border-top-right-radius: 2px;
+            border-bottom-right-radius: 2px;
         }
     }
     &-content{

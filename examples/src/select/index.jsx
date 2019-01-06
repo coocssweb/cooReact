@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './index.scss';
 import { Select } from 'components';
-
 const { Option } = Select;
 
 class Index extends Component {
@@ -26,18 +25,48 @@ class Index extends Component {
 
     render () {
         return (
-            <div className="select">
-                <Select onChange={this.onChange.bind(this)} defaultValue="1">
-                    <Option value="1">一</Option>
-                    <Option value="2">二</Option>
-                    <Option value="3">三</Option>
-                    {
-                        this.state.menus.map((menu) => {
-                            return (<Option key={menu.value} value={menu.value}>{menu.label}</Option>);
-                        })
-                    }
-                </Select>
-                <a href="javascript:;" onClick={this.onPush.bind(this)}>添加项目</a>
+            <div className="demo demo--drawer">
+                <h1 className="demo-title">Select选择器</h1>
+                <div className="demo-description">
+                    Select组件的相关设置
+                </div>
+                <div className="panel">
+                    <h2 className="panel-title">演示</h2>
+                    <div className="panel-content">
+                        <div className="panel-line">
+                            <Select onChange={this.onChange.bind(this)}>
+                                <Option value="1">一</Option>
+                                <Option value="2">二</Option>
+                                <Option value="3">三</Option>
+                                {
+                                    this.state.menus.map((menu) => {
+                                        return (<Option key={menu.value} value={menu.value}>{menu.label}</Option>);
+                                    })
+                                }
+                            </Select>
+                        </div>
+                        <div className="panel-line">
+                            <Select onChange={this.onChange.bind(this)}
+                                    defaultValue="1"
+                                    disabled>
+                                <Option value="1">禁用的状态</Option>
+                                <Option value="2">二</Option>
+                                <Option value="3">三</Option>
+                                {
+                                    this.state.menus.map((menu) => {
+                                        return (<Option key={menu.value} value={menu.value}>{menu.label}</Option>);
+                                    })
+                                }
+                            </Select>
+                        </div>
+                    </div>
+                </div>
+                <div className="panel">
+                    <h2 className="panel-title">属性</h2>
+                    <div className="panel-content">
+
+                    </div>
+                </div>
             </div>
         );
     }

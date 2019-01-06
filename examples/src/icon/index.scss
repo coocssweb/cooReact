@@ -1,0 +1,22 @@
+.icon{
+    &-list{
+
+    }
+    &-item{
+        display: inline-block;
+        width: 150px;
+        padding-top: 50px;
+        height: 150px;
+        text-align: center;
+        font-size: 30px;
+        box-sizing: border-box;
+        border: 1px solid #cccccc;
+        border-radius: 2px;
+        margin: 3px;
+    }
+    &-name{
+        display: block;
+        padding: 10px 0px;
+        font-size: 14px;
+    }
+}

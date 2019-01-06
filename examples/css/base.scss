@@ -35,3 +35,39 @@ a {
     clear: both;
     visibility: hidden;
 }
+
+.demo{
+    margin: 30px;
+    &-title{
+        font-size: 30px;
+        font-weight: normal;
+    }
+    &-description{
+        padding: 30px 0px;
+    }
+}
+
+.panel{
+    border: 1px solid #efefef;
+    margin-bottom: 30px;
+    position: relative;
+    &-title{
+        font-weight: normal;
+        font-size: 20px;
+        padding: 0px 10px;
+        background-color: #ffffff;
+        display: inline-block;
+        position: absolute;
+        left: 20px;
+        top: -10px;
+    }
+    &-content{
+        padding: 30px;
+    }
+    &-line{
+        margin-bottom: 10px;
+        &:last-child{
+            margin-bottom: 0px;
+        }
+    }
+}

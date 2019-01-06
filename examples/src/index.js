@@ -9,3 +9,4 @@ export Switch from './switch';
 export Collapse from './collapse';
 export Tabs from './tabs';
 export Drawer from './drawer';
+export Icon from './icon';

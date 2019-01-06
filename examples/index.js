@@ -5,7 +5,7 @@ import './css/base.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {HashRouter as Router, Route} from 'react-router-dom';
-import {Home, Select, Modal, Button, Switch, Collapse, Tabs, Drawer} from './src';
+import {Home, Select, Modal, Button, Switch, Collapse, Tabs, Drawer, Icon} from './src';
 
 const Root = (() => {
     return (
@@ -19,6 +19,7 @@ const Root = (() => {
                 <Route exact path="/collapse" component={Collapse} />
                 <Route exact path="/tabs" component={Tabs} />
                 <Route exact path="/drawer" component={Drawer} />
+                <Route exact path="/icon" component={Icon} />
             </div>
         </Router>
     );

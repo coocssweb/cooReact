@@ -59,6 +59,7 @@ Modal.defaultProps = {
     closable: true,
     maskClosable: true,
     destroyOnClose: false,
+    toast: false,
 };
 
 Modal.propTypes = {
@@ -71,6 +72,7 @@ Modal.propTypes = {
     closable: propTypes.bool,                           // 显示关闭按钮
     maskClosable: propTypes.bool,                       // 点击mask可关闭
     destroyOnClose: propTypes.bool,                     // 关闭后销毁组件
+    toast: propTypes.bool,                              // 消息弹框
 };
 
 export default Modal;

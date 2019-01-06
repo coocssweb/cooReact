@@ -25,6 +25,9 @@ class Switch extends Component {
 
     onChange () {
         const props = this.props;
+        if (props.disabled) {
+            return false;
+        }
         if ('onChange' in props) {
             props.onChange(!this.state.checked);
         }
@@ -43,12 +46,17 @@ class Switch extends Component {
         const state = this.state;
         const switchClassName = className({
             'cooSwitch': true,
-            'cooSwitch--checked': state.checked
+            [`cooSwitch--${props.type}`]: true,
+            [`cooSwitch--${props.size}`]: true,
+            'cooSwitch--checked': state.checked,
+            'cooSwitch--disabled': props.disabled
         });
 
         return (
             <div className={switchClassName}>
-                <div className={className('cooSwitch-text')}>{state.checked ? props.checkedText : props.uncheckedText}</div>
+                <div className={className('cooSwitch-text')}>
+                    {state.checked ? props.checkedText : props.uncheckedText}
+                </div>
                 <span className={className('cooSwitch-icon')}
                       onClick={this.onChange.bind(this)} />
             </div>
@@ -58,7 +66,9 @@ class Switch extends Component {
 
 Switch.defaultProps = {
     defaultChecked: false,
-    disabled: false
+    disabled: false,
+    type: 'primary',
+    size: 'default'
 };
 
 Switch.propTypes = {
@@ -66,6 +76,8 @@ Switch.propTypes = {
     defaultChecked: propTypes.bool,
     checkedText: propTypes.string,
     uncheckedText: propTypes.string,
+    type: propTypes.oneOf(['primary', 'success', 'error']),
+    size: propTypes.oneOf(['default', 'large', 'small']),
     disabled: propTypes.bool,
     onChange: propTypes.func,
 };

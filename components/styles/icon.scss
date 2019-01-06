@@ -1,0 +1,113 @@
+@font-face {
+    font-family: 'cooIcon';
+    src:  url('./fonts/icomoon.eot?achbv9');
+    src:  url('./fonts/icomoon.eot?achbv9#iefix') format('embedded-opentype'),
+    url('./fonts/icomoon.ttf?achbv9') format('truetype'),
+    url('./fonts/icomoon.woff?achbv9') format('woff'),
+    url('./fonts/icomoon.svg?achbv9#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="cooIcon-"], [class*=" cooIcon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'cooIcon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    vertical-align: -0.15em;
+    text-align: center;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.cooIcon-loading:before {
+    content: "\e900";
+}
+.cooIcon-home:before {
+    content: "\e901";
+}
+.cooIcon-save:before {
+    content: "\e902";
+}
+.cooIcon-save-filled:before {
+    content: "\e903";
+}
+.cooIcon-more:before {
+    content: "\e904";
+}
+.cooIcon-more-h:before {
+    content: "\e905";
+}
+.cooIcon-circle-add:before {
+    content: "\e906";
+}
+.cooIcon-home-filled:before {
+    content: "\e907";
+}
+.cooIcon-circle-remove:before {
+    content: "\e908";
+}
+.cooIcon-circle-remove-filled:before {
+    content: "\e909";
+}
+.cooIcon-circle-add-filled:before {
+    content: "\e90a";
+}
+.cooIcon-remove:before {
+    content: "\e90b";
+}
+.cooIcon-visible-off:before {
+    content: "\e90c";
+}
+.cooIcon-visible:before {
+    content: "\e90d";
+}
+.cooIcon-info:before {
+    content: "\e90e";
+}
+.cooIcon-circle-good:before {
+    content: "\e90f";
+}
+.cooIcon-good:before {
+    content: "\e910";
+}
+.cooIcon-delete:before {
+    content: "\e911";
+}
+.cooIcon-notify:before {
+    content: "\e912";
+}
+.cooIcon-help-filled:before {
+    content: "\e913";
+}
+.cooIcon-circle-close:before {
+    content: "\e914";
+}
+.cooIcon-help:before {
+    content: "\e915";
+}
+.cooIcon-up:before {
+    content: "\e916";
+}
+.cooIcon-right:before {
+    content: "\e917";
+}
+.cooIcon-left:before {
+    content: "\e918";
+}
+.cooIcon-down:before {
+    content: "\e919";
+}
+.cooIcon-close:before {
+    content: "\e91a";
+}
+.cooIcon-add:before {
+    content: "\e91b";
+}

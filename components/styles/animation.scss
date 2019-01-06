@@ -97,7 +97,7 @@
 // 左方位：进
 @keyframes cooSlideLeftIn {
     0% {
-        transform: translateY(100%);
+        transform: translateX(-100%);
     }
 
     100%{

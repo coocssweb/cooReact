@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import className from 'classnames';
 import propTypes from 'prop-types';
+import Icon from '../icon';
 import {CSSTransition} from 'react-transition-group';
 import {isNodeFound, windowScroll} from '../_util/domHelper';
 
@@ -102,6 +103,26 @@ class Content extends Component {
         }
     }
 
+    renderCloseButton () {
+        const props = this.props;
+        const types = {
+            top: 'up',
+            bottom: 'down',
+            right: 'right',
+            left: 'left'
+        };
+        const closeButtonClassName = className({
+            'cooDrawer-button': true,
+            [`cooDrawer-button--${props.placement}`]: true
+        });
+
+        return (
+            <button className={closeButtonClassName} onClick={this.onCloseClick.bind(this)}>
+                <Icon type={types[props.placement]} />
+            </button>
+        );
+    }
+
     render () {
         const props = this.props;
         const state = this.state;
@@ -110,10 +131,6 @@ class Content extends Component {
             'cooDrawer-wrap': true,
             [`cooDrawer-wrap--${props.placement}`]: true,
             'cooDrawer-wrap--hidden': state.hidden
-        });
-        const closeButtonClassName = className({
-            'cooDrawer-button': true,
-            [`cooDrawer-button--${props.placement}`]: true
         });
 
         let contentStyle;
@@ -140,7 +157,7 @@ class Content extends Component {
                              ref={this.contentRef}>
                             {
                                 props.closable
-                                    ? (<button className={closeButtonClassName} onClick={this.onCloseClick.bind(this)}>关</button>)
+                                    ? this.renderCloseButton()
                                     : null
                             }
                             <div className="cooDrawer-content" style={ contentStyle }>

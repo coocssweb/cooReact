@@ -4,26 +4,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from './Modal';
+import Icon from '../icon';
 import className from 'classnames';
 
 const modalProps = {
     success: {
         okText: '知道了',
         cancelText: '',
+        iconType: 'circle-good'
     },
     info: {
         okText: '知道了',
         cancelText: '',
+        iconType: 'info'
     },
     error: {
         okText: '知道了',
         cancelText: '',
+        iconType: 'circle-close'
     },
     confirm: {
     },
     warning: {
         okText: '知道了',
         cancelText: '',
+        iconType: 'help'
     }
 };
 
@@ -32,22 +37,27 @@ const modalProps = {
 function renderModal ({title, content}, type) {
     const div = document.createElement('div');
     document.body.appendChild(div);
-    const prefixCss = `cooModal-${type}`;
+    const prefixCss = `cooModal-toast`;
 
     function afterDestroy () {
         document.body.removeChild(div);
     }
 
     const modalContent = (
-        <Modal visible={true} destroyOnClose={true} afterDestroy={afterDestroy} {...modalProps[type]}>
-            <div className={className(`${prefixCss}-body`)}>
+        <Modal visible={true}
+               destroyOnClose={true}
+               afterDestroy={afterDestroy}
+               closable={false}
+               width={400}
+               toast
+               {...modalProps[type]}>
+                <Icon type={modalProps[type].iconType}/>
                 <div className={className(`${prefixCss}-title`)}>
                     {title}
                 </div>
                 <div className={className(`${prefixCss}-content`)}>
                     {content}
                 </div>
-            </div>
         </Modal>
     );
 

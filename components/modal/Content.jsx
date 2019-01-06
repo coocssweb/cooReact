@@ -4,6 +4,7 @@ import className from 'classnames';
 import { CSSTransition } from 'react-transition-group';
 import { isNodeFound, windowScroll } from '../_util/domHelper';
 import Button from '../button';
+import Icon from '../icon';
 
 class Content extends Component {
     constructor (props) {
@@ -107,7 +108,7 @@ class Content extends Component {
 
     renderFooter () {
         const props = this.props;
-        if (!props.okText && !props.cancelText) {
+        if (props.toast || (!props.okText && !props.cancelText)) {
             return null;
         }
 
@@ -115,12 +116,33 @@ class Content extends Component {
             <div className={className('cooModal-footer')}>
                 {
                     props.cancelText ? (
-                        <Button onClick={this.onCancelClick.bind(this)}>{props.cancelText}</Button>
+                        <Button transparent type="normal" onClick={this.onCancelClick.bind(this)}>{props.cancelText}</Button>
                     ) : null
                 }
                 {
                     props.okText ? (
-                        <Button onClick={this.onOkClick.bind(this)}>{props.okText}</Button>
+                        <Button transparent onClick={this.onOkClick.bind(this)}>{props.okText}</Button>
+                    ) : null
+                }
+            </div>
+        );
+    }
+
+    renderToastFooter () {
+        const props = this.props;
+        if (!props.toast || (!props.okText && !props.cancelText)) {
+            return null;
+        }
+        return (
+            <div className={className('cooModal-toast-footer')}>
+                {
+                    props.cancelText ? (
+                        <Button transparent type="normal" onClick={this.onCancelClick.bind(this)}>{props.cancelText}</Button>
+                    ) : null
+                }
+                {
+                    props.okText ? (
+                        <Button transparent onClick={this.onOkClick.bind(this)}>{props.okText}</Button>
                     ) : null
                 }
             </div>
@@ -134,10 +156,10 @@ class Content extends Component {
         }
 
         return (
-            <button className={className('cooModal-close')}
+            <a href="javascript:;" className={className('cooModal-close')}
                     onClick={this.onCloseClick.bind(this)}>
-                x
-            </button>
+                <Icon type="close" />
+            </a>
         );
     }
 
@@ -152,7 +174,7 @@ class Content extends Component {
             <CSSTransition
                 in={state.visible}
                 timeout={300}
-                classNames="fade"
+                classNames="cooFade"
                 onExited={this.afterClose.bind(this)}>
                 <div className={maskClassName} />
             </CSSTransition>
@@ -167,6 +189,11 @@ class Content extends Component {
             'cooModal-wrap--hidden': state.hidden
         });
 
+        const contentClassName = className({
+            'cooModal': true,
+            'cooModal-toast': props.toast,
+        });
+
         return ReactDOM.createPortal(
             (
                 <React.Fragment>
@@ -178,12 +205,13 @@ class Content extends Component {
                         <div className={wrapClassName}
                              onClick={this.onMaskClick.bind(this)}>
                             <div style={{width: `${props.width}px`}}
-                                 className={className('cooModal-content')}
+                                 className={contentClassName}
                                  ref={this.contentRef}>
                                 { this.renderCloseButton() }
                                 { this.renderTitle() }
                                 <div className={className('cooModal-body')}>
                                     {props.children}
+                                    { this.renderToastFooter() }
                                 </div>
                                 { this.renderFooter() }
                             </div>
