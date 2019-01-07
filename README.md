@@ -7,15 +7,18 @@
 ```shell
 # 安装依赖项
 npm install
+
 # 启动开发
 npm start
+
 # 构建版本
 npm run build
 ```
-## 开始开发吧
+## Start
 访问 http://127.0.0.1:8080 可以在本地查看组件，进行开发
-或者，如果只是想看下demo，那可以访问： https://coocssweb.github.io/react
 
-## 更新历史
+也许你只是想看下demo，那可以访问： https://coocssweb.github.io/react
 
-## 即将开发
+## Changes
+
+## Coming soon
