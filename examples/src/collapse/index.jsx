@@ -37,6 +37,12 @@ class Index extends Component {
                         </Collapse>
                     </div>
                 </div>
+                <div className="panel">
+                    <h2 className="panel-title">属性</h2>
+                    <div className="panel-content">
+
+                    </div>
+                </div>
             </div>
         );
     }

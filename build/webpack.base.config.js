@@ -45,7 +45,7 @@ module.exports = function webpackBaseConfig (NODE_ENV = 'development') {
         },
         output: {
             path: resolve('dist'),
-            publicPath: '',
+            publicPath: config.staticPath,
             filename: `js/${config.filenameHash ? '[name].[hash:8]': '[name]' }.js`,
             chunkFilename: `js/${config.filenameHash ? '[name].[hash:8]': '[name]'}.js`
         },

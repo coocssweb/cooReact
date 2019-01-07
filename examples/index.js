@@ -4,7 +4,7 @@
 import './css/base.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import Layout from './src/layout';
 
 ReactDOM.render(
