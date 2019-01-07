@@ -1,0 +1,108 @@
+.cooModal{
+    position: relative;
+    top: 100px;
+    margin: 0px auto;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.14) 0px 24px 38px 3px, rgba(0, 0, 0, 0.12) 0px 9px 46px 8px, rgba(0, 0, 0, 0.2) 0px 11px 15px -7px;
+
+    &-mask{
+        position: fixed;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        z-index: 1000;
+        background-color: rgba(0, 0, 0, .3);
+        animation: cooFadeIn .3s ease;
+        transition: opacity .3s ease;
+        &--hidden{
+            display: none;
+        }
+    }
+
+    &-wrap{
+        position: fixed;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        z-index: 1000;
+        animation: cooFadeIn .3s ease;
+        transition: opacity .3s ease;
+        &--hidden{
+            display: none;
+        }
+    }
+
+    &-content{
+    }
+
+    &-close{
+        position: absolute;
+        right: 8px;
+        top: 15px;
+        font-size: 20px;
+        color: #999;
+        transition: all .3s ease;
+        &:hover{
+            color: #000000;
+        }
+    }
+
+    &-title{
+        border-bottom: 1px solid #eeeeee;
+        font-size: 18px;
+        height: 50px;
+        line-height: 50px;
+        padding-left: 10px;
+    }
+
+    &-body{
+        padding: 10px;
+    }
+
+    &-footer{
+        border-top: 1px solid #eeeeee;
+        padding: 10px 10px;
+        text-align: right;
+        >.cooButton{
+            margin: 0px 5px;
+        }
+    }
+}
+
+.cooModal-toast{
+    .cooModal{
+        &-body{
+            padding: 30px 30px 20px 70px;
+            >.cooIcon{
+                position: absolute;
+                left: 30px;
+                top: 28px;
+                font-size: 25px;
+                &-circle-good{
+                    color: $successBgColor;
+                }
+                &-info{
+                    color: $primaryBgColor;
+                }
+                &-help{
+                    color: $warn;
+                }
+                &-circle-close{
+                    color: $error;
+                }
+            }
+        }
+    }
+    &-title{
+        font-size: 18px;
+        font-weight: 500;
+    }
+    &-content{
+        margin-top: 10px;
+    }
+    &-footer{
+        text-align: right;
+    }
+}

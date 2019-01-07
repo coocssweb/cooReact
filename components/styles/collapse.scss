@@ -1,0 +1,64 @@
+.cooCollapse {
+    border: 1px solid #e5e5e5;
+    border-radius: $borderRadius;
+    .cooCollapse{
+        &-item{
+            border-bottom: 1px solid #e5e5e5;
+            &:last-child{
+                border-bottom: none;
+            }
+        }
+    }
+    &-panel {
+
+    }
+    &-header{
+        padding: 12px 12px 12px 30px;
+        cursor: pointer;
+        user-select: none;
+        background-color: $normalBgColor;
+        position: relative;
+    }
+    &-content{
+        overflow: hidden;
+        transition: height .3s cubic-bezier(.215, .61, .355, 1);
+    }
+    &-box{
+        padding: 10px;
+    }
+    &-arrow{
+        transition: .3s cubic-bezier(.215, .61, .355, 1);
+        display: inline-block;
+        position: absolute;
+        font-size: 18px;
+        left: 10px;
+        top: 50%;
+        margin-top: -10px;
+    }
+}
+
+.cooCollapse-item--inactive {
+    .cooCollapse{
+        &-header{
+
+        }
+        &-content{
+            display: none;
+        }
+    }
+}
+
+// 展开状态
+.cooCollapse-item--active {
+    .cooCollapse{
+        &-header{
+
+        }
+        &-arrow{
+            transform: rotate(90deg);
+        }
+        &-content{
+            display: block;
+        }
+    }
+}

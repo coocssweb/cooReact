@@ -1,0 +1,119 @@
+.cooSelect{
+    display: inline-block;
+    position: relative;
+    &-header{
+        border: 1px solid #e5e5e5;
+        box-sizing: border-box;
+        padding: 0px 30px 0px 10px;
+        border-radius: $borderRadius;
+        cursor: pointer;
+        user-select: none;
+        transition: all .3s ease;
+        position: relative;
+        &--open{
+            border-color: $primaryBgColor;
+        }
+    }
+    &-label{
+        user-select: none;
+    }
+    &-placeholder{
+        color: #999999;
+        &--hidden{
+            display: none;
+        }
+    }
+    &-arrow{
+        position: absolute;
+        top: 50%;
+        right: 6px;
+        line-height: 1;
+        font-size: 16px;
+        color: #999999;
+        margin-top: -8px;
+        transform-origin: 50% 50%;
+        transition: all .3s ease;
+        &--open{
+            transform: rotate(180deg);
+        }
+    }
+    &-dropdown{
+        background-color: white;
+        box-shadow: 0 0px 4px #d9d9d9;
+        border-radius: $borderRadius;
+        box-sizing: border-box;
+        z-index: 100;
+        position: absolute;
+        outline: none;
+        transform-origin: 0 0;
+        animation-duration: .5s;
+        animation-fill-mode: both;
+        animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+        animation-name: cooDropdownSlideUpIn;
+        &--hidden{
+            display: none;
+        }
+    }
+    &-menu{
+        cursor: pointer;
+        height: 30px;
+        line-height: 30px;
+        padding: 0px 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        user-select: none;
+        transition: all .3s;
+        &--selected{
+            background-color: $transparentNormalHoverBgColor;
+            color: #000000;
+        }
+        &:hover{
+            background-color: $shallowBg;
+        }
+    }
+
+    &--default{
+        .cooSelect{
+            &-header{
+                height: 30px;
+                line-height: 28px;
+            }
+        }
+    }
+
+    &--small{
+
+    }
+
+    &--large{
+
+    }
+    &--disabled {
+        .cooSelect{
+            &-header{
+                background-image: linear-gradient(0deg, #fff, #f8f8f8);
+                background-color: $white;
+                color: #999;
+                cursor: not-allowed;
+            }
+        }
+    }
+}
+
+.slideUp {
+    &-enter{
+        animation-duration: .5s;
+        animation-fill-mode: both;
+        animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+        animation-name: cooDropdownSlideUpIn;
+    }
+
+    &-exit{
+        animation-duration: .5s;
+        animation-fill-mode: both;
+        opacity: 1;
+        animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
+        animation-name: cooDropdownSlideUpOut;
+    }
+}

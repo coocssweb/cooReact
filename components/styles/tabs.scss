@@ -1,0 +1,44 @@
+.cooTab{
+    &-header{
+        border-bottom: 1px solid #e5e5e5;
+        position: relative;
+    }
+    &-bar{
+        height: 2px;
+        background-color: $primaryBgColor;
+        position: absolute;
+        bottom: -1px;
+        transition: all .3s ease;
+    }
+    &-content{
+        overflow: hidden;
+    }
+    &-item{
+        float: left;
+        padding: 12px 20px;
+        transition: all .3s ease;
+        cursor: pointer;
+        user-select: none;
+        touch-callout: none;
+        &:hover{
+            background-color: $transparentNormalHoverBgColor;
+        }
+        &--active{
+            color: $primaryBgColor;
+            &:hover{
+                background-color: transparent;
+            }
+        }
+    }
+    &-panel{
+        float: left;
+        transition: all .3s ease;
+        opacity: 0;
+        &--active{
+            opacity: 1;
+        }
+    }
+    &-wrapper{
+        transition: transform .3s ease;
+    }
+}

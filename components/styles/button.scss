@@ -1,0 +1,102 @@
+.cooButton{
+    display: inline-block;
+    cursor: pointer;
+    transition: all .3s ease;
+    outline: none;
+    border-radius: $borderRadius;
+    user-select: none;
+    text-align: center;
+    box-sizing: border-box;
+    &.circle{
+        padding: 0px;
+    }
+
+    &--normal{
+        color: $normalColor;
+        background-color: $normalBgColor;
+        border-color: $normalBorderColor;
+        &:hover{
+            background-image: linear-gradient(0deg, #fff, #f8f8f8);
+            background-color: $white;
+        }
+        &.transparent{
+            color: $transparentNormalColor;
+            background-color: transparent;
+            border-color: transparent;
+            &:hover{
+                background-color: $transparentNormalHoverBgColor;
+                border-color: $transparentNormalHoverBgColor;
+            }
+        }
+    }
+    &--primary{
+        color: $primaryColor;
+        background-color: $primaryBgColor;
+        border-color: $primaryBorderColor;
+        &:hover{
+            background-color: $primaryHoverBgColor;
+            border-color: $primaryHoverBorderColor;
+        }
+        &.transparent{
+            color: $transparentPrimaryColor;
+            background-color: transparent;
+            border-color: transparent;
+            &:hover{
+                background-color: $transparentPrimaryHoverBgColor;
+                border-color: $transparentPrimaryHoverBgColor;
+            }
+        }
+    }
+    &--success{
+        color: $white;
+        background-color: $successBgColor;
+        border-color: $successBgColor;
+        &:hover{
+            background-color: $successHoverBgColor;
+            border-color: $successHoverBgColor;
+        }
+    }
+
+    &--default{
+        height: 30px;
+        padding: 0px 12px;
+        line-height: 28px;
+        border-width: 1px;
+        border-style: solid;
+        font-size: 14px;
+        .cooIcon{
+            font-size: 16px;
+        }
+        &.circle{
+            width: 30px;
+            height: 30px;
+            border-radius: 20px;
+            .cooIcon{
+                font-size: 20px;
+            }
+        }
+    }
+    &--samll{
+
+    }
+    &--large{
+        height: 40px;
+        line-height: 38px;
+        padding: 0px 17px;
+        font-size: 16px;
+        .cooIcon{
+            font-size: 17px;
+        }
+        &.circle{
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            .cooIcon{
+                font-size: 30px;
+            }
+        }
+    }
+    &--disable{
+
+    }
+}

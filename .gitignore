@@ -1,5 +1,5 @@
-node_modules
-.DS_Store
-.idea
-*.scssc
-dist
+node_modules/
+.vscode/
+jsconfig.json
+.idea/
+dist/
