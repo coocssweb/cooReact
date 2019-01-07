@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import className from 'classnames';
 import { Transition } from 'react-transition-group';
+import Icon from '../icon';
 
 class Item extends Component {
     constructor (props) {
@@ -10,7 +11,7 @@ class Item extends Component {
         this.contentRef = React.createRef();
         this.state = {
             active: props.active,
-            hidden: true,
+            hidden: !props.active,
             haveActive: props.forceRender
         };
     }
@@ -47,19 +48,18 @@ class Item extends Component {
             this.dom = ReactDOM.findDOMNode(this.contentRef.current);
         }
         this.height = this.dom.offsetHeight;
-
         return this.dom;
     }
 
     onEnter () {
         this.getContentDOM();
         this.dom.style.height = '0px';
+        console.log('enter', this.height, this.dom.offsetHeight);
+        this.dom.style.height = `${this.height}px`;
     }
 
     onEntering () {
-        window.requestAnimationFrame(() => {
-            this.dom.style.height = `${this.height}px`;
-        });
+
     }
 
     onEntered () {
@@ -69,12 +69,11 @@ class Item extends Component {
     onExit () {
         this.getContentDOM();
         this.dom.style.height = `${this.height}px`;
+        console.log('exit', this.height, this.dom.offsetHeight);
+        this.dom.style.height = '0px';
     }
 
     onExiting () {
-        window.requestAnimationFrame(() => {
-            this.dom.style.height = '0px';
-        });
     }
 
     onExited () {
@@ -103,9 +102,9 @@ class Item extends Component {
         return (
             <div className={panelClassName}>
                 <div className={className('cooCollapse-header')} onClick={this.onToggleOpen.bind(this)}>
-                    <i className={className('cooCollapse-arrow')}>
-                        >
-                    </i>
+                    <span className={className('cooCollapse-arrow')}>
+                        <Icon type="right" />
+                    </span>
                     <span>{ props.header }</span>
                 </div>
 

@@ -1,7 +1,13 @@
+.tabBox{
+    width: 500px;
+    padding: 10px;
+}
 .tabContent{
-    height: 500px;
+    height: 300px;
+    box-sizing: border-box;
+    padding: 20px 0px;
     &--01{
-        background-color: #efefef;
+        background-color: #ffffff;
     }
     &--02{
         background-color: #4d90fe;

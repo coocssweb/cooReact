@@ -1,11 +1,11 @@
 .cooTab{
     &-header{
-        border-bottom: 1px solid #efefef;
+        border-bottom: 1px solid #e5e5e5;
         position: relative;
     }
     &-bar{
-        height: 1px;
-        background-color: #4d90fe;
+        height: 2px;
+        background-color: $primaryBgColor;
         position: absolute;
         bottom: -1px;
         transition: all .3s ease;
@@ -15,13 +15,19 @@
     }
     &-item{
         float: left;
-        padding: 16px 20px;
+        padding: 12px 20px;
         transition: all .3s ease;
         cursor: pointer;
         user-select: none;
         touch-callout: none;
+        &:hover{
+            background-color: $transparentNormalHoverBgColor;
+        }
         &--active{
-            color: #4d90fe;
+            color: $primaryBgColor;
+            &:hover{
+                background-color: transparent;
+            }
         }
     }
     &-panel{
