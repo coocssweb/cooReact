@@ -44,7 +44,7 @@ module.exports = function webpackBaseConfig (NODE_ENV = 'development') {
             index: resolve('examples', 'index.js'),
         },
         output: {
-            path: resolve('dist'),
+            path: resolve('../coocssweb.github.io/react'),
             publicPath: config.staticPath,
             filename: `js/${config.filenameHash ? '[name].[hash:8]': '[name]' }.js`,
             chunkFilename: `js/${config.filenameHash ? '[name].[hash:8]': '[name]'}.js`

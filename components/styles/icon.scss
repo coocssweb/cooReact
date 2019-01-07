@@ -27,8 +27,20 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+@keyframes cooLoading {
+    0% {
+        transform: rotate3d(0, 0, 1, 0deg);
+    }
+
+    100% {
+        transform: rotate3d(0, 0, 1, 360deg);
+    }
+}
+
 .cooIcon-loading:before {
     content: "\e900";
+    display: inline-block;
+    animation: cooLoading 1s linear infinite;
 }
 .cooIcon-home:before {
     content: "\e901";

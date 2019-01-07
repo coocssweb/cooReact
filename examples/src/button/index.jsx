@@ -26,6 +26,7 @@ class Index extends Component {
 
                         <div className="panel-line">
                             <Button><Icon type="add" />按钮</Button>
+                            <Button loading>按钮</Button>
                         </div>
 
                         <div className="panel-line">
