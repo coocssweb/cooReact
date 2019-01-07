@@ -39,17 +39,22 @@ class Index extends Component {
                         <div className="panel-line">
                             <Button onClick={() => {
                                 Modal.success({title: '成功了', content: '我成功了'});
-                            }}>成功</Button>
+                            }}>成功(Modal.success)</Button>
                             <Button onClick={() => {
                                 Modal.info({title: '信息', content: '信息来了'});
-                            }}>信息</Button>
+                            }}>信息(Modal.info)</Button>
                             <Button onClick={() => {
                                 Modal.error({title: '失败了', content: '我失败了'});
-                            }}>失败</Button>
+                            }}>失败(Modal.error)</Button>
                             <Button onClick={() => {
                                 Modal.warning({title: '警告', content: '警告来了'});
-                            }}>警告</Button>
+                            }}>警告(Modal.warning)</Button>
                         </div>
+                    </div>
+                </div>
+                <div className="panel">
+                    <h2 className="panel-title">属性</h2>
+                    <div className="panel-content">
 
                     </div>
                 </div>

@@ -4,19 +4,22 @@
     }
     &-item{
         display: inline-block;
-        width: 150px;
-        padding-top: 50px;
-        height: 150px;
+        width: 120px;
+        padding-top: 30px;
+        height: 120px;
         text-align: center;
         font-size: 30px;
         box-sizing: border-box;
-        border: 1px solid #cccccc;
+        border: 1px solid #e5e5e5;
         border-radius: 2px;
         margin: 3px;
     }
     &-name{
         display: block;
-        padding: 10px 0px;
+        padding: 10px;
         font-size: 14px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;;
     }
 }

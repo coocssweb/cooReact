@@ -4,7 +4,8 @@
   "description": "some cool react plugin",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config build/webpack.dev.config.js --open --hot"
+    "start": "webpack-dev-server --config build/webpack.dev.config.js --open --hot",
+    "build": "rm -rf dist && webpack -p --config build/webpack.product.config.js --progress --hide-modules"
   },
   "keywords": [
     "react"
