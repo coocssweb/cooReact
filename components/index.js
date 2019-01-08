@@ -8,3 +8,5 @@ export Tabs from './tabs';
 export Drawer from './drawer';
 export Icon from './icon';
 export Toast from './toast';
+export Coolpanel from './coolpanel';
+export cooStore from './cooStore';

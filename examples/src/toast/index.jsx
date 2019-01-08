@@ -10,6 +10,10 @@ class Index extends Component {
         this.state = {};
     }
 
+    componentWillUnmount () {
+        this.onCloseLoading();
+    }
+
     onShowLoading () {
         Toast.loading('加载中...', {duration: 0}, (loadingRef) => {
             this.loadingRef = loadingRef;

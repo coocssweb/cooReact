@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Route, NavLink } from 'react-router-dom';
-import {Home, SelectDemo, ModalDemo, ButtonDemo, SwitchDemo, CollapseDemo, TabsDemo, DrawerDemo, IconDemo, ToastDemo} from './';
+import {Home, SelectDemo, ModalDemo, ButtonDemo, SwitchDemo, CollapseDemo, TabsDemo, DrawerDemo, IconDemo, ToastDemo, CoolpanelDemo, CooStoreDemo} from './';
 import {Icon} from 'components';
 
 class Layout extends Component {
@@ -28,7 +28,22 @@ class Layout extends Component {
                             首页
                         </NavLink>
                     </div>
-
+                    <div className="nav-item">
+                        <NavLink to="/coolpanel" className="nav-link" activeClassName="nav-link--active" exact>
+                            <span className="nav-icon">
+                                <Icon type="right" />
+                            </span>
+                            Coolpanel 组件
+                        </NavLink>
+                    </div>
+                    <div className="nav-item">
+                        <NavLink to="/coostore" className="nav-link" activeClassName="nav-link--active" exact>
+                            <span className="nav-icon">
+                                <Icon type="right" />
+                            </span>
+                            CooStore 组件
+                        </NavLink>
+                    </div>
                     <div className="nav-item">
                         <NavLink to="/toast" className="nav-link" activeClassName="nav-link--active">
                             <span className="nav-icon">
@@ -37,7 +52,6 @@ class Layout extends Component {
                             Toast 组件
                         </NavLink>
                     </div>
-                    
                     <div className="nav-item">
                         <NavLink to="/icon" className="nav-link" activeClassName="nav-link--active">
                             <span className="nav-icon">
@@ -114,6 +128,8 @@ class Layout extends Component {
                     <Route path="/tabs" component={TabsDemo} />
                     <Route path="/collapse" component={CollapseDemo} />
                     <Route path="/toast" component={ToastDemo} />
+                    <Route path="/coolpanel" component={CoolpanelDemo} />
+                    <Route path="/coostore" component={CooStoreDemo} />
                 </div>
             </div>
         );

@@ -27,6 +27,7 @@ class Button extends Component {
             'circle': props.circle,
             'transparent': props.transparent,
             [`${prefixCls}--loading`]: props.loading,
+            [props.className]: true
         });
 
         return (
@@ -48,6 +49,7 @@ Button.defaultProps = {
     circle: false,
     transparent: false,
     loading: false,
+    className: '',
 };
 
 Button.propTypes = {
@@ -59,6 +61,7 @@ Button.propTypes = {
     onClick: propTypes.func,
     icon: propTypes.string,
     loading: propTypes.bool,
+    className: propTypes.string,
 };
 
 export default Button;
