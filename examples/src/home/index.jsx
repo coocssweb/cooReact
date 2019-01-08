@@ -13,7 +13,8 @@ class Index extends Component {
                 <h1 className="demo-title">什么呢？</h1>
                 <div className="demo-description">
                     <p>决定，用React 16改造下，之前写的一些React组件！由于一些原因，有大概半年的时间没有用React写项目了。</p>
-                    <p>继续造一些轮子，也借此机会，从新写优雅的React。</p>
+                    <p>继续造一些轮子，也借此机会，了解一些新特性。</p>
+                    <p>这个代码库，基本没有用到第三方组件(除了outsideclick, align这种高阶组件)!</p>
                 </div>
                 <div className="panel">
                     <h2 className="panel-title">关于代码</h2>

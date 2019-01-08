@@ -20,7 +20,7 @@ class Index extends Component {
             this.setState({
                 visible: false
             });
-        }, 3000);
+        }, 1000);
     }
 
     render () {
@@ -60,6 +60,7 @@ class Index extends Component {
                 </div>
                 <Modal visible={this.state.visible}
                        title="我是标题"
+                       okText='1s后关'
                        onOk={this.onOk.bind(this)}>
                     <p>这是内容</p>
                     <p>这是内容</p>

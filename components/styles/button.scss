@@ -101,7 +101,26 @@
         }
     }
     &--disable{
-
+        background-image: linear-gradient(0deg, #f8f8f8, #efefef);
+        border-color: $normalBorderColor;
+        background-color: $white;
+        color: #999;
+        cursor: not-allowed;
+        &.transparent{
+            background-image: none;
+            border-color: transparent;
+            color: #999;
+            &:hover{
+                background-color: $white;
+                background-image: none;
+                border-color: transparent;
+            }
+        }
+        &:hover{
+            background-image: linear-gradient(0deg, #f8f8f8, #efefef);
+            border-color: $normalBorderColor;
+            background-color: $white;
+        }
     }
     &--loading{
         &:before{

@@ -26,7 +26,8 @@ class Index extends Component {
 
                         <div className="panel-line">
                             <Button><Icon type="add" />按钮</Button>
-                            <Button loading>按钮</Button>
+                            <Button loading>加载中</Button>
+                            <Button disabled><Icon type="add" />禁用</Button>
                         </div>
 
                         <div className="panel-line">
@@ -34,6 +35,7 @@ class Index extends Component {
                         </div>
                         <div className="panel-line">
                             <Button transparent><Icon type="add" />透明</Button>
+                            <Button transparent disabled><Icon type="add" />禁用透明</Button>
                         </div>
                     </div>
                 </div>

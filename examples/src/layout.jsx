@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Route, NavLink } from 'react-router-dom';
-import {Home, SelectDemo, ModalDemo, ButtonDemo, SwitchDemo, CollapseDemo, TabsDemo, DrawerDemo, IconDemo} from './';
+import {Home, SelectDemo, ModalDemo, ButtonDemo, SwitchDemo, CollapseDemo, TabsDemo, DrawerDemo, IconDemo, ToastDemo} from './';
 import {Icon} from 'components';
 
 class Layout extends Component {
@@ -28,6 +28,16 @@ class Layout extends Component {
                             首页
                         </NavLink>
                     </div>
+
+                    <div className="nav-item">
+                        <NavLink to="/toast" className="nav-link" activeClassName="nav-link--active">
+                            <span className="nav-icon">
+                                <Icon type="right" />
+                            </span>
+                            Toast 组件
+                        </NavLink>
+                    </div>
+                    
                     <div className="nav-item">
                         <NavLink to="/icon" className="nav-link" activeClassName="nav-link--active">
                             <span className="nav-icon">
@@ -103,6 +113,7 @@ class Layout extends Component {
                     <Route path="/switch" component={SwitchDemo} />
                     <Route path="/tabs" component={TabsDemo} />
                     <Route path="/collapse" component={CollapseDemo} />
+                    <Route path="/toast" component={ToastDemo} />
                 </div>
             </div>
         );

@@ -10,3 +10,4 @@ export CollapseDemo from './collapse';
 export TabsDemo from './tabs';
 export DrawerDemo from './drawer';
 export IconDemo from './icon';
+export ToastDemo from './toast';
