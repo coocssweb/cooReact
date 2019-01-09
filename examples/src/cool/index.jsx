@@ -38,13 +38,13 @@ class Index extends Component {
                 <h1 className="demo-title">Coolpanel</h1>
                 <div className="demo-description">
                     <p>一个很cool的面板交互方式<br/> Math.pow 实现Canvas画圆的easeIn、easeOut动画效果<br />会根据窗口的变化，重新计算pos位置（根据e.client、e.target.offset等信息计算）</p>
-                    <Button className="cooCoolpanel-target">打开一个很酷的面板</Button>
+                    <Button className="cooCoolpanel-target" size="large">打开一个很酷的面板</Button>
                 </div>
                 <div className="panel">
                     <h2 className="panel-title">演示</h2>
                     <div className="panel-content">
                         <div className="panel-line">
-                            点一下右边的按钮试一下➹
+                            点一下右边的按钮试一下----->  对，就在右上角
                             <Coolpanel fillColor="255, 231, 11"
                                        beforeClose={this.beforeClose.bind(this)}
                                        onOpen={this.onOpen.bind(this)}>
