@@ -33,19 +33,19 @@ class Layout extends Component {
                         </NavLink>
                     </div>
                     <div className="nav-item">
-                        <NavLink to="/coolpanel" className="nav-link" activeClassName="nav-link--active" exact>
-                            <span className="nav-icon">
-                                <Icon type="right" />
-                            </span>
-                            Coolpanel 组件
-                        </NavLink>
-                    </div>
-                    <div className="nav-item">
                         <NavLink to="/coostore" className="nav-link" activeClassName="nav-link--active" exact>
                             <span className="nav-icon">
                                 <Icon type="right" />
                             </span>
                             CooStore 组件
+                        </NavLink>
+                    </div>
+                    <div className="nav-item">
+                        <NavLink to="/coolpanel" className="nav-link" activeClassName="nav-link--active" exact>
+                            <span className="nav-icon">
+                                <Icon type="right" />
+                            </span>
+                            Coolpanel 组件
                         </NavLink>
                     </div>
                     <div className="nav-item">

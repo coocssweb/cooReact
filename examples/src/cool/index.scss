@@ -44,7 +44,7 @@
         text-align: center;
         @for $i from 1 through 5 {
             &:nth-child(#{$i}){
-                animation: fadeUpIn .4s 0ms + ($i) * 100  linear forwards;
+                animation: fadeUpIn .4s 0ms + ($i) * 100ms  linear forwards;
             }
         }
     }

@@ -25,11 +25,22 @@ class CoolPanel extends Component {
         document.body.appendChild(this.el);
         this.targetDOMNode = document.querySelector('.cooCoolpanel-target');
         this.targetDOMNode.addEventListener('click', this.open.bind(this));
+        window.addEventListener('resize', this.onResize.bind(this));
     }
 
     componentWillUnmount () {
         this.targetDOMNode.removeEventListener('click', this.open.bind(this));
+        window.addEventListener('resize', this.onResize.bind(this));
         document.body.removeChild(this.el);
+    }
+
+    onResize () {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        this.setState({
+            canvasWidth: width,
+            canvasHeight: height
+        });
     }
 
     /**
@@ -68,6 +79,8 @@ class CoolPanel extends Component {
         const canvasContext = this.canvasContext;
 
         let end = false;
+        const posX = pos[2] + pos[0];
+        const posY = pos[1];
         const drawCircle = () => {
             // 也可以用setTimeout来实现，
             // 但是考虑到最大限度的利用浏览器的性能，因此用requestAnimationFrame
@@ -78,7 +91,7 @@ class CoolPanel extends Component {
                 canvasContext.clearRect(0, 0, state.canvasWidth, state.canvasHeight);
                 canvasContext.beginPath();
                 canvasContext.fillStyle = `rgba(${props.fillColor}, ${currentOpacity})`;
-                canvasContext.arc(pos[0], pos[1], currentRadius, 0, 2 * Math.PI);
+                canvasContext.arc(posX, posY, currentRadius, 0, 2 * Math.PI);
                 canvasContext.fill();
                 canvasContext.closePath();
                 if (toOpen) {
@@ -135,10 +148,12 @@ class CoolPanel extends Component {
             return false;
         }
         this.state.animating = true;
+        this.target = e.target;
         // 当前窗体宽度、高度
         const width = window.innerWidth;
         const height = window.innerHeight;
-        const pos = [e.clientX, e.clientY];
+
+        const pos = [e.clientX - this.target.offsetLeft, e.clientY, this.target.offsetLeft];
         this.setState({
             canvasWidth: width,
             canvasHeight: height,
@@ -172,6 +187,7 @@ class CoolPanel extends Component {
         }
         this.state.animating = true;
         const pos = this.state.pos;
+        pos[2] = this.target.offsetLeft;
         const width = window.innerWidth;
         const height = window.innerHeight;
         this.setState({
@@ -196,9 +212,16 @@ class CoolPanel extends Component {
             'cooCoolpanel-content--hidden': state.hidden,
         });
 
+        let panelStyle;
+        if (!state.hidden) {
+            panelStyle = {
+                backgroundColor: `rgba(${props.fillColor}, 1)`
+            };
+        }
+
         return ReactDOM.createPortal(
             (
-                <div className={panelClassName}>
+                <div className={panelClassName} style={panelStyle}>
                     <canvas className={className('cooCoolpanel-canvas')}
                             width={state.canvasWidth}
                             height={state.canvasHeight}
