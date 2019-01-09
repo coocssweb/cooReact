@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import { Route, NavLink } from 'react-router-dom';
-import {Home, SelectDemo, ModalDemo, ButtonDemo, SwitchDemo, CollapseDemo, TabsDemo, DrawerDemo, IconDemo, ToastDemo, CoolpanelDemo, CooStoreDemo} from './';
+import {
+    Home, SelectDemo, ModalDemo, ButtonDemo,
+    SwitchDemo, CollapseDemo, TabsDemo, DrawerDemo,
+    IconDemo, ToastDemo, CoolpanelDemo, CooStoreDemo
+} from './';
 import {Icon} from 'components';
 
 class Layout extends Component {

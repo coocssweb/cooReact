@@ -11,5 +11,5 @@ export TabsDemo from './tabs';
 export DrawerDemo from './drawer';
 export IconDemo from './icon';
 export ToastDemo from './toast';
-export CoolpanelDemo from './Coolpanel';
+export CoolpanelDemo from './cool';
 export CooStoreDemo from './cooStore';

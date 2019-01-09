@@ -1,0 +1,116 @@
+.cooCoolpanel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -1;
+    &--open{
+        z-index: 1000;
+    }
+    &-canvas {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    &-content{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        &--hidden{
+            display: none;
+        }
+    }
+    &-close{
+        position: absolute;
+        right: 30px;
+        top: 30px;
+        stroke: #a4aab3;
+        transition: all .3s ease;
+        &:hover{
+            stroke: #000;
+        }
+        >svg{
+            width: 32px;
+            height: 32px;
+        }
+    }
+    &-line{
+        cursor: pointer;
+        &:first-child{
+            transform: translate(-236px, -236px);
+            stroke-width: 4px;
+            animation: closeLine01In 0.3s .3s ease-in forwards;
+        }
+        &:last-child{
+            transform: translate(236px, -236px);
+            stroke-width: 16px;
+            animation: closeLine02In 0.3s .6s ease-in forwards;
+        }
+    }
+}
+
+.cooCoolPanelUp {
+    &-exit{
+        .cooCoolpanel{
+            &-line{
+                &:first-child{
+                    animation: closeLine01Out 0.3s ease-in forwards;
+                }
+                &:last-child{
+                    animation: closeLine02Out 0.3s .3s ease-in forwards;
+                }
+            }
+        }
+    }
+}
+
+@keyframes closeLine01In {
+    0%{
+        transform: translate(-236px, -236px);
+    }
+
+    100%{
+        transform: translate(0px, 0px);
+    }
+}
+
+@keyframes closeLine01Out {
+    0%{
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+
+    100%{
+        transform: translate(-236px, -236px);
+        opacity: 0;
+    }
+}
+
+
+@keyframes closeLine02In {
+    0%{
+        transform: translate(236px, -236px);
+    }
+
+    100%{
+        transform: translate(0px, 0px);
+    }
+}
+
+@keyframes closeLine02Out {
+    0%{
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+
+    100%{
+        transform: translate(236px, -236px);
+        opacity: 0;
+    }
+}

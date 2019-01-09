@@ -34,8 +34,7 @@ class Select extends Component {
         this.state = {
             value,
             label,
-            open: false,
-            haveOpened: false,
+            open: false
         };
     }
 
