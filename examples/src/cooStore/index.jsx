@@ -29,7 +29,7 @@ class Index extends Component {
                 <div className="demo-description">
                     采用观察者模式，通过subscribe、notify实现组件内的通讯<br />
                     因此，层级很深的两个组件，不用通过props、ref来一层一层的回调<br />
-                    可以打开调试面板看console.log，点击时只会render对象的组件
+                    可以打开调试面板看console.log，点击时只会render对应的组件，发起事件通知时，不用经过父组件传递，因此不会触发其他组件的更新。
                 </div>
                 <div className="panel">
                     <h2 className="panel-title">演示</h2>
@@ -52,6 +52,12 @@ class Index extends Component {
                                 </Level2_3>
                             </Level1_2>
                         </div>
+                    </div>
+                </div>
+                <div className="panel">
+                    <h2 className="panel-title">属性</h2>
+                    <div className="panel-content">
+
                     </div>
                 </div>
             </div>
