@@ -16,31 +16,20 @@ class CoolPanel extends Component {
             canvasWidth: 0,             // 画布宽度
             canvasHeight: 0,            // 画布高度
             radius: 0,                  // 需要画圆的半径
-            animating: false
+            animating: false,           // 正在处理展开/关闭
         };
     }
 
     componentDidMount () {
         this.canvasContext = this.canvasRef.current.getContext('2d');
         document.body.appendChild(this.el);
-        this.targetDOMNode = document.querySelector('.cooCoolpanel-target');
+        this.targetDOMNode = document.querySelector(`.${this.props.targetName}`);
         this.targetDOMNode.addEventListener('click', this.open.bind(this));
-        window.addEventListener('resize', this.onResize.bind(this));
     }
 
     componentWillUnmount () {
         this.targetDOMNode.removeEventListener('click', this.open.bind(this));
-        window.addEventListener('resize', this.onResize.bind(this));
         document.body.removeChild(this.el);
-    }
-
-    onResize () {
-        const width = window.innerWidth;
-        const height = window.innerHeight;
-        this.setState({
-            canvasWidth: width,
-            canvasHeight: height
-        });
     }
 
     /**
@@ -77,10 +66,10 @@ class CoolPanel extends Component {
         let currentOpacity = toOpen ? 0 : 1;
         let time = toOpen ? 0 : Math.log2(currentRadius) * 5 + 1;
         const canvasContext = this.canvasContext;
-
         let end = false;
         const posX = pos[2] + pos[0];
         const posY = pos[1];
+
         const drawCircle = () => {
             // 也可以用setTimeout来实现，
             // 但是考虑到最大限度的利用浏览器的性能，因此用requestAnimationFrame
@@ -167,6 +156,12 @@ class CoolPanel extends Component {
     }
 
     close () {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        this.setState({
+            canvasWidth: width,
+            canvasHeight: height
+        });
         const props = this.props;
         const done = () => {
             this.setState({
@@ -187,6 +182,9 @@ class CoolPanel extends Component {
         }
         this.state.animating = true;
         const pos = this.state.pos;
+        // 重新计算pos,
+        // 窗体resize时会导致，e.clientX的变化
+        // 用e.target.offsetLeft + (e.clientX - (上一次e.target.offsetLeft))，可以保证pos点相对于e.target的位置不变
         pos[2] = this.target.offsetLeft;
         const width = window.innerWidth;
         const height = window.innerHeight;
@@ -266,6 +264,7 @@ CoolPanel.propTypes = {
     onClose: propTypes.func,
     onOpen: propTypes.func,
     fillColor: propTypes.string,
+    targetName: propTypes.string.isRequired,
 };
 
 export default CoolPanel;

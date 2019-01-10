@@ -37,8 +37,11 @@ class Index extends Component {
             <div className="demo demo--coolpanel">
                 <h1 className="demo-title">Coolpanel</h1>
                 <div className="demo-description">
-                    <p>一个很cool的面板交互方式<br/> Math.pow 实现Canvas画圆的easeIn、easeOut动画效果<br />会根据窗口的变化，重新计算pos位置（根据e.client、e.target.offset等信息计算）</p>
-                    <Button className="cooCoolpanel-target" size="large">打开一个很酷的面板</Button>
+                    <p>一个很cool的面板交互方式<br/>
+                        用pos 与 窗体四个坐标算最适合的canvas圆半径；
+                        <br />
+                        Math.pow 实现Canvas画圆的easeIn、easeOut动画效果<br />会根据窗口的变化，重新计算pos位置（根据e.client、e.target.offset等信息计算）</p>
+                    <Button className="open-target" size="large">打开一个很酷的面板</Button>
                 </div>
                 <div className="panel">
                     <h2 className="panel-title">演示</h2>
@@ -47,6 +50,7 @@ class Index extends Component {
                             点一下右边的按钮试一下----->  对，就在右上角
                             <Coolpanel fillColor="255, 231, 11"
                                        beforeClose={this.beforeClose.bind(this)}
+                                       targetName="open-target"
                                        onOpen={this.onOpen.bind(this)}>
                                 <div className={contentClassName}>
                                     <div>我是标题--01</div>
