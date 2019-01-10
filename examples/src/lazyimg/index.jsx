@@ -18,7 +18,10 @@ class index extends Component {
             <div className="demo demo--lazyimg">
                 <h1 className="demo-title">Lazyimg 组件</h1>
                 <div className="demo-description">
-                    Lazyimg 组件的相关设置
+                    一个图片懒加载组件，可以外部控制加载，也可通过点击图片加载；<br />
+                    分两张图片的懒加载,1、预加载图片(如果有)；2、真实图片(可设置自动加载)；<br />
+                    加载失败会显示给用户重新加载的提示（icon）；<br />
+                    以下是Lazyimg 组件的相关设置
                 </div>
                 <div className="panel">
                     <h2 className="panel-title">演示</h2>

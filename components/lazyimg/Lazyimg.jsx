@@ -89,8 +89,11 @@ class Lazyimg extends Component {
             'cooLazyimg-icon--hidden': state.hidden,
         });
         return (
-            <span className={className('cooLazyimg')} onClick={this.load.bind(this)}>
-                <img src={state.src} width={props.width ? props.width : ''} height={props.height ? props.height : ''} />
+            <span className={className('cooLazyimg')}
+                  onClick={this.load.bind(this)}>
+                <img src={state.src}
+                     width={props.width ? props.width : ''}
+                     height={props.height ? props.height : ''} />
                 <span className={iconClassName}
                       onTransitionEnd={this.transitionEnd.bind(this)} />
             </span>
