@@ -43,7 +43,7 @@ class index extends Component {
                             <Lazyimg height={188}
                                      width={350}
                                      auto={this.state.auto02}
-                                     src="https://coocssweb.github.io/react/photo/code.jpg" />
+                                     src="https://coocssweb.github.io/react/photo/codesss.jpg" />
                         </div>
                         <Button
                             onClick={() => {
@@ -55,17 +55,7 @@ class index extends Component {
                             this.setState({
                                 auto02: true
                             });
-                        }}>加载第二张</Button>
-                    </div>
-
-                    <div className="panel-content">
-                        <div className="panel-litetitle">LoadError（点击图片加载）</div>
-                        <div className="panel-line">
-                            <Lazyimg height={188}
-                                     width={350}
-                                     thumb="https://coocssweb.github.io/react/photo/code_60.jpg"
-                                     src="https://coocssweb.github.io/react/photo/codessss.jpg" />
-                        </div>
+                        }}>加载第二张(不存在的图片)</Button>
                     </div>
                 </div>
                 <div className="panel">
