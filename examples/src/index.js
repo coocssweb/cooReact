@@ -13,3 +13,4 @@ export IconDemo from './icon';
 export ToastDemo from './toast';
 export CoolpanelDemo from './cool';
 export CooStoreDemo from './cooStore';
+export LazyimgDemo from './lazyimg';
