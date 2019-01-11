@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
   font-family: sans-serif;
