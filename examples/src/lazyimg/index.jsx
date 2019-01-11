@@ -16,12 +16,11 @@ class index extends Component {
     render () {
         return (
             <div className="demo demo--lazyimg">
-                <h1 className="demo-title">Lazyimg 组件</h1>
+                <h1 className="demo-title">Lazyimg 图片懒加载组件</h1>
                 <div className="demo-description">
-                    一个图片懒加载组件，可以外部控制加载，也可通过点击图片加载；<br />
-                    分两张图片的懒加载,1、预加载图片(如果有)；2、真实图片(可设置自动加载)；<br />
-                    加载失败会显示给用户重新加载的提示（icon）；<br />
-                    以下是Lazyimg 组件的相关设置
+                    有一种情况，网页上需要显示比较大的图片（如:gif、高清图片），为了节省网络资源，我们会采用懒加载的形式（滚动条滚动某个位置时触发加载）。<br />
+                    为了用户体验，可能还会提供一张小的预览图，所以，这个组件分两张图片的懒加载,1、预加载图片(如果有)；2、真实图片(可设置自动加载)；<br />
+                    加载失败会显示给用户重新加载的提示（icon）；
                 </div>
                 <div className="panel">
                     <h2 className="panel-title">演示</h2>

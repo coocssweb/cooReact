@@ -7,7 +7,7 @@ html, body{
 }
 
 body {
-    font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: -apple-system,Helvetica Neue,Roboto,Arial,PingFang SC,sans-serif;
     font-size: 14px;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -57,6 +57,7 @@ html, body, #app{
     top:  52px;
     bottom: 0px;
     width: 150px;
+    padding-right: 20px;
     box-shadow: 0 2px 4px -1px rgba(0,0,0,0.1), 0 4px 5px 0 rgba(0,0,0,0.04), 0 1px 10px 0 rgba(0,0,0,0.02);
     background-color: #ffffff;
     &-item{
@@ -77,6 +78,7 @@ html, body, #app{
         }
         &--active{
             background-color: #e8f0fe;
+            color: #4d90fe;
             .nav-icon{
                 color: #4d90fe;
             }
@@ -95,7 +97,7 @@ html, body, #app{
 }
 .content{
     position: absolute;
-    left: 155px;
+    left: 175px;
     right: 0px;
     top: 55px;
     bottom: 0px;
@@ -115,6 +117,9 @@ html, body, #app{
     &-description{
         padding: 30px 0px;
         line-height: 1.5;
+        i{
+            background-color: rgba(249,217,66,.4)
+        }
     }
 }
 

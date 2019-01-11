@@ -11,3 +11,4 @@ export Toast from './toast';
 export Coolpanel from './coolpanel';
 export cooStore from './cooStore';
 export Lazyimg from './lazyimg';
+export Placebo from './placebo';
