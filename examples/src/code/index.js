@@ -9,6 +9,8 @@ const Wrapper = styled.div`
   font-family: sans-serif;
   text-align: center;
   padding: 10px;
+  background-color: rgb(42, 39, 52);
+  max-width: 800px;
 `;
 
 const Pre = styled.pre`
@@ -27,17 +29,19 @@ const LineNo = styled.span`
 
 export default (props) => {
     return (
-        <Highlight {...defaultProps} code={props.children} language="jsx">
-            {({ className, style, tokens, getLineProps, getTokenProps }) => (
-                <div className={className} style={style}>
-          {tokens.map((line, i) => (
-              <Pre {...getLineProps({ line, key: i })}>
-                  <LineNo>{i + 1}</LineNo>
-                  {line.map((token, key) => <span {...getTokenProps({ token, key })} />)}
-              </Pre>
-          ))}
-        </div>
-            )}
-        </Highlight>
+        <Wrapper>
+            <Highlight {...defaultProps} code={props.children} language="jsx">
+                {({ className, style, tokens, getLineProps, getTokenProps }) => (
+                    <div className={className} style={style}>
+                      {tokens.map((line, i) => (
+                          <Pre {...getLineProps({ line, key: i })}>
+                              <LineNo>{i + 1}</LineNo>
+                              {line.map((token, key) => <span {...getTokenProps({ token, key })} />)}
+                          </Pre>
+                      ))}
+                    </div>
+                )}
+            </Highlight>
+        </Wrapper>
     );
 };
