@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
 import './index.scss';
+import React, {Component} from 'react';
+import Code from '../code';
 import {Switch} from 'components';
 
 class index extends Component {
@@ -37,6 +38,19 @@ class index extends Component {
                             <Switch defaultChecked type='success' disabled />
                             <Switch defaultChecked type='error' disabled />
                         </div>
+                    </div>
+                </div>
+                <div className="panel">
+                    <h2 className="panel-title">代码展示</h2>
+                    <div className="panel-content">
+                        <Code>
+                            {
+`<Switch defaultChecked/>
+<Switch defaultChecked type='success' />
+<Switch defaultChecked type='error' />
+<Switch defaultChecked type='success' checkedText="开" uncheckedText="关" />`
+                            }
+                        </Code>
                     </div>
                 </div>
                 <div className="panel">

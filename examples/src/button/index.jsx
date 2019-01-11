@@ -1,5 +1,6 @@
 import './index.scss';
 import React, {Component} from 'react';
+import Code from '../code';
 import {Button, Icon} from 'components';
 
 class Index extends Component {
@@ -37,6 +38,19 @@ class Index extends Component {
                             <Button transparent><Icon type="add" />透明</Button>
                             <Button transparent disabled><Icon type="add" />禁用透明</Button>
                         </div>
+                    </div>
+                </div>
+                <div className="panel">
+                    <h2 className="panel-title">代码展示</h2>
+                    <div className="panel-content">
+                        <Code>
+                            {
+`<Button type="success">按钮</Button>
+<Button type="normal">按钮</Button>
+<Button loading>加载中</Button>
+<Button disabled><Icon type="add" />禁用</Button>`
+                            }
+                        </Code>
                     </div>
                 </div>
                 <div className="panel">

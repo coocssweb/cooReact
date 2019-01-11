@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Collapse} from 'components';
+import Code from '../code';
 const Panel = Collapse.Panel;
 
 class Index extends Component {
@@ -56,6 +57,32 @@ class Index extends Component {
                                 </Panel>
                             </Collapse>
                         </div>
+                    </div>
+                </div>
+                <div className="panel">
+                    <h2 className="panel-title">代码展示</h2>
+                    <div className="panel-content">
+                        <Code>
+                            {
+`<Collapse accordion defaultActiveKey={['1']} forceRender={false}>
+    <Panel header="手风琴 first" key="1">
+        <div className="">
+            内容1
+        </div>
+    </Panel>
+    <Panel header="手风琴 second" key="2">
+        <div className="">
+            内容2
+        </div>
+    </Panel>
+    <Panel header="手风琴 third" key="3">
+        <div className="">
+            内容3
+        </div>
+    </Panel>
+</Collapse>`
+                            }
+                        </Code>
                     </div>
                 </div>
                 <div className="panel">

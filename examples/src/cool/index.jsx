@@ -1,6 +1,7 @@
 import './index.scss';
 import React, {Component} from 'react';
 import {Button, Coolpanel} from 'components';
+import Code from '../code';
 import className from 'classnames';
 
 class Index extends Component {
@@ -61,6 +62,28 @@ class Index extends Component {
                                 </div>
                             </Coolpanel>
                         </div>
+                    </div>
+                </div>
+                <div className="panel">
+                    <h2 className="panel-title">代码展示</h2>
+                    <div className="panel-content">
+                        <Code>
+{`// 按钮，className 与 面板的targetName属性一致即可
+<Button className="open-target" size="large">打开一个很酷的面板</Button>
+// 面板
+<Coolpanel fillColor="255, 231, 11"
+           beforeClose={this.beforeClose.bind(this)}
+           targetName="open-target"
+           onOpen={this.onOpen.bind(this)}>
+    <div>
+        <div>我是标题--01</div>
+        <div>我是标题--02</div>
+        <div>我是标题--03</div>
+        <div>我是标题--04</div>
+        <div>我是标题--05</div>
+    </div>
+</Coolpanel>`}
+                        </Code>
                     </div>
                 </div>
                 <div className="panel">

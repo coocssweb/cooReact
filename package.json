@@ -58,6 +58,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
+    "prism-react-renderer": "^0.1.5",
     "prop-types": "^15.6.2",
     "rc-align": "^2.4.3",
     "react": "^16.7.0",
@@ -65,6 +66,7 @@
     "react-onclickoutside": "^6.7.1",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-transition-group": "^2.5.2"
+    "react-transition-group": "^2.5.2",
+    "styled-components": "^4.1.3"
   }
 }

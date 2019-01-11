@@ -1,5 +1,6 @@
 import './index.scss';
 import React, {Component} from 'react';
+import Code from '../code';
 import {Icon} from 'components';
 const ICON_LIST = [
     'loading',
@@ -60,6 +61,18 @@ class Index extends Component {
                                 })
                             }
                         </ul>
+                    </div>
+                </div>
+
+                <div className="panel">
+                    <h2 className="panel-title">代码展示</h2>
+                    <div className="panel-content">
+                        <Code>
+{
+`<Icon type="loading"></Icon>
+<Icon type="home"></Icon>`
+}
+                        </Code>
                     </div>
                 </div>
                 <div className="panel">

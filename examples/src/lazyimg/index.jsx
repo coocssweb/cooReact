@@ -2,6 +2,7 @@ import './index.scss';
 import React, {Component} from 'react';
 import propTypes from 'prop-types';
 import className from 'classnames';
+import Code from '../code';
 import {Lazyimg, Button} from 'components';
 
 class index extends Component {
@@ -58,6 +59,26 @@ class index extends Component {
                                 auto02: true
                             });
                         }}>加载第二张(不存在的图片)</Button>
+                    </div>
+                </div>
+                <div className="panel">
+                    <h2 className="panel-title">代码展示</h2>
+                    <div className="panel-content">
+                        <Code>
+                            {
+`// gif图片
+<Lazyimg height={188}
+     width={350}
+     thumb="https://coocssweb.github.io/react/photo/thumb.jpg"
+     src="https://coocssweb.github.io/react/photo/photo.gif" />
+// 不主动加载图片，auto属性true，自动加载图片
+<Lazyimg height={188}
+     width={350}
+     thumb="https://coocssweb.github.io/react/photo/code_60.jpg"
+     src="https://coocssweb.github.io/react/photo/code.jpg"
+     auto={this.state.auto01} />`
+                            }
+                        </Code>
                     </div>
                 </div>
                 <div className="panel">

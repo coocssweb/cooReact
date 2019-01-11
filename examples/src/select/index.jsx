@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './index.scss';
+import Code from '../code';
 import { Select } from 'components';
 const { Option } = Select;
 
@@ -59,6 +60,25 @@ class Index extends Component {
                                 }
                             </Select>
                         </div>
+                    </div>
+                </div>
+                <div className="panel">
+                    <h2 className="panel-title">代码展示</h2>
+                    <div className="panel-content">
+                        <Code>
+                            {
+`<Select onChange={this.onChange.bind(this)}>
+<Option value="1">一</Option>
+<Option value="2">二</Option>
+<Option value="3">三</Option>
+{
+    this.state.menus.map((menu) => {
+        return (<Option key={menu.value} value={menu.value}>{menu.label}</Option>);
+    })
+}
+</Select>`
+                            }
+                        </Code>
                     </div>
                 </div>
                 <div className="panel">

@@ -2,6 +2,7 @@ import './index.scss';
 import React, {Component} from 'react';
 import propTypes from 'prop-types';
 import className from 'classnames';
+import Code from '../code';
 import {Placebo, Button} from 'components';
 
 class index extends Component {
@@ -24,21 +25,38 @@ class index extends Component {
                     <div className="panel-content">
                         <div className="panel-line">
                             <Button onClick={() => {
-                            Placebo.open({fillColor: '255, 0, 0'});
-                            setTimeout(() => {
-                                Placebo.close();
-                            }, 3000);
-                        }}>我需要一长达3秒的安慰</Button>
+                                Placebo.open({fillColor: '255, 0, 0'});
+                                setTimeout(() => {
+                                    Placebo.close();
+                                }, 3000);
+                            }}>我需要一长达3秒的安慰</Button>
                             <Button type="normal" onClick={() => {
                                 Placebo.open();
                                 setTimeout(() => {
                                     Placebo.close();
-                                }, 3000);
+                                }, 5000);
                             }}>我需要一长达5秒蓝色的安慰</Button>
                         </div>
                         <div className="panel-line">
 
                         </div>
+                    </div>
+                </div>
+                <div className="panel">
+                    <h2 className="panel-title">代码展示</h2>
+                    <div className="panel-content">
+                        <Code>
+{
+`<Button type="normal" onClick={() => {
+    Placebo.open();
+    // 可调用Placebo.close进行关闭，关闭默认不销毁组件；下次打开不会重新创建组件
+    // 也可调用Placebo.desroy进行销毁，会销毁组件；下次打开需要重新创建组件
+    setTimeout(() => {
+        Placebo.close();
+    }, 5000);
+}}>我需要一长达5秒蓝色的安慰</Button>`
+  }
+                        </Code>
                     </div>
                 </div>
                 <div className="panel">

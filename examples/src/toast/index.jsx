@@ -2,6 +2,7 @@ import './index.scss';
 import React, {Component} from 'react';
 import propTypes from 'prop-types';
 import className from 'classnames';
+import Code from '../code';
 import {Button, Toast} from 'components';
 
 class Index extends Component {
@@ -15,6 +16,9 @@ class Index extends Component {
     }
 
     onShowLoading () {
+        if (this.loadingRef) {
+            return;
+        }
         Toast.loading('加载中...', {duration: 0}, (loadingRef) => {
             this.loadingRef = loadingRef;
         });
@@ -50,6 +54,30 @@ class Index extends Component {
                             <Button onClick={this.onShowLoading.bind(this)}>Toast.loading</Button>
                             <Button onClick={this.onCloseLoading.bind(this)}>close左边的loading</Button>
                         </div>
+                    </div>
+                </div>
+
+                <div className="panel">
+                    <h2 className="panel-title">代码展示</h2>
+                    <div className="panel-content">
+                        <Code>
+                            {
+`// Toast默认是单例的，可以调用Toast.destroy销毁全部Toast，下次打开的时候，会重新创建组件
+// Tip提示框
+<Button onClick={() => {
+Toast.tip('打开提示框', {closable: true});
+}}>可关闭</Button>
+// loading加载框
+<Button onClick={this.onShowLoading.bind(this)}>Toast.loading</Button>
+<Button onClick={this.onCloseLoading.bind(this)}>close左边的loading</Button>`
+                            }
+                        </Code>
+                    </div>
+                </div>
+
+                <div className="panel">
+                    <h2 className="panel-title">属性</h2>
+                    <div className="panel-content">
                     </div>
                 </div>
             </div>

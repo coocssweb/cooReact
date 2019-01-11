@@ -1,5 +1,6 @@
 import './index.scss';
 import React, {Component} from 'react';
+import Code from '../code';
 import Level1_1 from './level1_1';
 import Level1_2 from './level1_2';
 import Level2_1 from './level2_1';
@@ -52,6 +53,27 @@ class Index extends Component {
                                 </Level2_3>
                             </Level1_2>
                         </div>
+                    </div>
+                </div>
+                <div className="panel">
+                    <h2 className="panel-title">代码</h2>
+                    <div className="panel-content">
+                        <Code>
+{
+`componentDidMount () {
+    // 组件内添加订阅
+    this.unsubscribe = cooStore.subscribe('level2_2', this.setCount.bind(this));
+}
+componentWillUnmount () {
+    // 删除订阅
+    this.unsubscribe();
+}
+// 通知按钮
+<Button onClick={() => {
+    cooStore.notify('level2_2');
+}}>通知【第二层:2-2】数据变化了</Button>`
+}
+</Code>
                     </div>
                 </div>
                 <div className="panel">
