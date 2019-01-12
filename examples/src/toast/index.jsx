@@ -51,8 +51,18 @@ class Index extends Component {
                         </div>
 
                         <div className="panel-line">
-                            <Button onClick={this.onShowLoading.bind(this)}>Toast.loading</Button>
-                            <Button onClick={this.onCloseLoading.bind(this)}>close左边的loading</Button>
+                            <Button onClick={() => {
+                                if (this.loadingRef) {
+                                    return;
+                                }
+                                Toast.loading('加载中...', {duration: 0}, (loadingRef) => {
+                                    this.loadingRef = loadingRef;
+                                });
+                            }}>Toast.loading</Button>
+                            <Button onClick={() => {
+                                this.loadingRef && this.loadingRef.close();
+                                this.loadingRef = null;
+                            }}>close左边的loading</Button>
                         </div>
                     </div>
                 </div>
