@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Code from '../code';
 import {Drawer, Button} from 'components';
 
 class Index extends Component {
@@ -43,6 +44,21 @@ class Index extends Component {
                         <div className="panel-line">
                             <Button onClick={this.onOpen.bind(this, 'left')}>打开左抽屉</Button>
                         </div>
+                    </div>
+                </div>
+                <div className="panel">
+                    <h2 className="panel-title">代码展示</h2>
+                    <div className="panel-content">
+                        <Code>
+                            {
+`// 可定义位置
+<Drawer placement={state.placement} visible={state.visible}>
+    <div className="drawer-content">
+    这是窗口内的内容
+    </div>
+</Drawer>`
+                            }
+                        </Code>
                     </div>
                 </div>
                 <div className="panel">

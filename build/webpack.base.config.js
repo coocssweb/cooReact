@@ -44,8 +44,8 @@ module.exports = function webpackBaseConfig (NODE_ENV = 'development') {
             index: resolve('examples', 'index.js'),
         },
         output: {
-            path: resolve('dist'),
-            publicPath: '',
+            path: resolve('../coocssweb.github.io/react'),
+            publicPath: config.staticPath,
             filename: `js/${config.filenameHash ? '[name].[hash:8]': '[name]' }.js`,
             chunkFilename: `js/${config.filenameHash ? '[name].[hash:8]': '[name]'}.js`
         },
@@ -98,11 +98,11 @@ module.exports = function webpackBaseConfig (NODE_ENV = 'development') {
                 },
                 {
                     test: /\.(png|jpg|gif|svg)$/,
-                    loader: `url-loader?limit=1&name=images/${config.filenameHash ? '[name].[hash:8]': '[name]'}.[ext]`
+                    loader: `url-loader?limit=1&name=${config.imagesFilePath}${config.filenameHash ? '[name].[hash:8]': '[name]'}.[ext]`
                 },
                 {
                     test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-                    loader: `file-loader?name=fonts/${config.filenameHash ? '[name].[hash:8]': '[name]'}.[ext]`
+                    loader: `file-loader?name=${config.fontsFilePath}${config.filenameHash ? '[name].[hash:8]': '[name]'}.[ext]`
                 },
                 {
                     test: /\.(scss|css)$/,

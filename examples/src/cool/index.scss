@@ -1,0 +1,63 @@
+.demo--coolpanel{
+    .cooButton{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 10;
+    }
+}
+
+@keyframes fadeUpIn {
+    0%{
+        transform: matrix(1, 0, 0, 1, 0, -40);
+        opacity: 0.0;
+    }
+
+    100%{
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeUpOut {
+    0%{
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        opacity: 1;
+    }
+
+    100%{
+        transform: matrix(1, 0, 0, 1, 0, -40);
+        opacity: 0;
+    }
+}
+
+.cool-content{
+    color: #000000;
+    width: 800px;
+    margin: 0px auto;
+    font-size: 30px;
+    padding-top: 50px;
+    div{
+        margin-bottom: 30px;
+        opacity: 0;
+        transform: matrix(1, 0, 0, 1, 0, -40);
+        text-align: center;
+        @for $i from 1 through 5 {
+            &:nth-child(#{$i}){
+                animation: fadeUpIn .4s 0ms + ($i) * 100ms  linear forwards;
+            }
+        }
+    }
+
+    &--out{
+        div{
+            transform: matrix(1, 0, 0, 1, 0, 0);
+            opacity: 1;
+            @for $i from 1 through 5 {
+                &:nth-child(#{$i}){
+                    animation: fadeUpOut .4s 500 - ($i) * 100ms  linear forwards;
+                }
+            }
+        }
+    }
+}

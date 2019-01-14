@@ -1,0 +1,40 @@
+.cooPlacebo{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+    background-color: rgba(165, 165, 165, .2);
+    transition: opacity .5s ease;
+    animation: cooFadeIn .5s ease;
+    &-progress{
+        position: absolute;
+        top: 0;
+        height: 3px;
+        width: 25%;
+        transform-origin: 0 0;
+        animation: cooPlaceboLoading 1.5s infinite;
+        animation-timing-function: cubic-bezier(0.4,0.0,1,1);
+        animation-delay: .1s;
+        transform: scaleX(0);
+    }
+
+    &--hidden{
+        display: none;
+    }
+}
+
+@keyframes cooPlaceboLoading {
+    0% {
+        transform: scaleX(0)
+    }
+
+    50% {
+        transform: scaleX(5)
+    }
+
+    to {
+        transform: scaleX(5) translateX(100%)
+    }
+}

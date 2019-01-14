@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import propTypes from 'prop-types';
 import className from 'classnames';
+import Icon from '../icon';
 
 class Button extends Component {
     constructor (props) {
@@ -19,17 +20,22 @@ class Button extends Component {
         const props = this.props;
         const prefixCls = 'cooButton';
         const buttonClassName = className({
-            [prefixCls]: 1,
-            [`${prefixCls}--${props.type}`]: 1,
-            [`${prefixCls}--${props.size}`]: 1,
+            [prefixCls]: true,
+            [`${prefixCls}--${props.type}`]: true,
+            [`${prefixCls}--${props.size}`]: true,
             [`${prefixCls}--disable`]: props.disabled,
             'circle': props.circle,
-            'transparent': props.transparent
+            'transparent': props.transparent,
+            [`${prefixCls}--loading`]: props.loading,
+            [props.className]: true
         });
 
         return (
             <button className={buttonClassName}
                     onClick={this.onClick.bind(this)}>
+                {
+                    props.loading ? (<Icon type="loading" />) : null
+                }
                 { this.props.children }
             </button>
         );
@@ -41,7 +47,9 @@ Button.defaultProps = {
     disabled: false,
     type: 'primary',
     circle: false,
-    transparent: false
+    transparent: false,
+    loading: false,
+    className: '',
 };
 
 Button.propTypes = {
@@ -51,7 +59,9 @@ Button.propTypes = {
     circle: propTypes.bool,
     transparent: propTypes.bool,
     onClick: propTypes.func,
-    icon: propTypes.string
+    icon: propTypes.string,
+    loading: propTypes.bool,
+    className: propTypes.string,
 };
 
 export default Button;

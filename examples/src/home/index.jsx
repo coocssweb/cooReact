@@ -1,6 +1,5 @@
 import './index.scss';
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
 
 class Index extends Component {
     constructor (props) {
@@ -10,22 +9,54 @@ class Index extends Component {
 
     render () {
         return (
-            <div className="home">
-                <Link to="icon">Icon 组件</Link>
-                <br /><br />
-                <Link to="button">Button 组件</Link>
-                <br /><br />
-                <Link to="modal">Modal 组件</Link>
-                <br /><br />
-                <Link to="drawer">Drawer 组件</Link>
-                <br /><br />
-                <Link to="select">Select 组件</Link>
-                <br /><br />
-                <Link to="switch">Switch 组件</Link>
-                <br /><br />
-                <Link to="tabs">Tabs 组件</Link>
-                <br /><br />
-                <Link to="collapse">Collapse 组件</Link>
+            <div className="demo demo--home">
+                <h1 className="demo-title">什么呢？</h1>
+                <div className="demo-description">
+                    <p>决定，用React 16改造下，之前写的一些React组件！由于一些原因，有大概半年的时间没有用React写项目了。</p>
+                    <p>继续造一些轮子，也借此机会，了解一些新特性。</p>
+                    <p>这个代码库，基本没有用到第三方组件(除了outsideclick, align这种高阶组件)!</p>
+                </div>
+                <div className="panel">
+                    <h2 className="panel-title">关于代码</h2>
+                    <div className="panel-content">
+                        <div className="panel-line">
+                            API方面有借鉴到<a href="https://ant.design/docs/react/customize-theme-cn" target="_blank">Ant Design</a>，<a href="http://element.eleme.io/#/zh-CN/component/installation" target="_blank">element-ui</a>，
+                            翻阅了一些源码！
+                        </div>
+                    </div>
+                </div>
+                <div className="panel">
+                    <h2 className="panel-title">关于Icons</h2>
+                    <div className="panel-content">
+                        <div className="panel-line">
+                            Icon主要用了<a href="https://material.io/tools/icons/?style=baseline" target="_blank">Material Icons</a>
+                        </div>
+                    </div>
+                </div>
+                <div className="panel">
+                    <h2 className="panel-title">关于动画</h2>
+                    <div className="panel-content">
+                        <div className="panel-line">
+                            动画实现方面，主要用<a href="https://github.com/reactjs/react-transition-group" target="_blank">react-transition-group</a>实现
+                        </div>
+                    </div>
+                </div>
+                <div className="panel">
+                    <h2 className="panel-title">即将开发？</h2>
+                    <div className="panel-content">
+                        <div className="panel-line">
+                            很多
+                        </div>
+                    </div>
+                </div>
+                <div className="panel">
+                    <h2 className="panel-title">关于文档</h2>
+                    <div className="panel-content">
+                        <div className="panel-line">
+                            还在完善
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }

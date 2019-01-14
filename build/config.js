@@ -6,6 +6,9 @@ module.exports = {
         cssSourceMap: false,
         eslint: false,
         filenameHash: true,
+        staticPath: 'https://coocssweb.github.io/react/',
+        fontsFilePath: 'fonts/',
+        imagesFilePath: 'images/',
     },
     development: {
         port: 8080,
@@ -14,5 +17,8 @@ module.exports = {
         jsSourceMap: false,
         cssSourceMap: false,
         filenameHash: false,
+        staticPath: '',
+        fontsFilePath: 'fonts/',
+        imagesFilePath: 'images/',
     }
 };

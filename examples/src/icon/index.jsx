@@ -1,5 +1,6 @@
 import './index.scss';
 import React, {Component} from 'react';
+import Code from '../code';
 import {Icon} from 'components';
 const ICON_LIST = [
     'loading',
@@ -40,19 +41,46 @@ class Index extends Component {
 
     render () {
         return (
-            <div className="demo demo--icon">
-                <ul className="icon-list">
-                    {
-                        ICON_LIST.map((item) => {
-                            return (
-                                <li key={item} className="icon-item">
-                                    <Icon type={item}></Icon>
-                                    <span className="icon-name">{item}</span>
-                                </li>
-                            );
-                        })
-                    }
-                </ul>
+            <div className="demo demo--button">
+                <h1 className="demo-title">Icon 组件</h1>
+                <div className="demo-description">
+                    Icon 组件的相关设置
+                </div>
+                <div className="panel">
+                    <h2 className="panel-title">演示</h2>
+                    <div className="panel-content">
+                        <ul className="icon-list">
+                            {
+                                ICON_LIST.map((item) => {
+                                    return (
+                                        <li key={item} className="icon-item">
+                                            <Icon type={item}></Icon>
+                                            <span className="icon-name">{item}</span>
+                                        </li>
+                                    );
+                                })
+                            }
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="panel">
+                    <h2 className="panel-title">代码展示</h2>
+                    <div className="panel-content">
+                        <Code>
+{
+`<Icon type="loading"></Icon>
+<Icon type="home"></Icon>`
+}
+                        </Code>
+                    </div>
+                </div>
+                <div className="panel">
+                    <h2 className="panel-title">属性</h2>
+                    <div className="panel-content">
+
+                    </div>
+                </div>
             </div>
         );
     }
