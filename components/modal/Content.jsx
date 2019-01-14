@@ -116,12 +116,12 @@ class Content extends Component {
             <div className={className('cooModal-footer')}>
                 {
                     props.cancelText ? (
-                        <Button transparent type="normal" onClick={this.onCancelClick.bind(this)}>{props.cancelText}</Button>
+                        <Button type="normal" onClick={this.onCancelClick.bind(this)}>{props.cancelText}</Button>
                     ) : null
                 }
                 {
                     props.okText ? (
-                        <Button transparent onClick={this.onOkClick.bind(this)}>{props.okText}</Button>
+                        <Button onClick={this.onOkClick.bind(this)}>{props.okText}</Button>
                     ) : null
                 }
             </div>
