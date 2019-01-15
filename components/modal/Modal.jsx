@@ -53,7 +53,7 @@ class Modal extends Component {
 
 Modal.defaultProps = {
     visible: false,
-    width: 500,
+    width: 550,
     okText: '确认',
     cancelText: '取消',
     closable: true,

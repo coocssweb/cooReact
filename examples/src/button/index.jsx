@@ -19,24 +19,37 @@ class Index extends Component {
                 <div className="panel">
                     <h2 className="panel-title">演示</h2>
                     <div className="panel-content">
+                        <div className="panel-litetitle">基础样式</div>
                         <div className="panel-line">
                             <Button>按钮</Button>
+                            <Button type="danger">按钮</Button>
                             <Button type="success">按钮</Button>
                             <Button type="normal">按钮</Button>
+                            <Button size="large">大一点按钮</Button>
+                        </div>
+                        <div className="panel-litetitle">实心样式</div>
+                        <div className="panel-line">
+                            <Button fill>按钮</Button>
+                            <Button fill type="danger">按钮</Button>
+                            <Button fill type="success">按钮</Button>
+                            <Button fill type="normal">按钮</Button>
+                            <Button fill size="large">按钮</Button>
                         </div>
 
+                        <div className="panel-litetitle">带Icon</div>
                         <div className="panel-line">
                             <Button><Icon type="add" />按钮</Button>
                             <Button loading>加载中</Button>
                             <Button disabled><Icon type="add" />禁用</Button>
                         </div>
 
+                        <div className="panel-litetitle">圆形</div>
                         <div className="panel-line">
                             <Button circle><Icon type="add" /></Button>
-                        </div>
-                        <div className="panel-line">
-                            <Button transparent><Icon type="add" />透明</Button>
-                            <Button transparent disabled><Icon type="add" />禁用透明</Button>
+                            <Button circle type="danger"><Icon type="add" /></Button>
+                            <Button circle type="success"><Icon type="add" /></Button>
+                            <Button circle type="normal"><Icon type="add" /></Button>
+                            <Button circle size="large"><Icon type="add" /></Button>
                         </div>
                     </div>
                 </div>

@@ -2,7 +2,7 @@
     display: inline-block;
     position: relative;
     &-header{
-        border: 1px solid #e5e5e5;
+        border: 1px solid $gray;
         box-sizing: border-box;
         padding: 0px 30px 0px 10px;
         border-radius: $borderRadius;
@@ -10,8 +10,9 @@
         user-select: none;
         transition: all .3s ease;
         position: relative;
+        font-size: 14px;
         &--open{
-            border-color: $primaryBgColor;
+            border-color: $blue;
         }
     }
     &-label{
@@ -29,7 +30,6 @@
         right: 6px;
         line-height: 1;
         font-size: 16px;
-        color: #999999;
         margin-top: -8px;
         transform-origin: 50% 50%;
         transition: all .3s ease;
@@ -56,28 +56,28 @@
     }
     &-menu{
         cursor: pointer;
-        height: 30px;
-        line-height: 30px;
-        padding: 0px 10px;
+        padding: 6px 15px;
+        line-height: 22px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         user-select: none;
         transition: all .3s;
+        font-size: 14px;
         &--selected{
-            background-color: $transparentNormalHoverBgColor;
+            background-color: #f5f5f5;
             color: #000000;
         }
         &:hover{
-            background-color: $shallowBg;
+            background-color: #f5f5f5;
         }
     }
 
     &--default{
         .cooSelect{
             &-header{
-                height: 30px;
-                line-height: 28px;
+                padding: 6px 15px;
+                line-height: 22px;
             }
         }
     }

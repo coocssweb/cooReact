@@ -6,7 +6,7 @@
         left: 0px;
         right: 0px;
         z-index: 1000;
-        background-color: rgba(0, 0, 0, .15);
+        background-color: $maskBgColor;
         animation: cooFadeIn .3s ease;
         transition: opacity .3s ease;
         &--hidden{

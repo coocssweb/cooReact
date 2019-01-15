@@ -1,3 +1,4 @@
+import './index.scss';
 import React, {Component} from 'react';
 import Code from '../code';
 import {Modal, Button} from 'components';
@@ -17,11 +18,9 @@ class Index extends Component {
     }
 
     onOk () {
-        setTimeout(() => {
-            this.setState({
-                visible: false
-            });
-        }, 1000);
+        this.setState({
+            visible: false
+        });
     }
 
     render () {
@@ -94,12 +93,15 @@ class Index extends Component {
                 </div>
                 <Modal visible={this.state.visible}
                        title="我是标题"
-                       okText='1s后关'
+                       okText='确定'
+                       cancelText=''
                        onOk={this.onOk.bind(this)}>
-                    <p>这是内容</p>
-                    <p>这是内容</p>
-                    <p>这是内容</p>
-                    <p>这是内容</p>
+                    <div className="modal-content">
+                        <p>这是内容</p>
+                        <p>这是内容</p>
+                        <p>这是内容</p>
+                        <p>这是内容</p>
+                    </div>
                 </Modal>
             </div>
         );

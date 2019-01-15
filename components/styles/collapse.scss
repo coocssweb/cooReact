@@ -18,6 +18,7 @@
         user-select: none;
         background-color: $normalBgColor;
         position: relative;
+        font-size: 14px;
     }
     &-content{
         overflow: hidden;
@@ -34,6 +35,10 @@
         left: 10px;
         top: 50%;
         margin-top: -10px;
+        transform-origin: 50% 50%;
+        .cooIcon{
+            vertical-align: 0;
+        }
     }
 }
 

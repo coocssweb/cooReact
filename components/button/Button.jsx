@@ -24,8 +24,8 @@ class Button extends Component {
             [`${prefixCls}--${props.type}`]: true,
             [`${prefixCls}--${props.size}`]: true,
             [`${prefixCls}--disable`]: props.disabled,
-            'circle': props.circle,
-            'transparent': props.transparent,
+            [`${prefixCls}--circle`]: props.circle,
+            [`${prefixCls}--fill`]: props.fill,
             [`${prefixCls}--loading`]: props.loading,
             [props.className]: true
         });
@@ -47,17 +47,17 @@ Button.defaultProps = {
     disabled: false,
     type: 'primary',
     circle: false,
-    transparent: false,
+    fill: false,
     loading: false,
     className: '',
 };
 
 Button.propTypes = {
     size: propTypes.oneOf(['small', 'large', 'default']),
-    type: propTypes.oneOf(['primary', 'success', 'normal']),
+    type: propTypes.oneOf(['primary', 'success', 'normal', 'danger']),
     disabled: propTypes.bool,
     circle: propTypes.bool,
-    transparent: propTypes.bool,
+    fill: propTypes.bool,
     onClick: propTypes.func,
     icon: propTypes.string,
     loading: propTypes.bool,

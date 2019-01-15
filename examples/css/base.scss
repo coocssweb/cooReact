@@ -7,11 +7,12 @@ html, body{
 }
 
 body {
-    font-family: -apple-system,Helvetica Neue,Roboto,Arial,PingFang SC,sans-serif;
-    font-size: 14px;
+    font-family: Circular, PingFang-SC, "Hiragino Sans GB", 微软雅黑, "Microsoft YaHei", "Heiti SC" !important;
+    font-size: 12px;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: rgba(72, 72, 72, 1);
 }
 dd, dl, dt, p, nav, div, ul,li, header, h1, h2, h3, h4, h5, h6,iframe, button{
     margin: 0px;
@@ -140,6 +141,10 @@ html, body, #app{
     }
     &-content{
         padding: 30px;
+    }
+    &-litetitle{
+        padding: 10px 0px;
+        font-size: 14px;
     }
     &-line{
         margin-bottom: 10px;

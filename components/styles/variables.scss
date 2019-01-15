@@ -1,30 +1,38 @@
-$borderRadius: 2px;
-$borderRadiusMiddle: 3px;
+$borderRadius: 3px;
+$borderRadiusLarge: 4px;
 
-$white: #fff;
-$error: #f5222d;
-$warn: #faad14;
+$borderWidth: 1px;
+$borderWidthLarge: 2px;
 
-$primaryColor: #fff;
-$primaryBgColor: #4d90fe;
-$primaryBorderColor: #3079ed;
-$primaryHoverBgColor: #357ae8;
-$primaryHoverBorderColor: #2f5bb7;
+$white: rgb(255, 255, 255);
+$whiteDark: rgba(255, 255, 255, .8);
+$whiteHover: rgba(255, 255, 255, .05);
+$whiteActive: rgba(255, 255, 255, .15);
 
-$successColor: #fff;
-$successBgColor: #35BD64;
-$successHoverBgColor: #4fa05a;
+$blue: rgb(0, 132, 137);
+$blueDark: rgb(0, 105, 109);
+$blueHover: rgba(0, 132, 137, .05);
+$blueActive: rgba(0, 132, 137, .15);
 
+$red: rgb(255, 90, 95);
+$redDark: rgb(231, 70, 75);
+$redHover: rgba(255, 90, 95, .05);
+$redActive: rgba(255, 90, 95, .15);
+
+$green: rgb(9, 188, 19);
+$greenDark: rgb(5, 164, 14);
+$greenHover: rgba(9, 188, 19, .05);
+$greenActive: rgba(9, 188, 19, .15);
+
+$gray: rgb(72, 72, 72);
+$grayDark: rgb(35, 35, 35);
+$grayHover: rgba(72, 72, 72, .05);
+$grayActive: rgba(72, 72, 72, .15);
+
+$orange: #faad14;
 $normalColor: #666;
 $normalBgColor: #f8f8f8;
 $normalBorderColor: #c6c6c6;
 
-$transparentPrimaryColor: #1a73e8;
-$transparentPrimaryHoverBgColor: #e8f0fe;
-
-$transparentNormalColor: #5f6368;
-$transparentNormalHoverBgColor: rgba(26,115,232,0.039);
-
-$shallowBg: #e8f0fe;
 
 $maskBgColor: rgba(0, 0, 0, .75);

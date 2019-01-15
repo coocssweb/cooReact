@@ -2,101 +2,145 @@
     display: inline-block;
     cursor: pointer;
     transition: all .3s ease;
-    outline: none;
-    border-radius: $borderRadius;
+    outline: 0;
+    box-shadow: none;
     user-select: none;
     text-align: center;
-    box-sizing: border-box;
     position: relative;
+    background-image: none;
+    background-color: transparent;
+    font-smoothing: antialiased;
     .cooIcon-loading{
         margin-right: 3px;
     }
     &.circle{
         padding: 0px;
     }
-
+    &.cooButton--fill{
+        color: $white;
+    }
     &--normal{
-        color: $normalColor;
-        background-color: $normalBgColor;
-        border-color: $normalBorderColor;
+        color: $gray;
+        border-color: rgb(118, 118, 118);
         &:hover{
-            background-image: linear-gradient(0deg, #fff, #f8f8f8);
-            background-color: $white;
+            background-color: $grayHover;
         }
-        &.transparent{
-            color: $transparentNormalColor;
-            background-color: transparent;
-            border-color: transparent;
-            &:hover{
-                background-color: $transparentNormalHoverBgColor;
-                border-color: $transparentNormalHoverBgColor;
+        &:active{
+            background-color: $grayActive;
+        }
+        &.cooButton--fill{
+            background-color: $gray;
+            border-color: $gray;
+            &:active{
+                background-color: $grayDark;
             }
         }
     }
     &--primary{
-        color: $primaryColor;
-        background-color: $primaryBgColor;
-        border-color: $primaryBorderColor;
+        color: $blue;
+        border-color: $blue;
         &:hover{
-            background-color: $primaryHoverBgColor;
-            border-color: $primaryHoverBorderColor;
+            background-color: $blueHover;
         }
-        &.transparent{
-            color: $transparentPrimaryColor;
-            background-color: transparent;
-            border-color: transparent;
-            &:hover{
-                background-color: $transparentPrimaryHoverBgColor;
-                border-color: $transparentPrimaryHoverBgColor;
+        &:active{
+            background-color: $blueActive;
+        }
+        &.cooButton--fill{
+            background-color: $blue;
+            border-color: $blue;
+            &:active{
+                background-color: $blueDark;
+            }
+        }
+    }
+    &--white{
+        color: $white;
+        border-color: $white;
+        &:hover{
+            background-color: $whiteHover;
+        }
+        &:active{
+            background-color: $whiteActive;
+        }
+        &.cooButton--fill{
+            background-color: $white;
+            border-color: $white;
+            &:active{
+                background-color: $whiteDark;
+            }
+        }
+    }
+    &--danger{
+        color: $red;
+        border-color: $red;
+        &:hover{
+            background-color: $redHover;
+        }
+        &:active{
+            background-color: $redActive;
+        }
+        &.cooButton--fill{
+            background-color: $red;
+            border-color: $red;
+            &:active{
+                background-color: $redDark;
             }
         }
     }
     &--success{
-        color: $white;
-        background-color: $successBgColor;
-        border-color: $successBgColor;
+        color: $green;
+        border-color: $green;
         &:hover{
-            background-color: $successHoverBgColor;
-            border-color: $successHoverBgColor;
+            background-color: $greenHover;
+        }
+        &:active{
+            background-color: $greenActive;
+        }
+        &.cooButton--fill{
+            background-color: $green;
+            border-color: $green;
+            &:active{
+                background-color: $greenDark;
+            }
         }
     }
 
     &--default{
-        height: 30px;
-        padding: 0px 12px;
-        line-height: 28px;
+        padding: 6px 15px;
+        line-height: 22px;
         border-width: 1px;
         border-style: solid;
         font-size: 14px;
+        border-radius: $borderRadius;
         .cooIcon{
             font-size: 16px;
         }
-        &.circle{
-            width: 30px;
-            height: 30px;
-            border-radius: 20px;
+        &.cooButton--circle{
+            border-radius: 18px;
+            width: 36px;
+            padding: 6px 0px;
             .cooIcon{
                 font-size: 20px;
             }
         }
     }
-    &--samll{
 
-    }
     &--large{
-        height: 40px;
-        line-height: 38px;
-        padding: 0px 17px;
+        padding: 10px 22px;
         font-size: 16px;
+        line-height: 24px;
+        border-width: 2px;
+        font-weight: 700;
+        border-radius: $borderRadiusLarge;
         .cooIcon{
             font-size: 17px;
         }
-        &.circle{
-            width: 40px;
-            height: 40px;
-            border-radius: 20px;
+        &.cooButton--circle{
+            border-radius: 29px;
+            width: 48px;
+            padding: 10px 0px;
             .cooIcon{
-                font-size: 30px;
+                font-size: 22px;
             }
         }
     }
@@ -117,9 +161,7 @@
             }
         }
         &:hover{
-            background-image: linear-gradient(0deg, #f8f8f8, #efefef);
-            border-color: $normalBorderColor;
-            background-color: $white;
+
         }
     }
     &--loading{

@@ -2,10 +2,11 @@
     &-header{
         border-bottom: 1px solid #e5e5e5;
         position: relative;
+        font-size: 14px;
     }
     &-bar{
         height: 2px;
-        background-color: $primaryBgColor;
+        background-color: $blue;
         position: absolute;
         bottom: -1px;
         transition: all .3s ease;
@@ -21,10 +22,10 @@
         user-select: none;
         touch-callout: none;
         &:hover{
-            background-color: $transparentNormalHoverBgColor;
+            background-color: $blueHover;
         }
         &--active{
-            color: $primaryBgColor;
+            color: $blue;
             &:hover{
                 background-color: transparent;
             }
