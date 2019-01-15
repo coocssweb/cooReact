@@ -86,7 +86,7 @@ class Content extends Component {
                 in={state.visible}
                 timeout={500}
                 onExited={this.onExited.bind(this)}
-                classNames="cooFade">
+                classNames="cooScale">
                 {
                     props.type === 'tip' ? this.renderTip() : this.renderLoading()
                 }

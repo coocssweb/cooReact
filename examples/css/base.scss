@@ -8,7 +8,7 @@ html, body{
 
 body {
     font-family: Circular, PingFang-SC, "Hiragino Sans GB", 微软雅黑, "Microsoft YaHei", "Heiti SC" !important;
-    font-size: 12px;
+    font-size: 13px;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -45,29 +45,30 @@ html, body, #app{
 }
 
 .header{
-    height: 50px;
-    box-shadow: 0 2px 4px -1px rgba(0,0,0,0.1), 0 4px 5px 0 rgba(0,0,0,0.04), 0 1px 10px 0 rgba(0,0,0,0.02);
-    line-height: 50px;
-    color: #4d90fe;
+    height: 79px;
+    line-height: 79px;
+    border-bottom: 1px solid rgb(228, 228, 228);
+    color: rgb(0, 132, 137);
     font-size: 20px;
     padding-left: 20px;
 }
 
 .nav{
     position: absolute;
-    top:  52px;
+    top:  80px;
     bottom: 0px;
     width: 150px;
     padding-right: 20px;
-    box-shadow: 0 2px 4px -1px rgba(0,0,0,0.1), 0 4px 5px 0 rgba(0,0,0,0.04), 0 1px 10px 0 rgba(0,0,0,0.02);
+    border-right: 1px solid rgb(228, 228, 228);
     background-color: #ffffff;
     &-item{
 
     }
     &-link{
         display: block;
-        height: 40px;
-        line-height: 40px;
+        font-size: 14px;
+        height: 45px;
+        line-height: 45px;
         padding-left: 40px;
         position: relative;
         border-bottom: 1;
@@ -79,9 +80,9 @@ html, body, #app{
         }
         &--active{
             background-color: #e8f0fe;
-            color: #4d90fe;
+            color: rgb(0, 132, 137);
             .nav-icon{
-                color: #4d90fe;
+                color: rgb(0, 132, 137);
             }
         }
         &:hover{
@@ -92,7 +93,7 @@ html, body, #app{
         position: absolute;
         top: 50%;
         font-size: 18px;
-        margin-top: -20px;
+        margin-top: -23px;
         left: 10px;
     }
 }
@@ -100,7 +101,7 @@ html, body, #app{
     position: absolute;
     left: 175px;
     right: 0px;
-    top: 55px;
+    top: 80px;
     bottom: 0px;
     overflow-y: auto;
 }
@@ -108,7 +109,7 @@ html, body, #app{
 .demo{
     margin: 30px;
     a{
-        color: #4d90fe;
+        color: rgb(0, 132, 137);
         text-decoration: underline;
     }
     &-title{
@@ -118,6 +119,7 @@ html, body, #app{
     &-description{
         padding: 30px 0px;
         line-height: 1.5;
+        font-weight: 700;
         i{
             background-color: rgba(249,217,66,.4)
         }

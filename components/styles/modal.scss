@@ -5,6 +5,7 @@
     background-color: #fff;
     padding: 20px;
     box-sizing: border-box;
+    transform-origin: 50% 50%;
 
     &-mask{
         position: fixed;
@@ -28,8 +29,8 @@
         left: 0px;
         right: 0px;
         z-index: 1000;
-        animation: cooFadeIn .3s ease;
-        transition: opacity .3s ease;
+        animation: cooScaleIn .3s ease;
+        transition: opacity .3s ease, transform .3s ease;
         &--hidden{
             display: none;
         }

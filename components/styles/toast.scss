@@ -4,17 +4,17 @@
     margin-bottom: 20px;
     right: 50%;
     position: relative;
-    transition: opacity .5s ease;
-    animation: cooFadeIn 1s ease;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: opacity .5s ease, transform .5s ease;
+    animation: cooScaleIn .5s ease;
     background-color: rgba(0, 0, 0, .6);
     border-radius: $borderRadius;
     border-style: solid;
     border-width: 1px;
     color: $white;
+    font-size: 14px;
     &--tip{
-        height: 40px;
-        line-height: 40px;
+        line-height: 24px;
+        padding: 12px 30px;
         font-weight: 600;
     }
 

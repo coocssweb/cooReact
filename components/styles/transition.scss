@@ -13,6 +13,24 @@
     }
 }
 
+.cooScale{
+    &-enter{
+        opacity: 0;
+        transform: scale(.8);
+        &-active{
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    &-exit{
+        opacity: 1;
+        transform: scale(1);
+        &-active{
+            opacity: 0;
+            transform: scale(.8);
+        }
+    }
+}
 
 .cooSlideTop{
     &-enter{
