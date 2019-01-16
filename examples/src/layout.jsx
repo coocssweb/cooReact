@@ -160,6 +160,7 @@ class Layout extends Component {
                     <Route path="/coolpanel" component={CoolpanelDemo} />
                     <Route path="/coostore" component={CooStoreDemo} />
                     <Route path="/lazyimg" component={LazyimgDemo} />
+                    <Route path="/placebo" component={PlaceboDemo} />
                     <Route path="/dropdown" component={DropdownDemo} />
                 </div>
             </div>

@@ -17,7 +17,7 @@ class Index extends Component {
                 <h1 className="demo-title">Dropdown 下拉块组件</h1>
                 <div className="demo-description">
                     好用的下下拉块组件，可以定义对齐的位置(left top、center top、right top；left bottom、center bottom、right bottom)。<br />
-                    可定义内容
+                    内容放开自定义。<br />
                 </div>
                 <div className="panel">
                     <h2 className="panel-title">演示</h2>
@@ -99,17 +99,18 @@ class Index extends Component {
                     <div className="panel-content">
                         <Code>
                             {
-                                `// gif图片
-<Lazyimg height={188}
-     width={350}
-     thumb="https://coocssweb.github.io/react/photo/thumb.jpg"
-     src="https://coocssweb.github.io/react/photo/photo.gif" />
-// 不主动加载图片，auto属性true，自动加载图片
-<Lazyimg height={188}
-     width={350}
-     thumb="https://coocssweb.github.io/react/photo/code_60.jpg"
-     src="https://coocssweb.github.io/react/photo/code.jpg"
-     auto={this.state.auto01} />`
+                                `<Dropdown placement="center bottom">
+    <Dropdown.Menu>
+        <Button>试一下(中对齐)</Button>
+    </Dropdown.Menu>
+    <Dropdown.Content>
+        <div>
+            我是内容<br />
+            我是内容<br />
+            我是内容
+        </div>
+    </Dropdown.Content>
+</Dropdown>`
                             }
                         </Code>
                     </div>
