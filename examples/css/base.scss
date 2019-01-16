@@ -61,6 +61,8 @@ html, body, #app{
     padding-right: 20px;
     border-right: 1px solid rgb(228, 228, 228);
     background-color: #ffffff;
+    max-height: calc( 100% - 80 );
+    overflow-y: auto;
     &-item{
 
     }
@@ -75,6 +77,9 @@ html, body, #app{
         border-top-right-radius: 20px;
         border-bottom-right-radius: 20px;
         transition: all .2s ease;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         &:hover{
             background-color: #f5f5f5;
         }
@@ -147,6 +152,9 @@ html, body, #app{
     &-litetitle{
         padding: 10px 0px;
         font-size: 14px;
+        i{
+            background-color: rgba(249,217,66,.4);
+        }
     }
     &-line{
         margin-bottom: 10px;

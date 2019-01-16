@@ -15,3 +15,4 @@ export CoolpanelDemo from './cool';
 export CooStoreDemo from './cooStore';
 export LazyimgDemo from './lazyimg';
 export PlaceboDemo from './placebo';
+export DropdownDemo from './dropdown';

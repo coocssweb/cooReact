@@ -4,7 +4,7 @@ import {
     Home, SelectDemo, ModalDemo, ButtonDemo,
     SwitchDemo, CollapseDemo, TabsDemo, DrawerDemo,
     IconDemo, ToastDemo, CoolpanelDemo, CooStoreDemo,
-    LazyimgDemo, PlaceboDemo
+    LazyimgDemo, PlaceboDemo, DropdownDemo
 } from './';
 import {Icon} from 'components';
 
@@ -63,6 +63,14 @@ class Layout extends Component {
                                 <Icon type="right" />
                             </span>
                             Placebo 组件
+                        </NavLink>
+                    </div>
+                    <div className="nav-item">
+                        <NavLink to="/dropdown" className="nav-link" activeClassName="nav-link--active">
+                            <span className="nav-icon">
+                                <Icon type="right" />
+                            </span>
+                            Dropdown 组件
                         </NavLink>
                     </div>
                     <div className="nav-item">
@@ -152,7 +160,7 @@ class Layout extends Component {
                     <Route path="/coolpanel" component={CoolpanelDemo} />
                     <Route path="/coostore" component={CooStoreDemo} />
                     <Route path="/lazyimg" component={LazyimgDemo} />
-                    <Route path="/placebo" component={PlaceboDemo} />
+                    <Route path="/dropdown" component={DropdownDemo} />
                 </div>
             </div>
         );
