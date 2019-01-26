@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import propTypes from 'prop-types';
 import className from 'classnames';
 
-class Content extends Component {
+class Menu extends Component {
 
 }
 
-export default Content;
+export default Menu;

@@ -9,6 +9,9 @@
     &--open{
         z-index: 1000;
     }
+    &-menu{
+        display: inline-block;
+    }
     &-canvas {
         position: absolute;
         top: 0;

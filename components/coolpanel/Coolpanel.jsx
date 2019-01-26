@@ -23,12 +23,9 @@ class CoolPanel extends Component {
     componentDidMount () {
         this.canvasContext = this.canvasRef.current.getContext('2d');
         document.body.appendChild(this.el);
-        this.targetDOMNode = document.querySelector(`.${this.props.targetName}`);
-        this.targetDOMNode.addEventListener('click', this.open.bind(this));
     }
 
     componentWillUnmount () {
-        this.targetDOMNode.removeEventListener('click', this.open.bind(this));
         document.body.removeChild(this.el);
     }
 
@@ -197,7 +194,7 @@ class CoolPanel extends Component {
         this.draw(pos, radius, 0, -1);
     }
 
-    render () {
+    renderPanel () {
         const state = this.state;
         const props = this.props;
         this.haveOpened = this.haveOpened || state.open;
@@ -242,7 +239,7 @@ class CoolPanel extends Component {
                                     </span>
                                 </CSSTransition>
                                 {
-                                    props.children
+                                    props.children[1].props.children
                                 }
                             </div>
                         ) : null
@@ -251,6 +248,20 @@ class CoolPanel extends Component {
                 </div>
             ),
             this.el
+        );
+    }
+
+    render () {
+        return (
+            <React.Fragment>
+                <div className={className('cooCoolpanel-menu')}
+                     onClick={this.open.bind(this)}>
+                    { this.props.children[0].props.children }
+                </div>
+                {
+                    this.renderPanel()
+                }
+            </React.Fragment>
         );
     }
 }
@@ -264,7 +275,6 @@ CoolPanel.propTypes = {
     onClose: propTypes.func,
     onOpen: propTypes.func,
     fillColor: propTypes.string,
-    targetName: propTypes.string.isRequired,
 };
 
 export default CoolPanel;
