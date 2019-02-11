@@ -1,12 +1,21 @@
-import React, {Component} from 'react';
+import React, {Component, lazy, Suspense} from 'react';
 import { Route, NavLink } from 'react-router-dom';
-import {
-    Home, SelectDemo, ModalDemo, ButtonDemo,
-    SwitchDemo, CollapseDemo, TabsDemo, DrawerDemo,
-    IconDemo, ToastDemo, CoolpanelDemo, CooStoreDemo,
-    LazyimgDemo, PlaceboDemo, DropdownDemo
-} from './';
 import {Icon} from 'components';
+import Home from './home';
+const SelectDemo = lazy(() => import('./select'));
+const ModalDemo = lazy(() => import('./modal'));
+const ButtonDemo = lazy(() => import('./button'));
+const SwitchDemo = lazy(() => import('./switch'));
+const CollapseDemo = lazy(() => import('./collapse'));
+const TabsDemo = lazy(() => import('./tabs'));
+const DrawerDemo = lazy(() => import('./drawer'));
+const IconDemo = lazy(() => import('./icon'));
+const ToastDemo = lazy(() => import('./toast'));
+const CoolpanelDemo = lazy(() => import('./cool'));
+const CooStoreDemo = lazy(() => import('./cooStore'));
+const LazyimgDemo = lazy(() => import('./lazyimg'));
+const PlaceboDemo = lazy(() => import('./placebo'));
+const DropdownDemo = lazy(() => import('./dropdown'));
 
 class Layout extends Component {
     constructor (props) {
@@ -147,21 +156,23 @@ class Layout extends Component {
                     </div>
                 </div>
                 <div className="content">
-                    <Route path="/" component={Home} exact />
-                    <Route path="/icon" component={IconDemo} />
-                    <Route path="/button" component={ButtonDemo} />
-                    <Route path="/modal" component={ModalDemo} />
-                    <Route path="/drawer" component={DrawerDemo} />
-                    <Route path="/select" component={SelectDemo} />
-                    <Route path="/switch" component={SwitchDemo} />
-                    <Route path="/tabs" component={TabsDemo} />
-                    <Route path="/collapse" component={CollapseDemo} />
-                    <Route path="/toast" component={ToastDemo} />
-                    <Route path="/coolpanel" component={CoolpanelDemo} />
-                    <Route path="/coostore" component={CooStoreDemo} />
-                    <Route path="/lazyimg" component={LazyimgDemo} />
-                    <Route path="/placebo" component={PlaceboDemo} />
-                    <Route path="/dropdown" component={DropdownDemo} />
+                    <Suspense fallback={<div className="loading">Loading...</div>}>
+                        <Route path="/" component={Home} exact />
+                        <Route path="/icon" component={IconDemo} />
+                        <Route path="/button" component={ButtonDemo} />
+                        <Route path="/modal" component={ModalDemo} />
+                        <Route path="/drawer" component={DrawerDemo} />
+                        <Route path="/select" component={SelectDemo} />
+                        <Route path="/switch" component={SwitchDemo} />
+                        <Route path="/tabs" component={TabsDemo} />
+                        <Route path="/collapse" component={CollapseDemo} />
+                        <Route path="/toast" component={ToastDemo} />
+                        <Route path="/coolpanel" component={CoolpanelDemo} />
+                        <Route path="/coostore" component={CooStoreDemo} />
+                        <Route path="/lazyimg" component={LazyimgDemo} />
+                        <Route path="/placebo" component={PlaceboDemo} />
+                        <Route path="/dropdown" component={DropdownDemo} />
+                    </Suspense>
                 </div>
             </div>
         );
