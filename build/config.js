@@ -6,7 +6,7 @@ module.exports = {
         cssSourceMap: false,
         eslint: false,
         filenameHash: true,
-        staticPath: 'https://coocssweb.github.io/react/',
+        staticPath: 'http://react.meitu.com/',
         fontsFilePath: 'fonts/',
         imagesFilePath: 'images/',
     },

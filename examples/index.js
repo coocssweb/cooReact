@@ -7,6 +7,8 @@ import ReactDOM from 'react-dom';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import Layout from './src/layout';
 
+console.log('1234123');
+
 ReactDOM.render(
     <Router>
         <Route link="/" component={Layout} />

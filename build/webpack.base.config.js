@@ -1,35 +1,42 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
 const {resolve} = require('./utils');
 
 module.exports = function webpackBaseConfig (NODE_ENV = 'development') {
     const config = require('./config')[NODE_ENV];
+    let entry;
     let plugins = [
-        new webpack.optimize.CommonsChunkPlugin({
-            names: ['common']
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: resolve('examples', 'index.html'),
-            chunks: ['common', 'index'],
-            hash: false,
-            inject: 'body',
-            xhtml: false,
-            minify: {
-                removeComments: true,
-            }
-        }),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(NODE_ENV)
         })
     ];
 
+    // 开发环境
     if (NODE_ENV === 'development') {
-        // css热更新
         plugins.push(
             new webpack.HotModuleReplacementPlugin()
         );
+        plugins.push(
+            new webpack.HotModuleReplacementPlugin()
+        );
+        plugins.push(
+            new HtmlWebpackPlugin({
+                filename: 'index.html',
+                template: resolve('examples', 'index.html'),
+                chunks: ['index'],
+                hash: false,
+                inject: 'body',
+                xhtml: false,
+                minify: {
+                    removeComments: true,
+                }
+            })
+        );
+        entry = {
+            index: resolve('examples', 'index.js')
+        };
     } else {
         plugins.push(
             new ExtractTextPlugin({
@@ -37,17 +44,41 @@ module.exports = function webpackBaseConfig (NODE_ENV = 'development') {
                 allChunks: true
             })
         );
+        // manifast
+        // plugins.push(
+        //     new ChunkManifestPlugin()
+        // );
+        plugins.push(
+            new webpack.optimize.CommonsChunkPlugin({
+                names: ['vendor']
+            }),
+        );
+        plugins.push(
+            new HtmlWebpackPlugin({
+                filename: 'index.html',
+                template: resolve('examples', 'index.html'),
+                chunks: ['vendor', 'index'],
+                hash: false,
+                inject: 'body',
+                xhtml: false,
+                minify: {
+                    removeComments: true,
+                }
+            }),
+        );
+        entry = {
+            index: resolve('examples', 'index.js'),
+            vendor: ['react', 'react-router-dom', 'react-dom'],
+        };
     }
 
     const webpackConfig = {
-        entry: {
-            index: resolve('examples', 'index.js'),
-        },
+        entry,
         output: {
             path: resolve('../coocssweb.github.io/react'),
             publicPath: config.staticPath,
-            filename: `js/${config.filenameHash ? '[name].[hash:8]': '[name]' }.js`,
-            chunkFilename: `js/${config.filenameHash ? '[name].[hash:8]': '[name]'}.js`
+            filename: `js/${config.filenameHash ? '[name].[chunkhash]': '[name]' }.js`,
+            chunkFilename: `js/${config.filenameHash ? '[name].[chunkhash]': '[name]'}.js`
         },
         devtool: config.devtool,
         module: {

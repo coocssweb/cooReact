@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config build/webpack.dev.config.js --open --hot",
-    "build": "rm -rf dist && webpack -p --config build/webpack.product.config.js --progress --hide-modules"
+    "build": "webpack -p --config build/webpack.product.config.js --progress --hide-modules"
   },
   "keywords": [
     "react"
@@ -25,6 +25,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
     "babel-runtime": "^6.11.6",
+    "chunk-manifest-webpack-plugin": "^1.1.2",
     "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^0.26.0",
     "eslint": "^3.19.0",
