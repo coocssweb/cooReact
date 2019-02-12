@@ -50,14 +50,14 @@ module.exports = function webpackBaseConfig (NODE_ENV = 'development') {
         // );
         plugins.push(
             new webpack.optimize.CommonsChunkPlugin({
-                names: ['vendor']
+                names: ['vendor', 'common']
             }),
         );
         plugins.push(
             new HtmlWebpackPlugin({
                 filename: 'index.html',
                 template: resolve('examples', 'index.html'),
-                chunks: ['vendor', 'index'],
+                chunks: ['vendor', 'common', 'index'],
                 hash: false,
                 inject: 'body',
                 xhtml: false,
@@ -69,6 +69,7 @@ module.exports = function webpackBaseConfig (NODE_ENV = 'development') {
         entry = {
             index: resolve('examples', 'index.js'),
             vendor: ['react', 'react-router-dom', 'react-dom'],
+            common: ['prism-react-renderer', 'classnames', 'react-transition-group', 'styled-components', 'prop-types']
         };
     }
 
