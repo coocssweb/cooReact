@@ -8,8 +8,14 @@ class Index extends Component {
     constructor (props) {
         super(props);
         this.state = {
-            contentStatus: ''
+            contentStatus: '',
+            val: 1,
+            a: 0
         };
+    }
+
+    componentDidUpdate (prevProps, prevState, snapshot) {
+
     }
 
     onOpen () {
@@ -28,6 +34,13 @@ class Index extends Component {
         }, 400);
     }
 
+    increment () {
+        console.log(this.state);
+        this.setState({
+            a: this.state.a + 1
+        });
+    }
+
     render () {
         // 这部分动画实现可以自定义
         const contentClassName = className({
@@ -43,6 +56,7 @@ class Index extends Component {
                         <br />
                         Math.pow 实现Canvas画圆的easeIn、easeOut动画效果<br />会根据窗口的变化，重新计算pos位置（根据e.client、e.target.offset等信息计算）</p>
                 </div>
+                <Button onClick={this.increment.bind(this)}>测试一下</Button>
                 <div className="panel">
                     <h2 className="panel-title">演示</h2>
                     <div className="panel-content">

@@ -19,7 +19,5 @@
             typeof obj;
     };
 
-    console.log('12341234');
-
     module.exports = _coo;
 })();
