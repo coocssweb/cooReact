@@ -11,7 +11,7 @@ module.exports = {
         imagesFilePath: 'images/',
     },
     development: {
-        port: 8080,
+        port: 8082,
         devtool: 'source-map',
         NODE_ENV: 'development',
         jsSourceMap: false,

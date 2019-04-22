@@ -35,7 +35,7 @@ module.exports = function webpackBaseConfig (NODE_ENV = 'development') {
             })
         );
         entry = {
-            index: resolve('examples', 'index.js')
+            index: resolve('examples', 'index.ts')
         };
     } else {
         plugins.push(
@@ -85,40 +85,18 @@ module.exports = function webpackBaseConfig (NODE_ENV = 'development') {
         module: {
             rules: [
                 {
-                    test: /\.jsx?$/,
-                    exclude: /(node_modules)/,
-                    loader: 'babel-loader',
+                    test: /\.tsx$/,
+                    exclude: /node_modules/,
+                    loader: 'awesome-typescript-loader',
                     options: {
-                        cacheDirectory: true,
-                        plugins: ['react-hot-loader/babel'],
+                        useBabel: true
                     },
                 },
-                {
-                    test: /\.js$/,
-                    enforce: 'pre',
+                { 
+                    test: /\.js$/, 
+                    enforce: "pre",  
                     exclude: /node_modules/,
-                    loader: 'eslint-loader',
-                    options: {
-                        formatter: require('eslint-friendly-formatter')
-                    }
-                },
-                {
-                    test: /\.jsx$/,
-                    enforce: 'pre',
-                    exclude: /node_modules/,
-                    loader: 'eslint-loader',
-                    options: {
-                        formatter: require('eslint-friendly-formatter')
-                    }
-                },
-                {
-                    test: /\.js$/,
-                    enforce: 'pre',
-                    exclude: /node_modules/,
-                    loader: 'eslint-loader',
-                    options: {
-                        formatter: require('eslint-friendly-formatter')
-                    }
+                    loader: "source-map-loader" 
                 },
                 {
                     test: /\.html$/,
@@ -161,7 +139,7 @@ module.exports = function webpackBaseConfig (NODE_ENV = 'development') {
                 components: resolve('components')
             },
             // 文件后缀自动补全
-            extensions: ['.js', '.jsx']
+            extensions: [".ts", ".tsx", ".js", ".json"]
         },
     };
 
