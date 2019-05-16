@@ -6,6 +6,7 @@ const {resolve} = require('./utils');
 
 module.exports = function webpackBaseConfig (NODE_ENV = 'development') {
     const config = require('./config')[NODE_ENV];
+    const IS_DEVELOPMENT =  NODE_ENV === 'development';
     let entry;
     let plugins = [
         new webpack.DefinePlugin({
@@ -35,7 +36,7 @@ module.exports = function webpackBaseConfig (NODE_ENV = 'development') {
             })
         );
         entry = {
-            index: resolve('examples', 'index.ts')
+            index: resolve('examples', 'index.js')
         };
     } else {
         plugins.push(
@@ -85,18 +86,22 @@ module.exports = function webpackBaseConfig (NODE_ENV = 'development') {
         module: {
             rules: [
                 {
-                    test: /\.tsx$/,
-                    exclude: /node_modules/,
-                    loader: 'awesome-typescript-loader',
-                    options: {
-                        useBabel: true
-                    },
+                    test: /\.jsx?$/,
+                    exclude: /(node_modules|third)/,
+                    loader: 'babel-loader',
+                    options: IS_DEVELOPMENT ? {
+                        cacheDirectory: true,
+                        plugins: ['react-hot-loader/babel'],
+                    } : {}
                 },
                 { 
-                    test: /\.js$/, 
-                    enforce: "pre",  
-                    exclude: /node_modules/,
-                    loader: "source-map-loader" 
+                    test: /\.js$/,
+                    enforce: 'pre',
+                    exclude: /(node_modules|third)/,
+                    loader: 'eslint-loader',
+                    options: {
+                        formatter: require('eslint-friendly-formatter')
+                    }
                 },
                 {
                     test: /\.html$/,
@@ -139,7 +144,7 @@ module.exports = function webpackBaseConfig (NODE_ENV = 'development') {
                 components: resolve('components')
             },
             // 文件后缀自动补全
-            extensions: [".ts", ".tsx", ".js", ".json"]
+            extensions: ['.js', '.jsx', '.js', '.json']
         },
     };
 
